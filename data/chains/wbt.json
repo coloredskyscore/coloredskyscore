@@ -1,0 +1,71 @@
+{
+  "slug": "wbt",
+  "ticker": "WBT",
+  "name": "Whitechain",
+  "cashtag": "$WBT",
+  "session_file_url": "https://github.com/thecoloredsky/coloredskyscore/blob/main/sessions/Session_WBT.md",
+  "scored_date": "2026-08",
+  "last_updated": "2026-08",
+  "tradfi": {
+    "score": 26,
+    "raw_score": 25.93,
+    "tier_code": "SP",
+    "gate_capped": false,
+    "binding_cap": null,
+    "gates": {
+      "quantum_resistance": "unknown",
+      "regulatory_clarity": "partial",
+      "security_posture": "partial"
+    },
+    "categories": {
+      "on_chain_health": 10,
+      "tradfi_approved": 25,
+      "real_world_utility": 42,
+      "tokenomics_supply": 34,
+      "developer_ecosystem": 15,
+      "regulatory_risk": 38,
+      "decentralization": 8,
+      "security_future_proofing": 48
+    },
+    "categories_verified": true,
+    "key_findings": [
+      "Lowest TradFi score on the board and first Speculative tier -- 39 points below the binding Regulatory Clarity cap (65), the widest raw-to-cap gap recorded on either axis.",
+      "First single-validator chain scored under either framework -- a go-ethereum fork running Clique Proof-of-Authority with one authorized signer operated by WhiteBIT.",
+      "On-Chain Health (10) is the lowest on the board -- official explorer reports 0.00 current TPS, no coverage on any major analytics platform."
+    ]
+  },
+  "ai": {
+    "score": 40,
+    "raw_score": 39.64,
+    "tier_code": "PO",
+    "gate_capped": false,
+    "binding_cap": null,
+    "gates": {
+      "deterministic_finality": "fail",
+      "programmability_tier": "unknown",
+      "operational_reliability": "unknown"
+    },
+    "categories": {
+      "execution_layer": 55,
+      "composability_atomicity": 52,
+      "security_posture": 47,
+      "state_api_quality": 30,
+      "privacy_confidentiality": 18,
+      "economic_predictability": 48,
+      "agent_tooling": 25,
+      "standards_interoperability": 18,
+      "kya": 28
+    },
+    "categories_verified": true,
+    "key_findings": [
+      "Established AI Principle 17 -- tier reads from the published rounded score, not the raw. Raw 39.64 rounds to 40 and takes Prototype Only rather than Not Viable.",
+      "The Deterministic Finality FAIL cap is entirely decorative here -- raw sits 14 points below it, so the category layer alone produced the result.",
+      "State & API Quality (30) -- one official RPC endpoint, no subgraphs, no coverage on any major indexer."
+    ]
+  },
+  "divergence": -14,
+  "watch_items": [
+    "Circulating supply is reported inconsistently across sources (118.1M to 213.4M, a 1.8x spread) -- a transparency issue worth re-checking at next assessment.",
+    "Second-widest negative divergence on the board behind MON."
+  ]
+}
