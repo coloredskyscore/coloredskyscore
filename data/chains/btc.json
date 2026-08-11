@@ -1,0 +1,76 @@
+{
+  "slug": "btc",
+  "ticker": "BTC",
+  "name": "Bitcoin",
+  "cashtag": "$BTC",
+  "session_file_url": "https://github.com/thecoloredsky/coloredskyscore/blob/main/sessions/Session_BTC.md",
+  "scored_date": "2026-05 (TradFi) / 2026-07 (AI)",
+  "last_updated": "2026-07",
+  "tradfi": {
+    "score": 84,
+    "raw_score": 84.3,
+    "tier_code": "IG",
+    "gate_capped": false,
+    "binding_cap": null,
+    "gates": {
+      "quantum_resistance": "partial",
+      "regulatory_clarity": "pass",
+      "security_posture": "pass"
+    },
+    "categories": {
+      "on_chain_health": 85,
+      "tradfi_approved": 97,
+      "real_world_utility": 74,
+      "tokenomics_supply": 95,
+      "developer_ecosystem": 72,
+      "regulatory_risk": 90,
+      "decentralization": 52,
+      "security_future_proofing": 82
+    },
+    "categories_verified": true,
+    "key_findings": [
+      "TradFi Approved (97) is the highest single category score on the board, any chain, any axis.",
+      "Public posted score is 82 under the retired v1.0 Quantum cap (82); current-framework v1.1 cap (88) no longer binds, so 84 is the score of record.",
+      "Tokenomics & Supply (95) -- fixed 21M cap, predictable halving schedule, minor deduction for unmoved Satoshi-era coins."
+    ]
+  },
+  "ai": {
+    "score": 54,
+    "raw_score": 54.7,
+    "tier_code": "PO",
+    "gate_capped": true,
+    "binding_cap": {
+      "gate": "deterministic_finality",
+      "cap_value": 54,
+      "short_note": "Capped by Deterministic Finality FAIL -- probabilistic-only PoW settlement, no deterministic finality mechanism.",
+      "as_of": "2026-07"
+    },
+    "gates": {
+      "deterministic_finality": "fail",
+      "programmability_tier": "partial",
+      "operational_reliability": "pass"
+    },
+    "categories": {
+      "execution_layer": 40,
+      "composability_atomicity": 38,
+      "security_posture": 88,
+      "state_api_quality": 72,
+      "privacy_confidentiality": 42,
+      "economic_predictability": 64,
+      "agent_tooling": 66,
+      "standards_interoperability": 60,
+      "kya": 40
+    },
+    "categories_verified": true,
+    "key_findings": [
+      "Widest divergence on the board (+30) -- TradFi's most institutionally trusted asset is the AI axis's least agent-ready chain, for architectural reasons.",
+      "First exercise of the Deterministic Finality FAIL cap, calibrated to 54 this session -- one point below the Experimental threshold.",
+      "Security Posture (88) is the highest score on the AI board -- 15+ years, zero protocol-level exploits."
+    ]
+  },
+  "divergence": 30,
+  "watch_items": [
+    "CTV (BIP 119) and OP_CAT (BIP 347) signaling windows are open but not yet activated -- would raise the Programmability Tier ceiling if adopted.",
+    "No credible near-term path to a Deterministic Finality Pass -- the FAIL cap is architectural, not a maturity gap."
+  ]
+}
