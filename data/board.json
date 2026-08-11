@@ -1,0 +1,381 @@
+{
+  "_schema_notes": "Loaded on every page visit. Keep this file NUMBERS AND SHORT STRINGS ONLY -- no reasoning prose, no long findings lists. That content lives in /data/chains/<slug>.json and is fetched only when a chain's panel is opened. detail_url uses the stable slug, not the ticker -- tickers can change (rebrands, symbol reuse) but the slug and its file never do.",
+  "meta": {
+    "site": "coloredskyscore.com",
+    "last_updated": "2026-08-08",
+    "chains_scored": 13,
+    "tradfi_framework_version": "v1.1",
+    "ai_framework_version": "v1.0"
+  },
+  "tiers": {
+    "tradfi": [
+      {
+        "code": "IG",
+        "name": "Institutional Grade",
+        "min": 80,
+        "max": 100,
+        "color_dark": "#56A374",
+        "color_light": "#3D7D57"
+      },
+      {
+        "code": "EI",
+        "name": "Emerging Institutional",
+        "min": 60,
+        "max": 79,
+        "color_dark": "#A6B45A",
+        "color_light": "#6E7E38"
+      },
+      {
+        "code": "RG",
+        "name": "Retail Grade",
+        "min": 40,
+        "max": 59,
+        "color_dark": "#D2A94F",
+        "color_light": "#9A7A2E"
+      },
+      {
+        "code": "SP",
+        "name": "Speculative",
+        "min": 20,
+        "max": 39,
+        "color_dark": "#CD8351",
+        "color_light": "#A85E30"
+      },
+      {
+        "code": "HR",
+        "name": "High Risk",
+        "min": 0,
+        "max": 19,
+        "color_dark": "#C0655C",
+        "color_light": "#9A473F"
+      }
+    ],
+    "ai": [
+      {
+        "code": "PG",
+        "name": "Production Grade",
+        "min": 80,
+        "max": 100,
+        "color_dark": "#56A374",
+        "color_light": "#3D7D57"
+      },
+      {
+        "code": "IR",
+        "name": "Integration Ready",
+        "min": 70,
+        "max": 79,
+        "color_dark": "#A6B45A",
+        "color_light": "#6E7E38"
+      },
+      {
+        "code": "EX",
+        "name": "Experimental",
+        "min": 55,
+        "max": 69,
+        "color_dark": "#D2A94F",
+        "color_light": "#9A7A2E"
+      },
+      {
+        "code": "PO",
+        "name": "Prototype Only",
+        "min": 40,
+        "max": 54,
+        "color_dark": "#CD8351",
+        "color_light": "#A85E30"
+      },
+      {
+        "code": "NV",
+        "name": "Not Viable",
+        "min": 0,
+        "max": 39,
+        "color_dark": "#C0655C",
+        "color_light": "#9A473F"
+      }
+    ]
+  },
+  "category_labels": {
+    "_note": "Keys only, no weights (weights stay proprietary, never shipped to the client). Used by the panel to label category rows fetched from the per-chain file.",
+    "tradfi": [
+      {
+        "key": "on_chain_health",
+        "label": "On-Chain Health"
+      },
+      {
+        "key": "tradfi_approved",
+        "label": "TradFi Approved"
+      },
+      {
+        "key": "real_world_utility",
+        "label": "Real-World Utility"
+      },
+      {
+        "key": "tokenomics_supply",
+        "label": "Tokenomics & Supply"
+      },
+      {
+        "key": "developer_ecosystem",
+        "label": "Developer & Ecosystem"
+      },
+      {
+        "key": "regulatory_risk",
+        "label": "Regulatory & Risk"
+      },
+      {
+        "key": "decentralization",
+        "label": "Decentralization"
+      },
+      {
+        "key": "security_future_proofing",
+        "label": "Security & Future-Proofing"
+      }
+    ],
+    "ai": [
+      {
+        "key": "execution_layer",
+        "label": "Execution Layer"
+      },
+      {
+        "key": "composability_atomicity",
+        "label": "Composability & Atomicity"
+      },
+      {
+        "key": "security_posture",
+        "label": "Security Posture"
+      },
+      {
+        "key": "state_api_quality",
+        "label": "State & API Quality"
+      },
+      {
+        "key": "privacy_confidentiality",
+        "label": "Privacy & Confidentiality"
+      },
+      {
+        "key": "economic_predictability",
+        "label": "Economic Predictability"
+      },
+      {
+        "key": "agent_tooling",
+        "label": "Agent Tooling"
+      },
+      {
+        "key": "standards_interoperability",
+        "label": "Standards & Interoperability"
+      },
+      {
+        "key": "kya",
+        "label": "KYA (Agent Identity & Compliance)"
+      }
+    ]
+  },
+  "chains": [
+    {
+      "slug": "sui",
+      "ticker": "SUI",
+      "name": "Sui",
+      "cashtag": "$SUI",
+      "detail_url": "data/chains/sui.json",
+      "tradfi_score": 74,
+      "tradfi_tier": "EI",
+      "tradfi_capped": false,
+      "ai_score": 71,
+      "ai_tier": "IR",
+      "ai_capped": true,
+      "divergence": 3,
+      "scored_date": "2026-06",
+      "last_updated": "2026-08-01"
+    },
+    {
+      "slug": "eth",
+      "ticker": "ETH",
+      "name": "Ethereum",
+      "cashtag": "$ETH",
+      "detail_url": "data/chains/eth.json",
+      "tradfi_score": 84,
+      "tradfi_tier": "IG",
+      "tradfi_capped": false,
+      "ai_score": 74,
+      "ai_tier": "IR",
+      "ai_capped": false,
+      "divergence": 10,
+      "scored_date": "2026-06",
+      "last_updated": "2026-06"
+    },
+    {
+      "slug": "sol",
+      "ticker": "SOL",
+      "name": "Solana",
+      "cashtag": "$SOL",
+      "detail_url": "data/chains/sol.json",
+      "tradfi_score": 81,
+      "tradfi_tier": "IG",
+      "tradfi_capped": false,
+      "ai_score": 75,
+      "ai_tier": "IR",
+      "ai_capped": true,
+      "divergence": 6,
+      "scored_date": "2026-06",
+      "last_updated": "2026-07"
+    },
+    {
+      "slug": "btc",
+      "ticker": "BTC",
+      "name": "Bitcoin",
+      "cashtag": "$BTC",
+      "detail_url": "data/chains/btc.json",
+      "tradfi_score": 84,
+      "tradfi_tier": "IG",
+      "tradfi_capped": false,
+      "ai_score": 54,
+      "ai_tier": "PO",
+      "ai_capped": true,
+      "divergence": 30,
+      "scored_date": "2026-05 / 2026-07",
+      "last_updated": "2026-07"
+    },
+    {
+      "slug": "cc",
+      "ticker": "CC",
+      "name": "Canton",
+      "cashtag": "$CC",
+      "detail_url": "data/chains/cc.json",
+      "tradfi_score": 65,
+      "tradfi_tier": "EI",
+      "tradfi_capped": true,
+      "ai_score": 75,
+      "ai_tier": "IR",
+      "ai_capped": true,
+      "divergence": -10,
+      "scored_date": "2026-05",
+      "last_updated": "2026-07"
+    },
+    {
+      "slug": "xrp",
+      "ticker": "XRP",
+      "name": "XRP Ledger",
+      "cashtag": "$XRP",
+      "detail_url": "data/chains/xrp.json",
+      "tradfi_score": 74,
+      "tradfi_tier": "EI",
+      "tradfi_capped": false,
+      "ai_score": 65,
+      "ai_tier": "EX",
+      "ai_capped": true,
+      "divergence": 9,
+      "scored_date": "2026-06",
+      "last_updated": "2026-06"
+    },
+    {
+      "slug": "bnb",
+      "ticker": "BNB",
+      "name": "BNB Chain",
+      "cashtag": "$BNB",
+      "detail_url": "data/chains/bnb.json",
+      "tradfi_score": 70,
+      "tradfi_tier": "EI",
+      "tradfi_capped": true,
+      "ai_score": 68,
+      "ai_tier": "EX",
+      "ai_capped": false,
+      "divergence": 2,
+      "scored_date": "2026-07",
+      "last_updated": "2026-07"
+    },
+    {
+      "slug": "hype",
+      "ticker": "HYPE",
+      "name": "Hyperliquid",
+      "cashtag": "$HYPE",
+      "detail_url": "data/chains/hype.json",
+      "tradfi_score": 65,
+      "tradfi_tier": "EI",
+      "tradfi_capped": false,
+      "ai_score": 64,
+      "ai_tier": "EX",
+      "ai_capped": false,
+      "divergence": 1,
+      "scored_date": "2026-07",
+      "last_updated": "2026-07"
+    },
+    {
+      "slug": "mon",
+      "ticker": "MON",
+      "name": "Monad",
+      "cashtag": "$MON",
+      "detail_url": "data/chains/mon.json",
+      "tradfi_score": 50,
+      "tradfi_tier": "RG",
+      "tradfi_capped": false,
+      "ai_score": 72,
+      "ai_tier": "IR",
+      "ai_capped": false,
+      "divergence": -22,
+      "scored_date": "2026-07",
+      "last_updated": "2026-07"
+    },
+    {
+      "slug": "tron",
+      "ticker": "TRON",
+      "name": "TRON",
+      "cashtag": "$TRX",
+      "detail_url": "data/chains/tron.json",
+      "tradfi_score": 65,
+      "tradfi_tier": "EI",
+      "tradfi_capped": true,
+      "ai_score": 67,
+      "ai_tier": "EX",
+      "ai_capped": false,
+      "divergence": -2,
+      "scored_date": "2026-08",
+      "last_updated": "2026-08"
+    },
+    {
+      "slug": "wbt",
+      "ticker": "WBT",
+      "name": "Whitechain",
+      "cashtag": "$WBT",
+      "detail_url": "data/chains/wbt.json",
+      "tradfi_score": 26,
+      "tradfi_tier": "SP",
+      "tradfi_capped": false,
+      "ai_score": 40,
+      "ai_tier": "PO",
+      "ai_capped": false,
+      "divergence": -14,
+      "scored_date": "2026-08",
+      "last_updated": "2026-08"
+    },
+    {
+      "slug": "ada",
+      "ticker": "ADA",
+      "name": "Cardano",
+      "cashtag": "$ADA",
+      "detail_url": "data/chains/ada.json",
+      "tradfi_score": 57,
+      "tradfi_tier": "RG",
+      "tradfi_capped": false,
+      "ai_score": 54,
+      "ai_tier": "PO",
+      "ai_capped": true,
+      "divergence": 3,
+      "scored_date": "2026-08",
+      "last_updated": "2026-08"
+    },
+    {
+      "slug": "doge",
+      "ticker": "DOGE",
+      "name": "Dogecoin",
+      "cashtag": "$DOGE",
+      "detail_url": "data/chains/doge.json",
+      "tradfi_score": 42,
+      "tradfi_tier": "RG",
+      "tradfi_capped": false,
+      "ai_score": 36,
+      "ai_tier": "NV",
+      "ai_capped": false,
+      "divergence": 6,
+      "scored_date": "2026-07",
+      "last_updated": "2026-07"
+    }
+  ]
+}
