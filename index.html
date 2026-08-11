@@ -608,6 +608,133 @@
     transition: background 0.15s;
   }
   .ext-link:hover { background: rgba(198,161,91,0.08); }
+
+  /* ============ MOBILE LAYOUT (below 720px) ============ */
+  @media (max-width: 720px) {
+    .wrap { padding: 16px 16px 60px; max-width: 100%; }
+    .desktop-only { display: none !important; }
+    .mobile-only { display: block !important; }
+    .controls-row { flex-direction: column; align-items: stretch; }
+    .search-box { margin-bottom: 12px; }
+    .filter-chips { display: flex; gap: 6px; overflow-x: auto; -ms-overflow-style: none; scrollbar-width: none; }
+    .filter-chips::-webkit-scrollbar { display: none; }
+    .panel { width: 100%; max-width: 100%; top: auto; bottom: 0; left: 0; right: 0; height: auto; max-height: 88vh; border-left: none; border-top: 0.5px solid var(--line-strong); border-radius: 18px 18px 0 0; transform: translateY(100%); box-shadow: 0 -12px 40px rgba(0,0,0,0.45); }
+    .panel.open { transform: translateY(0); }
+    .panel-inner { padding: 12px 20px 40px; }
+    .cat-row { grid-template-columns: 1fr 26px; }
+
+    .axis-toggle {
+    display: flex;
+    background: rgba(255,255,255,0.04);
+    border: 0.5px solid var(--line-strong);
+    border-radius: 9px;
+    padding: 3px;
+    margin-bottom: 10px;
+  }
+  .axis-toggle button {
+    flex: 1;
+    border: none;
+    background: none;
+    color: var(--text-mid);
+    font-family: 'Hanken Grotesk', sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+    padding: 9px 0;
+    border-radius: 7px;
+    cursor: pointer;
+  }
+  .axis-toggle button.active {
+    background: var(--brass);
+    color: var(--ink);
+  }
+  .toggle-hint {
+    font-size: 11px;
+    color: var(--text-dim);
+    margin-bottom: 16px;
+    line-height: 1.5;
+  }
+  .tier-chips {
+    display: flex;
+    gap: 6px;
+    overflow-x: auto;
+    padding-bottom: 4px;
+    margin-bottom: 18px;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .tier-chips::-webkit-scrollbar { display: none; }
+  .tier-section { margin-bottom: 22px; }
+  .tier-section-head {
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+    margin-bottom: 10px;
+    padding-bottom: 8px;
+    border-bottom: 0.5px solid var(--line);
+  }
+  .tier-dot-lg { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+  .tier-section-name {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+  .tier-section-range { font-size: 11px; color: var(--text-dim); font-family: 'IBM Plex Mono', monospace; }
+  .chain-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 13px 4px;
+    border-bottom: 0.5px solid var(--line);
+  }
+  .chain-row:last-child { border-bottom: none; }
+  .chain-info { flex: 1; min-width: 0; }
+  .chain-scores { display: flex; align-items: center; gap: 12px; flex-shrink: 0; }
+  .score-block { text-align: right; width: 54px; }
+  .score-block-label { font-size: 9px; color: var(--text-dim); font-family: 'IBM Plex Mono', monospace; letter-spacing: 0.05em; height: 12px; }
+  .score-block-num { font-family: 'IBM Plex Mono', monospace; font-size: 17px; font-weight: 500; text-align: right; }
+  .sheet {
+    position: fixed;
+    left: 0; right: 0; bottom: 0;
+    max-height: 88vh;
+    background: var(--ink-2);
+    border-top: 0.5px solid var(--line-strong);
+    border-radius: 18px 18px 0 0;
+    box-shadow: 0 -12px 40px rgba(0,0,0,0.45);
+    transform: translateY(100%);
+    transition: transform 0.28s cubic-bezier(0.2, 0.7, 0.3, 1);
+    z-index: 101;
+    overflow-y: auto;
+  }
+  .sheet.open { transform: translateY(0); }
+  .sheet-handle {
+    width: 36px; height: 4px;
+    background: var(--line-strong);
+    border-radius: 3px;
+    margin: 10px auto 4px;
+  }
+  .sheet-inner { padding: 12px 20px 40px; }
+  .gate-desc {
+    display: none;
+    width: 100%;
+    font-size: 11.5px;
+    color: var(--text-dim);
+    line-height: 1.5;
+    padding: 4px 2px 0;
+  }
+  .gate-desc.open { display: block; }
+  .cat-label-row { display: flex; align-items: center; justify-content: space-between; gap: 8px; margin-bottom: 4px; }
+  .cat-row-full { padding: 7px 0; }
+  .cat-desc {
+    display: none;
+    font-size: 11.5px;
+    color: var(--text-dim);
+    line-height: 1.5;
+    margin-top: 8px;
+  }
+  .cat-desc.open { display: block; }
+  }
 </style>
 </head>
 <body>
@@ -625,7 +752,7 @@
   </header>
   <div class="subhead">Independent blockchain ratings focusing on institutional fit and AI readiness.<br>No hype. Just fundamentals.</div>
 
-  <div class="controls-row">
+  <div class="controls-row desktop-only">
     <div class="search-box">
       <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
       <input type="text" id="searchInput" placeholder="Filter by chain or ticker">
@@ -633,9 +760,24 @@
     <div class="filter-chips" id="tierChips"></div>
   </div>
 
+  <div class="mobile-only" style="display:none;">
+    <div class="search-box">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+      <input type="text" id="searchInputMobile" placeholder="Filter by chain or ticker">
+    </div>
+    <div class="axis-toggle" id="axisToggle">
+      <button class="active" data-axis="tradfi">TradFi</button>
+      <button data-axis="ai">AI</button>
+    </div>
+    <div class="toggle-hint" id="toggleHint">Grouped by TradFi tier. The AI score is shown alongside each chain.</div>
+    <div class="tier-chips" id="tierChipsMobile"></div>
+    <div id="tierSections"></div>
+    <div class="row-count" id="rowCountMobile"></div>
+  </div>
+
   <div class="loading-state" id="loadingState">Loading board data\u2026</div>
 
-  <div id="tableWrap" style="display:none;">
+  <div id="tableWrap" style="display:none;" class="desktop-only">
     <table>
       <colgroup>
         <col class="col-chain">
@@ -812,6 +954,119 @@ document.getElementById('searchInput').addEventListener('input', (e) => {
   renderBody();
 });
 
+
+/* ---------- Mobile board rendering (shares BOARD data + tierMap with desktop) ---------- */
+
+let mobileAxis = 'tradfi';
+let mobileTierFilter = null;
+let mobileSearchTerm = '';
+
+function getFilteredMobile() {
+  let rows = BOARD.chains.slice();
+  if (mobileTierFilter) {
+    const key = mobileAxis === 'tradfi' ? 'tradfi_tier' : 'ai_tier';
+    rows = rows.filter(r => r[key] === mobileTierFilter);
+  }
+  if (mobileSearchTerm) {
+    const s = mobileSearchTerm.toLowerCase();
+    rows = rows.filter(r => r.name.toLowerCase().includes(s) || r.ticker.toLowerCase().includes(s) || r.cashtag.toLowerCase().includes(s));
+  }
+  return rows;
+}
+
+function renderChipsMobile() {
+  const tiers = mobileAxis === 'tradfi' ? BOARD.tiers.tradfi : BOARD.tiers.ai;
+  const container = document.getElementById('tierChipsMobile');
+  let html = `<button class="chip ${mobileTierFilter === null ? 'active' : ''}" data-code="">All</button>`;
+  html += tiers.map(t => `<button class="chip ${mobileTierFilter === t.code ? 'active' : ''}" data-code="${t.code}">${t.code}</button>`).join('');
+  container.innerHTML = html;
+  container.querySelectorAll('.chip').forEach(btn => {
+    btn.addEventListener('click', () => {
+      mobileTierFilter = btn.dataset.code || null;
+      renderChipsMobile();
+      renderSections();
+    });
+  });
+}
+
+function renderSections() {
+  const rows = getFilteredMobile();
+  const tierKey = mobileAxis === 'tradfi' ? 'tradfi_tier' : 'ai_tier';
+  const tiers = mobileAxis === 'tradfi' ? BOARD.tiers.tradfi : BOARD.tiers.ai;
+
+  const container = document.getElementById('tierSections');
+  let html = '';
+
+  tiers.forEach(tier => {
+    const inTier = rows.filter(r => r[tierKey] === tier.code)
+      .sort((a, b) => {
+        const primaryKey = mobileAxis === 'tradfi' ? 'tradfi_score' : 'ai_score';
+        return b[primaryKey] - a[primaryKey];
+      });
+    if (inTier.length === 0) return;
+
+    html += `<div class="tier-section">
+      <div class="tier-section-head">
+        <span class="tier-dot-lg" style="background:${tier.color_dark}"></span>
+        <span class="tier-section-name" style="color:${tier.color_dark}">${tier.name}</span>
+        <span class="tier-section-range">${tier.min}\u2013${tier.max}</span>
+      </div>`;
+
+    inTier.forEach(r => {
+      const aiColor = mobileAxis === 'ai' ? tier.color_dark : 'var(--ivory)';
+      const tradfiColor = mobileAxis === 'tradfi' ? tier.color_dark : 'var(--ivory)';
+
+      html += `<div class="chain-row" data-slug="${r.slug}">
+        <div class="chain-info">
+          <span class="chain-name">${r.name}</span><span class="chain-tag">${r.cashtag}</span>
+        </div>
+        <div class="chain-scores">
+          <div class="score-block">
+            <div class="score-block-label">TRADFI</div>
+            <div class="score-block-num" style="color:${tradfiColor}">${r.tradfi_score}</div>
+          </div>
+          <div class="score-block">
+            <div class="score-block-label">AI</div>
+            <div class="score-block-num" style="color:${aiColor}">${r.ai_score}</div>
+          </div>
+        </div>
+      </div>`;
+    });
+
+    html += `</div>`;
+  });
+
+  container.innerHTML = html;
+  document.getElementById('rowCountMobile').textContent = `Showing ${rows.length} of ${BOARD.chains.length} chains`;
+
+  container.querySelectorAll('.chain-row').forEach(row => {
+    row.addEventListener('click', () => openPanel(row.dataset.slug));
+  });
+}
+
+document.getElementById('axisToggle').querySelectorAll('button').forEach(btn => {
+  btn.addEventListener('click', () => {
+    mobileAxis = btn.dataset.axis;
+    document.getElementById('axisToggle').querySelectorAll('button').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    document.getElementById('toggleHint').textContent = mobileAxis === 'tradfi'
+      ? 'Grouped by TradFi tier. The AI score is shown alongside each chain.'
+      : 'Grouped by AI tier. The TradFi score is shown alongside each chain.';
+    mobileTierFilter = null;
+    renderChipsMobile();
+    renderSections();
+  });
+});
+
+document.getElementById('searchInputMobile').addEventListener('input', (e) => {
+  mobileSearchTerm = e.target.value;
+  renderSections();
+});
+
+function isMobile() {
+  return window.matchMedia('(max-width: 720px)').matches;
+}
+
 async function initBoard() {
   try {
     const res = await fetch('data/board.json');
@@ -822,12 +1077,18 @@ async function initBoard() {
     BOARD.tiers.ai.forEach(t => tierMap[t.code] = t);
 
     document.getElementById('metaLine').textContent = `updated ${BOARD.meta.last_updated}`;
-    document.getElementById('tableWrap').style.display = '';
     document.getElementById('loadingState').style.display = 'none';
 
-    renderHead();
-    renderChips();
-    renderBody();
+    if (isMobile()) {
+      document.querySelector('.mobile-only').style.display = '';
+      renderChipsMobile();
+      renderSections();
+    } else {
+      document.getElementById('tableWrap').style.display = '';
+      renderHead();
+      renderChips();
+      renderBody();
+    }
   } catch (err) {
     document.getElementById('loadingState').textContent = 'Could not load board data. Please refresh the page.';
     console.error(err);
@@ -835,6 +1096,28 @@ async function initBoard() {
 }
 
 initBoard();
+
+let lastKnownMode = null;
+window.addEventListener('resize', () => {
+  if (!BOARD) return;
+  const nowMobile = isMobile();
+  if (lastKnownMode === null) { lastKnownMode = nowMobile; return; }
+  if (nowMobile === lastKnownMode) return;
+  lastKnownMode = nowMobile;
+
+  if (nowMobile) {
+    document.getElementById('tableWrap').style.display = 'none';
+    document.querySelector('.mobile-only').style.display = '';
+    renderChipsMobile();
+    renderSections();
+  } else {
+    document.querySelector('.mobile-only').style.display = 'none';
+    document.getElementById('tableWrap').style.display = '';
+    renderHead();
+    renderChips();
+    renderBody();
+  }
+});
 
 /* ---------- Slide-out panel logic ---------- */
 
