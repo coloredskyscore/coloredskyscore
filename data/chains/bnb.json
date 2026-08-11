@@ -1,0 +1,77 @@
+{
+  "slug": "bnb",
+  "ticker": "BNB",
+  "name": "BNB Chain",
+  "cashtag": "$BNB",
+  "session_file_url": "https://github.com/thecoloredsky/coloredskyscore/blob/main/sessions/Session_BNB.md",
+  "scored_date": "2026-07",
+  "last_updated": "2026-07",
+  "tradfi": {
+    "score": 70,
+    "raw_score": 72.7,
+    "tier_code": "EI",
+    "gate_capped": true,
+    "binding_cap": {
+      "gate": "security_posture",
+      "cap_value": 70,
+      "short_note": "Capped by Security Posture -- first chain bound by this gate, via the new remediation clock (Principle 16) applied to the 2022 Token Hub exploit.",
+      "as_of": "2026-07"
+    },
+    "gates": {
+      "quantum_resistance": "partial",
+      "regulatory_clarity": "pass",
+      "security_posture": "partial"
+    },
+    "categories": {
+      "on_chain_health": 86,
+      "tradfi_approved": 68,
+      "real_world_utility": 84,
+      "tokenomics_supply": 68,
+      "developer_ecosystem": 74,
+      "regulatory_risk": 60,
+      "decentralization": 38,
+      "security_future_proofing": 55
+    },
+    "categories_verified": true,
+    "key_findings": [
+      "First chain bound by the Security Posture gate, and first exercise of the new remediation clock -- the 2022 Token Hub exploit aged from a would-be FAIL to Partial-eligible via 3.5 clean years plus the Fusion structural remediation.",
+      "On-Chain Health (86) is elite-broad -- highest DAU of any chain scored (~4M+ daily), 31M peak daily transactions, though measured partly under an active gas-subsidy campaign.",
+      "At 5 clean years (October 2027) the exploit history fully ages out of the gate; a tier-1 audit of the modern client would put Pass in reach."
+    ]
+  },
+  "ai": {
+    "score": 68,
+    "raw_score": 68.5,
+    "tier_code": "EX",
+    "gate_capped": false,
+    "binding_cap": null,
+    "gates": {
+      "deterministic_finality": "partial",
+      "programmability_tier": "pass",
+      "operational_reliability": "pass"
+    },
+    "categories": {
+      "execution_layer": 84,
+      "composability_atomicity": 72,
+      "security_posture": 55,
+      "state_api_quality": 78,
+      "privacy_confidentiality": 28,
+      "economic_predictability": 66,
+      "agent_tooling": 76,
+      "standards_interoperability": 74,
+      "kya": 63
+    },
+    "categories_verified": true,
+    "key_findings": [
+      "Best full-EVM execution profile scored at the time -- 0.45s blocks, ~0.65s average deterministic finality, 5,200 TPS benchmark throughput.",
+      "KYA (63) carries the strongest agent-identity registration depth on the board -- ERC-8004 registries live since Feb 2026 with ~89k registered agents, plus the native BAP-578 standard.",
+      "Deterministic Finality Partial cap (75) does not bind -- BNB retains a probabilistic fallback path that holds the gate at Partial despite best-in-class normal-mode speed."
+    ]
+  },
+  "divergence": 2,
+  "watch_items": [
+    "Watch for a tier-1 audit commission of the modern, heavily-diverged bsc client -- would close the sole gap holding the Security Posture gate at Partial.",
+    "0-Fee Stablecoin Carnival subsidy is still running -- re-assess On-Chain Health once it lapses.",
+    "BNB's announced agent-purpose L1 (late-2026 testnet target) would be a new chain to score, not a BNB re-credit, when it ships."
+  ]
+}
