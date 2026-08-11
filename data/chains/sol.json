@@ -1,0 +1,76 @@
+{
+  "slug": "sol",
+  "ticker": "SOL",
+  "name": "Solana",
+  "cashtag": "$SOL",
+  "session_file_url": "https://github.com/thecoloredsky/coloredskyscore/blob/main/sessions/Session_SOL.md",
+  "scored_date": "2026-05 (TradFi) / 2026-07 (AI)",
+  "last_updated": "2026-07",
+  "tradfi": {
+    "score": 81,
+    "raw_score": 81.46,
+    "tier_code": "IG",
+    "gate_capped": false,
+    "binding_cap": null,
+    "gates": {
+      "quantum_resistance": "pass",
+      "regulatory_clarity": "pass",
+      "security_posture": "pass"
+    },
+    "categories": {
+      "on_chain_health": 81,
+      "tradfi_approved": 80,
+      "real_world_utility": 92,
+      "tokenomics_supply": 72,
+      "developer_ecosystem": 85,
+      "regulatory_risk": 90,
+      "decentralization": 52,
+      "security_future_proofing": 80
+    },
+    "categories_verified": true,
+    "key_findings": [
+      "Only Quantum Resistance Pass on the board -- Winternitz Vault shipped live January 2025.",
+      "Real-World Utility (92) is the highest score in that category on the board.",
+      "Decentralization (52) is a standing watch item -- Nakamoto Coefficient has declined from 31 to roughly 19-20."
+    ]
+  },
+  "ai": {
+    "score": 75,
+    "raw_score": 78,
+    "tier_code": "IR",
+    "gate_capped": true,
+    "binding_cap": {
+      "gate": "deterministic_finality",
+      "cap_value": 75,
+      "short_note": "Capped by Deterministic Finality Partial -- Alpenglow deterministic finality upgrade is testnet-only as of scoring.",
+      "as_of": "2026-07"
+    },
+    "gates": {
+      "deterministic_finality": "partial",
+      "programmability_tier": "pass",
+      "operational_reliability": "pass"
+    },
+    "categories": {
+      "execution_layer": 82,
+      "composability_atomicity": 80,
+      "security_posture": 72,
+      "state_api_quality": 88,
+      "privacy_confidentiality": 63,
+      "economic_predictability": 66,
+      "agent_tooling": 90,
+      "standards_interoperability": 74,
+      "kya": 82
+    },
+    "categories_verified": true,
+    "key_findings": [
+      "Second-highest raw AI fundamentals on the board after SUI (78.0).",
+      "First chain bound by the Deterministic Finality gate specifically, rather than Operational Reliability or Programmability Tier.",
+      "Agent Tooling (90) is the highest score in that category measured on the board."
+    ]
+  },
+  "divergence": 6,
+  "watch_items": [
+    "Alpenglow (sub-200ms deterministic finality) targeted mainnet late Q3/early Q4 2026 -- would lift the Deterministic Finality Partial cap entirely once live.",
+    "Decentralization trend (validator count and Nakamoto Coefficient decline) -- watch for further downward revision."
+  ]
+}
