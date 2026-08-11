@@ -1,0 +1,76 @@
+{
+  "slug": "xrp",
+  "ticker": "XRP",
+  "name": "XRP Ledger",
+  "cashtag": "$XRP",
+  "session_file_url": "https://github.com/thecoloredsky/coloredskyscore/blob/main/sessions/Session_XRP.md",
+  "scored_date": "2026-06",
+  "last_updated": "2026-06",
+  "tradfi": {
+    "score": 74,
+    "raw_score": 73.7,
+    "tier_code": "EI",
+    "gate_capped": false,
+    "binding_cap": null,
+    "gates": {
+      "quantum_resistance": "partial",
+      "regulatory_clarity": "pass",
+      "security_posture": "pass"
+    },
+    "categories": {
+      "on_chain_health": 74,
+      "tradfi_approved": 81,
+      "real_world_utility": 86,
+      "tokenomics_supply": 64,
+      "developer_ecosystem": 65,
+      "regulatory_risk": 78,
+      "decentralization": 42,
+      "security_future_proofing": 77
+    },
+    "categories_verified": true,
+    "key_findings": [
+      "Ties SUI at 74 via mirror-image fundamentals -- carried by real-world payment utility (86) and TradFi rails (81), dragged by premine tokenomics (64) and a permissioned validator set (42).",
+      "Strongest documented PQC roadmap of any chain scored -- 4-phase plan targeting 2028.",
+      "Decentralization (42) -- XRPL's ~35-validator Unique Node List is a curated/permissioned set, tied with CC as joint-lowest scored at the time."
+    ]
+  },
+  "ai": {
+    "score": 65,
+    "raw_score": 69.3,
+    "tier_code": "EX",
+    "gate_capped": true,
+    "binding_cap": {
+      "gate": "programmability_tier",
+      "cap_value": 65,
+      "short_note": "Capped by Programmability Tier Partial -- rich native primitives but zero deployable custom logic on mainnet.",
+      "as_of": "2026-06"
+    },
+    "gates": {
+      "deterministic_finality": "partial",
+      "programmability_tier": "partial",
+      "operational_reliability": "pass"
+    },
+    "categories": {
+      "execution_layer": 74,
+      "composability_atomicity": 56,
+      "security_posture": 80,
+      "state_api_quality": 78,
+      "privacy_confidentiality": 48,
+      "economic_predictability": 85,
+      "agent_tooling": 65,
+      "standards_interoperability": 64,
+      "kya": 69
+    },
+    "categories_verified": true,
+    "key_findings": [
+      "Sets the calibration precedent for the Programmability Tier Partial/65 floor -- rich native primitives (DEX, AMM, escrow) without deployable custom logic.",
+      "First chain to demonstrate the Operational Reliability cool-down timer's positive direction all the way to PASS (12 clean months).",
+      "Economic Predictability (85) is XRP's strongest AI category -- fixed near-zero fees, no gas auctions."
+    ]
+  },
+  "divergence": 9,
+  "watch_items": [
+    "XLS-0101 convention -- parallel watch item that could lift the Deterministic Finality or Programmability Tier cap.",
+    "CLARITY Act pending Senate floor action -- would convert agency-level guidance into statutory regulatory clarity."
+  ]
+}
