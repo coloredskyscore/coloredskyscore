@@ -1,0 +1,77 @@
+{
+  "slug": "sui",
+  "ticker": "SUI",
+  "name": "Sui",
+  "cashtag": "$SUI",
+  "session_file_url": "https://github.com/thecoloredsky/coloredskyscore/blob/main/sessions/Session_SUI.md",
+  "scored_date": "2026-06",
+  "last_updated": "2026-08-01",
+  "tradfi": {
+    "score": 74,
+    "raw_score": 73.97,
+    "tier_code": "EI",
+    "gate_capped": false,
+    "binding_cap": null,
+    "gates": {
+      "quantum_resistance": "partial",
+      "regulatory_clarity": "pass",
+      "security_posture": "pass"
+    },
+    "categories": {
+      "on_chain_health": 68,
+      "tradfi_approved": 73,
+      "real_world_utility": 80,
+      "tokenomics_supply": 76,
+      "developer_ecosystem": 75,
+      "regulatory_risk": 84,
+      "decentralization": 48,
+      "security_future_proofing": 76
+    },
+    "categories_verified": true,
+    "key_findings": [
+      "Highest Regulatory & Risk score among the first four chains scored (84) -- cleanest enforcement slate and fastest institutional access build-out.",
+      "On-Chain Health (68) is the lowest of the chains compared at the time -- fee economics are the primary drag.",
+      "A 74 today with a credible path to 80+ if fees scale and PQC ships."
+    ]
+  },
+  "ai": {
+    "score": 71,
+    "raw_score": 86,
+    "tier_code": "IR",
+    "gate_capped": true,
+    "binding_cap": {
+      "gate": "operational_reliability",
+      "cap_value": 71,
+      "short_note": "Capped by the Operational Reliability cool-down timer, anchored to the May 28-29, 2026 halt.",
+      "as_of": "2026-08-01"
+    },
+    "gates": {
+      "deterministic_finality": "pass",
+      "programmability_tier": "pass",
+      "operational_reliability": "fail"
+    },
+    "categories": {
+      "execution_layer": 92,
+      "composability_atomicity": 93,
+      "security_posture": 84,
+      "state_api_quality": 80,
+      "privacy_confidentiality": 88,
+      "economic_predictability": 88,
+      "agent_tooling": 79,
+      "standards_interoperability": 82,
+      "kya": 74
+    },
+    "categories_verified": true,
+    "key_findings": [
+      "Raw AI score of 86 is the highest fundamentals measured on the board to date.",
+      "Published score of 71 is held down entirely by the reliability cap, not by weak fundamentals -- without the outage history this would be an 86.",
+      "Crossed from Experimental into Integration Ready on the July 1, 2026 cool-down tick."
+    ]
+  },
+  "divergence": 3,
+  "watch_items": [
+    "Quantum-safe vault mainnet shipping (later 2026) triggers a Quantum Resistance gate re-check.",
+    "Native ML-DSA-65 account authentication targeted Q1 2027 -- pass trigger for Quantum Resistance.",
+    "Cool-down timer continues ticking +1 per clean month; first Production Grade AI score possible around April-May 2027 if clean months continue."
+  ]
+}
