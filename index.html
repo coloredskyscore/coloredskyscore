@@ -1,0 +1,1051 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>coloredskyscore.com — board mockup</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Source+Serif+4:wght@500;600&family=Hanken+Grotesk:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap');
+
+  :root {
+    --ink: #081220;
+    --ink-2: #0f1c30;
+    --ivory: #F7F4EC;
+    --ivory-dim: #EDE8DA;
+    --brass: #C6A15B;
+    --brass-dim: #8A754A;
+    --line: rgba(255,255,255,0.08);
+    --line-strong: rgba(255,255,255,0.14);
+    --text-dim: rgba(247,244,236,0.55);
+    --text-mid: rgba(247,244,236,0.78);
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    background: var(--ink);
+    color: var(--ivory);
+    font-family: 'Hanken Grotesk', sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .wrap {
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: 24px 32px 80px;
+  }
+
+  .top-bar {
+    height: 4px;
+    background: linear-gradient(90deg, #C6A15B 0%, #E8C97A 35%, #7FA5C9 70%, #4A6B8A 100%);
+  }
+
+  header {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    margin: 8px 0 6px;
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+
+  .brand {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+  .brand-mark {
+    width: 40px;
+    height: 40px;
+    border: 1px solid var(--brass);
+    border-radius: 3px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+  .brand-mark span {
+    font-family: 'Hanken Grotesk', sans-serif;
+    font-weight: 500;
+    font-size: 14px;
+    color: var(--brass);
+    letter-spacing: 0.03em;
+  }
+  .brand-divider {
+    width: 1px;
+    height: 30px;
+    background: var(--line-strong);
+    flex-shrink: 0;
+  }
+  .brand-word {
+    font-family: 'Source Serif 4', serif;
+    font-size: 26px;
+    letter-spacing: -0.01em;
+    color: var(--ivory);
+    white-space: nowrap;
+  }
+  .brand-word .bold { font-weight: 600; }
+  .brand-word .italic { font-style: italic; font-weight: 500; margin-left: 6px; }
+  .brand-word .sup {
+    font-size: 12px;
+    vertical-align: super;
+    color: var(--brass);
+    font-family: 'Hanken Grotesk', sans-serif;
+    margin-left: 2px;
+  }
+
+  .meta-line {
+    font-size: 14px;
+    color: var(--text-dim);
+    font-family: 'IBM Plex Mono', monospace;
+  }
+
+  .subhead {
+    font-size: 16px;
+    color: var(--text-mid);
+    margin: 6px 0 28px;
+    max-width: 680px;
+    line-height: 1.55;
+  }
+
+  .controls-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    margin-bottom: 18px;
+    flex-wrap: wrap;
+  }
+
+  .search-box {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(255,255,255,0.04);
+    border: 0.5px solid var(--line-strong);
+    border-radius: 8px;
+    padding: 10px 14px;
+    min-width: 240px;
+  }
+  .search-box input {
+    background: none;
+    border: none;
+    outline: none;
+    color: var(--ivory);
+    font-family: 'Hanken Grotesk', sans-serif;
+    font-size: 14px;
+    width: 100%;
+  }
+  .search-box input::placeholder { color: var(--text-dim); }
+  .search-box svg { flex-shrink: 0; opacity: 0.5; }
+
+  .filter-chips {
+    display: flex;
+    gap: 6px;
+    flex-wrap: wrap;
+  }
+  .chip {
+    font-size: 13px;
+    padding: 7px 13px;
+    border-radius: 20px;
+    border: 0.5px solid var(--line-strong);
+    background: transparent;
+    color: var(--text-mid);
+    cursor: pointer;
+    font-family: 'Hanken Grotesk', sans-serif;
+    transition: all 0.15s;
+    white-space: nowrap;
+  }
+  .chip:hover { background: rgba(255,255,255,0.05); }
+  .chip.active {
+    background: var(--brass);
+    color: var(--ink);
+    border-color: var(--brass);
+    font-weight: 500;
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 15px;
+    table-layout: fixed;
+  }
+
+  col.col-chain { width: 26%; }
+  col.col-score { width: 13%; }
+  col.col-tier { width: 10%; }
+  col.col-div { width: 13%; }
+  col.col-date { width: 15%; }
+
+  thead th {
+    text-align: left;
+    padding: 12px 10px;
+    font-weight: 500;
+    color: var(--text-dim);
+    font-size: 12.5px;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    border-bottom: 0.5px solid var(--line-strong);
+    cursor: pointer;
+    user-select: none;
+    white-space: nowrap;
+  }
+  thead th:hover { color: var(--ivory); }
+  thead th.sorted { color: var(--brass); }
+  thead th .arrow { font-size: 10px; margin-left: 3px; opacity: 0.7; }
+
+  thead th.num, tbody td.num { text-align: right; }
+  thead th.num[data-key="tradfi_score"],
+  thead th.num[data-key="ai_score"] { padding-right: 44px; }
+  thead th.center, tbody td.center { text-align: center; }
+
+  tbody tr {
+    border-bottom: 0.5px solid var(--line);
+    cursor: pointer;
+    transition: background 0.1s;
+  }
+  tbody tr:hover { background: rgba(255,255,255,0.03); }
+
+  tbody td {
+    padding: 15px 10px;
+    vertical-align: middle;
+  }
+
+  .chain-cell {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .chain-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--brass-dim);
+    flex-shrink: 0;
+  }
+  .chain-name { font-weight: 500; color: var(--ivory); font-size: 15px; }
+  .chain-tag {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 13px;
+    color: var(--text-dim);
+  }
+
+  .score-cell {
+    display: grid;
+    grid-template-columns: 1fr 30px;
+    align-items: center;
+    gap: 4px;
+  }
+  .score-num {
+    font-family: 'IBM Plex Mono', monospace;
+    font-weight: 500;
+    font-size: 17px;
+    text-align: right;
+  }
+  .cap-slot {
+    display: flex;
+    justify-content: flex-start;
+  }
+  .cap-flag {
+    position: relative;
+    font-size: 10px;
+    color: var(--text-dim);
+    border: 0.5px solid var(--line-strong);
+    border-radius: 3px;
+    padding: 2px 5px;
+    line-height: 1.4;
+    cursor: help;
+  }
+
+  .tier-badge {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12.5px;
+    font-weight: 500;
+    padding: 4px 8px;
+    border-radius: 5px;
+    border: 0.5px solid;
+    white-space: nowrap;
+    cursor: help;
+  }
+  .tier-dot { width: 5px; height: 5px; border-radius: 50%; }
+
+  .tooltip {
+    visibility: hidden;
+    opacity: 0;
+    position: absolute;
+    bottom: calc(100% + 7px);
+    left: 50%;
+    transform: translateX(-50%);
+    background: #16233A;
+    color: var(--ivory);
+    border: 0.5px solid var(--line-strong);
+    border-radius: 6px;
+    padding: 8px 12px;
+    font-size: 13px;
+    font-family: 'Hanken Grotesk', sans-serif;
+    font-weight: 400;
+    white-space: nowrap;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.4);
+    z-index: 20;
+    transition: opacity 0.12s, visibility 0.12s;
+    pointer-events: none;
+  }
+  .tooltip::after {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    border: 5px solid transparent;
+    border-top-color: #16233A;
+  }
+  .tooltip.wide {
+    white-space: normal;
+    width: 230px;
+    line-height: 1.5;
+    font-size: 12.5px;
+    left: 0;
+    transform: none;
+  }
+  .tooltip.wide::after { left: 16px; transform: none; }
+  .cap-flag:hover .tooltip,
+  .tier-badge:hover .tooltip,
+  .info-label:hover .tooltip,
+  .gate-pill:hover .tooltip {
+    visibility: visible;
+    opacity: 1;
+  }
+
+  .divergence-cell {
+    font-family: 'IBM Plex Mono', monospace;
+    font-weight: 500;
+  }
+  .div-pos { color: #8FBF87; }
+  .div-neg { color: #D98F7A; }
+  .div-zero { color: var(--text-dim); }
+
+  .loading-state {
+    padding: 40px 0;
+    text-align: center;
+    color: var(--text-dim);
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 13px;
+  }
+
+  .row-count {
+    font-size: 13px;
+    color: var(--text-dim);
+    margin-top: 14px;
+    font-family: 'IBM Plex Mono', monospace;
+  }
+
+  .footnote {
+    margin-top: 32px;
+    padding-top: 20px;
+    border-top: 0.5px solid var(--line);
+    font-size: 13px;
+    color: var(--text-dim);
+    line-height: 1.65;
+  }
+
+  /* ---------- Slide-out panel ---------- */
+
+  .overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(4,8,14,0.6);
+    backdrop-filter: blur(2px);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.22s ease;
+    z-index: 100;
+  }
+  .overlay.open { opacity: 1; pointer-events: auto; }
+
+  .panel {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 560px;
+    max-width: 92vw;
+    background: var(--ink-2);
+    border-left: 0.5px solid var(--line-strong);
+    box-shadow: -24px 0 60px rgba(0,0,0,0.45);
+    transform: translateX(100%);
+    transition: transform 0.28s cubic-bezier(0.2, 0.7, 0.3, 1);
+    z-index: 101;
+    overflow-y: auto;
+  }
+  .panel.open { transform: translateX(0); }
+
+  .panel-inner { padding: 28px 30px 60px; }
+
+  .panel-top {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    margin-bottom: 4px;
+  }
+  .panel-close {
+    width: 32px;
+    height: 32px;
+    border-radius: 7px;
+    border: 0.5px solid var(--line-strong);
+    background: rgba(255,255,255,0.03);
+    color: var(--text-mid);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    flex-shrink: 0;
+    transition: background 0.15s;
+  }
+  .panel-close:hover { background: rgba(255,255,255,0.08); color: var(--ivory); }
+
+  .panel-name {
+    font-family: 'Source Serif 4', serif;
+    font-weight: 600;
+    font-size: 26px;
+    color: var(--ivory);
+    line-height: 1.15;
+  }
+  .panel-tag {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 14px;
+    color: var(--brass);
+    margin-top: 4px;
+  }
+  .panel-dates {
+    font-size: 12px;
+    color: var(--text-dim);
+    font-family: 'IBM Plex Mono', monospace;
+    margin-top: 10px;
+  }
+
+  .panel-divergence {
+    margin-top: 18px;
+    padding: 12px 14px;
+    border-radius: 8px;
+    background: rgba(255,255,255,0.03);
+    border: 0.5px solid var(--line);
+    font-size: 13px;
+    color: var(--text-mid);
+    line-height: 1.5;
+  }
+  .panel-divergence strong { color: var(--ivory); font-family: 'IBM Plex Mono', monospace; }
+
+  .axis-block {
+    margin-top: 28px;
+    padding-top: 24px;
+    border-top: 0.5px solid var(--line);
+  }
+  .axis-block:first-of-type { margin-top: 24px; }
+
+  .axis-head {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    margin-bottom: 14px;
+  }
+  .axis-title {
+    display: block;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12px;
+    letter-spacing: 0.08em;
+    color: var(--text-dim);
+    text-transform: uppercase;
+    margin-bottom: 10px;
+  }
+  .axis-score-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .axis-score {
+    font-family: 'IBM Plex Mono', monospace;
+    font-weight: 500;
+    font-size: 30px;
+    color: var(--ivory);
+  }
+
+  .raw-note {
+    margin: -4px 0 16px;
+    padding: 9px 12px;
+    border-radius: 7px;
+    background: rgba(198,161,91,0.07);
+    border: 0.5px solid rgba(198,161,91,0.25);
+    font-size: 12.5px;
+    color: var(--text-mid);
+    line-height: 1.5;
+  }
+  .raw-note strong { color: var(--brass); font-family: 'IBM Plex Mono', monospace; }
+
+  .gate-row {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-bottom: 18px;
+  }
+  .gate-pill {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 11.5px;
+    padding: 5px 10px;
+    border-radius: 20px;
+    border: 0.5px solid var(--line-strong);
+    color: var(--text-mid);
+    font-family: 'Hanken Grotesk', sans-serif;
+    cursor: help;
+  }
+  .gate-dot { width: 7px; height: 7px; border-radius: 50%; flex-shrink: 0; }
+  .gate-pass .gate-dot { background: #56A374; }
+  .gate-partial .gate-dot { background: #D2A94F; }
+  .gate-fail .gate-dot { background: #C0655C; }
+  .gate-unknown .gate-dot { background: var(--text-dim); }
+
+  .cat-row {
+    display: grid;
+    grid-template-columns: 150px 1fr 30px;
+    align-items: center;
+    gap: 12px;
+    padding: 7px 0;
+  }
+  .cat-label {
+    font-size: 12.5px;
+    color: var(--text-mid);
+    position: relative;
+    cursor: help;
+    border-bottom: 1px dotted var(--line-strong);
+    width: fit-content;
+  }
+
+  .info-label { position: relative; }
+  .cat-track {
+    height: 4px;
+    border-radius: 2px;
+    background: rgba(255,255,255,0.08);
+    position: relative;
+  }
+  .cat-fill {
+    position: absolute;
+    top: 0; left: 0; bottom: 0;
+    border-radius: 2px;
+  }
+  .cat-marker {
+    position: absolute;
+    top: 50%;
+    width: 11px;
+    height: 11px;
+    border-radius: 50%;
+    background: var(--ink-2);
+    border: 2px solid;
+    transform: translate(-50%, -50%);
+  }
+  .cat-val {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12.5px;
+    color: var(--ivory);
+    text-align: right;
+  }
+
+  .findings-list {
+    list-style: none;
+    margin: 16px 0 0;
+    padding: 0;
+  }
+  .findings-list li {
+    position: relative;
+    padding-left: 16px;
+    margin-bottom: 10px;
+    font-size: 13px;
+    color: var(--text-mid);
+    line-height: 1.55;
+  }
+  .findings-list li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 7px;
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: var(--brass-dim);
+  }
+
+  .watch-block {
+    margin-top: 26px;
+    padding-top: 22px;
+    border-top: 0.5px solid var(--line);
+  }
+
+  .external-links {
+    margin-top: 26px;
+    padding-top: 22px;
+    border-top: 0.5px solid var(--line);
+  }
+  .external-links-row {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+  .ext-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 13px;
+    color: var(--brass);
+    text-decoration: none;
+    border: 0.5px solid rgba(198,161,91,0.3);
+    padding: 9px 14px;
+    border-radius: 7px;
+    transition: background 0.15s;
+  }
+  .ext-link:hover { background: rgba(198,161,91,0.08); }
+</style>
+</head>
+<body>
+
+<div class="top-bar"></div>
+<div class="wrap">
+
+  <header>
+    <div class="brand">
+      <div class="brand-mark"><span>CS</span></div>
+      <div class="brand-divider"></div>
+      <div class="brand-word"><span class="bold">coloredsky</span><span class="italic">score</span><span class="sup">™</span></div>
+    </div>
+    <div class="meta-line" id="metaLine">updated 2026-08-08</div>
+  </header>
+  <div class="subhead">Independent blockchain ratings focusing on institutional fit and AI readiness.<br>No hype. Just fundamentals.</div>
+
+  <div class="controls-row">
+    <div class="search-box">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+      <input type="text" id="searchInput" placeholder="Filter by chain or ticker">
+    </div>
+    <div class="filter-chips" id="tierChips"></div>
+  </div>
+
+  <div class="loading-state" id="loadingState">Loading board data\u2026</div>
+
+  <div id="tableWrap" style="display:none;">
+    <table>
+      <colgroup>
+        <col class="col-chain">
+        <col class="col-score"><col class="col-tier">
+        <col class="col-score"><col class="col-tier">
+        <col class="col-div">
+        <col class="col-date">
+      </colgroup>
+      <thead>
+        <tr id="tableHead"></tr>
+      </thead>
+      <tbody id="tableBody"></tbody>
+    </table>
+
+    <div class="row-count" id="rowCount"></div>
+  </div>
+
+  <div class="footnote">
+    Divergence = TradFi score minus AI score. Positive means TradFi outscores AI, negative means AI outscores TradFi. A cap flag means a gate constrains the published score below its raw weighted total — open a chain for the full breakdown. This is a working mockup driven by live board.json data.
+  </div>
+
+</div>
+
+<div class="overlay" id="overlay"></div>
+<div class="panel" id="panel">
+  <div class="panel-inner" id="panelInner"></div>
+</div>
+
+<script>
+let BOARD = null;
+
+const tierMap = {};
+
+const COLUMNS = [
+  { key: 'chain', label: 'Chain', sortable: true, align: 'left' },
+  { key: 'tradfi_score', label: 'TradFi', sortable: true, align: 'num' },
+  { key: 'tradfi_tier', label: 'Tier', sortable: false, align: 'center' },
+  { key: 'ai_score', label: 'AI', sortable: true, align: 'num' },
+  { key: 'ai_tier', label: 'Tier', sortable: false, align: 'center' },
+  { key: 'divergence', label: 'Divergence', sortable: true, align: 'num' },
+  { key: 'scored_date', label: 'Scored', sortable: true, align: 'left' },
+];
+
+let sortKey = 'tradfi_score';
+let sortDir = -1;
+let activeTierFilter = null;
+let searchTerm = '';
+
+function tierBadge(code) {
+  const t = tierMap[code];
+  const color = t.color_dark;
+  return `<span class="tier-badge" style="border-color:${color}55;color:${color}">
+    <span class="tier-dot" style="background:${color}"></span>${code}
+    <span class="tooltip">${t.name} \u00b7 ${t.min}\u2013${t.max}</span>
+  </span>`;
+}
+
+function capFlag(axis) {
+  const note = axis === 'tradfi'
+    ? 'Score capped by a TradFi foundation gate'
+    : 'Score capped by an AI foundation gate';
+  return `<span class="cap-flag">CAP<span class="tooltip">${note}</span></span>`;
+}
+
+function divergenceCell(d) {
+  const cls = d > 0 ? 'div-pos' : d < 0 ? 'div-neg' : 'div-zero';
+  const sign = d > 0 ? '+' : '';
+  return `<span class="divergence-cell ${cls}">${sign}${d}</span>`;
+}
+
+function renderHead() {
+  const tr = document.getElementById('tableHead');
+  tr.innerHTML = COLUMNS.map(c => {
+    const cls = ['num','center'].includes(c.align) ? c.align : '';
+    const sorted = c.sortable && c.key === sortKey ? 'sorted' : '';
+    const arrow = c.sortable && c.key === sortKey ? `<span class="arrow">${sortDir === 1 ? '\u25B2' : '\u25BC'}</span>` : '';
+    return `<th class="${cls} ${sorted}" data-key="${c.key}" data-sortable="${c.sortable}">${c.label}${arrow}</th>`;
+  }).join('');
+
+  tr.querySelectorAll('th').forEach(th => {
+    if (th.dataset.sortable === 'true') {
+      th.addEventListener('click', () => {
+        const key = th.dataset.key;
+        if (sortKey === key) { sortDir *= -1; }
+        else { sortKey = key; sortDir = -1; }
+        renderHead();
+        renderBody();
+      });
+    }
+  });
+}
+
+function getFiltered() {
+  let rows = BOARD.chains.slice();
+  if (activeTierFilter) {
+    rows = rows.filter(r => r.tradfi_tier === activeTierFilter || r.ai_tier === activeTierFilter);
+  }
+  if (searchTerm) {
+    const s = searchTerm.toLowerCase();
+    rows = rows.filter(r => r.name.toLowerCase().includes(s) || r.ticker.toLowerCase().includes(s) || r.cashtag.toLowerCase().includes(s));
+  }
+  return rows;
+}
+
+function renderBody() {
+  let rows = getFiltered();
+
+  rows.sort((a, b) => {
+    let av = sortKey === 'chain' ? a.name : a[sortKey];
+    let bv = sortKey === 'chain' ? b.name : b[sortKey];
+    if (typeof av === 'string') { av = av.toLowerCase(); bv = bv.toLowerCase(); }
+    if (av < bv) return -1 * sortDir;
+    if (av > bv) return 1 * sortDir;
+    return 0;
+  });
+
+  const tbody = document.getElementById('tableBody');
+  tbody.innerHTML = rows.map(r => `
+    <tr data-slug="${r.slug}">
+      <td>
+        <div class="chain-cell">
+          <span class="chain-dot"></span>
+          <span class="chain-name">${r.name}</span>
+          <span class="chain-tag">${r.cashtag}</span>
+        </div>
+      </td>
+      <td class="num">
+        <div class="score-cell">
+          <span class="score-num">${r.tradfi_score}</span>
+          <span class="cap-slot">${r.tradfi_capped ? capFlag('tradfi') : ''}</span>
+        </div>
+      </td>
+      <td class="center">${tierBadge(r.tradfi_tier)}</td>
+      <td class="num">
+        <div class="score-cell">
+          <span class="score-num">${r.ai_score}</span>
+          <span class="cap-slot">${r.ai_capped ? capFlag('ai') : ''}</span>
+        </div>
+      </td>
+      <td class="center">${tierBadge(r.ai_tier)}</td>
+      <td class="num">${divergenceCell(r.divergence)}</td>
+      <td style="color:var(--text-dim);font-family:'IBM Plex Mono',monospace;font-size:13.5px;">${r.scored_date}</td>
+    </tr>
+  `).join('');
+
+  document.getElementById('rowCount').textContent = `Showing ${rows.length} of ${BOARD.chains.length} chains`;
+
+  tbody.querySelectorAll('tr').forEach(tr => {
+    tr.addEventListener('click', () => openPanel(tr.dataset.slug));
+  });
+}
+
+function renderChips() {
+  const allTiers = [...BOARD.tiers.tradfi, ...BOARD.tiers.ai];
+  const seen = new Set();
+  const unique = allTiers.filter(t => { if (seen.has(t.code)) return false; seen.add(t.code); return true; });
+
+  const container = document.getElementById('tierChips');
+  let html = `<button class="chip ${activeTierFilter === null ? 'active' : ''}" data-code="">All tiers</button>`;
+  html += unique.map(t => `<button class="chip ${activeTierFilter === t.code ? 'active' : ''}" data-code="${t.code}">${t.code}</button>`).join('');
+  container.innerHTML = html;
+
+  container.querySelectorAll('.chip').forEach(btn => {
+    btn.addEventListener('click', () => {
+      activeTierFilter = btn.dataset.code || null;
+      renderChips();
+      renderBody();
+    });
+  });
+}
+
+document.getElementById('searchInput').addEventListener('input', (e) => {
+  searchTerm = e.target.value;
+  renderBody();
+});
+
+async function initBoard() {
+  try {
+    const res = await fetch('data/board.json');
+    if (!res.ok) throw new Error(`board.json fetch failed: ${res.status}`);
+    BOARD = await res.json();
+
+    BOARD.tiers.tradfi.forEach(t => tierMap[t.code] = t);
+    BOARD.tiers.ai.forEach(t => tierMap[t.code] = t);
+
+    document.getElementById('metaLine').textContent = `updated ${BOARD.meta.last_updated}`;
+    document.getElementById('tableWrap').style.display = '';
+    document.getElementById('loadingState').style.display = 'none';
+
+    renderHead();
+    renderChips();
+    renderBody();
+  } catch (err) {
+    document.getElementById('loadingState').textContent = 'Could not load board data. Please refresh the page.';
+    console.error(err);
+  }
+}
+
+initBoard();
+
+/* ---------- Slide-out panel logic ---------- */
+
+const EXTERNAL_SLUGS = {"btc":{"cg":"bitcoin","cmc":"bitcoin"},"eth":{"cg":"ethereum","cmc":"ethereum"},"sol":{"cg":"solana","cmc":"solana"},"sui":{"cg":"sui","cmc":"sui"},"xrp":{"cg":"xrp","cmc":"xrp"},"bnb":{"cg":"bnb","cmc":"bnb"},"cc":{"cg":"canton","cmc":"canton"},"hype":{"cg":"hyperliquid","cmc":"hyperliquid"},"mon":{"cg":"monad","cmc":"monad"},"tron":{"cg":"tron","cmc":"tron"},"wbt":{"cg":"whitebit","cmc":"whitebit-token"},"ada":{"cg":"cardano","cmc":"cardano"},"doge":{"cg":"dogecoin","cmc":"dogecoin"}};
+
+const GATE_DESC = {
+  tradfi: {
+    quantum_resistance: 'Whether the chain has a real plan to migrate off cryptography that quantum computers could eventually break.',
+    regulatory_clarity: 'Whether there is a legitimate, live regulatory path for institutional capital to enter this asset.',
+    security_posture: 'Audit depth, bug bounty coverage, clean exploit history, and battle-testing over time.'
+  },
+  ai: {
+    deterministic_finality: 'How fast and how certain settlement is \u2014 can an agent trust a transaction is final, and how long does it take?',
+    programmability_tier: 'How much custom logic an agent can actually deploy and run on this chain today.',
+    operational_reliability: 'Recent uptime history \u2014 has the chain had a qualifying halt or partition, and how long ago.'
+  }
+};
+
+const CATEGORY_DESC = {
+  tradfi: {
+    on_chain_health: 'Real economic activity \u2014 users, transactions, fees, value flowing through the network.',
+    tradfi_approved: 'Institutional access already live \u2014 ETFs, custody, bank charters, regulated venues.',
+    real_world_utility: 'Actual usage today \u2014 payments, settlement, tokenization \u2014 not potential use cases.',
+    tokenomics_supply: 'Supply structure \u2014 caps, emission schedule, insider allocation, concentration.',
+    developer_ecosystem: 'Native developer activity and ecosystem depth built directly on this chain.',
+    regulatory_risk: 'Regulatory standing, litigation exposure, and single-entity dependency risk.',
+    decentralization: 'Validator and node distribution, consensus openness, client diversity.',
+    security_future_proofing: 'Security track record and forward-looking resilience beyond the base gate check.'
+  },
+  ai: {
+    execution_layer: 'Finality speed, fee level, and throughput \u2014 execution quality while the chain is running.',
+    composability_atomicity: 'Whether multi-step actions can settle atomically, all-or-nothing, in one go.',
+    security_posture: 'Protocol-level exploit history, language safety, and audit depth on the AI axis.',
+    state_api_quality: 'RPC reliability, indexer maturity, and how easily an agent can read chain state.',
+    privacy_confidentiality: 'Whether transactions and state can be kept confidential, not fully public by default.',
+    economic_predictability: 'Fee variance and MEV exposure \u2014 can an agent predict what an action will cost?',
+    agent_tooling: 'SDKs, simulation tools, and agent-native infrastructure available today.',
+    standards_interoperability: 'Native account abstraction and cross-chain messaging support.',
+    kya: 'Agent identity, human-binding, scoped permissions, and revocation support.'
+  }
+};
+
+const GATE_LABELS = {
+  tradfi: {
+    quantum_resistance: 'Quantum Resistance',
+    regulatory_clarity: 'Regulatory Clarity',
+    security_posture: 'Security Posture'
+  },
+  ai: {
+    deterministic_finality: 'Deterministic Finality',
+    programmability_tier: 'Programmability Tier',
+    operational_reliability: 'Operational Reliability'
+  }
+};
+
+function gateStateLabel(state) {
+  return { pass: 'Pass', partial: 'Partial', fail: 'Fail', unknown: 'Unverified' }[state] || state;
+}
+
+function renderGates(axis, gates) {
+  const labels = GATE_LABELS[axis];
+  const descs = GATE_DESC[axis];
+  return `<div class="gate-row">` + Object.keys(labels).map(key => {
+    const state = gates[key] || 'unknown';
+    return `<span class="gate-pill gate-${state}">
+      <span class="gate-dot"></span>${labels[key]} \u00b7 ${gateStateLabel(state)}
+      <span class="tooltip wide">${descs[key]}</span>
+    </span>`;
+  }).join('') + `</div>`;
+}
+
+function renderCategories(axis, categories) {
+  const defs = BOARD.category_labels[axis];
+  const descs = CATEGORY_DESC[axis];
+  return defs.map(def => {
+    const val = categories[def.key];
+    if (val === null || val === undefined) return '';
+    const color = val >= 80 ? '#56A374' : val >= 60 ? '#A6B45A' : val >= 40 ? '#D2A94F' : val >= 20 ? '#CD8351' : '#C0655C';
+    const desc = descs[def.key] || '';
+    return `<div class="cat-row">
+      <span class="cat-label info-label">${def.label}<span class="tooltip wide">${desc}</span></span>
+      <div class="cat-track">
+        <div class="cat-fill" style="width:${val}%;background:${color}"></div>
+        <div class="cat-marker" style="left:${val}%;border-color:${color}"></div>
+      </div>
+      <span class="cat-val">${val}</span>
+    </div>`;
+  }).join('');
+}
+
+function renderFindings(items) {
+  if (!items || !items.length) return '';
+  return `<ul class="findings-list">` + items.map(f => `<li>${f}</li>`).join('') + `</ul>`;
+}
+
+function renderAxisBlock(axisKey, axisLabel, data) {
+  const t = tierMap[data.tier_code];
+  const color = t ? t.color_dark : '#C6A15B';
+  let html = `<div class="axis-block">
+    <div class="axis-head">
+      <span class="axis-title">${axisLabel}</span>
+    </div>
+    <div class="axis-score-row" style="margin-bottom:14px;">
+      <span class="axis-score" style="color:${color}">${data.score}</span>
+      ${tierBadge(data.tier_code)}
+    </div>`;
+
+  if (data.gate_capped && data.binding_cap) {
+    html += `<div class="raw-note">
+      <strong>Raw: ${data.raw_score}</strong> \u2014 ${data.binding_cap.short_note}
+    </div>`;
+  }
+
+  html += renderGates(axisKey, data.gates);
+  html += renderCategories(axisKey, data.categories);
+  html += renderFindings(data.key_findings);
+  html += `</div>`;
+  return html;
+}
+
+async function openPanel(slug) {
+  const row = BOARD.chains.find(c => c.slug === slug);
+  if (!row) return;
+
+  // Open immediately with a loading state so the panel feels responsive
+  // while data/chains/<slug>.json is fetched.
+  document.getElementById('panelInner').innerHTML = `
+    <div class="panel-top">
+      <div>
+        <div class="panel-name">${row.name}</div>
+        <div class="panel-tag">${row.cashtag}</div>
+      </div>
+      <button class="panel-close" id="panelCloseBtn" aria-label="Close">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6 6 18M6 6l12 12"/></svg>
+      </button>
+    </div>
+    <div class="loading-state">Loading detail\u2026</div>
+  `;
+  document.getElementById('panelCloseBtn').addEventListener('click', closePanel);
+  document.getElementById('panel').classList.add('open');
+  document.getElementById('overlay').classList.add('open');
+  document.body.style.overflow = 'hidden';
+
+  let detail;
+  try {
+    const res = await fetch(row.detail_url);
+    if (!res.ok) throw new Error(`${row.detail_url} fetch failed: ${res.status}`);
+    detail = await res.json();
+  } catch (err) {
+    document.getElementById('panelInner').innerHTML += `<div class="loading-state">Could not load this chain's detail. Please try again.</div>`;
+    console.error(err);
+    return;
+  }
+
+  const divSign = row.divergence > 0 ? '+' : '';
+  const divWord = row.divergence > 0 ? 'TradFi outscores AI' : row.divergence < 0 ? 'AI outscores TradFi' : 'Scores are even';
+
+  let html = `
+    <div class="panel-top">
+      <div>
+        <div class="panel-name">${detail.name}</div>
+        <div class="panel-tag">${detail.cashtag}</div>
+      </div>
+      <button class="panel-close" id="panelCloseBtn" aria-label="Close">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6 6 18M6 6l12 12"/></svg>
+      </button>
+    </div>
+    <div class="panel-dates">Scored ${detail.scored_date} \u00b7 Updated ${detail.last_updated}</div>
+
+    <div class="panel-divergence">
+      Divergence <strong>${divSign}${row.divergence}</strong> \u2014 ${divWord}.
+    </div>
+
+    ${renderAxisBlock('tradfi', 'TradFi Score', detail.tradfi)}
+    ${renderAxisBlock('ai', 'AI Score', detail.ai)}
+
+    <div class="watch-block">
+      <span class="axis-title">Watch Items</span>
+      ${renderFindings(detail.watch_items)}
+    </div>
+
+    <div class="external-links">
+      <span class="axis-title">Learn More</span>
+      <div class="external-links-row">
+        <a class="ext-link" href="https://www.coingecko.com/en/coins/${EXTERNAL_SLUGS[slug].cg}" target="_blank" rel="noopener">
+          CoinGecko
+          <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M7 7h10v10"/></svg>
+        </a>
+        <a class="ext-link" href="https://coinmarketcap.com/currencies/${EXTERNAL_SLUGS[slug].cmc}/" target="_blank" rel="noopener">
+          CoinMarketCap
+          <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M7 7h10v10"/></svg>
+        </a>
+      </div>
+    </div>
+  `;
+
+  document.getElementById('panelInner').innerHTML = html;
+  document.getElementById('panelCloseBtn').addEventListener('click', closePanel);
+}
+
+function closePanel() {
+  document.getElementById('panel').classList.remove('open');
+  document.getElementById('overlay').classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+document.getElementById('overlay').addEventListener('click', closePanel);
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape') closePanel();
+});
+</script>
+
+</body>
+</html>
