@@ -1,0 +1,72 @@
+{
+  "slug": "mon",
+  "ticker": "MON",
+  "name": "Monad",
+  "cashtag": "$MON",
+  "session_file_url": "https://github.com/thecoloredsky/coloredskyscore/blob/main/sessions/Session_MON.md",
+  "scored_date": "2026-07",
+  "last_updated": "2026-07",
+  "tradfi": {
+    "score": 50,
+    "raw_score": 50.2,
+    "tier_code": "RG",
+    "gate_capped": false,
+    "binding_cap": null,
+    "gates": {
+      "quantum_resistance": "fail",
+      "regulatory_clarity": "partial",
+      "security_posture": "partial"
+    },
+    "categories": {
+      "on_chain_health": 54,
+      "tradfi_approved": 42,
+      "real_world_utility": 55,
+      "tokenomics_supply": 34,
+      "developer_ecosystem": 66,
+      "regulatory_risk": 55,
+      "decentralization": 44,
+      "security_future_proofing": 52
+    },
+    "categories_verified": true,
+    "key_findings": [
+      "First Retail Grade TradFi score, and first chain where no gate cap binds on either axis.",
+      "Tokenomics & Supply (34) is the worst category on the board -- team+investors+treasury hold ~50.6% of supply behind a single 12-month cliff, with a November 24, 2026 unlock of ~1.4x current circulating supply landing in one day.",
+      "On-Chain Health (54) reflects a 150-170x transactions-per-active-address ratio independently flagged as a farming signature."
+    ]
+  },
+  "ai": {
+    "score": 72,
+    "raw_score": 72.3,
+    "tier_code": "IR",
+    "gate_capped": false,
+    "binding_cap": null,
+    "gates": {
+      "deterministic_finality": "pass",
+      "programmability_tier": "pass",
+      "operational_reliability": "pass"
+    },
+    "categories": {
+      "execution_layer": 86,
+      "composability_atomicity": 78,
+      "security_posture": 66,
+      "state_api_quality": 84,
+      "privacy_confidentiality": 34,
+      "economic_predictability": 70,
+      "agent_tooling": 74,
+      "standards_interoperability": 74,
+      "kya": 62
+    },
+    "categories_verified": true,
+    "key_findings": [
+      "First full-EVM chain scored to clear Deterministic Finality outright -- 300ms blocks / 600ms full finality post-MIP-12, the fastest deterministic finality measured on the board.",
+      "Execution Layer (86) is the best execution profile scored on the board at the time, ahead of BNB's prior-best 84.",
+      "First chain scored under AI Principle 16 -- sub-12-month chains evaluated on their actual record rather than penalized for a maturity window they haven't had time to accumulate."
+    ]
+  },
+  "divergence": -22,
+  "watch_items": [
+    "November 24, 2026 unlock cliff (16.6-16.8B MON, ~1.4x current float, single day) -- re-assess Tokenomics & Supply and On-Chain Health after the unlock.",
+    "Incentive wind-down -- expected 30-70%+ TVL contraction once points programs lapse; re-assess On-Chain Health when this occurs.",
+    "Automated slashing is currently logging-only -- the single largest deduction inside AI Security Posture; re-check at every future re-assessment."
+  ]
+}
