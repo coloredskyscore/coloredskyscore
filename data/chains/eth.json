@@ -1,0 +1,72 @@
+{
+  "slug": "eth",
+  "ticker": "ETH",
+  "name": "Ethereum",
+  "cashtag": "$ETH",
+  "session_file_url": "https://github.com/thecoloredsky/coloredskyscore/blob/main/sessions/Session_ETH.md",
+  "scored_date": "2026-06",
+  "last_updated": "2026-06",
+  "tradfi": {
+    "score": 84,
+    "raw_score": 84,
+    "tier_code": "IG",
+    "gate_capped": false,
+    "binding_cap": null,
+    "gates": {
+      "quantum_resistance": "partial",
+      "regulatory_clarity": "pass",
+      "security_posture": "pass"
+    },
+    "categories": {
+      "on_chain_health": 78,
+      "tradfi_approved": 90,
+      "real_world_utility": 88,
+      "tokenomics_supply": 80,
+      "developer_ecosystem": 90,
+      "regulatory_risk": 90,
+      "decentralization": 56,
+      "security_future_proofing": 80
+    },
+    "categories_verified": true,
+    "key_findings": [
+      "Scored as L1 only, PoS era only -- all L2 rollup activity excluded from every metric.",
+      "Quantum Resistance Partial cap (88) sits above the raw (84.00) and does not bind.",
+      "Developer & Ecosystem (90) and TradFi Approved (90) are among the highest category scores on the board."
+    ]
+  },
+  "ai": {
+    "score": 74,
+    "raw_score": 74.01,
+    "tier_code": "IR",
+    "gate_capped": false,
+    "binding_cap": null,
+    "gates": {
+      "deterministic_finality": "partial",
+      "programmability_tier": "pass",
+      "operational_reliability": "pass"
+    },
+    "categories": {
+      "execution_layer": 62,
+      "composability_atomicity": 80,
+      "security_posture": 80,
+      "state_api_quality": 88,
+      "privacy_confidentiality": 55,
+      "economic_predictability": 62,
+      "agent_tooling": 86,
+      "standards_interoperability": 84,
+      "kya": 83
+    },
+    "categories_verified": true,
+    "key_findings": [
+      "First chain in framework history where an AI gate cap was present but did not bind -- raw 74.01 sits one point below the 75 Deterministic Finality Partial cap.",
+      "Execution Layer (62) is dragged mainly by ~13-15 minute hard finality, roughly two orders of magnitude slower than XRP.",
+      "KYA (83) is the clear category leader on the board, driven by ERC-8004 being ETH's native, chain-agnostic standard.",
+      "TradFi 84 vs AI 74 is a broad-based ~10-point divergence from three distinct structural weaknesses (slow finality, adversarial MEV/fee environment, weak L1 privacy) rather than one dominant gate wall."
+    ]
+  },
+  "divergence": 10,
+  "watch_items": [
+    "Post-Dencun burn collapse may warrant a Tokenomics revision from 80 toward 76-78 in a future re-assessment.",
+    "Fusaka/Glamsterdam roadmap items (single-slot finality, Verkle trees, PeerDAS) could materially shift Execution Layer if shipped."
+  ]
+}
