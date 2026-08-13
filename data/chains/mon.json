@@ -30,7 +30,7 @@
     "categories_verified": true,
     "key_findings": [
       "First Retail Grade TradFi score, and first chain where no gate cap binds on either axis.",
-      "Tokenomics & Supply (34) is the worst category on the board -- team+investors+treasury hold ~50.6% of supply behind a single 12-month cliff, with a November 24, 2026 unlock of ~1.4x current circulating supply landing in one day.",
+      "Tokenomics & Supply (34) is MON's weakest category by a wide margin -- team+investors+treasury hold ~50.6% of supply behind a single 12-month cliff, with a November 24, 2026 unlock of ~1.4x current circulating supply landing in one day.",
       "On-Chain Health (54) reflects a 150-170x transactions-per-active-address ratio independently flagged as a farming signature."
     ]
   },
@@ -58,8 +58,8 @@
     },
     "categories_verified": true,
     "key_findings": [
-      "First full-EVM chain scored to clear Deterministic Finality outright -- 300ms blocks / 600ms full finality post-MIP-12, the fastest deterministic finality measured on the board.",
-      "Execution Layer (86) is the best execution profile scored on the board at the time, ahead of BNB's prior-best 84.",
+      "First full-EVM chain scored to clear Deterministic Finality outright -- 300ms blocks / 600ms full finality post-MIP-12.",
+      "Execution Layer (86) is MON's strongest AI category -- fast block times and native Execution Events streaming.",
       "First chain scored under AI Principle 16 -- sub-12-month chains evaluated on their actual record rather than penalized for a maturity window they haven't had time to accumulate."
     ]
   },
