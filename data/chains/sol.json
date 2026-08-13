@@ -29,8 +29,8 @@
     },
     "categories_verified": true,
     "key_findings": [
-      "Only Quantum Resistance Pass on the board -- Winternitz Vault shipped live January 2025.",
-      "Real-World Utility (92) is the highest score in that category on the board.",
+      "Quantum Resistance Pass -- Winternitz Vault shipped live January 2025, a rare outright pass on this gate.",
+      "Real-World Utility (92) is SOL's strongest category -- deep, active real-world usage.",
       "Decentralization (52) is a standing watch item -- Nakamoto Coefficient has declined from 31 to roughly 19-20."
     ]
   },
@@ -63,9 +63,9 @@
     },
     "categories_verified": true,
     "key_findings": [
-      "Second-highest raw AI fundamentals on the board after SUI (78.0).",
+      "Raw AI fundamentals (78.0) reflect strong execution and tooling depth, held back mainly by the finality gate.",
       "First chain bound by the Deterministic Finality gate specifically, rather than Operational Reliability or Programmability Tier.",
-      "Agent Tooling (90) is the highest score in that category measured on the board."
+      "Agent Tooling (90) is SOL's strongest AI category -- deep SDK, simulation, and agent-native infrastructure."
     ]
   },
   "divergence": 6,
