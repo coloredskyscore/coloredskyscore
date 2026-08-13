@@ -29,9 +29,9 @@
     },
     "categories_verified": true,
     "key_findings": [
-      "Neither gate cap binds -- Regulatory Clarity Partial (65) and Security Posture Fail (70) both sit above the raw 57.15, making ADA the clearest case on the board that gate caps are ceilings, not predictions.",
+      "Neither gate cap binds -- Regulatory Clarity Partial (65) and Security Posture Fail (70) both sit above the raw 57.15, a clean case that gate caps are ceilings, not predictions.",
       "Set the TradFi precedent that regulatory recognition without a live spot ETF does not pass the Regulatory Clarity gate -- CME futures and Grayscale trust exist, but no spot vehicle.",
-      "On-Chain Health (48) -- annualized chain fees near $512K against a $7.5B market cap, a P/F ratio worse than SUI's previous board low."
+      "On-Chain Health (48) -- annualized chain fees near $512K against a $7.5B market cap, a weak fee-to-market-cap ratio."
     ]
   },
   "ai": {
@@ -63,7 +63,7 @@
     },
     "categories_verified": true,
     "key_findings": [
-      "Highest Economic Predictability score issued (88) -- fees are exactly calculable before submission with no bidding for inclusion, but paying more cannot accelerate inclusion at any price.",
+      "Economic Predictability (88) is ADA's strongest AI category -- fees are exactly calculable before submission with no bidding for inclusion, though paying more cannot accelerate inclusion at any price.",
       "First trip of AI Principle 18 -- the November 21, 2025 event held two incompatible ledger states for ~14.5 hours while block production never stopped.",
       "Tier margin disclosed: 54 is the exact Prototype Only ceiling; Experimental begins at 55."
     ]
