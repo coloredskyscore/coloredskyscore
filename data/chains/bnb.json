@@ -35,7 +35,7 @@
     "categories_verified": true,
     "key_findings": [
       "First chain bound by the Security Posture gate, and first exercise of the new remediation clock -- the 2022 Token Hub exploit aged from a would-be FAIL to Partial-eligible via 3.5 clean years plus the Fusion structural remediation.",
-      "On-Chain Health (86) is elite-broad -- highest DAU of any chain scored (~4M+ daily), 31M peak daily transactions, though measured partly under an active gas-subsidy campaign.",
+      "On-Chain Health (86) is elite-broad -- ~4M+ daily active users, 31M peak daily transactions, though measured partly under an active gas-subsidy campaign.",
       "At 5 clean years (October 2027) the exploit history fully ages out of the gate; a tier-1 audit of the modern client would put Pass in reach."
     ]
   },
@@ -63,9 +63,9 @@
     },
     "categories_verified": true,
     "key_findings": [
-      "Best full-EVM execution profile scored at the time -- 0.45s blocks, ~0.65s average deterministic finality, 5,200 TPS benchmark throughput.",
-      "KYA (63) carries the strongest agent-identity registration depth on the board -- ERC-8004 registries live since Feb 2026 with ~89k registered agents, plus the native BAP-578 standard.",
-      "Deterministic Finality Partial cap (75) does not bind -- BNB retains a probabilistic fallback path that holds the gate at Partial despite best-in-class normal-mode speed."
+      "Fast full-EVM execution profile -- 0.45s blocks, ~0.65s average deterministic finality, 5,200 TPS benchmark throughput.",
+      "KYA (63) carries strong agent-identity registration depth -- ERC-8004 registries live since Feb 2026 with ~89k registered agents, plus the native BAP-578 standard.",
+      "Deterministic Finality Partial cap (75) does not bind -- BNB retains a probabilistic fallback path that holds the gate at Partial despite fast normal-mode speed."
     ]
   },
   "divergence": 2,
