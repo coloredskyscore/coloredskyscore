@@ -29,9 +29,9 @@
     },
     "categories_verified": true,
     "key_findings": [
-      "Lowest TradFi score on the board and first Speculative tier -- 39 points below the binding Regulatory Clarity cap (65), the widest raw-to-cap gap recorded on either axis.",
+      "First Speculative-tier score -- the 39-point gap between raw score and the binding Regulatory Clarity cap (65) reflects fundamentals that fall well short of any gate constraint.",
       "First single-validator chain scored under either framework -- a go-ethereum fork running Clique Proof-of-Authority with one authorized signer operated by WhiteBIT.",
-      "On-Chain Health (10) is the lowest on the board -- official explorer reports 0.00 current TPS, no coverage on any major analytics platform."
+      "On-Chain Health (10) is WBT's weakest category -- official explorer reports 0.00 current TPS, no coverage on any major analytics platform."
     ]
   },
   "ai": {
@@ -65,7 +65,6 @@
   },
   "divergence": -14,
   "watch_items": [
-    "Circulating supply is reported inconsistently across sources (118.1M to 213.4M, a 1.8x spread) -- a transparency issue worth re-checking at next assessment.",
-    "Second-widest negative divergence on the board behind MON."
+    "Circulating supply is reported inconsistently across sources (118.1M to 213.4M, a 1.8x spread) -- a transparency issue worth re-checking at next assessment."
   ]
 }
