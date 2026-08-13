@@ -29,7 +29,7 @@
     },
     "categories_verified": true,
     "key_findings": [
-      "TradFi Approved (97) is the highest single category score on the board, any chain, any axis.",
+      "TradFi Approved (97) is BTC's strongest category -- deep, mature institutional access via ETFs, custody, and regulated venues.",
       "Public posted score is 82 under the retired v1.0 Quantum cap (82); current-framework v1.1 cap (88) no longer binds, so 84 is the score of record.",
       "Tokenomics & Supply (95) -- fixed 21M cap, predictable halving schedule, minor deduction for unmoved Satoshi-era coins."
     ]
@@ -63,9 +63,9 @@
     },
     "categories_verified": true,
     "key_findings": [
-      "Widest divergence on the board (+30) -- TradFi's most institutionally trusted asset is the AI axis's least agent-ready chain, for architectural reasons.",
+      "A +30 divergence between axes is unusually wide, reflecting a structural mismatch between deep institutional trust and probabilistic-only settlement architecture.",
       "First exercise of the Deterministic Finality FAIL cap, calibrated to 54 this session -- one point below the Experimental threshold.",
-      "Security Posture (88) is the highest score on the AI board -- 15+ years, zero protocol-level exploits."
+      "Security Posture (88) is BTC's strongest AI category -- 15+ years, zero protocol-level exploits."
     ]
   },
   "divergence": 30,
