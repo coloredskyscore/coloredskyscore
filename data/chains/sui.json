@@ -29,8 +29,8 @@
     },
     "categories_verified": true,
     "key_findings": [
-      "Highest Regulatory & Risk score among the first four chains scored (84) -- cleanest enforcement slate and fastest institutional access build-out.",
-      "On-Chain Health (68) is the lowest of the chains compared at the time -- fee economics are the primary drag.",
+      "Regulatory & Risk scores 84, the cleanest enforcement slate measured -- no litigation exposure and a fast institutional-access build-out.",
+      "On-Chain Health (68) is the primary drag on the overall score -- fee economics remain the weak point.",
       "A 74 today with a credible path to 80+ if fees scale and PQC ships."
     ]
   },
@@ -63,7 +63,7 @@
     },
     "categories_verified": true,
     "key_findings": [
-      "Raw AI score of 86 is the highest fundamentals measured on the board to date.",
+      "Raw AI score of 86 reflects elite fundamentals across the board -- execution, composability, and privacy all score in the high 80s/90s.",
       "Published score of 71 is held down entirely by the reliability cap, not by weak fundamentals -- without the outage history this would be an 86.",
       "Crossed from Experimental into Integration Ready on the July 1, 2026 cool-down tick."
     ]
