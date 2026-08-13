@@ -35,8 +35,8 @@
     "categories_verified": true,
     "key_findings": [
       "Only chain scored to date with all three TradFi gates at Partial.",
-      "Largest gate-driven reduction on the TradFi axis -- a 10.9-point cut from raw 75.90 to published 65.",
-      "Real-World Utility (88) reflects $344.83B in represented asset value via RWA.xyz, the largest of any chain scored."
+      "A 10.9-point gate-driven reduction from raw 75.90 to published 65 -- the Regulatory Clarity cap is doing real work here.",
+      "Real-World Utility (88) reflects $344.83B in represented asset value via RWA.xyz, CC's strongest category by a wide margin."
     ]
   },
   "ai": {
@@ -68,8 +68,8 @@
     },
     "categories_verified": true,
     "key_findings": [
-      "First chain on the board to post a negative divergence -- AI score (75) sits above TradFi score (65).",
-      "Privacy & Confidentiality (95) is the highest score in that category measured on the board.",
+      "AI score (75) sits above TradFi score (65), a negative divergence.",
+      "Privacy & Confidentiality (95) is CC's strongest AI category by a wide margin.",
       "Same chain, two different binding gates on two axes -- Regulatory Clarity on TradFi, Deterministic Finality on AI."
     ]
   },
