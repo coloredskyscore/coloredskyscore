@@ -353,6 +353,28 @@
     line-height: 1.65;
   }
 
+  .footer-links {
+    margin-top: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 10px;
+    font-size: 13px;
+    color: var(--text-dim);
+    font-family: 'IBM Plex Mono', monospace;
+  }
+  .footer-x-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    color: var(--brass);
+    text-decoration: none;
+    transition: color 0.15s;
+  }
+  .footer-x-link:hover { color: var(--ivory); }
+  .footer-copyright { color: var(--text-dim); }
+
   /* ---------- Slide-out panel ---------- */
 
   .overlay {
@@ -801,6 +823,14 @@
 
   <div class="footnote">
     Divergence = TradFi score minus AI score. Positive means TradFi outscores AI, negative means AI outscores TradFi. A cap flag means a gate constrains the published score below its raw weighted total — open a chain for the full breakdown. This is a working mockup driven by live board.json data.
+  </div>
+
+  <div class="footer-links">
+    <a class="footer-x-link" href="https://x.com/thecoloredsky" target="_blank" rel="noopener">
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+      @thecoloredsky
+    </a>
+    <span class="footer-copyright">© 2026 coloredsky score™. All rights reserved.</span>
   </div>
 
 </div>
