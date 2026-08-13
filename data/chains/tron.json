@@ -35,9 +35,8 @@
     "categories_verified": true,
     "key_findings": [
       "First chain scored with three Partial gates and no outright Pass on any TradFi gate.",
-      "Second chain (after Canton) actually constrained by the Regulatory Clarity cap.",
-      "On-Chain Health (88) ties the highest score issued in this category -- ~$2 trillion in cumulative USDT transfers in one quarter, and unlike some high scorers, this is real fee revenue, not a running subsidy.",
-      "Regulatory & Risk (48) cuts both ways on one root cause -- TRON carries the highest volume of frozen/blacklisted addresses of any chain measured, but the entity doing that freezing was cited by FATF as a model for public-private enforcement."
+      "On-Chain Health (88) is TRON's strongest category -- ~$2 trillion in cumulative USDT transfers in one quarter, backed by real fee revenue rather than a running subsidy.",
+      "Regulatory & Risk (48) cuts both ways on one root cause -- TRON carries a high volume of frozen/blacklisted addresses, but the entity doing that freezing was cited by FATF as a model for public-private enforcement."
     ]
   },
   "ai": {
@@ -64,9 +63,9 @@
     },
     "categories_verified": true,
     "key_findings": [
-      "No binding cap -- Deterministic Finality Partial (75) sits above the raw 67.1. Unlike every other chain in this band, TRON has no dated upgrade planned to fix its ~1 minute finality.",
+      "No binding cap -- Deterministic Finality Partial (75) sits above the raw 67.1. TRON has no dated upgrade planned to fix its ~1 minute finality.",
       "First chain capped on one axis and uncapped on the other by two completely unrelated gates.",
-      "Privacy & Confidentiality (53) -- TRON has live shielded transfers using zero-knowledge proofs, architecturally stronger than some higher-scoring chains, but adoption is unmeasured and doesn't touch the USDT flow that is effectively the entire chain.",
+      "Privacy & Confidentiality (53) -- TRON has live shielded transfers using zero-knowledge proofs, but adoption is unmeasured and doesn't touch the USDT flow that is effectively the entire chain.",
       "Agent Tooling (68) -- a real, shipped agent stack (Bank of AI: payments, identity, an MCP server) launched February 2026, discounted for being six months old, single-vendor, and running on a gas subsidy."
     ]
   },
@@ -74,6 +73,6 @@
   "watch_items": [
     "TRON ETF eligibility clock started July 27, 2026 with Bitnomial's CFTC-regulated TRX futures listing -- six-month generic-listing-standard milestone matures around late January 2027.",
     "Post-quantum work (Falcon-512 and ML-DSA-44 live on Nile testnet) and the AI agent stack are both real but early -- neither contributes meaningfully to either score until proven out with mainnet activation and independent usage data.",
-    "Both axes validated in opposite directions under blind secondary review -- TradFi scores moved down, AI scores moved up -- the same pattern seen in the Monad session."
+    "Both axes validated in opposite directions under blind secondary review -- TradFi scores moved down, AI scores moved up."
   ]
 }
