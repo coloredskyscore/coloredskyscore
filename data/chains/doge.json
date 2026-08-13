@@ -29,9 +29,9 @@
     },
     "categories_verified": true,
     "key_findings": [
-      "Cleanest Regulatory Clarity Pass measured to date -- explicitly named in the March 17, 2026 SEC-CFTC joint interpretive release, no litigation ever, no issuer to enforce against.",
-      "Regulatory & Risk (82) sits directly alongside the board's worst Developer & Ecosystem score (20) -- a 62-point internal spread from a single structural fact: no issuer means no one to sue and no one to build. Established TradFi Principle 17 (a single root cause can produce a credit in one category and a debit in another).",
-      "TradFi Approved (52) is the purest logos-versus-capital case scored to date -- four live spot ETFs and a Nasdaq-listed treasury vehicle (CleanCore/ZONE, HODO), but combined ETF AUM sits well under 0.5% of market cap."
+      "Clean Regulatory Clarity Pass -- explicitly named in the March 17, 2026 SEC-CFTC joint interpretive release, no litigation ever, no issuer to enforce against.",
+      "Regulatory & Risk (82) sits directly alongside DOGE's weakest category, Developer & Ecosystem (20) -- a 62-point internal spread from a single structural fact: no issuer means no one to sue and no one to build. Established TradFi Principle 17 (a single root cause can produce a credit in one category and a debit in another).",
+      "TradFi Approved (52) reflects a stark logos-versus-capital gap -- four live spot ETFs and a Nasdaq-listed treasury vehicle (CleanCore/ZONE, HODO), but combined ETF AUM sits well under 0.5% of market cap."
     ]
   },
   "ai": {
@@ -60,12 +60,12 @@
     "key_findings": [
       "First Not Viable AI score, and notably not gate-driven -- raw 36.19 sits 18 points under its own binding cap, so the category layer alone produced the bottom tier.",
       "Execution Layer (50): ten-times-faster blocks than Bitcoin buy no faster practical settlement -- major exchanges require 40-60 confirmations for DOGE deposits against Bitcoin's common 2-6.",
-      "Economic Predictability (75) is DOGE's strongest category by a wide margin -- flat per-kB fees, no gas auction, no meaningful MEV."
+      "Economic Predictability (75) is DOGE's strongest AI category by a wide margin -- flat per-kB fees, no gas auction, no meaningful MEV."
     ]
   },
   "divergence": 6,
   "watch_items": [
-    "First chain scored where neither axis is strong -- a convergence story rather than the divergence pattern shown by most other chains.",
+    "First chain scored where neither axis is strong -- a convergence story rather than the more typical divergence pattern.",
     "December 12, 2026 -- DogeReaper reaches two clean years; Security Posture becomes Partial-eligible under Principle 16. Both Fail and Partial share the 70 cap, so no score change is expected from this alone.",
     "CLARITY Act passage would move DOGE's regulatory classification from agency-level guidance to statutory footing, lifting the residual Regulatory & Risk debit."
   ]
