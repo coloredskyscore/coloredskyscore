@@ -29,9 +29,9 @@
     },
     "categories_verified": true,
     "key_findings": [
-      "Ties SUI at 74 via mirror-image fundamentals -- carried by real-world payment utility (86) and TradFi rails (81), dragged by premine tokenomics (64) and a permissioned validator set (42).",
-      "Strongest documented PQC roadmap of any chain scored -- 4-phase plan targeting 2028.",
-      "Decentralization (42) -- XRPL's ~35-validator Unique Node List is a curated/permissioned set, tied with CC as joint-lowest scored at the time."
+      "Carried by real-world payment utility (86) and TradFi rails (81), dragged by premine tokenomics (64) and a permissioned validator set (42).",
+      "Strongest documented PQC roadmap measured -- 4-phase plan targeting 2028.",
+      "Decentralization (42) -- XRPL's ~35-validator Unique Node List is a curated/permissioned set, a persistent structural weakness."
     ]
   },
   "ai": {
