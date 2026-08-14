@@ -1,0 +1,78 @@
+{
+  "slug": "zec",
+  "ticker": "ZEC",
+  "name": "Zcash",
+  "cashtag": "$ZEC",
+  "session_file_url": "https://github.com/thecoloredsky/coloredskyscore/blob/main/sessions/Session_ZEC.md",
+  "scored_date": "2026-08",
+  "last_updated": "2026-08",
+  "tradfi": {
+    "score": 50,
+    "raw_score": 49.6,
+    "tier_code": "RG",
+    "gate_capped": false,
+    "binding_cap": null,
+    "gates": {
+      "quantum_resistance": "partial",
+      "regulatory_clarity": "partial",
+      "security_posture": "partial"
+    },
+    "categories": {
+      "on_chain_health": 42,
+      "tradfi_approved": 40,
+      "real_world_utility": 45,
+      "tokenomics_supply": 85,
+      "developer_ecosystem": 42,
+      "regulatory_risk": 40,
+      "decentralization": 48,
+      "security_future_proofing": 75
+    },
+    "categories_verified": true,
+    "key_findings": [
+      "No gate cap binds despite three Partial gates -- the lowest is Regulatory Clarity at 65, roughly 15 points above the raw 49.60, so the category layer alone sets the tier.",
+      "Institutions can obtain exposure but overwhelmingly transparent-only. Regulated venues have broadly moved to transparent-only support or delisted, and shielded custody remains operationally and compliance-complex, so the asset is accessible in a form that omits the feature it exists for.",
+      "Tokenomics & Supply (85) -- 21M hard cap, no premine, no VC allocation, no unlock cliffs, and a Founders' Reward that fully expired in November 2020. Held below the top band by 20% of every block subsidy still diverted to development and a lockbox of roughly 55,000-56,000 ZEC with no activated disbursement mechanism.",
+      "Security Posture is Partial on exactly one missing criterion -- the funded vulnerability bounty program closed May 26, 2026 under a flood of AI-generated submissions. Tier-1 audits, battle-testing since October 2016, and ten years without a protocol exploit all clear.",
+      "Post-quantum cryptography is live on mainnet and the Quantum gate is still Partial. ZIP 2005 shipped post-quantum commitment binding with NU6.3 Ironwood on July 28, 2026, but spend authorization, the Halo 2 proof system, and transparent ECDSA all remain vulnerable -- a quantum adversary could still take funds and merely could not mint them."
+    ]
+  },
+  "ai": {
+    "score": 42,
+    "raw_score": 42.38,
+    "tier_code": "PO",
+    "gate_capped": false,
+    "binding_cap": null,
+    "gates": {
+      "deterministic_finality": "fail",
+      "programmability_tier": "partial",
+      "operational_reliability": "pass"
+    },
+    "categories": {
+      "execution_layer": 36,
+      "composability_atomicity": 20,
+      "security_posture": 50,
+      "state_api_quality": 30,
+      "privacy_confidentiality": 90,
+      "economic_predictability": 80,
+      "agent_tooling": 28,
+      "standards_interoperability": 34,
+      "kya": 30
+    },
+    "categories_verified": true,
+    "key_findings": [
+      "Privacy & Confidentiality (90) -- native cryptographic zero-knowledge shielding with no trusted setup from Orchard forward, a formally verified circuit as of Ironwood, viewing keys for genuine selective disclosure, and roughly 25.9% of supply shielded, up from about 21.9% a year earlier.",
+      "A 70-point internal spread between Privacy (90) and Composability & Atomicity (20). One root cause runs in both directions: a decade spent perfecting private value transfer, and no computation layer built at all.",
+      "Shielded state cannot be queried. There is no RPC that returns a shielded balance -- an agent must trial-decrypt notes with a viewing key, and must rescan from its wallet birthday to reconstruct its own position after downtime.",
+      "The Deterministic Finality FAIL cap of 54 sits roughly 12 points above the raw 42.38 and does not bind. The gate failure is not what produced the tier.",
+      "The most widely reported network incident of 2026 did not occur. Reports that no blocks were produced for over four hours on June 3 were block explorers watching an abandoned pre-fork tip after failing to upgrade across NU6.2; block production never stopped."
+    ]
+  },
+  "divergence": 8,
+  "watch_items": [
+    "NU7 coinholder vote opens August 25, 2026 against an August 24 snapshot requiring spendable Ironwood funds. Proposed scope includes 25-second block target spacing down from 75, roughly doubled shielded throughput, and explicit per-block action limits.",
+    "Full post-quantum transition is targeted for late 2027 via Project Tachyon. Only post-quantum cryptography on spend authorization and proofs moves the Quantum Resistance gate to Pass; the commitment binding already shipped does not.",
+    "EU AMLR Article 79 applies July 10, 2027, barring crypto-asset service providers, credit institutions, and financial institutions across the EU and EEA from providing services for anonymity-enhancing assets. It does not restrict holding, self-custody, or peer-to-peer transfer.",
+    "A funded bug bounty relaunch would restore the single missing Security Posture criterion and make that gate a Pass candidate.",
+    "Crosslink and the Trailing Finality Layer, a hybrid proof-of-work plus BFT finality design in prototype at Shielded Labs, would lift Deterministic Finality from Fail if activated. No confirmed mainnet date."
+  ]
+}

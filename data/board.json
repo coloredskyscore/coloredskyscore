@@ -2,8 +2,8 @@
   "_schema_notes": "Loaded on every page visit. Keep this file NUMBERS AND SHORT STRINGS ONLY -- no reasoning prose, no long findings lists. That content lives in /data/chains/<slug>.json and is fetched only when a chain's panel is opened. detail_url uses the stable slug, not the ticker -- tickers can change (rebrands, symbol reuse) but the slug and its file never do.",
   "meta": {
     "site": "coloredskyscore.com",
-    "last_updated": "2026-08-08",
-    "chains_scored": 13,
+    "last_updated": "2026-08-13",
+    "chains_scored": 14,
     "tradfi_framework_version": "v1.1",
     "ai_framework_version": "v1.0"
   },
@@ -376,6 +376,22 @@
       "divergence": 6,
       "scored_date": "2026-07",
       "last_updated": "2026-07"
+    },
+    {
+      "slug": "zec",
+      "ticker": "ZEC",
+      "name": "Zcash",
+      "cashtag": "$ZEC",
+      "detail_url": "data/chains/zec.json",
+      "tradfi_score": 50,
+      "tradfi_tier": "RG",
+      "tradfi_capped": false,
+      "ai_score": 42,
+      "ai_tier": "PO",
+      "ai_capped": false,
+      "divergence": 8,
+      "scored_date": "2026-08",
+      "last_updated": "2026-08"
     }
   ]
 }
