@@ -5,18 +5,13 @@
   "cashtag": "$SUI",
   "session_file_url": "https://github.com/thecoloredsky/coloredskyscore/blob/main/sessions/Session_SUI.md",
   "scored_date": "2026-06",
-  "last_updated": "2026-08-01",
+  "last_updated": "2026-08-14",
   "tradfi": {
     "score": 74,
     "raw_score": 73.97,
     "tier_code": "EI",
     "gate_capped": false,
     "binding_cap": null,
-    "gates": {
-      "quantum_resistance": "partial",
-      "regulatory_clarity": "pass",
-      "security_posture": "pass"
-    },
     "categories": {
       "on_chain_health": 68,
       "tradfi_approved": 73,
@@ -27,9 +22,14 @@
       "decentralization": 48,
       "security_future_proofing": 76
     },
+    "gates": {
+      "quantum_resistance": "partial",
+      "regulatory_clarity": "pass",
+      "security_posture": "pass"
+    },
     "categories_verified": true,
     "key_findings": [
-      "Regulatory & Risk scores 84, the cleanest enforcement slate measured -- no litigation exposure and a fast institutional-access build-out.",
+      "Regulatory & Risk scores 84, an impressive result -- no litigation exposure and a fast institutional-access build-out.",
       "On-Chain Health (68) is the primary drag on the overall score -- fee economics remain the weak point.",
       "A 74 today with a credible path to 80+ if fees scale and PQC ships."
     ]
