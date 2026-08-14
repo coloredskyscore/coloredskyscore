@@ -5,7 +5,7 @@
   "cashtag": "$ZEC",
   "session_file_url": "https://github.com/thecoloredsky/coloredskyscore/blob/main/sessions/Session_ZEC.md",
   "scored_date": "2026-08",
-  "last_updated": "2026-08",
+  "last_updated": "2026-08-14",
   "tradfi": {
     "score": 50,
     "raw_score": 49.6,
@@ -30,7 +30,7 @@
     "categories_verified": true,
     "key_findings": [
       "No gate cap binds despite three Partial gates -- the lowest is Regulatory Clarity at 65, roughly 15 points above the raw 49.60, so the category layer alone sets the tier.",
-      "Institutions can obtain exposure but overwhelmingly transparent-only. Regulated venues have broadly moved to transparent-only support or delisted, and shielded custody remains operationally and compliance-complex, so the asset is accessible in a form that omits the feature it exists for.",
+      "Institutions can already buy Zcash, but almost always the transparent version, not the shielded one. Most regulated exchanges have dropped support for shielded deposits and withdrawals, or never built it, because securely custodying shielded funds is harder to operate and harder to prove compliant than a normal wallet. In practice, institutional buyers get exposure to the asset's price without access to the privacy technology that defines it.",
       "Tokenomics & Supply (85) -- 21M hard cap, no premine, no VC allocation, no unlock cliffs, and a Founders' Reward that fully expired in November 2020. Held below the top band by 20% of every block subsidy still diverted to development and a lockbox of roughly 55,000-56,000 ZEC with no activated disbursement mechanism.",
       "Security Posture is Partial on exactly one missing criterion -- the funded vulnerability bounty program closed May 26, 2026 under a flood of AI-generated submissions. Tier-1 audits, battle-testing since October 2016, and ten years without a protocol exploit all clear.",
       "Post-quantum cryptography is live on mainnet and the Quantum gate is still Partial. ZIP 2005 shipped post-quantum commitment binding with NU6.3 Ironwood on July 28, 2026, but spend authorization, the Halo 2 proof system, and transparent ECDSA all remain vulnerable -- a quantum adversary could still take funds and merely could not mint them."
