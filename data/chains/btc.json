@@ -3,12 +3,11 @@
   "ticker": "BTC",
   "name": "Bitcoin",
   "cashtag": "$BTC",
-  "session_file_url": "https://github.com/thecoloredsky/coloredskyscore/blob/main/sessions/Session_BTC.md",
   "scored_date": "2026-05 (TradFi) / 2026-07 (AI)",
-  "last_updated": "2026-07",
+  "last_updated": "2026-08-15",
   "tradfi": {
-    "score": 84,
-    "raw_score": 84.3,
+    "score": 80,
+    "raw_score": 80.44,
     "tier_code": "IG",
     "gate_capped": false,
     "binding_cap": null,
@@ -24,14 +23,16 @@
       "tokenomics_supply": 95,
       "developer_ecosystem": 72,
       "regulatory_risk": 90,
+      "privacy_confidentiality": 36,
       "decentralization": 52,
       "security_future_proofing": 82
     },
     "categories_verified": true,
     "key_findings": [
       "TradFi Approved (97) is BTC's strongest category -- deep, mature institutional access via ETFs, custody, and regulated venues.",
-      "Public posted score is 82 under the retired v1.0 Quantum cap (82); current-framework v1.1 cap (88) no longer binds, so 84 is the score of record.",
-      "Tokenomics & Supply (95) -- fixed 21M cap, predictable halving schedule, minor deduction for unmoved Satoshi-era coins."
+      "Tokenomics & Supply (95) -- fixed 21M cap, predictable halving schedule, minor deduction for unmoved Satoshi-era coins.",
+      "Privacy & Confidentiality (36) -- a fully transparent UTXO ledger with no protocol-level confidentiality, and CoinJoin tooling that has thinned since major coordinators shut down. Address non-disclosure by large holders is a policy choice rather than a network property, and has been defeated in practice by chain analysis.",
+      "Raw 80.44 rounds to 80, landing exactly on the Institutional Grade floor. Roughly one point of movement in any weighted category would change the tier."
     ]
   },
   "ai": {
@@ -63,14 +64,15 @@
     },
     "categories_verified": true,
     "key_findings": [
-      "A +30 divergence between axes is unusually wide, reflecting a structural mismatch between deep institutional trust and probabilistic-only settlement architecture.",
-      "First exercise of the Deterministic Finality FAIL cap, calibrated to 54 this session -- one point below the Experimental threshold.",
+      "A wide divergence between the two axes, reflecting a structural mismatch between deep institutional trust and probabilistic-only settlement architecture.",
+      "The Deterministic Finality FAIL cap is calibrated at 54, one point below the Experimental threshold.",
       "Security Posture (88) is BTC's strongest AI category -- 15+ years, zero protocol-level exploits."
     ]
   },
-  "divergence": 30,
+  "divergence": 26,
   "watch_items": [
     "CTV (BIP 119) and OP_CAT (BIP 347) signaling windows are open but not yet activated -- would raise the Programmability Tier ceiling if adopted.",
-    "No credible near-term path to a Deterministic Finality Pass -- the FAIL cap is architectural, not a maturity gap."
+    "No credible near-term path to a Deterministic Finality Pass -- the FAIL cap is architectural, not a maturity gap.",
+    "Two open framework items bear directly on this chain: a pending Decentralization scale recalibration (currently 52) and an unadopted Tokenomics revision (95 toward 97-98). They push in opposite directions and should be computed together."
   ]
 }

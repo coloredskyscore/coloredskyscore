@@ -3,12 +3,11 @@
   "ticker": "DOGE",
   "name": "Dogecoin",
   "cashtag": "$DOGE",
-  "session_file_url": "https://github.com/thecoloredsky/coloredskyscore/blob/main/sessions/Session_DOGE.md",
   "scored_date": "2026-07",
-  "last_updated": "2026-07",
+  "last_updated": "2026-08-15",
   "tradfi": {
-    "score": 42,
-    "raw_score": 41.66,
+    "score": 41,
+    "raw_score": 41.36,
     "tier_code": "RG",
     "gate_capped": false,
     "binding_cap": null,
@@ -24,14 +23,17 @@
       "tokenomics_supply": 44,
       "developer_ecosystem": 20,
       "regulatory_risk": 82,
+      "privacy_confidentiality": 25,
       "decentralization": 35,
       "security_future_proofing": 45
     },
     "categories_verified": true,
     "key_findings": [
       "Clean Regulatory Clarity Pass -- explicitly named in the March 17, 2026 SEC-CFTC joint interpretive release, no litigation ever, no issuer to enforce against.",
-      "Regulatory & Risk (82) sits directly alongside DOGE's weakest category, Developer & Ecosystem (20) -- a 62-point internal spread from a single structural fact: no issuer means no one to sue and no one to build. Established TradFi Principle 17 (a single root cause can produce a credit in one category and a debit in another).",
-      "TradFi Approved (52) reflects a stark logos-versus-capital gap -- four live spot ETFs and a Nasdaq-listed treasury vehicle (CleanCore/ZONE, HODO), but combined ETF AUM sits well under 0.5% of market cap."
+      "Regulatory & Risk (82) sits directly alongside DOGE's weakest category, Developer & Ecosystem (20) -- a 62-point internal spread from a single structural fact: no issuer means no one to sue and no one to build.",
+      "TradFi Approved (52) reflects a stark logos-versus-capital gap -- four live spot ETFs and a Nasdaq-listed treasury vehicle (CleanCore/ZONE, HODO), but combined ETF AUM sits well under 0.5% of market cap.",
+      "Privacy & Confidentiality (25) -- a fully transparent ledger with no protocol-level confidentiality and no meaningful privacy tooling built for it.",
+      "Retail Grade holds with a 1.36-point margin over the tier floor."
     ]
   },
   "ai": {
@@ -58,15 +60,15 @@
     },
     "categories_verified": true,
     "key_findings": [
-      "First Not Viable AI score, and notably not gate-driven -- raw 36.19 sits 18 points under its own binding cap, so the category layer alone produced the bottom tier.",
+      "The bottom AI tier here is not gate-driven -- raw 36.19 sits 18 points under its own binding cap, so the category layer alone produced it.",
       "Execution Layer (50): ten-times-faster blocks than Bitcoin buy no faster practical settlement -- major exchanges require 40-60 confirmations for DOGE deposits against Bitcoin's common 2-6.",
       "Economic Predictability (75) is DOGE's strongest AI category by a wide margin -- flat per-kB fees, no gas auction, no meaningful MEV."
     ]
   },
-  "divergence": 6,
+  "divergence": 5,
   "watch_items": [
-    "First chain scored where neither axis is strong -- a convergence story rather than the more typical divergence pattern.",
-    "December 12, 2026 -- DogeReaper reaches two clean years; Security Posture becomes Partial-eligible under Principle 16. Both Fail and Partial share the 70 cap, so no score change is expected from this alone.",
+    "Neither axis is strong -- a convergence story rather than the more typical divergence pattern.",
+    "December 12, 2026 -- DogeReaper reaches two clean years; Security Posture becomes Partial-eligible. Both Fail and Partial share the 70 cap, so no score change is expected from this alone.",
     "CLARITY Act passage would move DOGE's regulatory classification from agency-level guidance to statutory footing, lifting the residual Regulatory & Risk debit."
   ]
 }

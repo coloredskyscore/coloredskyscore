@@ -3,20 +3,14 @@
   "ticker": "TRON",
   "name": "TRON",
   "cashtag": "$TRX",
-  "session_file_url": "https://github.com/thecoloredsky/coloredskyscore/blob/main/sessions/Session_TRON.md",
   "scored_date": "2026-08",
-  "last_updated": "2026-08",
+  "last_updated": "2026-08-15",
   "tradfi": {
-    "score": 65,
-    "raw_score": 66.3,
+    "score": 63,
+    "raw_score": 63.35,
     "tier_code": "EI",
-    "gate_capped": true,
-    "binding_cap": {
-      "gate": "regulatory_clarity",
-      "cap_value": 65,
-      "short_note": "Capped by Regulatory Clarity Partial -- enforcement is fully resolved, but TRX is absent from the named commodity list and has no live US spot ETF.",
-      "as_of": "2026-08"
-    },
+    "gate_capped": false,
+    "binding_cap": null,
     "gates": {
       "quantum_resistance": "partial",
       "regulatory_clarity": "partial",
@@ -29,14 +23,17 @@
       "tokenomics_supply": 62,
       "developer_ecosystem": 54,
       "regulatory_risk": 48,
+      "privacy_confidentiality": 40,
       "decentralization": 30,
       "security_future_proofing": 68
     },
     "categories_verified": true,
     "key_findings": [
-      "First chain scored with three Partial gates and no outright Pass on any TradFi gate.",
-      "On-Chain Health (88) is TRON's strongest category -- ~$2 trillion in cumulative USDT transfers in one quarter, backed by real fee revenue rather than a running subsidy.",
-      "Regulatory & Risk (48) cuts both ways on one root cause -- TRON carries a high volume of frozen/blacklisted addresses, but the entity doing that freezing was cited by FATF as a model for public-private enforcement."
+      "Three Partial gates and no outright Pass on any TradFi gate.",
+      "The Regulatory Clarity cap (65) no longer binds: raw 63.35 falls below it, so the published score is the raw. Pending post-quantum mainnet activation would now move the published score, where previously it could not.",
+      "On-Chain Health (88) is TRON's strongest category -- roughly $2 trillion in cumulative USDT transfers in one quarter, backed by real fee revenue rather than a running subsidy.",
+      "Regulatory & Risk (48) cuts both ways on one root cause -- TRON carries a high volume of frozen and blacklisted addresses, but the entity doing that freezing was cited by FATF as a model for public-private enforcement.",
+      "Privacy & Confidentiality (40) sits at the transparent floor despite a native protocol-level zk-SNARK shielded TRC-20 pool verified enabled on mainnet. No mainstream wallet exposes it, public RPC nodes frequently return 405 on the shielded-transaction endpoint, and there is no published usage data. The anonymity set is the product, and there is no evidence of one."
     ]
   },
   "ai": {
@@ -64,15 +61,15 @@
     "categories_verified": true,
     "key_findings": [
       "No binding cap -- Deterministic Finality Partial (75) sits above the raw 67.1. TRON has no dated upgrade planned to fix its ~1 minute finality.",
-      "First chain capped on one axis and uncapped on the other by two completely unrelated gates.",
-      "Privacy & Confidentiality (53) -- TRON has live shielded transfers using zero-knowledge proofs, but adoption is unmeasured and doesn't touch the USDT flow that is effectively the entire chain.",
-      "Agent Tooling (68) -- a real, shipped agent stack (Bank of AI: payments, identity, an MCP server) launched February 2026, discounted for being six months old, single-vendor, and running on a gas subsidy."
+      "Privacy & Confidentiality (53) -- live shielded transfers using zero-knowledge proofs, but adoption is unmeasured and does not touch the USDT flow that is effectively the entire chain.",
+      "Agent Tooling (68) -- a real, shipped agent stack (Bank of AI: payments, identity, an MCP server) launched February 2026, discounted for being six months old, single-vendor, and running on a gas subsidy.",
+      "Both axes validated in opposite directions under blind secondary review -- TradFi scores moved down, AI scores moved up."
     ]
   },
-  "divergence": -2,
+  "divergence": -4,
   "watch_items": [
     "TRON ETF eligibility clock started July 27, 2026 with Bitnomial's CFTC-regulated TRX futures listing -- six-month generic-listing-standard milestone matures around late January 2027.",
-    "Post-quantum work (Falcon-512 and ML-DSA-44 live on Nile testnet) and the AI agent stack are both real but early -- neither contributes meaningfully to either score until proven out with mainnet activation and independent usage data.",
-    "Both axes validated in opposite directions under blind secondary review -- TradFi scores moved down, AI scores moved up."
+    "Post-quantum work (Falcon-512 and ML-DSA-44 live on Nile testnet) is real but early. With no cap binding, mainnet activation would now move the published TradFi score.",
+    "Any measurable adoption of the shielded TRC-20 pool, or wallet-level exposure of it, would be a re-credit candidate for Privacy & Confidentiality."
   ]
 }

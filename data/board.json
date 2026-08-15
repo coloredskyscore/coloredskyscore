@@ -2,10 +2,10 @@
   "_schema_notes": "Loaded on every page visit. Keep this file NUMBERS AND SHORT STRINGS ONLY -- no reasoning prose, no long findings lists. That content lives in /data/chains/<slug>.json and is fetched only when a chain's panel is opened. detail_url uses the stable slug, not the ticker -- tickers can change (rebrands, symbol reuse) but the slug and its file never do.",
   "meta": {
     "site": "coloredskyscore.com",
-    "last_updated": "2026-08-13",
+    "last_updated": "2026-08-15",
     "chains_scored": 14,
-    "tradfi_framework_version": "v1.1",
-    "ai_framework_version": "v1.0"
+    "tradfi_framework_version": "v2.0",
+    "ai_framework_version": "v1.1"
   },
   "tiers": {
     "tradfi": [
@@ -94,7 +94,7 @@
     ]
   },
   "category_labels": {
-    "_note": "Keys only, no weights (weights stay proprietary, never shipped to the client). Used by the panel to label category rows fetched from the per-chain file.",
+    "_note": "Keys only, no weights (weights stay proprietary, never shipped to the client). Used by the panel to label category rows fetched from the per-chain file. TradFi carries nine categories as of v2.0; both axes are now nine.",
     "tradfi": [
       {
         "key": "on_chain_health",
@@ -119,6 +119,10 @@
       {
         "key": "regulatory_risk",
         "label": "Regulatory & Risk"
+      },
+      {
+        "key": "privacy_confidentiality",
+        "label": "Privacy & Confidentiality"
       },
       {
         "key": "decentralization",
@@ -175,15 +179,15 @@
       "name": "Sui",
       "cashtag": "$SUI",
       "detail_url": "data/chains/sui.json",
-      "tradfi_score": 74,
+      "tradfi_score": 73,
       "tradfi_tier": "EI",
       "tradfi_capped": false,
       "ai_score": 71,
       "ai_tier": "IR",
       "ai_capped": true,
-      "divergence": 3,
+      "divergence": 2,
       "scored_date": "2026-06",
-      "last_updated": "2026-08-01"
+      "last_updated": "2026-08-15"
     },
     {
       "slug": "eth",
@@ -191,15 +195,15 @@
       "name": "Ethereum",
       "cashtag": "$ETH",
       "detail_url": "data/chains/eth.json",
-      "tradfi_score": 84,
+      "tradfi_score": 81,
       "tradfi_tier": "IG",
       "tradfi_capped": false,
       "ai_score": 74,
       "ai_tier": "IR",
       "ai_capped": false,
-      "divergence": 10,
+      "divergence": 7,
       "scored_date": "2026-06",
-      "last_updated": "2026-06"
+      "last_updated": "2026-08-15"
     },
     {
       "slug": "sol",
@@ -207,15 +211,15 @@
       "name": "Solana",
       "cashtag": "$SOL",
       "detail_url": "data/chains/sol.json",
-      "tradfi_score": 81,
-      "tradfi_tier": "IG",
+      "tradfi_score": 79,
+      "tradfi_tier": "EI",
       "tradfi_capped": false,
       "ai_score": 75,
       "ai_tier": "IR",
       "ai_capped": true,
-      "divergence": 6,
+      "divergence": 4,
       "scored_date": "2026-06",
-      "last_updated": "2026-07"
+      "last_updated": "2026-08-15"
     },
     {
       "slug": "btc",
@@ -223,15 +227,15 @@
       "name": "Bitcoin",
       "cashtag": "$BTC",
       "detail_url": "data/chains/btc.json",
-      "tradfi_score": 84,
+      "tradfi_score": 80,
       "tradfi_tier": "IG",
       "tradfi_capped": false,
       "ai_score": 54,
       "ai_tier": "PO",
       "ai_capped": true,
-      "divergence": 30,
+      "divergence": 26,
       "scored_date": "2026-05 / 2026-07",
-      "last_updated": "2026-07"
+      "last_updated": "2026-08-15"
     },
     {
       "slug": "cc",
@@ -247,7 +251,7 @@
       "ai_capped": true,
       "divergence": -10,
       "scored_date": "2026-05",
-      "last_updated": "2026-07"
+      "last_updated": "2026-08-15"
     },
     {
       "slug": "xrp",
@@ -255,15 +259,15 @@
       "name": "XRP Ledger",
       "cashtag": "$XRP",
       "detail_url": "data/chains/xrp.json",
-      "tradfi_score": 74,
+      "tradfi_score": 70,
       "tradfi_tier": "EI",
       "tradfi_capped": false,
       "ai_score": 65,
       "ai_tier": "EX",
       "ai_capped": true,
-      "divergence": 9,
+      "divergence": 5,
       "scored_date": "2026-06",
-      "last_updated": "2026-06"
+      "last_updated": "2026-08-15"
     },
     {
       "slug": "bnb",
@@ -271,15 +275,15 @@
       "name": "BNB Chain",
       "cashtag": "$BNB",
       "detail_url": "data/chains/bnb.json",
-      "tradfi_score": 70,
+      "tradfi_score": 69,
       "tradfi_tier": "EI",
-      "tradfi_capped": true,
+      "tradfi_capped": false,
       "ai_score": 68,
       "ai_tier": "EX",
       "ai_capped": false,
-      "divergence": 2,
+      "divergence": 1,
       "scored_date": "2026-07",
-      "last_updated": "2026-07"
+      "last_updated": "2026-08-15"
     },
     {
       "slug": "hype",
@@ -287,15 +291,15 @@
       "name": "Hyperliquid",
       "cashtag": "$HYPE",
       "detail_url": "data/chains/hype.json",
-      "tradfi_score": 65,
+      "tradfi_score": 60,
       "tradfi_tier": "EI",
       "tradfi_capped": false,
       "ai_score": 64,
       "ai_tier": "EX",
       "ai_capped": false,
-      "divergence": 1,
+      "divergence": -4,
       "scored_date": "2026-07",
-      "last_updated": "2026-07"
+      "last_updated": "2026-08-15"
     },
     {
       "slug": "mon",
@@ -303,15 +307,15 @@
       "name": "Monad",
       "cashtag": "$MON",
       "detail_url": "data/chains/mon.json",
-      "tradfi_score": 50,
+      "tradfi_score": 49,
       "tradfi_tier": "RG",
       "tradfi_capped": false,
       "ai_score": 72,
       "ai_tier": "IR",
       "ai_capped": false,
-      "divergence": -22,
+      "divergence": -23,
       "scored_date": "2026-07",
-      "last_updated": "2026-07"
+      "last_updated": "2026-08-15"
     },
     {
       "slug": "tron",
@@ -319,15 +323,15 @@
       "name": "TRON",
       "cashtag": "$TRX",
       "detail_url": "data/chains/tron.json",
-      "tradfi_score": 65,
+      "tradfi_score": 63,
       "tradfi_tier": "EI",
-      "tradfi_capped": true,
+      "tradfi_capped": false,
       "ai_score": 67,
       "ai_tier": "EX",
       "ai_capped": false,
-      "divergence": -2,
+      "divergence": -4,
       "scored_date": "2026-08",
-      "last_updated": "2026-08"
+      "last_updated": "2026-08-15"
     },
     {
       "slug": "wbt",
@@ -343,7 +347,7 @@
       "ai_capped": false,
       "divergence": -14,
       "scored_date": "2026-08",
-      "last_updated": "2026-08"
+      "last_updated": "2026-08-15"
     },
     {
       "slug": "ada",
@@ -351,15 +355,15 @@
       "name": "Cardano",
       "cashtag": "$ADA",
       "detail_url": "data/chains/ada.json",
-      "tradfi_score": 57,
+      "tradfi_score": 56,
       "tradfi_tier": "RG",
       "tradfi_capped": false,
       "ai_score": 54,
       "ai_tier": "PO",
       "ai_capped": true,
-      "divergence": 3,
+      "divergence": 2,
       "scored_date": "2026-08",
-      "last_updated": "2026-08"
+      "last_updated": "2026-08-15"
     },
     {
       "slug": "doge",
@@ -367,15 +371,15 @@
       "name": "Dogecoin",
       "cashtag": "$DOGE",
       "detail_url": "data/chains/doge.json",
-      "tradfi_score": 42,
+      "tradfi_score": 41,
       "tradfi_tier": "RG",
       "tradfi_capped": false,
       "ai_score": 36,
       "ai_tier": "NV",
       "ai_capped": false,
-      "divergence": 6,
+      "divergence": 5,
       "scored_date": "2026-07",
-      "last_updated": "2026-07"
+      "last_updated": "2026-08-15"
     },
     {
       "slug": "zec",
@@ -383,15 +387,15 @@
       "name": "Zcash",
       "cashtag": "$ZEC",
       "detail_url": "data/chains/zec.json",
-      "tradfi_score": 50,
+      "tradfi_score": 52,
       "tradfi_tier": "RG",
       "tradfi_capped": false,
       "ai_score": 42,
       "ai_tier": "PO",
       "ai_capped": false,
-      "divergence": 8,
+      "divergence": 10,
       "scored_date": "2026-08",
-      "last_updated": "2026-08"
+      "last_updated": "2026-08-15"
     }
   ]
 }

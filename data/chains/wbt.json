@@ -3,12 +3,11 @@
   "ticker": "WBT",
   "name": "Whitechain",
   "cashtag": "$WBT",
-  "session_file_url": "https://github.com/thecoloredsky/coloredskyscore/blob/main/sessions/Session_WBT.md",
   "scored_date": "2026-08",
-  "last_updated": "2026-08",
+  "last_updated": "2026-08-15",
   "tradfi": {
     "score": 26,
-    "raw_score": 25.93,
+    "raw_score": 26.07,
     "tier_code": "SP",
     "gate_capped": false,
     "binding_cap": null,
@@ -24,14 +23,17 @@
       "tokenomics_supply": 34,
       "developer_ecosystem": 15,
       "regulatory_risk": 38,
+      "privacy_confidentiality": 22,
       "decentralization": 8,
       "security_future_proofing": 48
     },
     "categories_verified": true,
     "key_findings": [
-      "First Speculative-tier score -- the 39-point gap between raw score and the binding Regulatory Clarity cap (65) reflects fundamentals that fall well short of any gate constraint.",
-      "First single-validator chain scored under either framework -- a go-ethereum fork running Clique Proof-of-Authority with one authorized signer operated by WhiteBIT.",
-      "On-Chain Health (10) is WBT's weakest category -- official explorer reports 0.00 current TPS, no coverage on any major analytics platform."
+      "The 39-point gap between the raw 26.07 and the lowest gate cap (Regulatory Clarity, 65) reflects fundamentals that fall well short of any gate constraint.",
+      "A single-validator chain -- a go-ethereum fork running Clique Proof-of-Authority with one authorized signer operated by WhiteBIT.",
+      "On-Chain Health (10) is WBT's weakest category -- the official explorer reports 0.00 current TPS, with no coverage on any major analytics platform.",
+      "Decentralization (8) is the lowest score in this chain's table by a wide margin. The v2.0 weight increase from 4% to 6% raises what single-operator consensus costs the score, from 3.8 to 5.5 weighted points of separation from a mid-range result.",
+      "Privacy & Confidentiality (22) -- a transparent EVM ledger with no protocol-level confidentiality and no meaningful privacy application layer."
     ]
   },
   "ai": {
@@ -58,13 +60,14 @@
     },
     "categories_verified": true,
     "key_findings": [
-      "Established AI Principle 17 -- tier reads from the published rounded score, not the raw. Raw 39.64 rounds to 40 and takes Prototype Only rather than Not Viable.",
+      "Tier reads from the published rounded score, not the raw. Raw 39.64 rounds to 40 and takes Prototype Only rather than Not Viable.",
       "The Deterministic Finality FAIL cap is entirely decorative here -- raw sits 14 points below it, so the category layer alone produced the result.",
       "State & API Quality (30) -- one official RPC endpoint, no subgraphs, no coverage on any major indexer."
     ]
   },
   "divergence": -14,
   "watch_items": [
-    "Circulating supply is reported inconsistently across sources (118.1M to 213.4M, a 1.8x spread) -- a transparency issue worth re-checking at next assessment."
+    "Circulating supply is reported inconsistently across sources (118.1M to 213.4M, a 1.8x spread) -- a transparency issue worth re-checking at next assessment.",
+    "Two AI gates and one TradFi gate are recorded as unverified rather than assessed; they should be resolved at the next reassessment."
   ]
 }

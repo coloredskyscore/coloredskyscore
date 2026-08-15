@@ -3,12 +3,11 @@
   "ticker": "XRP",
   "name": "XRP Ledger",
   "cashtag": "$XRP",
-  "session_file_url": "https://github.com/thecoloredsky/coloredskyscore/blob/main/sessions/Session_XRP.md",
   "scored_date": "2026-06",
-  "last_updated": "2026-06",
+  "last_updated": "2026-08-15",
   "tradfi": {
-    "score": 74,
-    "raw_score": 73.7,
+    "score": 70,
+    "raw_score": 70.36,
     "tier_code": "EI",
     "gate_capped": false,
     "binding_cap": null,
@@ -24,14 +23,16 @@
       "tokenomics_supply": 64,
       "developer_ecosystem": 65,
       "regulatory_risk": 78,
+      "privacy_confidentiality": 32,
       "decentralization": 42,
       "security_future_proofing": 77
     },
     "categories_verified": true,
     "key_findings": [
       "Carried by real-world payment utility (86) and TradFi rails (81), dragged by premine tokenomics (64) and a permissioned validator set (42).",
-      "Strongest documented PQC roadmap measured -- 4-phase plan targeting 2028.",
-      "Decentralization (42) -- XRPL's ~35-validator Unique Node List is a curated/permissioned set, a persistent structural weakness."
+      "A detailed four-phase post-quantum roadmap targeting 2028 is documented.",
+      "Decentralization (42) -- XRPL's ~35-validator Unique Node List is a curated, permissioned set and a persistent structural weakness.",
+      "Privacy & Confidentiality (32) -- the ledger is fully transparent today. XLS-0096 ConfidentialTransfer entered validator voting after the August 6, 2026 rippled v3.3.0 release, and covers Multi-Purpose Tokens only, explicitly not XRP itself."
     ]
   },
   "ai": {
@@ -64,12 +65,13 @@
     "categories_verified": true,
     "key_findings": [
       "Sets the calibration precedent for the Programmability Tier Partial/65 floor -- rich native primitives (DEX, AMM, escrow) without deployable custom logic.",
-      "First chain to demonstrate the Operational Reliability cool-down timer's positive direction all the way to PASS (12 clean months).",
+      "Demonstrated the Operational Reliability cool-down timer's positive direction all the way to PASS (12 clean months).",
       "Economic Predictability (85) is XRP's strongest AI category -- fixed near-zero fees, no gas auctions."
     ]
   },
-  "divergence": 9,
+  "divergence": 5,
   "watch_items": [
+    "XLS-0096 ConfidentialTransfer requires greater than 80% validator support sustained for 14 days. Activation would move Privacy & Confidentiality, though the native-asset limitation would still apply.",
     "XLS-0101 convention -- parallel watch item that could lift the Deterministic Finality or Programmability Tier cap.",
     "CLARITY Act pending Senate floor action -- would convert agency-level guidance into statutory regulatory clarity."
   ]

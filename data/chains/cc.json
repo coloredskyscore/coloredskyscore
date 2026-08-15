@@ -3,12 +3,11 @@
   "ticker": "CC",
   "name": "Canton",
   "cashtag": "$CC",
-  "session_file_url": "https://github.com/thecoloredsky/coloredskyscore/blob/main/sessions/Session_CC.md",
   "scored_date": "2026-05 (TradFi) / 2026-07 (AI)",
-  "last_updated": "2026-07",
+  "last_updated": "2026-08-15",
   "tradfi": {
     "score": 65,
-    "raw_score": 75.9,
+    "raw_score": 76.0,
     "tier_code": "EI",
     "gate_capped": true,
     "binding_cap": {
@@ -29,14 +28,16 @@
       "tokenomics_supply": 78,
       "developer_ecosystem": 62,
       "regulatory_risk": 72,
+      "privacy_confidentiality": 88,
       "decentralization": 42,
       "security_future_proofing": 70
     },
     "categories_verified": true,
     "key_findings": [
-      "Only chain scored to date with all three TradFi gates at Partial.",
-      "A 10.9-point gate-driven reduction from raw 75.90 to published 65 -- the Regulatory Clarity cap is doing real work here.",
-      "Real-World Utility (88) reflects $344.83B in represented asset value via RWA.xyz, CC's strongest category by a wide margin."
+      "All three TradFi gates sit at Partial.",
+      "An 11-point gate-driven reduction from raw 76.00 to published 65 -- the Regulatory Clarity cap is doing real work here.",
+      "Real-World Utility (88) reflects $344.83B in represented asset value via RWA.xyz, CC's strongest category alongside privacy.",
+      "Privacy & Confidentiality (88) -- sub-transaction privacy is a protocol-level property, with each participant seeing only the parts of a transaction they are party to. Required disclosure: this protects Daml application transactions; Canton Coin balances and transaction history are themselves publicly visible via the network's scan service."
     ]
   },
   "ai": {
@@ -47,7 +48,7 @@
     "binding_cap": {
       "gate": "deterministic_finality",
       "cap_value": 75,
-      "short_note": "Capped by Deterministic Finality Partial -- a tight 1.5-point bind, the closest-to-Pass Partial measured to date.",
+      "short_note": "Capped by Deterministic Finality Partial -- a tight 1.5-point bind.",
       "as_of": "2026-07"
     },
     "gates": {
@@ -76,6 +77,6 @@
   "divergence": -10,
   "watch_items": [
     "Zenith (EVM/SVM execution layer) was testnet-only at AI scoring -- mainnet would be a reality-changed re-credit candidate for Agent Tooling, Standards & Interoperability, and Execution Layer.",
-    "A US commodity classification, ETF, or CME futures listing would lift the TradFi Regulatory Clarity cap."
+    "A US commodity classification, ETF, or CME futures listing would lift the TradFi Regulatory Clarity cap. The cap is currently cutting 11 points, so this is the single highest-impact pending event for this chain's TradFi score."
   ]
 }

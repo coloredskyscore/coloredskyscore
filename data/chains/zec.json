@@ -3,12 +3,11 @@
   "ticker": "ZEC",
   "name": "Zcash",
   "cashtag": "$ZEC",
-  "session_file_url": "https://github.com/thecoloredsky/coloredskyscore/blob/main/sessions/Session_ZEC.md",
   "scored_date": "2026-08",
-  "last_updated": "2026-08-14",
+  "last_updated": "2026-08-15",
   "tradfi": {
-    "score": 50,
-    "raw_score": 49.6,
+    "score": 52,
+    "raw_score": 52.14,
     "tier_code": "RG",
     "gate_capped": false,
     "binding_cap": null,
@@ -24,13 +23,16 @@
       "tokenomics_supply": 85,
       "developer_ecosystem": 42,
       "regulatory_risk": 40,
+      "privacy_confidentiality": 80,
       "decentralization": 48,
       "security_future_proofing": 75
     },
     "categories_verified": true,
     "key_findings": [
-      "No gate cap binds despite three Partial gates -- the lowest is Regulatory Clarity at 65, roughly 15 points above the raw 49.60, so the category layer alone sets the tier.",
-      "Institutions can already buy Zcash, but almost always the transparent version, not the shielded one. Most regulated exchanges have dropped support for shielded deposits and withdrawals, or never built it, because securely custodying shielded funds is harder to operate and harder to prove compliant than a normal wallet. In practice, institutional buyers get exposure to the asset's price without access to the privacy technology that defines it.",
+      "Privacy & Confidentiality (80) -- native cryptographic shielding with no trusted setup from Orchard forward, a formally verified circuit as of Ironwood, viewing keys for genuine selective disclosure, and roughly 25.9% of supply shielded. Scored without the native-asset deduction: the asset itself can be held privately, not merely tokens issued on top of it.",
+      "The TradFi privacy score sits below the AI one by design rather than inconsistency. The agent lens rewards viewing-key selective disclosure; the institutional lens weighs the same property against regulated venues having broadly moved to transparent-only support.",
+      "No gate cap binds despite three Partial gates -- the lowest is Regulatory Clarity at 65, roughly 13 points above the raw 52.14, so the category layer alone sets the tier.",
+      "Institutions can already buy Zcash, but almost always the transparent version, not the shielded one. Most regulated exchanges have dropped support for shielded deposits and withdrawals, or never built it, because securely custodying shielded funds is harder to operate and harder to prove compliant. In practice, institutional buyers get exposure to the asset's price without access to the privacy technology that defines it.",
       "Tokenomics & Supply (85) -- 21M hard cap, no premine, no VC allocation, no unlock cliffs, and a Founders' Reward that fully expired in November 2020. Held below the top band by 20% of every block subsidy still diverted to development and a lockbox of roughly 55,000-56,000 ZEC with no activated disbursement mechanism.",
       "Security Posture is Partial on exactly one missing criterion -- the funded vulnerability bounty program closed May 26, 2026 under a flood of AI-generated submissions. Tier-1 audits, battle-testing since October 2016, and ten years without a protocol exploit all clear.",
       "Post-quantum cryptography is live on mainnet and the Quantum gate is still Partial. ZIP 2005 shipped post-quantum commitment binding with NU6.3 Ironwood on July 28, 2026, but spend authorization, the Halo 2 proof system, and transparent ECDSA all remain vulnerable -- a quantum adversary could still take funds and merely could not mint them."
@@ -67,7 +69,7 @@
       "The most widely reported network incident of 2026 did not occur. Reports that no blocks were produced for over four hours on June 3 were block explorers watching an abandoned pre-fork tip after failing to upgrade across NU6.2; block production never stopped."
     ]
   },
-  "divergence": 8,
+  "divergence": 10,
   "watch_items": [
     "NU7 coinholder vote opens August 25, 2026 against an August 24 snapshot requiring spendable Ironwood funds. Proposed scope includes 25-second block target spacing down from 75, roughly doubled shielded throughput, and explicit per-block action limits.",
     "Full post-quantum transition is targeted for late 2027 via Project Tachyon. Only post-quantum cryptography on spend authorization and proofs moves the Quantum Resistance gate to Pass; the commitment binding already shipped does not.",

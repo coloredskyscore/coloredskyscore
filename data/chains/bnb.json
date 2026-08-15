@@ -3,20 +3,14 @@
   "ticker": "BNB",
   "name": "BNB Chain",
   "cashtag": "$BNB",
-  "session_file_url": "https://github.com/thecoloredsky/coloredskyscore/blob/main/sessions/Session_BNB.md",
   "scored_date": "2026-07",
-  "last_updated": "2026-07",
+  "last_updated": "2026-08-15",
   "tradfi": {
-    "score": 70,
-    "raw_score": 72.7,
+    "score": 69,
+    "raw_score": 69.29,
     "tier_code": "EI",
-    "gate_capped": true,
-    "binding_cap": {
-      "gate": "security_posture",
-      "cap_value": 70,
-      "short_note": "Capped by Security Posture -- first chain bound by this gate, via the new remediation clock (Principle 16) applied to the 2022 Token Hub exploit.",
-      "as_of": "2026-07"
-    },
+    "gate_capped": false,
+    "binding_cap": null,
     "gates": {
       "quantum_resistance": "partial",
       "regulatory_clarity": "pass",
@@ -29,14 +23,16 @@
       "tokenomics_supply": 68,
       "developer_ecosystem": 74,
       "regulatory_risk": 60,
+      "privacy_confidentiality": 46,
       "decentralization": 38,
       "security_future_proofing": 55
     },
     "categories_verified": true,
     "key_findings": [
-      "First chain bound by the Security Posture gate, and first exercise of the new remediation clock -- the 2022 Token Hub exploit aged from a would-be FAIL to Partial-eligible via 3.5 clean years plus the Fusion structural remediation.",
+      "Security Posture sits at Partial through the remediation clock applied to the 2022 Token Hub exploit -- 3.5 clean years plus the Fusion structural remediation aged it up from a would-be Fail.",
+      "The Security Posture cap (70) no longer binds: raw 69.29 falls below it, so the published score is the raw. A future gate upgrade now changes the gate row rather than the score.",
       "On-Chain Health (86) is elite-broad -- ~4M+ daily active users, 31M peak daily transactions, though measured partly under an active gas-subsidy campaign.",
-      "At 5 clean years (October 2027) the exploit history fully ages out of the gate; a tier-1 audit of the modern client would put Pass in reach."
+      "Privacy & Confidentiality (46) -- no protocol-level confidentiality, but a functioning application-layer privacy ecosystem on a full-EVM chain, with no shielding available for BNB itself."
     ]
   },
   "ai": {
@@ -68,9 +64,9 @@
       "Deterministic Finality Partial cap (75) does not bind -- BNB retains a probabilistic fallback path that holds the gate at Partial despite fast normal-mode speed."
     ]
   },
-  "divergence": 2,
+  "divergence": 1,
   "watch_items": [
-    "Watch for a tier-1 audit commission of the modern, heavily-diverged bsc client -- would close the sole gap holding the Security Posture gate at Partial.",
+    "Watch for a tier-1 audit commission of the modern, heavily-diverged bsc client -- would close the sole gap holding the Security Posture gate at Partial. Note the cap no longer binds, so this is now a gate-row change rather than a score change.",
     "0-Fee Stablecoin Carnival subsidy is still running -- re-assess On-Chain Health once it lapses.",
     "BNB's announced agent-purpose L1 (late-2026 testnet target) would be a new chain to score, not a BNB re-credit, when it ships."
   ]

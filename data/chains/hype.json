@@ -3,12 +3,11 @@
   "ticker": "HYPE",
   "name": "Hyperliquid",
   "cashtag": "$HYPE",
-  "session_file_url": "https://github.com/thecoloredsky/coloredskyscore/blob/main/sessions/Session_HYPE.md",
   "scored_date": "2026-07",
-  "last_updated": "2026-07",
+  "last_updated": "2026-08-15",
   "tradfi": {
-    "score": 65,
-    "raw_score": 65,
+    "score": 60,
+    "raw_score": 59.97,
     "tier_code": "EI",
     "gate_capped": false,
     "binding_cap": null,
@@ -24,14 +23,16 @@
       "tokenomics_supply": 70,
       "developer_ecosystem": 63,
       "regulatory_risk": 47,
+      "privacy_confidentiality": 15,
       "decentralization": 28,
       "security_future_proofing": 55
     },
     "categories_verified": true,
     "key_findings": [
-      "First chain scored to trip the Quantum Resistance FAIL gate -- calibrated the 79 cap this session, the first-ever exercise of this gate.",
-      "Raw score (65) lands just under its own Quantum FAIL cap (79) without the cap ever touching it -- constrained by category fundamentals, not by any gate.",
-      "On-Chain Health (88) is HYPE's strongest category by a wide margin -- ~$493B Q1 2026 volume, a majority share of global on-chain derivatives open interest."
+      "The Quantum Resistance FAIL cap (79) sits well above the raw 59.97 and never touches the score -- this result is set by category fundamentals, not by any gate.",
+      "On-Chain Health (88) is HYPE's strongest category by a wide margin -- roughly $493B Q1 2026 volume and a majority share of global on-chain derivatives open interest.",
+      "Privacy & Confidentiality (15) sits in the sub-floor band. Any account's positions, leverage, and exact liquidation price are published by default through an unauthenticated API, which is financially exploitable per-account state rather than ordinary ledger transparency.",
+      "Raw 59.97 rounds to 60, landing on the Emerging Institutional floor with a 0.47-point margin. Roughly one point of movement in any weighted category flips the band, and the category scores were set before the boundary was known."
     ]
   },
   "ai": {
@@ -58,13 +59,15 @@
     },
     "categories_verified": true,
     "key_findings": [
-      "First chain to clear all three AI foundation gates PASS/PASS/PASS, yet still lands in Experimental -- a clear demonstration of gates being a floor, not a guarantee.",
+      "Clears all three AI foundation gates PASS/PASS/PASS yet still lands in Experimental -- a clear demonstration of gates being a floor, not a guarantee.",
       "Privacy & Confidentiality (18) is HYPE's weakest AI category by a wide margin -- every position and order is publicly watchable in real time.",
       "Agent Tooling (75) and KYA (58) are HYPE's clearest AI strengths -- on-chain human-binding approval and trade-only permissions used by an estimated 20-30% pure-AI-agent volume share."
     ]
   },
-  "divergence": 1,
+  "divergence": -4,
   "watch_items": [
-    "Near-zero divergence: both axes independently converge on 'strong single-vertical engine, structurally immature everywhere else,' not on offsetting strengths."
+    "Both axes independently converge on 'strong single-vertical engine, structurally immature everywhere else,' rather than on offsetting strengths.",
+    "Quantum Resistance sits at Fail on the basis of silence rather than a stated position -- re-check at every reassessment regardless of trigger.",
+    "The published TradFi score is 0.47 points above a tier boundary. Any category revision should state its tier consequence explicitly."
   ]
 }

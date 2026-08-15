@@ -3,15 +3,19 @@
   "ticker": "SUI",
   "name": "Sui",
   "cashtag": "$SUI",
-  "session_file_url": "https://github.com/thecoloredsky/coloredskyscore/blob/main/sessions/Session_SUI.md",
   "scored_date": "2026-06",
-  "last_updated": "2026-08-14",
+  "last_updated": "2026-08-15",
   "tradfi": {
-    "score": 74,
-    "raw_score": 73.97,
+    "score": 73,
+    "raw_score": 73.07,
     "tier_code": "EI",
     "gate_capped": false,
     "binding_cap": null,
+    "gates": {
+      "quantum_resistance": "partial",
+      "regulatory_clarity": "pass",
+      "security_posture": "pass"
+    },
     "categories": {
       "on_chain_health": 68,
       "tradfi_approved": 73,
@@ -19,19 +23,16 @@
       "tokenomics_supply": 76,
       "developer_ecosystem": 75,
       "regulatory_risk": 84,
+      "privacy_confidentiality": 68,
       "decentralization": 48,
       "security_future_proofing": 76
     },
-    "gates": {
-      "quantum_resistance": "partial",
-      "regulatory_clarity": "pass",
-      "security_posture": "pass"
-    },
     "categories_verified": true,
     "key_findings": [
-      "Regulatory & Risk scores 84, an impressive result -- no litigation exposure and a fast institutional-access build-out.",
+      "Regulatory & Risk scores 84 -- no litigation exposure and a fast institutional-access build-out.",
       "On-Chain Health (68) is the primary drag on the overall score -- fee economics remain the weak point.",
-      "A 74 today with a credible path to 80+ if fees scale and PQC ships."
+      "Privacy & Confidentiality (68) -- Seal, Nautilus, and Seal MPC are all live on mainnet. Confidential transfers remain devnet-only and earn no credit under score-reality-not-aspirations.",
+      "A 73 today with a credible path higher if fees scale and post-quantum cryptography ships."
     ]
   },
   "ai": {
@@ -68,10 +69,11 @@
       "Crossed from Experimental into Integration Ready on the July 1, 2026 cool-down tick."
     ]
   },
-  "divergence": 3,
+  "divergence": 2,
   "watch_items": [
     "Quantum-safe vault mainnet shipping (later 2026) triggers a Quantum Resistance gate re-check.",
     "Native ML-DSA-65 account authentication targeted Q1 2027 -- pass trigger for Quantum Resistance.",
-    "Cool-down timer continues ticking +1 per clean month; first Production Grade AI score possible around April-May 2027 if clean months continue."
+    "Cool-down timer continues ticking +1 per clean month; a Production Grade AI score becomes possible around April-May 2027 if clean months continue.",
+    "Confidential transfers moving from devnet to mainnet would be a reality-changed re-credit for Privacy & Confidentiality."
   ]
 }
