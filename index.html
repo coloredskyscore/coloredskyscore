@@ -451,17 +451,29 @@
     margin-top: 10px;
   }
 
-  .panel-divergence {
+  .panel-summary {
     margin-top: 18px;
-    padding: 12px 14px;
+    padding: 15px 16px;
     border-radius: 8px;
     background: rgba(255,255,255,0.03);
     border: 0.5px solid var(--line);
+  }
+  .panel-summary-text {
+    font-size: 13.5px;
+    color: var(--text-mid);
+    line-height: 1.62;
+  }
+  .panel-summary-divider {
+    height: 1px;
+    background: var(--line);
+    margin: 13px 0;
+  }
+  .panel-summary-divergence {
     font-size: 13px;
     color: var(--text-mid);
     line-height: 1.5;
   }
-  .panel-divergence strong { color: var(--ivory); font-family: 'IBM Plex Mono', monospace; }
+  .panel-summary-divergence strong { color: var(--ivory); font-family: 'IBM Plex Mono', monospace; }
 
   .axis-block {
     margin-top: 28px;
@@ -802,7 +814,7 @@
     <div class="row-count" id="rowCountMobile"></div>
   </div>
 
-  <div class="loading-state" id="loadingState">Loading board data\u2026</div>
+  <div class="loading-state" id="loadingState">Loading board data…</div>
 
   <div id="tableWrap" style="display:none;" class="desktop-only">
     <table>
@@ -866,7 +878,7 @@ function tierBadge(code) {
   const color = t.color_dark;
   return `<span class="tier-badge" style="border-color:${color}55;color:${color}">
     <span class="tier-dot" style="background:${color}"></span>${code}
-    <span class="tooltip">${t.name} \u00b7 ${t.min}\u2013${t.max}</span>
+    <span class="tooltip">${t.name} · ${t.min}–${t.max}</span>
   </span>`;
 }
 
@@ -888,7 +900,7 @@ function renderHead() {
   tr.innerHTML = COLUMNS.map(c => {
     const cls = ['num','center'].includes(c.align) ? c.align : '';
     const sorted = c.sortable && c.key === sortKey ? 'sorted' : '';
-    const arrow = c.sortable && c.key === sortKey ? `<span class="arrow">${sortDir === 1 ? '\u25B2' : '\u25BC'}</span>` : '';
+    const arrow = c.sortable && c.key === sortKey ? `<span class="arrow">${sortDir === 1 ? '▲' : '▼'}</span>` : '';
     return `<th class="${cls} ${sorted}" data-key="${c.key}" data-sortable="${c.sortable}">${c.label}${arrow}</th>`;
   }).join('');
 
@@ -1044,7 +1056,7 @@ function renderSections() {
       <div class="tier-section-head">
         <span class="tier-dot-lg" style="background:${tier.color_dark}"></span>
         <span class="tier-section-name" style="color:${tier.color_dark}">${tier.name}</span>
-        <span class="tier-section-range">${tier.min}\u2013${tier.max}</span>
+        <span class="tier-section-range">${tier.min}–${tier.max}</span>
       </div>`;
 
     inTier.forEach(r => {
@@ -1165,18 +1177,18 @@ const GATE_DESC = {
     security_posture: 'Audit depth, bug bounty coverage, clean exploit history, and battle-testing over time.'
   },
   ai: {
-    deterministic_finality: 'How fast and how certain settlement is \u2014 can an agent trust a transaction is final, and how long does it take?',
+    deterministic_finality: 'How fast and how certain settlement is — can an agent trust a transaction is final, and how long does it take?',
     programmability_tier: 'How much custom logic an agent can actually deploy and run on this chain today.',
-    operational_reliability: 'Recent uptime history \u2014 has the chain had a qualifying halt or partition, and how long ago.'
+    operational_reliability: 'Recent uptime history — has the chain had a qualifying halt or partition, and how long ago.'
   }
 };
 
 const CATEGORY_DESC = {
   tradfi: {
-    on_chain_health: 'Real economic activity \u2014 users, transactions, fees, value flowing through the network.',
-    tradfi_approved: 'Institutional access already live \u2014 ETFs, custody, bank charters, regulated venues.',
-    real_world_utility: 'Actual usage today \u2014 payments, settlement, tokenization \u2014 not potential use cases.',
-    tokenomics_supply: 'Supply structure \u2014 caps, emission schedule, insider allocation, concentration.',
+    on_chain_health: 'Real economic activity — users, transactions, fees, value flowing through the network.',
+    tradfi_approved: 'Institutional access already live — ETFs, custody, bank charters, regulated venues.',
+    real_world_utility: 'Actual usage today — payments, settlement, tokenization — not potential use cases.',
+    tokenomics_supply: 'Supply structure — caps, emission schedule, insider allocation, concentration.',
     developer_ecosystem: 'Native developer activity and ecosystem depth built directly on this chain.',
     regulatory_risk: 'Regulatory standing, litigation exposure, and single-entity dependency risk.',
     privacy_confidentiality: 'The chain\'s capability to keep transaction detail confidential, and how strong that capability is in practice. A network property, not a promise about any individual holding.',
@@ -1184,12 +1196,12 @@ const CATEGORY_DESC = {
     security_future_proofing: 'Security track record and forward-looking resilience beyond the base gate check.'
   },
   ai: {
-    execution_layer: 'Finality speed, fee level, and throughput \u2014 execution quality while the chain is running.',
+    execution_layer: 'Finality speed, fee level, and throughput — execution quality while the chain is running.',
     composability_atomicity: 'Whether multi-step actions can settle atomically, all-or-nothing, in one go.',
     security_posture: 'Protocol-level exploit history, language safety, and audit depth on the AI axis.',
     state_api_quality: 'RPC reliability, indexer maturity, and how easily an agent can read chain state.',
     privacy_confidentiality: 'Whether transactions and state can be kept confidential, not fully public by default.',
-    economic_predictability: 'Fee variance and MEV exposure \u2014 can an agent predict what an action will cost?',
+    economic_predictability: 'Fee variance and MEV exposure — can an agent predict what an action will cost?',
     agent_tooling: 'SDKs, simulation tools, and agent-native infrastructure available today.',
     standards_interoperability: 'Native account abstraction and cross-chain messaging support.',
     kya: 'Agent identity, human-binding, scoped permissions, and revocation support.'
@@ -1219,7 +1231,7 @@ function renderGates(axis, gates) {
   return `<div class="gate-row">` + Object.keys(labels).map(key => {
     const state = gates[key] || 'unknown';
     return `<span class="gate-pill gate-${state}">
-      <span class="gate-dot"></span>${labels[key]} \u00b7 ${gateStateLabel(state)}
+      <span class="gate-dot"></span>${labels[key]} · ${gateStateLabel(state)}
       <span class="tooltip wide">${descs[key]}</span>
     </span>`;
   }).join('') + `</div>`;
@@ -1263,7 +1275,7 @@ function renderAxisBlock(axisKey, axisLabel, data) {
 
   if (data.gate_capped && data.binding_cap) {
     html += `<div class="raw-note">
-      <strong>Raw: ${data.raw_score}</strong> \u2014 ${data.binding_cap.short_note}
+      <strong>Raw: ${data.raw_score}</strong> — ${data.binding_cap.short_note}
     </div>`;
   }
 
@@ -1290,7 +1302,7 @@ async function openPanel(slug) {
         <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6 6 18M6 6l12 12"/></svg>
       </button>
     </div>
-    <div class="loading-state">Loading detail\u2026</div>
+    <div class="loading-state">Loading detail…</div>
   `;
   document.getElementById('panelCloseBtn').addEventListener('click', closePanel);
   document.getElementById('panel').classList.add('open');
@@ -1321,10 +1333,12 @@ async function openPanel(slug) {
         <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6 6 18M6 6l12 12"/></svg>
       </button>
     </div>
-    <div class="panel-dates">Scored ${detail.scored_date} \u00b7 Updated ${detail.last_updated}</div>
+    <div class="panel-dates">Scored ${detail.scored_date} · Updated ${detail.last_updated}</div>
 
-    <div class="panel-divergence">
-      Divergence <strong>${divSign}${row.divergence}</strong> \u2014 ${divWord}.
+    <div class="panel-summary">
+      <div class="panel-summary-text">${detail.executive_summary || ''}</div>
+      <div class="panel-summary-divider"></div>
+      <div class="panel-summary-divergence">Divergence <strong>${divSign}${row.divergence}</strong> — ${divWord}.</div>
     </div>
 
     ${renderAxisBlock('tradfi', 'TradFi Score', detail.tradfi)}
