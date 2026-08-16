@@ -5,6 +5,7 @@
   "cashtag": "$ADA",
   "scored_date": "2026-08",
   "last_updated": "2026-08-15",
+  "executive_summary": "Cardano's mainnet launched in 2017, built on a peer-reviewed, research-first approach to blockchain design, and nearly nine years later at the time of this scoring that shows up in its strongest category, Decentralization, which scores 64. The TradFi score of 56 is held down by thin real-world usage: annualized chain fees run around just $512,000 against a $7.5 billion market cap. The AI score of 54 is limited by a reliability incident from November 2025, when the network briefly held two conflicting versions of its transaction history at once, even though block production itself never stopped.",
   "tradfi": {
     "score": 56,
     "raw_score": 55.51,

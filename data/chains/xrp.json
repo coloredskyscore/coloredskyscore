@@ -5,6 +5,7 @@
   "cashtag": "$XRP",
   "scored_date": "2026-06",
   "last_updated": "2026-08-15",
+  "executive_summary": "The XRP Ledger has been running since 2012, designed from the start for fast, low-cost cross-border payments rather than general-purpose computing, and fourteen years later at the time of this scoring that focus shows up in a Real-World Utility score of 86 and a TradFi score of 70. Real-world payment usage and TradFi rail access carry the score, while a small, curated set of roughly 35 validators and token supply that was mostly pre-mined at launch hold it back. The AI score of 65 reflects a ledger with rich built-in payment features but no ability to deploy custom code on top of it, a limitation that's been in place since launch.",
   "tradfi": {
     "score": 70,
     "raw_score": 70.36,

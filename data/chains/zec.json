@@ -5,6 +5,7 @@
   "cashtag": "$ZEC",
   "scored_date": "2026-08",
   "last_updated": "2026-08-15",
+  "executive_summary": "Zcash launched in October 2016, nearly a decade old at the time of this scoring, built specifically to bring genuine cryptographic privacy to a public blockchain rather than add it later. That founding purpose is still its defining trait: Privacy & Confidentiality scores 80 on the TradFi side and 90 on the AI side, its highest marks on either axis. The TradFi score of 52 is held back less by the technology than by access, since most regulated exchanges have stopped supporting shielded deposits and withdrawals, so institutional buyers typically get exposure to the price without the privacy the asset was actually built to offer.",
   "tradfi": {
     "score": 52,
     "raw_score": 52.14,

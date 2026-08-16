@@ -5,6 +5,7 @@
   "cashtag": "$SUI",
   "scored_date": "2026-06",
   "last_updated": "2026-08-15",
+  "executive_summary": "Sui's mainnet launched in May 2023, a little over three years before this scoring, built around a design that lets many transactions process in parallel rather than one at a time. That design underpins a TradFi score of 73, carried by strong regulatory standing and real-world usage, with room to grow as transaction fee economics mature. The AI score of 71 sits well below the network's underlying strength, which actually scores an 86, because a May 2026 network halt triggered a reliability cool-down period that takes months of clean operation to fully recover from.",
   "tradfi": {
     "score": 73,
     "raw_score": 73.07,

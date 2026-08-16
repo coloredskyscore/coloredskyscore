@@ -5,6 +5,7 @@
   "cashtag": "$DOGE",
   "scored_date": "2026-07",
   "last_updated": "2026-08-15",
+  "executive_summary": "Dogecoin launched in 2013, originally as a joke built on an earlier proof-of-work design, and more than a decade later at the time of this scoring it functions as a payments and tipping culture asset with no company or foundation behind it. That structure cuts both ways: Regulatory & Risk scores 82, since there's no issuer to bring an enforcement action against, while Developer & Ecosystem scores just 20, since there's also no issuer funding ongoing development. Faster block times than its predecessor don't translate into faster real-world settlement either, since major exchanges still require 40-60 confirmations before crediting a deposit.",
   "tradfi": {
     "score": 41,
     "raw_score": 41.36,

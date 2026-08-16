@@ -5,6 +5,7 @@
   "cashtag": "$CC",
   "scored_date": "2026-05 (TradFi) / 2026-07 (AI)",
   "last_updated": "2026-08-15",
+  "executive_summary": "Canton Network's public network and Canton Coin went live in July 2024, not yet two years old at the time of this scoring, built specifically for institutional finance with transaction-level privacy built into the protocol rather than bolted on. Real-World Utility and Privacy & Confidentiality are its strongest categories, both scoring 88, reflecting $344 billion in represented asset value moving across the network. The TradFi score is held to 65, eleven points below its underlying 76, because the network hasn't yet secured the kind of formal U.S. regulatory recognition, such as a commodity classification, ETF, or futures listing, that would unlock the rest of that score, even though its AI score of 75 already reads as more agent-ready than institution-ready today.",
   "tradfi": {
     "score": 65,
     "raw_score": 76.0,

@@ -5,6 +5,7 @@
   "cashtag": "$BNB",
   "scored_date": "2026-07",
   "last_updated": "2026-08-15",
+  "executive_summary": "BNB Smart Chain launched in 2020, built for cheap, high-volume execution rather than maximum decentralization, and roughly six years later at the time of this scoring that tradeoff still shows: an On-Chain Health score of 86 built on roughly 4 million daily active users, against a Decentralization score of just 38. The TradFi score of 69 is also shaped by a 2022 security incident that's still working its way off the books through a multi-year clean track record. The AI score of 68 lands just one point below the TradFi score, the closest the two axes have come together for this chain, reflecting fast settlement and solid agent-identity tooling offset by weak on-chain privacy.",
   "tradfi": {
     "score": 69,
     "raw_score": 69.29,

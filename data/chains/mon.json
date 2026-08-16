@@ -5,6 +5,7 @@
   "cashtag": "$MON",
   "scored_date": "2026-07",
   "last_updated": "2026-08-15",
+  "executive_summary": "Monad's mainnet launched on November 24, 2025, under a year old at the time of this scoring, built specifically for high-throughput, parallelized transaction execution. That focus shows up in an Execution Layer score of 86 and an AI score of 72, fast and reliable enough to settle transactions in about 600 milliseconds. The TradFi score of 49 tells a different story: insiders hold roughly half the token supply behind a single cliff that unlocks about 1.4 times the current circulating supply in a single day on November 24, 2026, and that concentration is the single biggest drag on the score.",
   "tradfi": {
     "score": 49,
     "raw_score": 49.26,

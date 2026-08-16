@@ -5,6 +5,7 @@
   "cashtag": "$ETH",
   "scored_date": "2026-06",
   "last_updated": "2026-08-15",
+  "executive_summary": "Ethereum launched in 2015 as a general-purpose smart contract platform, and about a decade later at the time of this scoring it's carrying a privacy application ecosystem worth roughly $4.2 billion in cumulative volume on top of deep institutional and developer adoption, driving a TradFi score of 81. The AI score of 74 is held back mainly by settlement speed: transactions take roughly 13-15 minutes to become fully final, which is slow for an agent trying to act and confirm in real time. The 7-point gap between the two scores comes from that finality lag combined with a fee market that's hard to predict and thin privacy tooling at the base layer.",
   "tradfi": {
     "score": 81,
     "raw_score": 80.78,

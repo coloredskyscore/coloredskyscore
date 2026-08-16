@@ -5,6 +5,7 @@
   "cashtag": "$HYPE",
   "scored_date": "2026-07",
   "last_updated": "2026-08-15",
+  "executive_summary": "Hyperliquid's own blockchain and HYPE token launched in November 2024, not yet two years old at the time of this scoring, built as an on-chain exchange for trading perpetual futures rather than as general-purpose infrastructure. That focus shows in an On-Chain Health score of 88, built on roughly $493 billion in trading volume in a single quarter. The TradFi score of 60 sits right at its tier's floor, held down by a Privacy & Confidentiality score of just 15, since every account's open positions and exact liquidation price are published by default for anyone to see, and the AI score of 64, while stronger, shows the same young, single-purpose network is still thin everywhere outside its core product.",
   "tradfi": {
     "score": 60,
     "raw_score": 59.97,

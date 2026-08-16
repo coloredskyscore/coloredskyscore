@@ -5,6 +5,7 @@
   "cashtag": "$TRX",
   "scored_date": "2026-08",
   "last_updated": "2026-08-15",
+  "executive_summary": "TRON's mainnet has been running since 2018, originally built around content and payments, and eight years later at the time of this scoring it functions mainly as a settlement rail for stablecoins, moving roughly $2 trillion in USDT in a single quarter. That volume drives an On-Chain Health score of 88, its strongest category, while a TradFi score of 63 reflects regulatory and governance questions that haven't fully resolved. The AI score of 67 reflects a network with real but still-unproven agent infrastructure, including a shielded, privacy-preserving transfer option that technically works but that almost nobody appears to use.",
   "tradfi": {
     "score": 63,
     "raw_score": 63.35,
