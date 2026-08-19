@@ -4,7 +4,7 @@
   "name": "Bitcoin",
   "cashtag": "$BTC",
   "scored_date": "2026-05 (TradFi) / 2026-07 (AI)",
-  "last_updated": "2026-08-15",
+  "last_updated": "2026-08-19",
   "executive_summary": "Bitcoin launched in 2009 as peer-to-peer electronic cash, and seventeen years later at the time of this scoring, that track record shows up in a TradFi score of 80: a fixed 21 million coin supply, deep access through ETFs and regulated custody, and a history with zero protocol-level exploits. The AI score lands much lower at 54, because Bitcoin confirms transactions probabilistically rather than with an instant, guaranteed final settlement, and that's precisely the kind of certainty an autonomous agent needs before it can safely act on a payment. The 26-point gap between the two scores comes down to that one architectural choice: built for slow, battle-tested trust rather than machine-speed certainty.",
   "tradfi": {
     "score": 80,
@@ -73,6 +73,7 @@
   "divergence": 26,
   "watch_items": [
     "CTV (BIP 119) and OP_CAT (BIP 347) signaling windows are open but not yet activated -- would raise the Programmability Tier ceiling if adopted.",
+    "As of Aug 19, 2026: BIP-360 (quantum-resistant address format) and BIP-361 (legacy signature sunset proposal) both assigned Feb 2026, BIP-360 merged into Bitcoin's BIP repository same month. Both remain draft/testnet-only -- no mainnet activation. Expert timeline estimates for a quantum computer capable of breaking Bitcoin's signature scheme shifted earlier in 2026 research, though no consensus estimate exists.",
     "No credible near-term path to a Deterministic Finality Pass -- the FAIL cap is architectural, not a maturity gap.",
     "Two open framework items bear directly on this chain: a pending Decentralization scale recalibration (currently 52) and an unadopted Tokenomics revision (95 toward 97-98). They push in opposite directions and should be computed together."
   ]
