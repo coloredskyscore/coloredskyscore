@@ -2,8 +2,8 @@
   "_schema_notes": "Loaded on every page visit. Keep this file NUMBERS AND SHORT STRINGS ONLY -- no reasoning prose, no long findings lists. That content lives in /data/chains/<slug>.json and is fetched only when a chain's panel is opened. detail_url uses the stable slug, not the ticker -- tickers can change (rebrands, symbol reuse) but the slug and its file never do.",
   "meta": {
     "site": "coloredskyscore.com",
-    "last_updated": "2026-08-15",
-    "chains_scored": 14,
+    "last_updated": "2026-08-20",
+    "chains_scored": 15,
     "tradfi_framework_version": "v2.0",
     "ai_framework_version": "v1.1"
   },
@@ -396,6 +396,22 @@
       "divergence": 10,
       "scored_date": "2026-08",
       "last_updated": "2026-08-15"
+    },
+    {
+      "slug": "xlm",
+      "ticker": "XLM",
+      "name": "Stellar",
+      "cashtag": "$XLM",
+      "detail_url": "data/chains/xlm.json",
+      "tradfi_score": 65,
+      "tradfi_tier": "EI",
+      "tradfi_capped": true,
+      "ai_score": 65,
+      "ai_tier": "EX",
+      "ai_capped": false,
+      "divergence": 0,
+      "scored_date": "2026-08",
+      "last_updated": "2026-08-20"
     }
   ]
 }

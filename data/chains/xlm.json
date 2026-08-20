@@ -1,0 +1,88 @@
+{
+  "slug": "xlm",
+  "ticker": "XLM",
+  "name": "Stellar",
+  "cashtag": "$XLM",
+  "scored_date": "2026-08",
+  "last_updated": "2026-08-20",
+  "executive_summary": "Stellar has run for eleven years as a payments network and, since 2024, has carried a modern Rust/WASM smart contract layer alongside it. Its fundamentals score 69.56 before gates, but the published TradFi score is held to 65 because Regulatory Clarity sits at Partial: XLM is named as a digital commodity in the March 2026 SEC-CFTC joint interpretive release and has CME futures listed and trading, yet no live dedicated spot vehicle exists. The institutions that would use one are already building on the network, with Franklin Templeton running a validator and using Stellar as primary tokenization infrastructure and DTCC targeting H1 2027 for DTC-custodied assets. On the agent axis the score is uncapped and lands at 65 on its own merits, with near-zero fees, no public mempool and protocol-native delegation primitives on one side, and five-second finality, no confidentiality in production and an agent stack with no measurable users on the other.",
+  "tradfi": {
+    "score": 65,
+    "raw_score": 69.56,
+    "tier_code": "EI",
+    "gate_capped": true,
+    "binding_cap": {
+      "gate": "regulatory_clarity",
+      "cap_value": 65,
+      "short_note": "Capped by Regulatory Clarity Partial -- named in the March 2026 SEC-CFTC digital commodities release and CME futures are live, but no dedicated spot vehicle exists.",
+      "as_of": "2026-08"
+    },
+    "gates": {
+      "quantum_resistance": "partial",
+      "regulatory_clarity": "partial",
+      "security_posture": "partial"
+    },
+    "categories": {
+      "on_chain_health": 70,
+      "tradfi_approved": 76,
+      "real_world_utility": 82,
+      "tokenomics_supply": 66,
+      "developer_ecosystem": 67,
+      "regulatory_risk": 84,
+      "privacy_confidentiality": 38,
+      "decentralization": 42,
+      "security_future_proofing": 74
+    },
+    "categories_verified": true,
+    "key_findings": [
+      "All three TradFi gates sit at Partial, and only Regulatory Clarity binds -- a 4.56-point cut from raw 69.56 to a published 65.",
+      "Regulatory & Risk (84) reflects zero enforcement history: never sued, never investigated, with two SEC no-action letters in the orbit and a US non-profit steward that publishes its own books.",
+      "Real-World Utility (82) covers two live businesses -- a Q1 2026 record of $5.5B in payment volume, and tokenized real-world assets that roughly doubled quarter over quarter to about $3B. Scored down for issuer concentration: roughly 19,000 holders across about 70 assets is accredited distribution, not retail reach.",
+      "Tokenomics & Supply (66) prices a hard cap, zero inflation since 2019 and live categorized supply accounting against a fully discretionary foundation treasury of roughly 15.17B XLM with no published release schedule, and near-nil value accrual -- fees go to a permanently locked pool rather than to validators or holders.",
+      "Decentralization (42) reflects a validator set that has twice acted on ledger outcomes: overlay-layer containment of corrupted state in October 2025, and a quarantine of roughly 48M XLM in a third party's accounts in February 2026. That capability is now protocol-native via CAP-77 at a validator-quorum threshold.",
+      "Privacy & Confidentiality (38) credits ZK primitives shipped as native host functions. Confidential Tokens remain a testnet developer preview with audits incomplete and earn no credit."
+    ]
+  },
+  "ai": {
+    "score": 65,
+    "raw_score": 64.58,
+    "tier_code": "EX",
+    "gate_capped": false,
+    "binding_cap": null,
+    "gates": {
+      "deterministic_finality": "partial",
+      "programmability_tier": "pass",
+      "operational_reliability": "pass"
+    },
+    "categories": {
+      "execution_layer": 70,
+      "composability_atomicity": 72,
+      "security_posture": 60,
+      "state_api_quality": 60,
+      "privacy_confidentiality": 40,
+      "economic_predictability": 78,
+      "agent_tooling": 63,
+      "standards_interoperability": 70,
+      "kya": 58
+    },
+    "categories_verified": true,
+    "key_findings": [
+      "Operational Reliability passes on a record with no mainnet halt in over seven years. Contemporaneous reporting of a ten-hour outage in April 2021 describes an event that did not happen to the network -- SDF's own validators and public API went down while the rest of the network kept closing ledgers.",
+      "Deterministic Finality sits at Partial and cannot reach Pass within the current design. The ledger close target is 5000 ms, observed closes average 5.5-5.6 seconds, and the configurable floor introduced in Protocol 23 is 4000 ms. The 75 cap sits ten points clear of the raw and does not bind.",
+      "Economic Predictability (78) is the strongest category: no public mempool, ties at equal fee broken randomly, a uniform clearing price during surge pricing, and validators who earn no fees, no staking rewards and no MEV. Scored down for censorship exposure, since a validator quorum can freeze accounts and has done so.",
+      "Composability & Atomicity (72) splits. Classic transactions carry up to 100 operations with strict all-or-nothing semantics and need no orchestration contract, but a Soroban transaction carries exactly one operation and cannot be mixed with classic operations. Cross-boundary atomicity requires routing through a contract using the Stellar Asset Contract.",
+      "Agent Tooling (63) covers a genuinely complete first-party stack -- an MCP server, an official agent skill directory, an x402 facilitator and a machine-payments SDK with payment channels. None of it has published call volume, install counts, or named production integrations, and no source publishes a count of x402 settlements on Stellar.",
+      "KYA (58) pairs strong scoped-delegation primitives -- policy signers enforcing spend limits, allow lists and time windows, plus CAP-71 and CAP-72 delegation -- with no agent identity registry, no agent-to-principal binding standard, and no credentialing layer."
+    ]
+  },
+  "divergence": 0,
+  "watch_items": [
+    "A live dedicated spot vehicle is the single highest-impact pending event for this chain. It flips Regulatory Clarity and releases 4.56 points to the published TradFi score. Grayscale's GXLM S-1 seeking an exchange listing path is the nearest filed instrument; a futures ETF and a roughly 3% position inside an actively managed multi-asset ETF do not meet the access standard.",
+    "Confidential Tokens have been a testnet developer preview since late June 2026, with audits underway and no completion announced. Mainnet activation is a privacy re-credit candidate on both axes.",
+    "Post-quantum Stage 1 exists as draft CAP-0087 with no protocol version assigned. Activation would place post-quantum verification on the authentication limb but scoped to opt-in contract accounts, leaving classic accounts on Ed25519.",
+    "Protocol 28 (Adapter) goes to a mainnet validator vote on September 16, 2026 carrying CAP-83, CAP-85 and CAP-86, plus close-time variance work that requires NTP-synchronized validator clocks. It reduces jitter and does not reach sub-second finality.",
+    "Tier 1 validator organizations were announced as expanding from seven to ten on July 16, 2026, with full quorum integration stated as expected by mid-August and not confirmed complete. Re-check before citing a validator count.",
+    "All production consensus runs stellar-core, and the February 2026 RPC incident showed the same monoculture pattern on the read path -- a single shared implementation defect took multiple independent providers down together. A second production client on either layer would be a re-credit candidate.",
+    "The most recent published core audit covers v25.0.0 while mainnet runs v27. A published audit at the current version would close the caveat carried in the Security Posture gate record."
+  ]
+}
