@@ -35,10 +35,10 @@
     },
     "categories_verified": true,
     "key_findings": [
-      "All three TradFi gates sit at Partial.",
-      "An 11-point gate-driven reduction from raw 76.00 to published 65 -- the Regulatory Clarity cap is doing real work here.",
-      "Real-World Utility (88) reflects $344.83B in represented asset value via RWA.xyz, CC's strongest category alongside privacy.",
-      "Privacy & Confidentiality (88) -- sub-transaction privacy is a protocol-level property, with each participant seeing only the parts of a transaction they are party to. Required disclosure: this protects Daml application transactions; Canton Coin balances and transaction history are themselves publicly visible via the network's scan service."
+      "Canton landed in the middle ground -- 'Partial,' not a full pass -- on all three of our baseline checks: quantum-computer readiness, regulatory footing, and security track record.",
+      "Canton is the one chain on our board where a baseline check actually holds the score down in a big way. Based purely on its category-by-category performance, Canton would score 76 -- but because its regulatory footing in the US is still only a partial pass (no formal commodity classification, no ETF, no CME futures), the published score is capped at 65, an 11-point reduction. This is the clearest case where clearing our baseline checks would meaningfully raise the number.",
+      "Real-World Utility ties for Canton's strongest category at 88, backed by roughly $344.8 billion in real-world asset value represented on the network according to RWA.xyz -- substantial genuine institutional usage, not speculative volume.",
+      "Privacy & Confidentiality ties for Canton's strongest category at 88. Privacy here is built into the protocol itself: each participant in a transaction only sees the parts of it that involve them directly, not the whole transaction. One important disclosure: this protects the details of application-level (Daml) transactions specifically -- Canton Coin's own balances and transaction history are publicly visible through the network's scan service, so the coin itself is not shielded."
     ]
   },
   "ai": {
@@ -70,14 +70,14 @@
     },
     "categories_verified": true,
     "key_findings": [
-      "AI score (75) sits above TradFi score (65), a negative divergence.",
-      "Privacy & Confidentiality (95) is CC's strongest AI category by a wide margin.",
-      "Same chain, two different binding gates on two axes -- Regulatory Clarity on TradFi, Deterministic Finality on AI."
+      "Canton's AI score of 75 is actually higher than its TradFi score of 65 -- unusual, since institutional and agent readiness often move together. The gap comes down to what's holding each score back: TradFi is limited by US regulatory status, which doesn't affect the AI framework in the same way.",
+      "Privacy & Confidentiality is Canton's strongest category on the AI framework at 95, well ahead of any of its other eight categories -- protocol-level, need-to-know transaction visibility is exactly the kind of confidentiality an agent handling sensitive business logic would want.",
+      "Canton is held back by two different baseline checks depending on which framework you look at: US regulatory status limits the TradFi score, while a partial pass on transaction finality (how quickly and certainly a transaction becomes irreversible) limits the AI score instead."
     ]
   },
   "divergence": -10,
   "watch_items": [
-    "Zenith (EVM/SVM execution layer) was testnet-only at AI scoring -- mainnet would be a reality-changed re-credit candidate for Agent Tooling, Standards & Interoperability, and Execution Layer.",
-    "A US commodity classification, ETF, or CME futures listing would lift the TradFi Regulatory Clarity cap. The cap is currently cutting 11 points, so this is the single highest-impact pending event for this chain's TradFi score."
+    "Zenith, a new execution layer Canton is building that would let it run Ethereum- and Solana-style smart contracts, was still testnet-only when this scoring was done. If it reaches mainnet, it would likely raise Canton's AI scores in the categories covering agent tooling, cross-chain standards, and execution performance.",
+    "A formal US commodity classification, a spot ETF, or a CME futures listing would raise Canton's regulatory standing from a partial pass toward a full one. Since that's currently the single factor holding the TradFi score 11 points below what its categories alone would earn, this is the highest-impact event pending for Canton's published score."
   ]
 }
