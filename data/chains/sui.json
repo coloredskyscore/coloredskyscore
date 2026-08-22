@@ -30,10 +30,10 @@
     },
     "categories_verified": true,
     "key_findings": [
-      "Regulatory & Risk scores 84 -- no litigation exposure and a fast institutional-access build-out.",
-      "On-Chain Health (68) is the primary drag on the overall score -- fee economics remain the weak point.",
-      "Privacy & Confidentiality (68) -- Seal, Nautilus, and Seal MPC are all live on mainnet. Confidential transfers remain devnet-only and earn no credit under score-reality-not-aspirations.",
-      "A 73 today with a credible path higher if fees scale and post-quantum cryptography ships."
+      "Regulatory & Risk is a strength at 84. Sui has no history of regulatory litigation, and institutional access -- things like regulated custody and trading venues -- has been built out unusually quickly for a chain this young.",
+      "On-Chain Health is the main thing holding Sui's overall score back, at 68. The core issue is fee economics: the network isn't yet generating the level of paid transaction activity that would signal deep, sticky usage.",
+      "Privacy & Confidentiality scores 68. Two live mainnet tools do real work here: Seal, which lets developers encrypt data and set on-chain rules for who can decrypt it and when, and Nautilus, which runs sensitive computations inside a secure, tamper-resistant hardware environment and verifies the results on-chain. Important disclosure: both of these protect data and application logic -- neither one shields the SUI token itself or hides a transaction's value. A separate feature that would let SUI transaction amounts be hidden (confidential transfers) still only exists in testing and isn't live on mainnet, so it earns no credit here.",
+      "Sui's 73 today has a credible path upward: if paid transaction activity grows and its post-quantum cryptography protections ship to mainnet, the score would have real room to rise."
     ]
   },
   "ai": {
@@ -65,16 +65,16 @@
     },
     "categories_verified": true,
     "key_findings": [
-      "Raw AI score of 86 reflects elite fundamentals across the board -- execution, composability, and privacy all score in the high 80s/90s.",
-      "Published score of 71 is held down entirely by the reliability cap, not by weak fundamentals -- without the outage history this would be an 86.",
-      "Crossed from Experimental into Integration Ready on the July 1, 2026 cool-down tick."
+      "Based purely on its category-by-category performance, Sui's AI score would be 86 -- genuinely excellent fundamentals, with execution speed, the ability to bundle multiple actions into one transaction, and privacy tooling all scoring in the high 80s to 90s.",
+      "The published score of 71 is held down entirely by a reliability penalty tied to a past network outage, not by any weakness in the underlying technology -- without that outage in its recent history, this would be an 86.",
+      "Sui's AI score moved up from the 'Experimental' tier into 'Integration Ready' on July 1, 2026, as part of a scheduled recovery: the reliability penalty from the earlier outage eases by a fixed amount for every clean month that passes without another incident."
     ]
   },
   "divergence": 2,
   "watch_items": [
-    "Quantum-safe vault mainnet shipping (later 2026) triggers a Quantum Resistance gate re-check.",
-    "Native ML-DSA-65 account authentication targeted Q1 2027 -- pass trigger for Quantum Resistance.",
-    "Cool-down timer continues ticking +1 per clean month; a Production Grade AI score becomes possible around April-May 2027 if clean months continue.",
-    "Confidential transfers moving from devnet to mainnet would be a reality-changed re-credit for Privacy & Confidentiality."
+    "Sui is planning to ship a quantum-safe wallet feature to mainnet later in 2026. Once it does, it will trigger a re-check of the quantum-computer readiness check.",
+    "A native quantum-resistant signature standard (ML-DSA-65) for account authentication is targeted for Q1 2027. If it ships, it would be the trigger for a full pass on quantum-computer readiness.",
+    "The reliability penalty from the May 2026 outage continues easing by a fixed amount for every additional clean month without another incident. If that streak continues uninterrupted, Sui's AI score could reach our top tier around April-May 2027.",
+    "If Sui's confidential-transfer feature, which would let transaction amounts be hidden, moves from testing to a live mainnet launch, it would raise the Privacy & Confidentiality score."
   ]
 }
