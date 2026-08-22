@@ -30,10 +30,10 @@
     },
     "categories_verified": true,
     "key_findings": [
-      "TradFi Approved (97) is BTC's strongest category -- deep, mature institutional access via ETFs, custody, and regulated venues.",
-      "Tokenomics & Supply (95) -- fixed 21M cap, predictable halving schedule, minor deduction for unmoved Satoshi-era coins.",
-      "Privacy & Confidentiality (36) -- a fully transparent UTXO ledger with no protocol-level confidentiality, and CoinJoin tooling that has thinned since major coordinators shut down. Address non-disclosure by large holders is a policy choice rather than a network property, and has been defeated in practice by chain analysis.",
-      "Raw 80.44 rounds to 80, landing exactly on the Institutional Grade floor. Roughly one point of movement in any weighted category would change the tier."
+      "TradFi Approved is Bitcoin's strongest category at 97, the highest score in this category across our whole scoring history. Regulated ETFs, professional custody services, and licensed trading venues all exist at scale, giving institutions about as much clean, direct access to Bitcoin as any asset in traditional finance.",
+      "Tokenomics & Supply scores 95, near the top of the scale. Bitcoin's 21 million coin cap is fixed and its issuance schedule, which cuts new supply in half on a predictable timer, is transparent and unchangeable. The score isn't a perfect 100 because a large amount of Bitcoin mined in the network's earliest days, believed to belong to its pseudonymous creator, has never moved -- a small but real concentration and supply-uncertainty factor.",
+      "Privacy & Confidentiality is a clear weak point at 36. Every Bitcoin transaction is permanently visible on a fully public ledger, with no built-in way to hide amounts or participants. Third-party mixing tools that once let users blend their coins with others' for extra privacy have thinned out significantly since several of the services that ran them shut down. Simply not disclosing which address belongs to you offers some privacy, but it's a personal habit, not a network protection, and specialized chain-analysis firms have repeatedly de-anonymized addresses in practice.",
+      "Bitcoin's TradFi score of 80 sits right at the boundary of our top tier -- a razor-thin margin. A small shift in almost any single category, in either direction, could be enough to move Bitcoin into or out of that top band at the next review."
     ]
   },
   "ai": {
@@ -65,16 +65,16 @@
     },
     "categories_verified": true,
     "key_findings": [
-      "A wide divergence between the two axes, reflecting a structural mismatch between deep institutional trust and probabilistic-only settlement architecture.",
-      "The Deterministic Finality FAIL cap is calibrated at 54, one point below the Experimental threshold.",
-      "Security Posture (88) is BTC's strongest AI category -- 15+ years, zero protocol-level exploits."
+      "Bitcoin's AI score sits 26 points below its TradFi score, the widest gap between the two frameworks for this chain. The reason is structural: institutions trust Bitcoin deeply, but that trust was built on nearly two decades of slow, battle-tested settlement, not on the fast, mathematically guaranteed finality an autonomous agent needs before it can safely treat a payment as done.",
+      "Bitcoin fails our check for fast, guaranteed transaction finality outright, because it only ever confirms transactions probabilistically -- there's no point at which the network formally guarantees a transaction can never be reversed, only that reversal becomes increasingly unlikely over time. That failure caps Bitcoin's AI score at 54, just one point below the next tier up.",
+      "Security Posture is Bitcoin's strongest category on the AI framework at 88. Over more than 15 years of continuous operation, the core protocol has never suffered a successful exploit -- the longest clean track record of any chain we score."
     ]
   },
   "divergence": 26,
   "watch_items": [
-    "CTV (BIP 119) and OP_CAT (BIP 347) signaling windows are open but not yet activated -- would raise the Programmability Tier ceiling if adopted.",
-    "As of Aug 19, 2026: BIP-360 (quantum-resistant address format) and BIP-361 (legacy signature sunset proposal) both assigned Feb 2026, BIP-360 merged into Bitcoin's BIP repository same month. Both remain draft/testnet-only -- no mainnet activation. Expert timeline estimates for a quantum computer capable of breaking Bitcoin's signature scheme shifted earlier in 2026 research, though no consensus estimate exists.",
-    "No credible near-term path to a Deterministic Finality Pass -- the FAIL cap is architectural, not a maturity gap.",
-    "Two open framework items bear directly on this chain: a pending Decentralization scale recalibration (currently 52) and an unadopted Tokenomics revision (95 toward 97-98). They push in opposite directions and should be computed together."
+    "Two proposed upgrades (known as CTV and OP_CAT) that would expand what Bitcoin's scripting language can do are open for network signaling but haven't been activated yet. If adopted, they'd raise the ceiling on how programmable Bitcoin can be scored.",
+    "Two proposals addressing Bitcoin's quantum-computer vulnerability -- a new quantum-resistant address format, and a plan to eventually retire older, more vulnerable address types -- are formally documented as of February 2026 but remain in draft and testnet only, with no live mainnet activation yet. Separately, expert estimates of when a quantum computer capable of breaking Bitcoin's current signature scheme might exist have shifted earlier during 2026 research, though there's still no single agreed-upon timeline.",
+    "There's no credible near-term path for Bitcoin to pass our fast-finality check. This isn't a maturity issue that more development time would fix -- it's a fundamental result of how Bitcoin's proof-of-work settlement is designed.",
+    "Two items are still under review that could adjust Bitcoin's TradFi score in a future update: a possible recalibration of how the Decentralization category is measured (currently scoring Bitcoin at 52), and a possible upward revision to the Tokenomics & Supply score (currently 95, potentially closer to 97-98). These two would move in opposite directions, so they'll be evaluated together rather than one at a time."
   ]
 }
