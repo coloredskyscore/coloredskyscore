@@ -30,10 +30,10 @@
     },
     "categories_verified": true,
     "key_findings": [
-      "The Quantum Resistance FAIL cap (79) sits well above the raw 59.97 and never touches the score -- this result is set by category fundamentals, not by any gate.",
-      "On-Chain Health (88) is HYPE's strongest category by a wide margin -- roughly $493B Q1 2026 volume and a majority share of global on-chain derivatives open interest.",
-      "Privacy & Confidentiality (15) sits in the sub-floor band. Any account's positions, leverage, and exact liquidation price are published by default through an unauthenticated API, which is financially exploitable per-account state rather than ordinary ledger transparency.",
-      "Raw 59.97 rounds to 60, landing on the Emerging Institutional floor with a 0.47-point margin. Roughly one point of movement in any weighted category flips the band, and the category scores were set before the boundary was known."
+      "Hyperliquid fails our quantum-computer readiness check outright, but that failure isn't what's setting the score -- even that check's strict ceiling sits well above where Hyperliquid actually landed. The 60 reflects genuine category-by-category performance, not a gate penalty.",
+      "On-Chain Health is Hyperliquid's standout category at 88, well ahead of any of its other eight categories. The platform processed roughly $493 billion in trading volume in the first quarter of 2026 alone and holds the majority share of all on-chain derivatives trading activity globally.",
+      "Privacy & Confidentiality is Hyperliquid's weakest category by a wide margin at 15. Any account's open positions, leverage, and exact liquidation price are published by default and can be looked up by anyone through a public data feed -- this isn't just an ordinarily transparent ledger, it's specific financial information that could be used against a trader in real time by exposing exactly when they'd be forced to liquidate.",
+      "Hyperliquid's TradFi score of 60 sits just 0.47 points above the floor of its current tier -- an extremely narrow margin. A shift of roughly one point in almost any single category, in either direction, would be enough to move it into the tier below. Worth noting: the underlying category scores were finalized before this margin was known, so nothing was adjusted to land on either side of the line."
     ]
   },
   "ai": {
@@ -60,15 +60,15 @@
     },
     "categories_verified": true,
     "key_findings": [
-      "Clears all three AI foundation gates PASS/PASS/PASS yet still lands in Experimental -- a clear demonstration of gates being a floor, not a guarantee.",
-      "Privacy & Confidentiality (18) is HYPE's weakest AI category by a wide margin -- every position and order is publicly watchable in real time.",
-      "Agent Tooling (75) and KYA (58) are HYPE's clearest AI strengths -- on-chain human-binding approval and trade-only permissions used by an estimated 20-30% pure-AI-agent volume share."
+      "Hyperliquid passes all three of our baseline AI checks outright -- finality, programmability, and reliability all get a full pass. But a full pass on every baseline check doesn't guarantee a strong score: Hyperliquid still lands in the middle 'Experimental' tier, because clearing the baseline only means nothing disqualifying is present, not that the categories underneath score well.",
+      "Privacy & Confidentiality is Hyperliquid's weakest category on the AI framework at 18, well behind any of its other eight categories -- every position and order on the platform is publicly watchable in real time, giving an agent using it no way to keep its trading activity private.",
+      "Agent Tooling (75) and Agent Identity & Compliance (58) are Hyperliquid's clearest strengths on the AI framework. The platform supports on-chain approval flows that require a human to authorize an agent before it can act, plus permissions that let an agent trade without ever being able to withdraw funds -- real safety rails, not just theoretical ones. An estimated 20-30% of trading volume is already attributed to pure AI-agent activity."
     ]
   },
   "divergence": -4,
   "watch_items": [
-    "Both axes independently converge on 'strong single-vertical engine, structurally immature everywhere else,' rather than on offsetting strengths.",
-    "Quantum Resistance sits at Fail on the basis of silence rather than a stated position -- re-check at every reassessment regardless of trigger.",
-    "The published TradFi score is 0.47 points above a tier boundary. Any category revision should state its tier consequence explicitly."
+    "Hyperliquid's TradFi and AI scores tell a consistent story rather than diverging ones: both frameworks independently find the same pattern -- a genuinely strong, focused trading engine surrounded by categories that are still immature, rather than one framework finding a strength the other misses.",
+    "Hyperliquid fails our quantum-computer readiness check by default, because the team hasn't publicly stated a position on quantum resistance one way or another -- not because they've said it won't be addressed. This should be re-checked every time the chain is rescored, regardless of what else prompts the review.",
+    "Hyperliquid's published TradFi score sits just 0.47 points above the line separating its current tier from the one below. Any future revision to an individual category score should spell out clearly whether it would push the chain across that line."
   ]
 }
