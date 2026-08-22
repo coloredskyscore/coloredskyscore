@@ -5,7 +5,7 @@
   "cashtag": "$BNB",
   "scored_date": "2026-07",
   "last_updated": "2026-08-15",
-  "executive_summary": "BNB Smart Chain launched in 2020, built for cheap, high-volume execution rather than maximum decentralization, and roughly six years later at the time of this scoring that tradeoff still shows: an On-Chain Health score of 86 built on roughly 4 million daily active users, against a Decentralization score of just 38. The TradFi score of 69 is also shaped by a 2022 security incident that's still working its way off the books through a multi-year clean track record. The AI score of 68 lands just one point below the TradFi score, the closest the two axes have come together for this chain, reflecting fast settlement and solid agent-identity tooling offset by weak on-chain privacy.",
+  "executive_summary": "BNB Smart Chain launched in 2020, built for cheap, high-volume smart-contract execution rather than maximum decentralization, and roughly six years later at the time of this scoring that tradeoff still shows: an On-Chain Health score of 86 built on roughly 4 million daily active users, against a Decentralization score of just 38. The TradFi score of 69 is also shaped by a 2022 security incident that's still working its way off the books through a multi-year clean track record. The AI score of 68 lands just one point below the TradFi score, the closest the two axes have come together for this chain, reflecting fast settlement and solid agent-identity tooling offset by weak on-chain privacy.",
   "tradfi": {
     "score": 69,
     "raw_score": 69.29,
@@ -30,10 +30,10 @@
     },
     "categories_verified": true,
     "key_findings": [
-      "Security Posture sits at Partial through the remediation clock applied to the 2022 Token Hub exploit -- 3.5 clean years plus the Fusion structural remediation aged it up from a would-be Fail.",
-      "The Security Posture cap (70) no longer binds: raw 69.29 falls below it, so the published score is the raw. A future gate upgrade now changes the gate row rather than the score.",
-      "On-Chain Health (86) is elite-broad -- ~4M+ daily active users, 31M peak daily transactions, though measured partly under an active gas-subsidy campaign.",
-      "Privacy & Confidentiality (46) -- no protocol-level confidentiality, but a functioning application-layer privacy ecosystem on a full-EVM chain, with no shielding available for BNB itself."
+      "BNB's Security Posture check lands as a partial pass rather than an outright fail because of how much time and remediation has passed since a 2022 exploit of the Token Hub bridge. Roughly 3.5 years of clean operation since, plus a structural fix (called Fusion) that closed the underlying weakness, moved this from what would otherwise be a failing grade to a partial one.",
+      "This security check used to actually limit BNB's published score, but it no longer does -- BNB's overall score has fallen low enough on its own merits that the security check's ceiling isn't what's holding it back anymore. If the security track record improves in the future, it would change how the chain is described here, but wouldn't by itself raise the published score.",
+      "On-Chain Health is BNB's standout category at 86, driven by real breadth of usage: over 4 million daily active users and a peak of 31 million transactions in a single day. Worth noting: some of this activity was measured while the network was running a promotional gas-fee subsidy, so a portion of the usage may be less sticky once that campaign ends (see watch items).",
+      "Privacy & Confidentiality is a middling 46. BNB Chain itself has no built-in way to hide a transaction or shield the BNB token, but because the chain supports the same smart-contract standard as Ethereum, third-party privacy applications can and do run on top of it -- so some privacy tooling exists, just not for the native asset."
     ]
   },
   "ai": {
@@ -60,15 +60,15 @@
     },
     "categories_verified": true,
     "key_findings": [
-      "Fast full-EVM execution profile -- 0.45s blocks, ~0.65s average deterministic finality, 5,200 TPS benchmark throughput.",
-      "KYA (63) carries strong agent-identity registration depth -- ERC-8004 registries live since Feb 2026 with ~89k registered agents, plus the native BAP-578 standard.",
-      "Deterministic Finality Partial cap (75) does not bind -- BNB retains a probabilistic fallback path that holds the gate at Partial despite fast normal-mode speed."
+      "Execution speed is a real strength: BNB Chain produces a new block roughly every 0.45 seconds and typically finalizes a transaction as irreversible in about 0.65 seconds, with a benchmarked throughput of roughly 5,200 transactions per second. It runs the same smart-contract environment as Ethereum, so most Ethereum-built agent tools and software work here without modification.",
+      "Agent Identity & Compliance scores a solid 63, driven by real infrastructure for identifying and registering autonomous agents: an industry-standard registry (ERC-8004) has been live since February 2026 with roughly 89,000 agents already registered, alongside BNB Chain's own native identity standard.",
+      "Despite how fast BNB Chain settles transactions under normal conditions, it doesn't earn a full pass on our check for guaranteed, irreversible finality, because there's still a fallback path where settlement can behave probabilistically rather than being absolutely guaranteed. That check landed as a partial pass rather than a full one, though it isn't currently what's limiting BNB's AI score -- the category-by-category picture already sits below that check's ceiling."
     ]
   },
   "divergence": 1,
   "watch_items": [
-    "Watch for a tier-1 audit commission of the modern, heavily-diverged bsc client -- would close the sole gap holding the Security Posture gate at Partial. Note the cap no longer binds, so this is now a gate-row change rather than a score change.",
-    "0-Fee Stablecoin Carnival subsidy is still running -- re-assess On-Chain Health once it lapses.",
-    "BNB's announced agent-purpose L1 (late-2026 testnet target) would be a new chain to score, not a BNB re-credit, when it ships."
+    "BNB Chain's current client software has diverged significantly from its original codebase and hasn't yet had a top-tier independent security audit -- commissioning one would close the last gap holding the security check at a partial pass rather than a full one. That wouldn't move the published score directly, since the security check isn't currently the limiting factor, but it would strengthen the underlying security picture.",
+    "BNB Chain is currently running a promotional program (the '0-Fee Stablecoin Carnival') that waives fees on stablecoin transactions, which may be inflating current usage numbers. On-Chain Health is worth re-checking once that promotion ends to see how much activity is organic.",
+    "BNB has announced a separate blockchain purpose-built for AI agents, targeting a testnet launch in late 2026. When and if it ships, it would be evaluated as its own chain rather than folded into BNB Chain's existing score."
   ]
 }
