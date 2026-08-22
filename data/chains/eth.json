@@ -30,10 +30,10 @@
     },
     "categories_verified": true,
     "key_findings": [
-      "Scored as L1 only, PoS era only -- all L2 rollup activity excluded from every metric.",
-      "Developer & Ecosystem (90), TradFi Approved (90), and Regulatory & Risk (90) are ETH's strongest categories -- deep institutional and builder penetration.",
-      "Privacy & Confidentiality (48) reflects a substantial privacy application ecosystem, roughly $4.2B cumulative through Railgun, zkBOB, and Tornado Cash, running on a base layer with no protocol-level confidentiality of its own. Aztec is excluded as a separate-security execution environment.",
-      "Quantum Resistance Partial cap (88) sits above the raw 80.78 and does not bind."
+      "This score covers Ethereum's base layer only, under its current proof-of-stake design -- activity happening on Layer 2 scaling networks that settle back to Ethereum isn't counted in any of these numbers.",
+      "Ethereum's three strongest categories -- Developer & Ecosystem, TradFi Approved, and Regulatory & Risk -- all score 90, reflecting genuinely deep penetration on both sides: a large, active base of developers building on the network, and substantial institutional access and regulatory comfort around the asset.",
+      "Privacy & Confidentiality lands at a middling 48. Ethereum's base layer has no built-in way to hide a transaction, but a substantial ecosystem of third-party privacy applications has grown on top of it -- roughly $4.2 billion in cumulative volume through tools like Railgun, zkBOB, and Tornado Cash. One related project, Aztec, isn't counted here because it runs its own separate security setup rather than relying on Ethereum's.",
+      "Ethereum only partially passes our quantum-computer readiness check, but that check isn't what's holding the score back -- even the strictest ceiling it would impose sits well above where Ethereum actually landed on its category-by-category merits."
     ]
   },
   "ai": {
@@ -60,15 +60,15 @@
     },
     "categories_verified": true,
     "key_findings": [
-      "Raw 74.01 sits one point below the 75 Deterministic Finality Partial cap, so the cap does not bind.",
-      "Execution Layer (62) is dragged mainly by ~13-15 minute hard finality, a significant structural drag on settlement-dependent agent use cases.",
-      "KYA (83) is ETH's strongest AI category, driven by ERC-8004 being ETH's native, chain-agnostic identity standard.",
-      "The divergence between the two axes is broad-based, arising from three distinct structural weaknesses (slow finality, adversarial MEV/fee environment, weak L1 privacy) rather than one dominant gate wall."
+      "Ethereum's transaction-finality speed only earns a partial pass on our AI check, but that check isn't what's setting the score -- Ethereum's category-by-category performance landed just below that check's ceiling on its own.",
+      "Execution Layer is a relative weak point at 62, driven mainly by how long it takes for a transaction to become fully and irreversibly final -- roughly 13 to 15 minutes. That's a real constraint for any agent use case where it needs certainty that a payment has settled before it can safely act on it.",
+      "Agent Identity & Compliance is Ethereum's strongest category on the AI framework at 83, driven by ERC-8004, an agent-identity standard that originated on Ethereum and has since become widely used across other chains as well.",
+      "The 7-point gap between Ethereum's TradFi and AI scores doesn't come from one single weak spot -- it's the combined effect of three separate structural issues: slow final settlement, a fee market where costs can spike unpredictably due to competition for block space, and thin privacy at the base-layer level."
     ]
   },
   "divergence": 7,
   "watch_items": [
-    "Post-Dencun burn collapse may warrant a Tokenomics revision from 80 toward 76-78 in a future re-assessment.",
-    "Fusaka/Glamsterdam roadmap items (single-slot finality, Verkle trees, PeerDAS) could materially shift Execution Layer if shipped."
+    "An upgrade called Dencun significantly reduced the rate at which transaction fees are permanently removed from circulation ('burned'), which changes Ethereum's supply dynamics. This may justify revising the Tokenomics & Supply score down from 80 toward the 76-78 range at a future reassessment.",
+    "Two upcoming upgrades on Ethereum's roadmap, known as Fusaka and Glamsterdam, include changes aimed at making transactions final in a single step rather than over many minutes, along with other performance and storage improvements. If they ship as planned, they could meaningfully raise the Execution Layer score."
   ]
 }
