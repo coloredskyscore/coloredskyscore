@@ -30,11 +30,11 @@
     },
     "categories_verified": true,
     "key_findings": [
-      "Quantum Resistance Pass -- Winternitz Vault shipped live January 2025, an outright pass on this gate.",
-      "Real-World Utility (92) is SOL's strongest category -- deep, active real-world usage.",
-      "Privacy & Confidentiality (50) -- native Token-2022 confidential transfers are live on mainnet with a protocol-level auditor key, an institution-shaped design. Credit is limited because they hide amounts only, leave the transaction graph public, are opt-in twice over, and do not cover native SOL.",
-      "Decentralization (52) is a standing watch item -- Nakamoto Coefficient has declined from 31 to roughly 19-20, and the August 12, 2026 Teraswitch routing fault exposed a hosting-concentration dimension this category does not currently measure.",
-      "Raw 78.54 sits a full point below the Institutional Grade floor with no rounding margin."
+      "Solana earns a full pass on our quantum-computer readiness check, thanks to a feature called Winternitz Vault that went live on mainnet in January 2025, giving wallets a way to protect funds against a future quantum-computing attack.",
+      "Real-World Utility is Solana's strongest category at 92. It's the primary settlement network Visa uses for stablecoin transactions in the US, Western Union is rolling out Solana-based transfers to more than 100 million customers across 360,000 agent locations, and Solana-based tokenized stocks (xStocks) carry the vast majority of that market's trading volume -- concrete, large-scale institutional and consumer usage rather than speculative activity alone.",
+      "Privacy & Confidentiality scores a middling 50. A feature called confidential transfers is live on mainnet and lets token amounts be hidden, with a built-in auditor key that a regulator or compliance team could use to review activity -- a design well-suited to institutional use. It's held back because it only hides the transaction amount, not who's involved (the flow of funds between addresses is still fully visible), it has to be separately turned on by both the token issuer and each individual holder, and it doesn't cover SOL itself, only tokens issued on top of Solana.",
+      "Decentralization is a genuine weak point at 52. A measure of how concentrated block-producing power is (roughly: how many entities you'd need to collude to control the network) has fallen from 31 to about 19-20, meaning fewer parties now hold effective control than in the past.",
+      "Solana's TradFi score of 79 sits a full point below the threshold for our top tier, with no rounding margin to close that gap -- it would take a genuine improvement in the underlying categories, not just a lucky rounding, to cross into the top band."
     ]
   },
   "ai": {
@@ -66,15 +66,15 @@
     },
     "categories_verified": true,
     "key_findings": [
-      "Raw AI fundamentals (78.0) reflect strong execution and tooling depth, held back mainly by the finality gate.",
-      "Bound by the Deterministic Finality gate rather than Operational Reliability or Programmability Tier.",
-      "Agent Tooling (90) is SOL's strongest AI category -- deep SDK, simulation, and agent-native infrastructure."
+      "Based purely on its category-by-category performance, Solana's AI score would be 78 -- genuinely strong execution and tooling depth. The published score of 75 reflects one specific limitation: Solana's fastest, fully guaranteed settlement upgrade was still on testnet rather than live everywhere at the time of this scoring.",
+      "The one thing holding Solana's AI score to 75 is our settlement-finality check, not reliability or programmability -- both of those pass outright.",
+      "Agent Tooling is Solana's strongest category on the AI framework at 90, backed by mature developer tools: comprehensive software kits, transaction simulation before execution, and infrastructure built specifically for autonomous agents rather than adapted from general-purpose tooling."
     ]
   },
   "divergence": 4,
   "watch_items": [
-    "Alpenglow (sub-200ms deterministic finality) targeted mainnet late Q3/early Q4 2026 -- would lift the Deterministic Finality Partial cap entirely once live.",
-    "Decentralization trend (validator count and Nakamoto Coefficient decline) -- watch for further downward revision.",
-    "The August 12, 2026 Teraswitch routing fault took roughly 29% of staked SOL offline for 33 minutes and brought the network to about 86% of a finality-halt threshold, with the status page recording no incident. Security & Future-Proofing (80) is a re-score candidate on this event."
+    "Alpenglow, an upgrade that would bring transaction finality under 200 milliseconds with a full guarantee, is targeted for mainnet in late Q3 or early Q4 2026. Once live, it would remove the one thing currently limiting Solana's AI score.",
+    "The trend in how concentrated Solana's validator power is has been moving in the wrong direction -- both validator count and the coefficient measuring control concentration have declined. Worth watching for a further downward revision if that trend continues.",
+    "On August 12, 2026, a routing failure at a company called Teraswitch took roughly 29% of staked SOL offline for 33 minutes, pushing the network to about 86% of the threshold that would have halted finality -- and Solana's own public status page showed no incident at all during this. This points to a real risk, concentration of validators hosted through a single infrastructure provider, that Decentralization doesn't currently measure, since that category tracks validator and stake concentration rather than hosting-provider concentration. Security & Future-Proofing is a candidate for re-scoring based on this event."
   ]
 }
