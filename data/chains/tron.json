@@ -30,11 +30,11 @@
     },
     "categories_verified": true,
     "key_findings": [
-      "Three Partial gates and no outright Pass on any TradFi gate.",
-      "The Regulatory Clarity cap (65) no longer binds: raw 63.35 falls below it, so the published score is the raw. Pending post-quantum mainnet activation would now move the published score, where previously it could not.",
-      "On-Chain Health (88) is TRON's strongest category -- roughly $2 trillion in cumulative USDT transfers in one quarter, backed by real fee revenue rather than a running subsidy.",
-      "Regulatory & Risk (48) cuts both ways on one root cause -- TRON carries a high volume of frozen and blacklisted addresses, but the entity doing that freezing was cited by FATF as a model for public-private enforcement.",
-      "Privacy & Confidentiality (40) sits at the transparent floor despite a native protocol-level zk-SNARK shielded TRC-20 pool verified enabled on mainnet. No mainstream wallet exposes it, public RPC nodes frequently return 405 on the shielded-transaction endpoint, and there is no published usage data. The anonymity set is the product, and there is no evidence of one."
+      "TRON landed in the middle ground -- 'Partial,' not a full pass -- on all three of our baseline checks: quantum-computer readiness, regulatory footing, and security track record. None of the three cleared outright.",
+      "TRON's regulatory-footing check used to actually limit its published score, but it no longer does -- TRON's overall performance has fallen low enough on its own that this check isn't what's holding it back anymore. One practical consequence: an upcoming quantum-resistance upgrade would now directly move the published score, something that wasn't true before.",
+      "On-Chain Health is TRON's strongest category at 88, driven by real scale: roughly $2 trillion in USDT (the dollar-pegged stablecoin) moved across the network in a single quarter, generating genuine fee revenue rather than relying on a promotional subsidy to inflate activity.",
+      "Regulatory & Risk scores a mixed 48, and the same fact pulls in both directions. TRON has a high volume of frozen and blacklisted addresses -- a red flag on its face -- but the organization doing that freezing was specifically cited by the international Financial Action Task Force (FATF) as a model example of effective public-private enforcement cooperation.",
+      "Privacy & Confidentiality scores 40, at the bottom of what a fully transparent chain would earn, despite TRON having real shielded-transfer technology (using zero-knowledge cryptography) built into the network and verified as working. In practice, though, no mainstream wallet gives users access to it, the public infrastructure that would route those transactions frequently errors out, and there's no published data showing anyone actually uses it. Genuine privacy technology only counts for something if people are actually using it, and there's no evidence anyone is."
     ]
   },
   "ai": {
@@ -61,16 +61,16 @@
     },
     "categories_verified": true,
     "key_findings": [
-      "No binding cap -- Deterministic Finality Partial (75) sits above the raw 67.1. TRON has no dated upgrade planned to fix its ~1 minute finality.",
-      "Privacy & Confidentiality (53) -- live shielded transfers using zero-knowledge proofs, but adoption is unmeasured and does not touch the USDT flow that is effectively the entire chain.",
-      "Agent Tooling (68) -- a real, shipped agent stack (Bank of AI: payments, identity, an MCP server) launched February 2026, discounted for being six months old, single-vendor, and running on a gas subsidy.",
-      "Both axes validated in opposite directions under blind secondary review -- TradFi scores moved down, AI scores moved up."
+      "TRON only partially passes our fast-finality check, but that check isn't what's limiting the score -- its category-by-category performance already sits below that check's ceiling. There's also no dated upgrade on TRON's roadmap that would fix its roughly one-minute settlement time.",
+      "Privacy & Confidentiality scores 53. Shielded transfers using zero-knowledge cryptography are live and working, but there's no data on how much they're actually used, and critically, this privacy option doesn't apply to USDT transfers, which make up effectively the entire chain's real activity.",
+      "Agent Tooling scores 68. TRON has a real, live set of tools for AI agents (branded Bank of AI, covering payments, identity, and a standard agent-connection interface) that launched in February 2026. The score is discounted because it's still only about six months old, comes from a single vendor rather than a broad ecosystem, and its low fees are currently subsidized rather than reflecting the network's normal cost structure.",
+      "During an independent fact-check of this scoring, TRON's two scores moved in opposite directions: the TradFi figures were revised down and the AI figures were revised up, once additional verification was applied to each."
     ]
   },
   "divergence": -4,
   "watch_items": [
-    "TRON ETF eligibility clock started July 27, 2026 with Bitnomial's CFTC-regulated TRX futures listing -- six-month generic-listing-standard milestone matures around late January 2027.",
-    "Post-quantum work (Falcon-512 and ML-DSA-44 live on Nile testnet) is real but early. With no cap binding, mainnet activation would now move the published TradFi score.",
-    "Any measurable adoption of the shielded TRC-20 pool, or wallet-level exposure of it, would be a re-credit candidate for Privacy & Confidentiality."
+    "A regulated TRX futures product (from Bitnomial, under CFTC oversight) began trading on July 27, 2026, starting a six-month countdown toward a standard eligibility milestone for a TRX spot ETF, which would land around late January 2027.",
+    "TRON has real early-stage quantum-resistance work underway -- two candidate signature schemes are live on its test network -- though not yet on mainnet. Because the regulatory check is no longer what's limiting the score, a future mainnet launch of this quantum protection would now directly raise the published TradFi score.",
+    "If TRON's shielded-transfer feature starts showing measurable usage, or if mainstream wallets begin offering access to it, that would be grounds to raise the Privacy & Confidentiality score."
   ]
 }
