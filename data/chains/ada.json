@@ -5,7 +5,7 @@
   "cashtag": "$ADA",
   "scored_date": "2026-08",
   "last_updated": "2026-08-15",
-  "executive_summary": "Cardano's mainnet launched in 2017, built on a peer-reviewed, research-first approach to blockchain design, and nearly nine years later at the time of this scoring that shows up in its strongest category, Decentralization, which scores 64. The TradFi score of 56 is held down by thin real-world usage: annualized chain fees run around just $512,000 against a $7.5 billion market cap. The AI score of 54 is limited by a reliability incident from November 2025, when the network briefly held two conflicting versions of its transaction history at once, even though block production itself never stopped.",
+  "executive_summary": "Cardano's mainnet launched in 2017, built on a peer-reviewed, research-first approach to blockchain design -- it's a proof-of-stake, smart-contract-capable layer 1 chain. Nearly nine years later at the time of this scoring, that research-first philosophy shows up most clearly in Decentralization, its strongest category at 64. The TradFi score of 56 is held down by thin real-world usage: annualized chain fees run around just $512,000 against a $7.5 billion market cap. The AI score of 54 is limited by a reliability incident from November 2025, when the network briefly held two conflicting versions of its transaction history at once, even though block production itself never stopped.",
   "tradfi": {
     "score": 56,
     "raw_score": 55.51,
@@ -30,11 +30,11 @@
     },
     "categories_verified": true,
     "key_findings": [
-      "Neither gate cap binds -- Regulatory Clarity Partial (65) and Security Posture Fail (70) both sit above the raw 55.51, a clean case that gate caps are ceilings, not predictions.",
-      "Set the TradFi precedent that regulatory recognition without a live spot ETF does not pass the Regulatory Clarity gate -- CME futures and a Grayscale trust exist, but no spot vehicle.",
-      "On-Chain Health (48) -- annualized chain fees near $512K against a $7.5B market cap, a weak fee-to-market-cap ratio.",
-      "Decentralization (64) is ADA's strongest structural category and cushioned the v2.0 weight realignment.",
-      "Privacy & Confidentiality (28) -- a transparent ledger with no protocol-level confidentiality. Midnight is excluded as a separate blockchain with its own token economy and a federated operator phase."
+      "Cardano failed our baseline security check outright, and its regulatory footing only partially cleared -- yet neither pulled the final score down, because both checks still would have permitted a score well above where Cardano actually landed. Cardano's 56 wasn't held back by a weak baseline check; its category-by-category performance was already lower than either check would have allowed.",
+      "Regulated access exists but stops short of full approval. CME lists Cardano futures and Grayscale offers a trust, but there's still no spot ETF, which is why Cardano's regulatory standing lands as a partial pass rather than a clear one.",
+      "On-Chain Health is a weak point at 48. The network generates only about $512,000 a year in fees against a market cap of $7.5 billion -- a thin amount of real paid economic activity relative to the size of the asset.",
+      "Decentralization is Cardano's strongest category at 64, the highest score of any of its nine categories here, reflecting a broad, well-distributed set of block producers rather than concentrated control.",
+      "Privacy & Confidentiality is a weak spot at 28. Cardano's ledger is fully transparent by design -- there's no built-in way to hide a transaction's details. Midnight, a separate privacy-focused network associated with the Cardano ecosystem, isn't counted toward this score because it runs on its own blockchain with its own token and its own set of operators, not on Cardano itself."
     ]
   },
   "ai": {
@@ -66,15 +66,15 @@
     },
     "categories_verified": true,
     "key_findings": [
-      "Economic Predictability (88) is ADA's strongest AI category -- fees are exactly calculable before submission with no bidding for inclusion, though paying more cannot accelerate inclusion at any price.",
-      "The November 21, 2025 event held two incompatible ledger states for roughly 14.5 hours while block production never stopped, tripping Operational Reliability under the finality limb.",
-      "Tier margin disclosed: 54 is the exact Prototype Only ceiling; Experimental begins at 55."
+      "Economic Predictability is Cardano's strongest category on the AI framework at 88. An agent can know its exact transaction cost before submitting, with no bidding war for space -- though that consistency comes with a tradeoff: there's no way to pay extra for faster inclusion if a transaction is urgent.",
+      "On November 21, 2025, the network briefly held two conflicting versions of its transaction history at once for about 14.5 hours. Block production itself never stopped, but this kind of event counts against Cardano's reliability track record here, since an agent needs confidence that a settled transaction won't later disagree with another version of the ledger.",
+      "Cardano's AI score of 54 sits exactly one point below the next tier up -- a narrow enough gap that a small improvement in any one category could move it into the next band."
     ]
   },
   "divergence": 2,
   "watch_items": [
-    "Spot ADA ETF (GADA) eligibility opened August 9, 2026 -- a live spot vehicle would flip Regulatory Clarity to Pass, though the cap does not currently bind so the published score would not move on its own.",
-    "Peras (Q2 2027 target) would lift Deterministic Finality from Fail to Partial (not Pass), moving the AI cap from 54 to 75 -- worth roughly +6.5 points.",
-    "The Quantum Resistance gate is recorded as unverified rather than assessed; it should be resolved at the next reassessment."
+    "A spot ADA ETF (ticker GADA) became eligible for listing on August 9, 2026. If it actually launches, it would move Cardano's regulatory standing from a partial pass to a full one -- though since that check isn't currently what's holding the TradFi score down, the published score itself likely wouldn't move because of this alone.",
+    "Peras, a finality upgrade targeted for Q2 2027, would improve how quickly and certainly Cardano transactions become irreversible. It wouldn't fully solve the problem, but it would move Cardano from failing that check outright to partially passing it, which would raise the ceiling on the AI score from 54 to 75 -- a meaningful jump if it ships on schedule.",
+    "Cardano's readiness against future quantum computers hasn't been formally assessed yet and is recorded as unverified rather than measured. Expect that to be resolved at the next review."
   ]
 }
