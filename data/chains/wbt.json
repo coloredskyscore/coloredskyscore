@@ -30,11 +30,11 @@
     },
     "categories_verified": true,
     "key_findings": [
-      "The 39-point gap between the raw 26.07 and the lowest gate cap (Regulatory Clarity, 65) reflects fundamentals that fall well short of any gate constraint.",
-      "A single-validator chain -- a go-ethereum fork running Clique Proof-of-Authority with one authorized signer operated by WhiteBIT.",
-      "On-Chain Health (10) is WBT's weakest category -- the official explorer reports 0.00 current TPS, with no coverage on any major analytics platform.",
-      "Decentralization (8) is the lowest score in this chain's table by a wide margin. The v2.0 weight increase from 4% to 6% raises what single-operator consensus costs the score, from 3.8 to 5.5 weighted points of separation from a mid-range result.",
-      "Privacy & Confidentiality (22) -- a transparent EVM ledger with no protocol-level confidentiality and no meaningful privacy application layer."
+      "None of our baseline checks are what's holding Whitechain's score down -- even the strictest one would still allow a score nearly 40 points higher than where Whitechain actually landed. The 26 is a direct reflection of weak fundamentals across its categories, not a penalty from a failed check.",
+      "Whitechain is currently run by a single validator: one authorized entity, operated by the WhiteBIT exchange, is solely responsible for producing every block. There's no competing or independent party that could produce blocks in its place.",
+      "On-Chain Health is Whitechain's weakest category at 10. The network's own official block explorer showed an effectively zero current transaction rate at the time of this scoring, and the chain isn't tracked by any major crypto analytics platform.",
+      "Decentralization is by far Whitechain's lowest-scoring category at 8, reflecting the fact that a single operator currently controls block production entirely, with no distribution of that power across independent parties.",
+      "Privacy & Confidentiality scores 22. Whitechain runs the same kind of fully transparent, Ethereum-compatible ledger as many other chains, with no built-in way to hide a transaction and no meaningful privacy applications built on top of it."
     ]
   },
   "ai": {
@@ -61,14 +61,14 @@
     },
     "categories_verified": true,
     "key_findings": [
-      "Tier reads from the published rounded score, not the raw. Raw 39.64 rounds to 40 and takes Prototype Only rather than Not Viable.",
-      "The Deterministic Finality FAIL cap is entirely decorative here -- raw sits 14 points below it, so the category layer alone produced the result.",
-      "State & API Quality (30) -- one official RPC endpoint, no subgraphs, no coverage on any major indexer."
+      "Whitechain's AI score before rounding was 39.64, which rounds up to 40 -- just enough to land in the 'Prototype Only' tier rather than the lower 'Not Viable' band. This is a genuinely close call decided by standard rounding.",
+      "Whitechain fails our fast, guaranteed-finality check outright, but that failure isn't what's setting the score -- its category-by-category performance already sits 14 points below even that check's ceiling. The low score reflects genuinely weak fundamentals, not a gate penalty.",
+      "State & API Quality scores 30. There's only one official way for outside software, like an agent, to query the network's data, no tools for building custom queries against its history, and no coverage from any major third-party data-indexing service."
     ]
   },
   "divergence": -14,
   "watch_items": [
-    "Circulating supply is reported inconsistently across sources (118.1M to 213.4M, a 1.8x spread) -- a transparency issue worth re-checking at next assessment.",
-    "Two AI gates and one TradFi gate are recorded as unverified rather than assessed; they should be resolved at the next reassessment."
+    "Different sources report wildly different figures for how many WBT tokens are actually in circulation, ranging from about 118.1 million to 213.4 million -- nearly a two-fold spread. This inconsistency is itself a transparency concern worth re-checking at the next assessment.",
+    "Two of the AI baseline checks and one of the TradFi baseline checks haven't been formally assessed yet and are recorded as unverified rather than measured. These should be resolved at the next review."
   ]
 }
