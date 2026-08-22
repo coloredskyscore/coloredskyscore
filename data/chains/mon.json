@@ -30,10 +30,10 @@
     },
     "categories_verified": true,
     "key_findings": [
-      "No gate cap binds on either axis.",
-      "Tokenomics & Supply (34) is MON's weakest category by a wide margin -- team, investors, and treasury hold roughly 50.6% of supply behind a single 12-month cliff, with a November 24, 2026 unlock of about 1.4x current circulating supply landing in one day.",
-      "On-Chain Health (54) reflects a 150-170x transactions-per-active-address ratio independently flagged as a farming signature.",
-      "Privacy & Confidentiality (42) credits Unlink, live on Monad mainnet since June 2026 and in scope because it deploys as a smart contract with no separate chain and no bridge custody. Discounted heavily for age and absent adoption data."
+      "Monad doesn't clear all three of our TradFi baseline checks -- it fails quantum-computer readiness outright and only partially passes regulatory footing and security -- but none of those checks is actually holding the score down. Monad's category-by-category performance already sits below any of those checks' ceilings.",
+      "Tokenomics & Supply is Monad's weakest category by a wide margin at 34. Roughly half of the total token supply (about 50.6%) is held by the team, early investors, and the project treasury, all locked behind a single 12-month cliff. When that lock expires on November 24, 2026, roughly 1.4 times the current publicly circulating supply becomes unlockable in a single day -- a major concentration and potential-sell-pressure risk.",
+      "On-Chain Health scores a middling 54. Each active address on the network is generating an unusually high 150 to 170 transactions on average, a pattern independent analysis flagged as more consistent with automated activity chasing rewards than with organic, everyday usage.",
+      "Privacy & Confidentiality scores 42, credited mainly to Unlink, a privacy tool that's been live on Monad's mainnet since June 2026. It counts here because it runs as a smart contract directly on Monad rather than as a separate chain with its own security. The score is discounted heavily, though, because it's still young and there's no public data yet on how much it's actually being used."
     ]
   },
   "ai": {
@@ -60,16 +60,16 @@
     },
     "categories_verified": true,
     "key_findings": [
-      "A full-EVM chain clearing Deterministic Finality outright -- 300ms blocks and 600ms full finality post-MIP-12.",
-      "Execution Layer (86) is MON's strongest AI category -- fast block times and native Execution Events streaming.",
-      "Scored on its actual record rather than penalized for a maturity window it has not had time to accumulate."
+      "Monad earns a full pass on our fast, guaranteed-finality check -- transactions become fully and irreversibly final in about 600 milliseconds following a network upgrade (MIP-12), with new blocks produced roughly every 300 milliseconds. It also runs the same smart-contract environment as Ethereum, so existing agent tooling built for Ethereum generally works here too.",
+      "Execution Layer is Monad's strongest category on the AI framework at 86, driven by its fast block times and a built-in feature that streams transaction events in real time -- useful for an agent that needs to react to on-chain activity immediately.",
+      "Because Monad's mainnet has been live under a year, it's scored on the actual track record it does have rather than penalized for a longer history it simply hasn't had time to build."
     ]
   },
   "divergence": -23,
   "watch_items": [
-    "November 24, 2026 unlock cliff (16.6-16.8B MON, roughly 1.4x current float, single day) -- re-assess Tokenomics & Supply and On-Chain Health after the unlock.",
-    "Incentive wind-down -- expected 30-70%+ TVL contraction once points programs lapse; re-assess On-Chain Health when this occurs.",
-    "Automated slashing is currently logging-only -- the single largest deduction inside AI Security Posture; re-check at every future re-assessment.",
-    "Unlink adoption data would be a re-credit candidate for Privacy & Confidentiality, which is currently discounted for absent usage evidence."
+    "On November 24, 2026, a large batch of locked tokens (roughly 16.6 to 16.8 billion MON, about 1.4 times the current publicly circulating supply) unlocks all at once. Tokenomics & Supply and On-Chain Health are both worth re-assessing once this happens and the market has had time to absorb it.",
+    "Monad currently runs reward programs that incentivize activity on the network. Once those programs wind down, the total value locked in Monad applications is expected to shrink significantly, possibly by 30-70% or more. On-Chain Health should be re-assessed once that happens to see how much usage was organic.",
+    "Monad's system for automatically penalizing misbehaving validators currently only logs violations rather than actually enforcing a penalty. This is the single biggest weakness pulling down the Security Posture score on the AI framework, and it's worth checking again at every future review to see if real enforcement has been turned on.",
+    "If real usage data for Unlink (Monad's privacy tool) becomes available, it would likely raise the Privacy & Confidentiality score, which is currently held down mainly by the lack of any public evidence of how much it's actually being used."
   ]
 }
