@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Project Constitution — coloredsky score™</title>
+<meta name="description" content="The public constitution behind coloredsky score™ — the opportunity it answers, its mission, its governing principles, and how methodology changes get decided.">
+<link rel="canonical" href="https://coloredskyscore.com/constitution.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="coloredsky score">
+<meta property="og:title" content="Project Constitution — coloredsky score™">
+<meta property="og:description" content="The opportunity, mission, and governing principles behind coloredsky score™.">
+<meta property="og:url" content="https://coloredskyscore.com/constitution.html">
+<meta property="og:image" content="https://coloredskyscore.com/og_image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@thecoloredsky">
+<meta name="twitter:title" content="Project Constitution — coloredsky score™">
+<meta name="twitter:description" content="The opportunity, mission, and governing principles behind coloredsky score™.">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Source+Serif+4:wght@500;600&family=Hanken+Grotesk:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap');
+
+  :root {
+    --ink: #081220;
+    --ink-2: #0f1c30;
+    --ivory: #F7F4EC;
+    --ivory-dim: #EDE8DA;
+    --brass: #C6A15B;
+    --brass-dim: #8A754A;
+    --line: rgba(255,255,255,0.08);
+    --line-strong: rgba(255,255,255,0.14);
+    --text-dim: rgba(247,244,236,0.55);
+    --text-mid: rgba(247,244,236,0.78);
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    background: var(--ink);
+    color: var(--ivory);
+    font-family: 'Hanken Grotesk', sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .wrap {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 24px 32px 100px;
+  }
+
+  .top-bar {
+    height: 4px;
+    background: linear-gradient(90deg, #C6A15B 0%, #E8C97A 35%, #7FA5C9 70%, #4A6B8A 100%);
+  }
+
+  header {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    margin: 8px 0 6px;
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+
+  .brand {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    text-decoration: none;
+  }
+  .brand-mark {
+    width: 40px;
+    height: 40px;
+    border: 1px solid var(--brass);
+    border-radius: 3px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+  .brand-mark span {
+    font-family: 'Hanken Grotesk', sans-serif;
+    font-weight: 500;
+    font-size: 14px;
+    color: var(--brass);
+    letter-spacing: 0.03em;
+  }
+  .brand-divider {
+    width: 1px;
+    height: 30px;
+    background: var(--line-strong);
+    flex-shrink: 0;
+  }
+  .brand-word {
+    font-family: 'Source Serif 4', serif;
+    font-size: 26px;
+    letter-spacing: -0.01em;
+    color: var(--ivory);
+    white-space: nowrap;
+  }
+  .brand-word .bold { font-weight: 600; }
+  .brand-word .italic { font-style: italic; font-weight: 500; margin-left: 6px; }
+  .brand-word .sup {
+    font-size: 12px;
+    vertical-align: super;
+    color: var(--brass);
+    font-family: 'Hanken Grotesk', sans-serif;
+    margin-left: 2px;
+  }
+
+  .back-link {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 13px;
+    color: var(--text-dim);
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    transition: color 0.15s;
+  }
+  .back-link:hover { color: var(--brass); }
+
+  .page-kicker {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--brass);
+    margin: 36px 0 10px;
+  }
+  .page-title {
+    font-family: 'Source Serif 4', serif;
+    font-weight: 600;
+    font-size: 38px;
+    line-height: 1.15;
+    color: var(--ivory);
+    margin: 0 0 18px;
+  }
+  .page-lede {
+    font-size: 16.5px;
+    color: var(--text-mid);
+    line-height: 1.6;
+    max-width: 620px;
+    margin-bottom: 8px;
+  }
+
+  .divider {
+    height: 1px;
+    background: var(--line-strong);
+    margin: 44px 0;
+  }
+
+  article h2 {
+    font-family: 'Source Serif 4', serif;
+    font-weight: 600;
+    font-size: 24px;
+    color: var(--ivory);
+    margin: 0 0 22px;
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+  }
+  article h2 .article-num {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--brass);
+    border: 0.5px solid rgba(198,161,91,0.4);
+    border-radius: 4px;
+    padding: 3px 8px;
+    letter-spacing: 0.03em;
+  }
+
+  article h3 {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12.5px;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--brass-dim);
+    margin: 32px 0 14px;
+  }
+
+  article p {
+    font-size: 15.5px;
+    line-height: 1.72;
+    color: var(--text-mid);
+    margin: 0 0 18px;
+  }
+  article p strong { color: var(--ivory); font-weight: 600; }
+  article p em { color: var(--ivory); font-style: italic; }
+
+  .lede-line {
+    font-size: 16.5px;
+    color: var(--ivory);
+    font-weight: 500;
+    line-height: 1.55;
+    margin: 0 0 20px;
+  }
+
+  .thus-line {
+    font-family: 'Source Serif 4', serif;
+    font-style: italic;
+    font-size: 18px;
+    color: var(--brass);
+    margin: 26px 0 0;
+  }
+
+  .not-list {
+    list-style: none;
+    margin: 22px 0;
+    padding: 0;
+  }
+  .not-list li {
+    position: relative;
+    padding: 12px 0 12px 22px;
+    border-bottom: 0.5px solid var(--line);
+    font-size: 14.5px;
+    color: var(--text-mid);
+    line-height: 1.6;
+  }
+  .not-list li:first-child { border-top: 0.5px solid var(--line); }
+  .not-list li::before {
+    content: '—';
+    position: absolute;
+    left: 0;
+    color: var(--brass-dim);
+  }
+  .not-list li strong { color: var(--ivory); }
+
+  .principle {
+    padding: 16px 0;
+    border-top: 0.5px solid var(--line);
+  }
+  .principle:last-child { border-bottom: 0.5px solid var(--line); }
+  .principle-head {
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+    margin-bottom: 6px;
+  }
+  .principle-num {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12.5px;
+    font-weight: 500;
+    color: var(--brass);
+    flex-shrink: 0;
+    min-width: 30px;
+  }
+  .principle-title {
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--ivory);
+    line-height: 1.5;
+  }
+  .principle-body {
+    font-size: 14.5px;
+    line-height: 1.68;
+    color: var(--text-mid);
+    padding-left: 40px;
+  }
+
+  .test-item {
+    padding: 18px 0;
+    border-top: 0.5px solid var(--line);
+  }
+  .test-item:last-child { border-bottom: 0.5px solid var(--line); }
+  .test-q {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12px;
+    color: var(--brass);
+    letter-spacing: 0.03em;
+    margin-bottom: 6px;
+  }
+  .test-body {
+    font-size: 14.5px;
+    line-height: 1.68;
+    color: var(--text-mid);
+  }
+
+  .closing-note {
+    margin-top: 22px;
+    padding: 15px 16px;
+    border-radius: 8px;
+    background: rgba(255,255,255,0.03);
+    border: 0.5px solid var(--line);
+    font-size: 14px;
+    line-height: 1.65;
+    color: var(--text-mid);
+  }
+
+  .maintenance-block {
+    padding: 20px 22px;
+    border-radius: 8px;
+    background: rgba(198,161,91,0.06);
+    border: 0.5px solid rgba(198,161,91,0.22);
+    font-size: 14.5px;
+    line-height: 1.7;
+    color: var(--text-mid);
+  }
+  .maintenance-block strong { color: var(--brass); }
+
+  .footer-links {
+    margin-top: 60px;
+    padding-top: 20px;
+    border-top: 0.5px solid var(--line);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 10px;
+    font-size: 13px;
+    color: var(--text-dim);
+    font-family: 'IBM Plex Mono', monospace;
+  }
+  .footer-x-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    color: var(--brass);
+    text-decoration: none;
+    transition: color 0.15s;
+  }
+  .footer-x-link:hover { color: var(--ivory); }
+  .footer-right {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+  .footer-dash-link {
+    color: var(--brass);
+    text-decoration: none;
+    transition: color 0.15s;
+  }
+  .footer-dash-link:hover { color: var(--ivory); }
+  .footer-copyright { color: var(--text-dim); }
+
+  @media (max-width: 720px) {
+    .wrap { padding: 16px 18px 70px; }
+    .page-title { font-size: 30px; }
+    article h2 { font-size: 21px; flex-wrap: wrap; }
+    .principle-body { padding-left: 0; margin-top: 4px; }
+    .principle-head { flex-wrap: wrap; }
+  }
+</style>
+</head>
+<body>
+
+<div class="top-bar"></div>
+<div class="wrap">
+
+  <header>
+    <a class="brand" href="index.html">
+      <div class="brand-mark"><span>CS</span></div>
+      <div class="brand-divider"></div>
+      <div class="brand-word"><span class="bold">coloredsky</span><span class="italic">score</span><span class="sup">™</span></div>
+    </a>
+    <a class="back-link" href="index.html">
+      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      Back to dashboard
+    </a>
+  </header>
+
+  <div class="page-kicker">Governing document</div>
+  <h1 class="page-title">Project Constitution</h1>
+  <p class="page-lede">The following is the constitution for the coloredsky score project — the opportunity it answers, its mission, the principles it holds itself to, and the test any proposed change to the methodology has to pass.</p>
+
+  <div class="divider"></div>
+
+  <article>
+    <h2><span class="article-num">Article I</span>The Opportunity</h2>
+
+    <p>Blockchain claims are abundant. Verified fundamentals are not. Every chain claims to be faster, safer, more decentralized, or more institution-ready than the last, and there are remarkably few reliable ways to actually determine how true any of that is — or to hold one chain's claims against another's on equal terms.</p>
+
+    <p>The public discourse around any given chain has moved through several generations — forums, then Reddit, then YouTube, then X — and gotten louder at each step without getting more rigorous. Paid influencers now shape a meaningful share of what circulates as analysis, and their incentives are rarely disclosed alongside their opinions. A confident take and a correct one are not distinguishable from the outside.</p>
+
+    <p>Primary sources exist but don't close the gap. Whitepapers describe design intent, not verified operating reality, and reading one well enough to judge it requires exactly the technical background most people evaluating a chain don't have. Two whitepapers, read in good faith, don't tell you which chain is actually stronger — they tell you which project wrote the more persuasive document.</p>
+
+    <p>First-hand experimentation is the most honest signal available and still isn't sufficient. Using a chain yourself is real evidence, but it measures user experience — speed, cost, app quality — not the underlying fundamentals: regulatory standing, security history, supply structure, decentralization, confidentiality capability. A chain can feel excellent to use and still be structurally weak, or the reverse, and hands-on testing alone can't tell the two apart. It's also not scalable: it works for the two or three chains someone actually uses, not for a landscape of dozens.</p>
+
+    <p>The compounding problem is that none of these sources evaluate chains against the same criteria. Every comparison — a forum thread, an influencer thread, a personal trial — is implicitly apples-to-oranges, even when everyone involved is acting in good faith. There is no equivalent of a credit rating for blockchain fundamentals: a fixed, disclosed methodology applied identically to every chain, so that a score means the same thing wherever it's attached.</p>
+
+    <p><strong>That absence is the opportunity.</strong> A scoring system that removes the guesswork — that lets someone without deep technical expertise trust a number instead of personally decoding whitepapers, docs, and influencer takes to arrive at an opinion.</p>
+
+    <p class="thus-line">Thus, coloredsky score was created.</p>
+  </article>
+
+  <div class="divider"></div>
+
+  <article>
+    <h2><span class="article-num">Article II</span>The Mission</h2>
+
+    <p class="lede-line">Score blockchains against fixed, disclosed, evidence-based criteria — the same criteria applied to every chain — so that fundamental quality can be compared the way a bond or equity rating can be compared.</p>
+
+    <p>"Is this chain any good?" is not actually a single question, so this system doesn't try to answer it with a single number. It's broken into two distinct lenses. The first is TradFi — short for Traditional Finance, meaning banks, asset managers, pension funds, and the rest of the regulated institutional investing world — and asks whether a chain is structurally ready for that kind of institutional capital. The second asks whether an autonomous AI agent could actually operate on the chain unattended. A chain can score excellently on one lens and only mediocre on the other, and that divergence — not either raw score on its own — is frequently the most useful thing the system produces.</p>
+
+    <p><strong>Working thesis, stated honestly as a thesis and not as a scored input:</strong> if the methodology is sound, chains that score higher should tend to attract more capital than chains that score lower, despite markets being imperfect and sometimes irrational in the short run. The scoring system is not built to chase that outcome — narrative, sentiment, and price are explicitly out of scope — but validating or falsifying that thesis over time is a real reason this project exists.</p>
+
+    <p><strong>Success looks like:</strong> the chain's scored numbers being something a retail investor trusts more than their own read of a whitepaper or an influencer thread, something a TradFi allocator recognizes as rigorous enough to replace their own research team's diligence, and something an AI agent can query directly as infrastructure rather than a human having to interpret it on the agent's behalf.</p>
+
+    <h3>What this is not</h3>
+    <ul class="not-list">
+      <li><strong>Not a price predictor.</strong> Narrative, sentiment, and macro tailwinds never move a score.</li>
+      <li><strong>Not a retail-hype tool.</strong> Written for a fundamentals-first, TradFi-curious audience — not for engagement or virality.</li>
+      <li><strong>Not a whitepaper restatement.</strong> Scores what is verifiably live and operating today, not what a roadmap promises.</li>
+      <li><strong>Not a single-axis judgment.</strong> The two frameworks are never blended — collapsing "institutionally sound" and "agent-operable" into one number would destroy the divergence insight that makes this useful.</li>
+    </ul>
+
+    <p><strong>To make this scoring system effective and scalable, we abide by the following principles.</strong></p>
+  </article>
+
+  <div class="divider"></div>
+
+  <article>
+    <h2><span class="article-num">Article III</span>Principles</h2>
+
+    <h3>Section 1 — Evidentiary Standard</h3>
+    <div class="principle">
+      <div class="principle-head"><span class="principle-num">1.1</span><span class="principle-title">Score reality, not aspiration.</span></div>
+      <div class="principle-body">Only what is verifiably live today counts. Roadmaps, testnets, and announcements earn zero credit until they ship.</div>
+    </div>
+    <div class="principle">
+      <div class="principle-head"><span class="principle-num">1.2</span><span class="principle-title">Narrative, sentiment, and price never move a score.</span></div>
+      <div class="principle-body">If a proposed change would only be justified by "the market would like this" or "this chain gets talked about more," it does not belong in the methodology.</div>
+    </div>
+
+    <h3>Section 2 — Framework Integrity</h3>
+    <div class="principle">
+      <div class="principle-head"><span class="principle-num">2.1</span><span class="principle-title">Framework integrity outweighs any single chain's score.</span></div>
+      <div class="principle-body">A rule is not bent to produce a flattering — or unflattering — result for the chain in front of you. Decisions get made and then applied to whichever chain the chips fall on.</div>
+    </div>
+    <div class="principle">
+      <div class="principle-head"><span class="principle-num">2.2</span><span class="principle-title">Cross-chain comparability is the product.</span></div>
+      <div class="principle-body">A change that makes one chain's story read better but breaks the ability to line every chain up on the same ruler is a net loss, even if it's individually correct.</div>
+    </div>
+
+    <h3>Section 3 — Structural Fairness</h3>
+    <div class="principle">
+      <div class="principle-head"><span class="principle-num">3.1</span><span class="principle-title">Withheld vs. unknowable are different, and the direction of the penalty depends on which one it is.</span></div>
+      <div class="principle-body">If someone could publish a fact and hasn't, score the unfavorable end. If nobody can know it by design, don't score it at all — don't penalize architecture.</div>
+    </div>
+    <div class="principle">
+      <div class="principle-head"><span class="principle-num">3.2</span><span class="principle-title">A structural fact can legitimately produce different consequences in different places</span></div>
+      <div class="principle-body">A credit here, a debit there, a gate call and a category note — as long as each place is scoring a genuinely distinct manifestation, never the identical fact twice.</div>
+    </div>
+
+    <h3>Section 4 — Gates, Categories, and Divergence</h3>
+    <div class="principle">
+      <div class="principle-head"><span class="principle-num">4.1</span><span class="principle-title">Gates are disqualifying checks, evaluated first, and they set a ceiling — not a score.</span></div>
+      <div class="principle-body">Each framework has a small, fixed set of gates covering the handful of properties severe enough that failing one should limit how high a chain can score no matter how strong everything else is. Each gate is judged Pass, Partial, or Fail before any category is scored. A full Pass places no ceiling on the final number. A Partial or Fail attaches a cap — a maximum the chain's final published score cannot exceed, applied after categories are calculated, using whichever gate's cap is lowest if more than one is capped. Gates are a floor, not a guarantee: passing every gate means nothing disqualifying is present, not that the chain scores well. A chain can clear every gate cleanly and still land in a mediocre tier, because categories — not gates — are what determine how good a chain actually is.</div>
+    </div>
+    <div class="principle">
+      <div class="principle-head"><span class="principle-num">4.2</span><span class="principle-title">Categories are graded strength, weighted and summed, and they're what actually produces the score.</span></div>
+      <div class="principle-body">Where a gate asks a narrow disqualifying question with three possible answers, categories are the opposite: a wider set of specific fundamentals, each scored on a continuous scale reflecting how strong the chain genuinely is on that one dimension, each carrying its own weight toward the total, summed into a single raw weighted score before any gate cap is applied. Categories are where real differentiation between chains happens — two chains that both cleanly pass every gate can still land in very different tiers, because the gates only screened out disqualifying weaknesses and said nothing about relative strength. A gate answers "is anything disqualifying present." Categories answer "how good is this, specifically, compared to every other chain scored the same way."</div>
+    </div>
+    <div class="principle">
+      <div class="principle-head"><span class="principle-num">4.3</span><span class="principle-title">Divergence is signal, not noise.</span></div>
+      <div class="principle-body">The most useful outputs this system produces are gaps, not single numbers. TradFi-vs-AI divergence is one: the same chain scoring well on one axis and poorly on the other. The other is external to scoring entirely — a chain's fundamentals score becomes a baseline once published, and a token's market price can sit well above or below what that baseline implies. That gap is never fed back into the score itself (price is explicitly out of scope per §1.2), but it's a legitimate and useful thing to point at afterward: a chain trading rich or cheap relative to its own fundamentals. Nothing should smooth either gap away for the sake of a tidier number.</div>
+    </div>
+  </article>
+
+  <div class="divider"></div>
+
+  <article>
+    <h2><span class="article-num">Article IV</span>Scoring Methodology Change Management</h2>
+
+    <p>Before a new idea becomes a methodology consideration — rather than a passing thought, or nothing — it should be able to answer these, roughly in order.</p>
+
+    <div class="test-item">
+      <div class="test-q">01 — DOES IT CHANGE WHAT WE MEASURE, OR ONLY HOW CONFIDENT WE ARE?</div>
+      <div class="test-body">A genuinely new signal is different in kind from a data-quality fix. Both are legitimate, but they cost differently and should be logged as different kinds of items.</div>
+    </div>
+    <div class="test-item">
+      <div class="test-q">02 — IS IT STRUCTURAL, OR NARRATIVE WEARING A STRUCTURAL COSTUME?</div>
+      <div class="test-body">"This chain's community is excited about X" is never an item. "This chain shipped X to mainnet and no existing category or principle prices it" might be. If the honest one-sentence justification leans on sentiment, price, or vibes, it fails here regardless of how it's phrased.</div>
+    </div>
+    <div class="test-item">
+      <div class="test-q">03 — DOES PRECEDENT ALREADY ANSWER IT?</div>
+      <div class="test-body">Check the Principles and closed items first. A real question raised, matched to an existing ruling, and resolved in the same session it came up gets recorded as answered rather than left open. Reinventing an answered question is waste; the fix is citing precedent, not opening a new item.</div>
+    </div>
+    <div class="test-item">
+      <div class="test-q">04 — WHAT DOES ADOPTING IT ACTUALLY COST, AND DOES THAT COST MATCH ITS VALUE?</div>
+      <div class="test-body">Every open item should be honestly labeled: rubric language only, one category's re-research, a full board re-research, or a gate-level change — which can move a binding cap and therefore a published score by more than any category ever could. A gate-level idea gets more scrutiny before it's even logged, not just before it's adopted.</div>
+    </div>
+    <div class="test-item">
+      <div class="test-q">05 — DOES IT PRESERVE COMPARABILITY, OR QUIETLY BREAK THE RULER FOR CHAINS ALREADY SCORED?</div>
+      <div class="test-body">Any change that would move published numbers needs an honest, explicit answer to what happens to the chains already scored before it's adopted — recalculating the whole board immediately, deliberately leaving prior scores as historical snapshots, or applying the change forward-only from here. What isn't acceptable is adopting a change and leaving that question unanswered. Silently drifting is not an option.</div>
+    </div>
+    <div class="test-item">
+      <div class="test-q">06 — IS NOW ACTUALLY THE TIME?</div>
+      <div class="test-body">Some ideas are correct but premature — held deliberately until a real-world trigger condition is actually met, rather than acted on early because it seems inevitable. A good idea logged for later is a success, not a failure to act.</div>
+    </div>
+
+    <div class="closing-note">If an idea survives all six honestly, it earns a place in the methodology backlog, tagged with which cost tier it falls into. If it fails on narrative or is already resolved by precedent, it doesn't get logged as open — it gets logged as decided, so the question doesn't have to be re-derived from nothing next time it comes up.</div>
+  </article>
+
+  <div class="divider"></div>
+
+  <article>
+    <h2>Maintenance</h2>
+    <div class="maintenance-block">
+      This document is meant to be stable. It should not need to change often, if ever — the day-to-day evolution of the methodology happens in the internal frameworks and documentation this Constitution sits above, not here. A change to this document is warranted only by something at the level of the mission itself shifting, such as a major change in the blockchain industry this Constitution did not anticipate. When that happens, it's a constitutional change, and it should be discussed and settled with the same deliberateness the frameworks apply to their own principles — <strong>not edited casually.</strong>
+    </div>
+  </article>
+
+  <div class="footer-links">
+    <a class="footer-x-link" href="https://x.com/thecoloredsky" target="_blank" rel="noopener">
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+      @thecoloredsky
+    </a>
+    <div class="footer-right">
+      <a class="footer-dash-link" href="index.html">← Back to the dashboard</a>
+      <span class="footer-copyright">© 2026 coloredsky score™. All rights reserved.</span>
+    </div>
+  </div>
+
+</div>
+
+<!-- Cloudflare Web Analytics -->
+<script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "bbd5fdb03b8d4dbe8c847446e512038a"}'></script>
+<!-- End Cloudflare Web Analytics -->
+
+</body>
+</html>
