@@ -4,11 +4,11 @@
   "name": "Ethereum",
   "cashtag": "$ETH",
   "scored_date": "2026-06",
-  "last_updated": "2026-08-15",
-  "executive_summary": "Ethereum launched in 2015 as a general-purpose smart contract platform, and about a decade later at the time of this scoring it's carrying a privacy application ecosystem worth roughly $4.2 billion in cumulative volume on top of deep institutional and developer adoption, driving a TradFi score of 81. The AI score of 74 is held back mainly by settlement speed: transactions take roughly 13-15 minutes to become fully final, which is slow for an agent trying to act and confirm in real time. The 7-point gap between the two scores comes from that finality lag combined with a fee market that's hard to predict and thin privacy tooling at the base layer.",
+  "last_updated": "2026-08-25",
+  "executive_summary": "Ethereum launched in 2015 as a general-purpose smart contract platform, and about a decade later at the time of this scoring it's carrying a privacy application ecosystem worth roughly $4.2 billion in cumulative volume on top of deep institutional and developer adoption, driving a TradFi score of 80. The AI score of 74 is held back mainly by settlement speed: transactions take roughly 13-15 minutes to become fully final, which is slow for an agent trying to act and confirm in real time. The 6-point gap between the two scores comes from that finality lag combined with a fee market that's hard to predict and thin privacy tooling at the base layer.",
   "tradfi": {
-    "score": 81,
-    "raw_score": 80.78,
+    "score": 80,
+    "raw_score": 79.82,
     "tier_code": "IG",
     "gate_capped": false,
     "binding_cap": null,
@@ -25,7 +25,7 @@
       "developer_ecosystem": 90,
       "regulatory_risk": 90,
       "privacy_confidentiality": 48,
-      "decentralization": 56,
+      "decentralization": 40,
       "security_future_proofing": 80
     },
     "categories_verified": true,
@@ -63,10 +63,10 @@
       "Ethereum's transaction-finality speed only earns a partial pass on our AI check, but that check isn't what's setting the score -- Ethereum's category-by-category performance landed just below that check's ceiling on its own.",
       "Execution Layer is a relative weak point at 62, driven mainly by how long it takes for a transaction to become fully and irreversibly final -- roughly 13 to 15 minutes. That's a real constraint for any agent use case where it needs certainty that a payment has settled before it can safely act on it.",
       "Agent Identity & Compliance is Ethereum's strongest category on the AI framework at 83, driven by ERC-8004, an agent-identity standard that originated on Ethereum and has since become widely used across other chains as well.",
-      "The 7-point gap between Ethereum's TradFi and AI scores doesn't come from one single weak spot -- it's the combined effect of three separate structural issues: slow final settlement, a fee market where costs can spike unpredictably due to competition for block space, and thin privacy at the base-layer level."
+      "The 6-point gap between Ethereum's TradFi and AI scores doesn't come from one single weak spot -- it's the combined effect of three separate structural issues: slow final settlement, a fee market where costs can spike unpredictably due to competition for block space, and thin privacy at the base-layer level."
     ]
   },
-  "divergence": 7,
+  "divergence": 6,
   "watch_items": [
     "An upgrade called Dencun significantly reduced the rate at which transaction fees are permanently removed from circulation ('burned'), which changes Ethereum's supply dynamics. This may justify revising the Tokenomics & Supply score down from 80 toward the 76-78 range at a future reassessment.",
     "Two upcoming upgrades on Ethereum's roadmap, known as Fusaka and Glamsterdam, include changes aimed at making transactions final in a single step rather than over many minutes, along with other performance and storage improvements. If they ship as planned, they could meaningfully raise the Execution Layer score."

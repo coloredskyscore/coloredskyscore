@@ -4,11 +4,11 @@
   "name": "Canton",
   "cashtag": "$CC",
   "scored_date": "2026-05 (TradFi) / 2026-07 (AI)",
-  "last_updated": "2026-08-15",
-  "executive_summary": "Canton Network's public network and Canton Coin went live in July 2024, not yet two years old at the time of this scoring, built specifically for institutional finance with transaction-level privacy built into the protocol rather than bolted on. Real-World Utility and Privacy & Confidentiality are its strongest categories, both scoring 88, reflecting $344 billion in represented asset value moving across the network. The TradFi score is held to 65, eleven points below its underlying 76, because the network hasn't yet secured the kind of formal U.S. regulatory recognition, such as a commodity classification, ETF, or futures listing, that would unlock the rest of that score, even though its AI score of 75 already reads as more agent-ready than institution-ready today.",
+  "last_updated": "2026-08-25",
+  "executive_summary": "Canton Network's public network and Canton Coin went live in July 2024, not yet two years old at the time of this scoring, built specifically for institutional finance with transaction-level privacy built into the protocol rather than bolted on. Real-World Utility and Privacy & Confidentiality are its strongest categories, both scoring 88, reflecting $344 billion in represented asset value moving across the network. The TradFi score is held to 65, roughly twelve points below its underlying 77, because the network hasn't yet secured the kind of formal U.S. regulatory recognition, such as a commodity classification, ETF, or futures listing, that would unlock the rest of that score, even though its AI score of 75 already reads as more agent-ready than institution-ready today.",
   "tradfi": {
     "score": 65,
-    "raw_score": 76.0,
+    "raw_score": 76.96,
     "tier_code": "EI",
     "gate_capped": true,
     "binding_cap": {
@@ -30,15 +30,16 @@
       "developer_ecosystem": 62,
       "regulatory_risk": 72,
       "privacy_confidentiality": 88,
-      "decentralization": 42,
+      "decentralization": 58,
       "security_future_proofing": 70
     },
     "categories_verified": true,
     "key_findings": [
       "Canton landed in the middle ground -- 'Partial,' not a full pass -- on all three of our baseline checks: quantum-computer readiness, regulatory footing, and security track record.",
-      "Canton is the one chain on our board where a baseline check actually holds the score down in a big way. Based purely on its category-by-category performance, Canton would score 76 -- but because its regulatory footing in the US is still only a partial pass (no formal commodity classification, no ETF, no CME futures), the published score is capped at 65, an 11-point reduction. This is the clearest case where clearing our baseline checks would meaningfully raise the number.",
+      "Canton is the one chain on our board where a baseline check actually holds the score down in a big way. Based purely on its category-by-category performance, Canton would score 77 -- but because its regulatory footing in the US is still only a partial pass (no formal commodity classification, no ETF, no CME futures), the published score is capped at 65, a roughly 12-point reduction. This is the clearest case where clearing our baseline checks would meaningfully raise the number.",
       "Real-World Utility ties for Canton's strongest category at 88, backed by roughly $344.8 billion in real-world asset value represented on the network according to RWA.xyz -- substantial genuine institutional usage, not speculative volume.",
-      "Privacy & Confidentiality ties for Canton's strongest category at 88. Privacy here is built into the protocol itself: each participant in a transaction only sees the parts of it that involve them directly, not the whole transaction. One important disclosure: this protects the details of application-level (Daml) transactions specifically -- Canton Coin's own balances and transaction history are publicly visible through the network's scan service, so the coin itself is not shielded."
+      "Privacy & Confidentiality ties for Canton's strongest category at 88. Privacy here is built into the protocol itself: each participant in a transaction only sees the parts of it that involve them directly, not the whole transaction. One important disclosure: this protects the details of application-level (Daml) transactions specifically -- Canton Coin's own balances and transaction history are publicly visible through the network's scan service, so the coin itself is not shielded.",
+      "Decentralization scores 58, driven by an unusually large validator set for an institutional network: 55 Super Validators with equal voting power, more entities than any other chain on the board carries. It's held below what that entity count alone would suggest because admission is by approval from existing members rather than open to anyone, and because that same validator body has twice frozen funds -- containing corrupted data on one occasion and freezing an attacker's holdings on another."
     ]
   },
   "ai": {
@@ -78,6 +79,6 @@
   "divergence": -10,
   "watch_items": [
     "Zenith, a new execution layer Canton is building that would let it run Ethereum- and Solana-style smart contracts, was still testnet-only when this scoring was done. If it reaches mainnet, it would likely raise Canton's AI scores in the categories covering agent tooling, cross-chain standards, and execution performance.",
-    "A formal US commodity classification, a spot ETF, or a CME futures listing would raise Canton's regulatory standing from a partial pass toward a full one. Since that's currently the single factor holding the TradFi score 11 points below what its categories alone would earn, this is the highest-impact event pending for Canton's published score."
+    "A formal US commodity classification, a spot ETF, or a CME futures listing would raise Canton's regulatory standing from a partial pass toward a full one. Since that's currently the single factor holding the TradFi score roughly twelve points below what its categories alone would earn, this is the highest-impact event pending for Canton's published score."
   ]
 }

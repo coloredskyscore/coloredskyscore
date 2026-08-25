@@ -4,11 +4,11 @@
   "name": "BNB Chain",
   "cashtag": "$BNB",
   "scored_date": "2026-07",
-  "last_updated": "2026-08-15",
-  "executive_summary": "BNB Smart Chain launched in 2020, built for cheap, high-volume smart-contract execution rather than maximum decentralization, and roughly six years later at the time of this scoring that tradeoff still shows: an On-Chain Health score of 86 built on roughly 4 million daily active users, against a Decentralization score of just 38. The TradFi score of 69 is also shaped by a 2022 security incident that's still working its way off the books through a multi-year clean track record. The AI score of 68 lands just one point below the TradFi score, the closest the two axes have come together for this chain, reflecting fast settlement and solid agent-identity tooling offset by weak on-chain privacy.",
+  "last_updated": "2026-08-25",
+  "executive_summary": "BNB Smart Chain launched in 2020, built for cheap, high-volume smart-contract execution rather than maximum decentralization, and roughly six years later at the time of this scoring that tradeoff still shows: an On-Chain Health score of 86 built on roughly 4 million daily active users, against a Decentralization score of just 32. The TradFi score of 69 is also shaped by a 2022 security incident that's still working its way off the books through a multi-year clean track record. The AI score of 68 lands just one point below the TradFi score, the closest the two axes have come together for this chain, reflecting fast settlement and solid agent-identity tooling offset by weak on-chain privacy.",
   "tradfi": {
     "score": 69,
-    "raw_score": 69.29,
+    "raw_score": 68.93,
     "tier_code": "EI",
     "gate_capped": false,
     "binding_cap": null,
@@ -25,7 +25,7 @@
       "developer_ecosystem": 74,
       "regulatory_risk": 60,
       "privacy_confidentiality": 46,
-      "decentralization": 38,
+      "decentralization": 32,
       "security_future_proofing": 55
     },
     "categories_verified": true,
@@ -33,7 +33,8 @@
       "BNB's Security Posture check lands as a partial pass rather than an outright fail because of how much time and remediation has passed since a 2022 exploit of the Token Hub bridge. Roughly 3.5 years of clean operation since, plus a structural fix (called Fusion) that closed the underlying weakness, moved this from what would otherwise be a failing grade to a partial one.",
       "This security check used to actually limit BNB's published score, but it no longer does -- BNB's overall score has fallen low enough on its own merits that the security check's ceiling isn't what's holding it back anymore. If the security track record improves in the future, it would change how the chain is described here, but wouldn't by itself raise the published score.",
       "On-Chain Health is BNB's standout category at 86, driven by real breadth of usage: over 4 million daily active users and a peak of 31 million transactions in a single day. Worth noting: some of this activity was measured while the network was running a promotional gas-fee subsidy, so a portion of the usage may be less sticky once that campaign ends (see watch items).",
-      "Privacy & Confidentiality is a middling 46. BNB Chain itself has no built-in way to hide a transaction or shield the BNB token, but because the chain supports the same smart-contract standard as Ethereum, third-party privacy applications can and do run on top of it -- so some privacy tooling exists, just not for the native asset."
+      "Privacy & Confidentiality is a middling 46. BNB Chain itself has no built-in way to hide a transaction or shield the BNB token, but because the chain supports the same smart-contract standard as Ethereum, third-party privacy applications can and do run on top of it -- so some privacy tooling exists, just not for the native asset.",
+      "Decentralization is a weak point at 32. Joining BNB Chain's validator set requires governance approval rather than being open to anyone who meets a technical bar, which keeps it closer to a curated set than a permissionless one even though a meaningful number of entities participate."
     ]
   },
   "ai": {

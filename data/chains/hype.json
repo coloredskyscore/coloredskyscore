@@ -4,12 +4,12 @@
   "name": "Hyperliquid",
   "cashtag": "$HYPE",
   "scored_date": "2026-07",
-  "last_updated": "2026-08-15",
-  "executive_summary": "Hyperliquid's own blockchain and HYPE token launched in November 2024, not yet two years old at the time of this scoring, built as an on-chain exchange for trading perpetual futures rather than as general-purpose infrastructure. That focus shows in an On-Chain Health score of 88, built on roughly $493 billion in trading volume in a single quarter. The TradFi score of 60 sits right at its tier's floor, held down by a Privacy & Confidentiality score of just 15, since every account's open positions and exact liquidation price are published by default for anyone to see, and the AI score of 64, while stronger, shows the same young, single-purpose network is still thin everywhere outside its core product.",
+  "last_updated": "2026-08-25",
+  "executive_summary": "Hyperliquid's own blockchain and HYPE token launched in November 2024, not yet two years old at the time of this scoring, built as an on-chain exchange for trading perpetual futures rather than as general-purpose infrastructure. That focus shows in an On-Chain Health score of 88, built on roughly $493 billion in trading volume in a single quarter. The TradFi score of 59 is held down by two of Hyperliquid's weakest categories: Privacy & Confidentiality at 15, since every account's open positions and exact liquidation price are published by default for anyone to see, and Decentralization at 14, since a foundation-controlled group of validators sits close to outright majority control of staked HYPE. The AI score of 64, while stronger, shows the same young, single-purpose network is still thin everywhere outside its core product.",
   "tradfi": {
-    "score": 60,
-    "raw_score": 59.97,
-    "tier_code": "EI",
+    "score": 59,
+    "raw_score": 59.13,
+    "tier_code": "RG",
     "gate_capped": false,
     "binding_cap": null,
     "gates": {
@@ -25,15 +25,16 @@
       "developer_ecosystem": 63,
       "regulatory_risk": 47,
       "privacy_confidentiality": 15,
-      "decentralization": 28,
+      "decentralization": 14,
       "security_future_proofing": 55
     },
     "categories_verified": true,
     "key_findings": [
-      "Hyperliquid fails our quantum-computer readiness check outright, but that failure isn't what's setting the score -- even that check's strict ceiling sits well above where Hyperliquid actually landed. The 60 reflects genuine category-by-category performance, not a gate penalty.",
+      "Hyperliquid fails our quantum-computer readiness check outright, but that failure isn't what's setting the score -- even that check's strict ceiling sits well above where Hyperliquid actually landed. The 59 reflects genuine category-by-category performance, not a gate penalty.",
       "On-Chain Health is Hyperliquid's standout category at 88, well ahead of any of its other eight categories. The platform processed roughly $493 billion in trading volume in the first quarter of 2026 alone and holds the majority share of all on-chain derivatives trading activity globally.",
       "Privacy & Confidentiality is Hyperliquid's weakest category by a wide margin at 15. Any account's open positions, leverage, and exact liquidation price are published by default and can be looked up by anyone through a public data feed -- this isn't just an ordinarily transparent ledger, it's specific financial information that could be used against a trader in real time by exposing exactly when they'd be forced to liquidate.",
-      "Hyperliquid's TradFi score of 60 sits just 0.47 points above the floor of its current tier -- an extremely narrow margin. A shift of roughly one point in almost any single category, in either direction, would be enough to move it into the tier below. Worth noting: the underlying category scores were finalized before this margin was known, so nothing was adjusted to land on either side of the line."
+      "Decentralization is Hyperliquid's second-weakest category at 14. A foundation-controlled group directly operates 5 of the network's 27 validators, controlling close to half of all staked HYPE -- functionally one entity sitting at the edge of majority control. The validator software itself is also closed-source, with no independently built alternative client available to check its behavior.",
+      "That validator-concentration finding is what moved Hyperliquid's TradFi score into a lower tier: it now publishes at 59, just below the floor of the tier above. The category scores behind this were finalized on their own merits before the tier line was known, so nothing was adjusted to land on either side of it."
     ]
   },
   "ai": {
@@ -65,10 +66,10 @@
       "Agent Tooling (75) and Agent Identity & Compliance (58) are Hyperliquid's clearest strengths on the AI framework. The platform supports on-chain approval flows that require a human to authorize an agent before it can act, plus permissions that let an agent trade without ever being able to withdraw funds -- real safety rails, not just theoretical ones. An estimated 20-30% of trading volume is already attributed to pure AI-agent activity."
     ]
   },
-  "divergence": -4,
+  "divergence": -5,
   "watch_items": [
     "Hyperliquid's TradFi and AI scores tell a consistent story rather than diverging ones: both frameworks independently find the same pattern -- a genuinely strong, focused trading engine surrounded by categories that are still immature, rather than one framework finding a strength the other misses.",
     "Hyperliquid fails our quantum-computer readiness check by default, because the team hasn't publicly stated a position on quantum resistance one way or another -- not because they've said it won't be addressed. This should be re-checked every time the chain is rescored, regardless of what else prompts the review.",
-    "Hyperliquid's published TradFi score sits just 0.47 points above the line separating its current tier from the one below. Any future revision to an individual category score should spell out clearly whether it would push the chain across that line."
+    "Hyperliquid's validator set is reportedly expanding from 24 toward 27 members. If the foundation's direct share of staked HYPE narrows as new, independent validators join, that would be the clearest path back toward Hyperliquid's prior tier."
   ]
 }

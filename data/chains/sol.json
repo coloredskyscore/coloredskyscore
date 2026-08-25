@@ -4,11 +4,11 @@
   "name": "Solana",
   "cashtag": "$SOL",
   "scored_date": "2026-05 (TradFi) / 2026-07 (AI)",
-  "last_updated": "2026-08-15",
-  "executive_summary": "Solana's mainnet went live in 2020, built specifically for high-throughput, low-latency execution, and six years later at the time of this scoring that speed shows up in a Real-World Utility score of 92 and a TradFi score of 79. The AI score of 75 reflects genuinely strong fundamentals, with execution, tooling, and developer support all scoring well, but it's held to that number because Solana's fastest, fully guaranteed settlement upgrade was still running on testnet rather than live for everyone at the time of scoring. That's why the gap between the two scores is only 4 points: the AI score already reflects Solana's real strength, held back by that one missing piece rather than any deeper weakness.",
+  "last_updated": "2026-08-25",
+  "executive_summary": "Solana's mainnet went live in 2020, built specifically for high-throughput, low-latency execution, and six years later at the time of this scoring that speed shows up in a Real-World Utility score of 92 and a TradFi score of 78. The AI score of 75 reflects genuinely strong fundamentals, with execution, tooling, and developer support all scoring well, but it's held to that number because Solana's fastest, fully guaranteed settlement upgrade was still running on testnet rather than live for everyone at the time of scoring. That's why the gap between the two scores is only 3 points: the AI score already reflects Solana's real strength, held back by that one missing piece rather than any deeper weakness.",
   "tradfi": {
-    "score": 79,
-    "raw_score": 78.54,
+    "score": 78,
+    "raw_score": 78.42,
     "tier_code": "EI",
     "gate_capped": false,
     "binding_cap": null,
@@ -25,7 +25,7 @@
       "developer_ecosystem": 85,
       "regulatory_risk": 90,
       "privacy_confidentiality": 50,
-      "decentralization": 52,
+      "decentralization": 50,
       "security_future_proofing": 80
     },
     "categories_verified": true,
@@ -33,8 +33,8 @@
       "Solana earns a full pass on our quantum-computer readiness check, thanks to a feature called Winternitz Vault that went live on mainnet in January 2025, giving wallets a way to protect funds against a future quantum-computing attack.",
       "Real-World Utility is Solana's strongest category at 92. It's the primary settlement network Visa uses for stablecoin transactions in the US, Western Union is rolling out Solana-based transfers to more than 100 million customers across 360,000 agent locations, and Solana-based tokenized stocks (xStocks) carry the vast majority of that market's trading volume -- concrete, large-scale institutional and consumer usage rather than speculative activity alone.",
       "Privacy & Confidentiality scores a middling 50. A feature called confidential transfers is live on mainnet and lets token amounts be hidden, with a built-in auditor key that a regulator or compliance team could use to review activity -- a design well-suited to institutional use. It's held back because it only hides the transaction amount, not who's involved (the flow of funds between addresses is still fully visible), it has to be separately turned on by both the token issuer and each individual holder, and it doesn't cover SOL itself, only tokens issued on top of Solana.",
-      "Decentralization is a genuine weak point at 52. A measure of how concentrated block-producing power is (roughly: how many entities you'd need to collude to control the network) has fallen from 31 to about 19-20, meaning fewer parties now hold effective control than in the past.",
-      "Solana's TradFi score of 79 sits a full point below the threshold for our top tier, with no rounding margin to close that gap -- it would take a genuine improvement in the underlying categories, not just a lucky rounding, to cross into the top band."
+      "Decentralization is a genuine weak point at 50. A measure of how concentrated block-producing power is (roughly: how many entities you'd need to collude to control the network) has fallen from 31 to about 19-20, meaning fewer parties now hold effective control than in the past.",
+      "Solana's TradFi score of 78 sits further below the threshold for our top tier, with no rounding margin to close that gap -- it would take a genuine improvement in the underlying categories, not just a lucky rounding, to cross into the top band."
     ]
   },
   "ai": {
@@ -71,7 +71,7 @@
       "Agent Tooling is Solana's strongest category on the AI framework at 90, backed by mature developer tools: comprehensive software kits, transaction simulation before execution, and infrastructure built specifically for autonomous agents rather than adapted from general-purpose tooling."
     ]
   },
-  "divergence": 4,
+  "divergence": 3,
   "watch_items": [
     "Alpenglow, an upgrade that would bring transaction finality under 200 milliseconds with a full guarantee, is targeted for mainnet in late Q3 or early Q4 2026. Once live, it would remove the one thing currently limiting Solana's AI score.",
     "The trend in how concentrated Solana's validator power is has been moving in the wrong direction -- both validator count and the coefficient measuring control concentration have declined. Worth watching for a further downward revision if that trend continues.",

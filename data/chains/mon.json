@@ -4,11 +4,11 @@
   "name": "Monad",
   "cashtag": "$MON",
   "scored_date": "2026-07",
-  "last_updated": "2026-08-15",
-  "executive_summary": "Monad's mainnet launched on November 24, 2025, under a year old at the time of this scoring, built specifically for high-throughput, parallelized transaction execution. That focus shows up in an Execution Layer score of 86 and an AI score of 72, fast and reliable enough to settle transactions in about 600 milliseconds. The TradFi score of 49 tells a different story: insiders hold roughly half the token supply behind a single cliff that unlocks about 1.4 times the current circulating supply in a single day on November 24, 2026, and that concentration is the single biggest drag on the score.",
+  "last_updated": "2026-08-25",
+  "executive_summary": "Monad's mainnet launched on November 24, 2025, under a year old at the time of this scoring, built specifically for high-throughput, parallelized transaction execution. That focus shows up in an Execution Layer score of 86 and an AI score of 72, fast and reliable enough to settle transactions in about 600 milliseconds. The TradFi score of 50 tells a different story: insiders hold roughly half the token supply behind a single cliff that unlocks about 1.4 times the current circulating supply in a single day on November 24, 2026, and that concentration is the single biggest drag on the score -- offset partly by a validator set that is open to anyone and already wide enough to be a genuine strength.",
   "tradfi": {
-    "score": 49,
-    "raw_score": 49.26,
+    "score": 50,
+    "raw_score": 50.22,
     "tier_code": "RG",
     "gate_capped": false,
     "binding_cap": null,
@@ -25,13 +25,14 @@
       "developer_ecosystem": 66,
       "regulatory_risk": 55,
       "privacy_confidentiality": 42,
-      "decentralization": 44,
+      "decentralization": 60,
       "security_future_proofing": 52
     },
     "categories_verified": true,
     "key_findings": [
       "Monad doesn't clear all three of our TradFi baseline checks -- it fails quantum-computer readiness outright and only partially passes regulatory footing and security -- but none of those checks is actually holding the score down. Monad's category-by-category performance already sits below any of those checks' ceilings.",
       "Tokenomics & Supply is Monad's weakest category by a wide margin at 34. Roughly half of the total token supply (about 50.6%) is held by the team, early investors, and the project treasury, all locked behind a single 12-month cliff. When that lock expires on November 24, 2026, roughly 1.4 times the current publicly circulating supply becomes unlockable in a single day -- a major concentration and potential-sell-pressure risk.",
+      "Decentralization is one of Monad's stronger categories at 60. Entry to the validator set is open rather than gated, and roughly 19 independent entities would need to collude to control a meaningful share of the network. It's a young network, though, so there isn't yet public evidence of client diversity beyond the single reference implementation, which is why the score doesn't reach higher.",
       "On-Chain Health scores a middling 54. Each active address on the network is generating an unusually high 150 to 170 transactions on average, a pattern independent analysis flagged as more consistent with automated activity chasing rewards than with organic, everyday usage.",
       "Privacy & Confidentiality scores 42, credited mainly to Unlink, a privacy tool that's been live on Monad's mainnet since June 2026. It counts here because it runs as a smart contract directly on Monad rather than as a separate chain with its own security. The score is discounted heavily, though, because it's still young and there's no public data yet on how much it's actually being used."
     ]
@@ -65,7 +66,7 @@
       "Because Monad's mainnet has been live under a year, it's scored on the actual track record it does have rather than penalized for a longer history it simply hasn't had time to build."
     ]
   },
-  "divergence": -23,
+  "divergence": -22,
   "watch_items": [
     "On November 24, 2026, a large batch of locked tokens (roughly 16.6 to 16.8 billion MON, about 1.4 times the current publicly circulating supply) unlocks all at once. Tokenomics & Supply and On-Chain Health are both worth re-assessing once this happens and the market has had time to absorb it.",
     "Monad currently runs reward programs that incentivize activity on the network. Once those programs wind down, the total value locked in Monad applications is expected to shrink significantly, possibly by 30-70% or more. On-Chain Health should be re-assessed once that happens to see how much usage was organic.",

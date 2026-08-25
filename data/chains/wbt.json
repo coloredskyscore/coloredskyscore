@@ -4,11 +4,11 @@
   "name": "Whitechain",
   "cashtag": "$WBT",
   "scored_date": "2026-08",
-  "last_updated": "2026-08-15",
-  "executive_summary": "Whitechain launched in 2024 as WhiteBIT's own exchange chain, built to give the exchange its own settlement rail rather than to serve as general-purpose public infrastructure, and roughly two years later at the time of this scoring it still runs on a single authorized validator. That structure produces its weakest scores: On-Chain Health at just 10, since the network's own explorer showed an effectively zero transaction rate at the time of scoring, and Decentralization at 8. Both the TradFi score of 26 and AI score of 40 sit well below any regulatory or security threshold that would otherwise hold the score down, meaning the underlying fundamentals, not outside constraints, are what's setting this chain's grade today.",
+  "last_updated": "2026-08-25",
+  "executive_summary": "Whitechain launched in 2024 as WhiteBIT's own exchange chain, built to give the exchange its own settlement rail rather than to serve as general-purpose public infrastructure, and roughly two years later at the time of this scoring it still runs on a single authorized validator. That structure produces its weakest scores: On-Chain Health at just 10, since the network's own explorer showed an effectively zero transaction rate at the time of scoring, and Decentralization at 5. Both the TradFi score of 26 and AI score of 40 sit well below any regulatory or security threshold that would otherwise hold the score down, meaning the underlying fundamentals, not outside constraints, are what's setting this chain's grade today.",
   "tradfi": {
     "score": 26,
-    "raw_score": 26.07,
+    "raw_score": 25.89,
     "tier_code": "SP",
     "gate_capped": false,
     "binding_cap": null,
@@ -25,7 +25,7 @@
       "developer_ecosystem": 15,
       "regulatory_risk": 38,
       "privacy_confidentiality": 22,
-      "decentralization": 8,
+      "decentralization": 5,
       "security_future_proofing": 48
     },
     "categories_verified": true,
@@ -33,7 +33,7 @@
       "None of our baseline checks are what's holding Whitechain's score down -- even the strictest one would still allow a score nearly 40 points higher than where Whitechain actually landed. The 26 is a direct reflection of weak fundamentals across its categories, not a penalty from a failed check.",
       "Whitechain is currently run by a single validator: one authorized entity, operated by the WhiteBIT exchange, is solely responsible for producing every block. There's no competing or independent party that could produce blocks in its place.",
       "On-Chain Health is Whitechain's weakest category at 10. The network's own official block explorer showed an effectively zero current transaction rate at the time of this scoring, and the chain isn't tracked by any major crypto analytics platform.",
-      "Decentralization is by far Whitechain's lowest-scoring category at 8, reflecting the fact that a single operator currently controls block production entirely, with no distribution of that power across independent parties.",
+      "Decentralization is by far Whitechain's lowest-scoring category at 5, reflecting the fact that a single operator currently controls block production entirely, with no distribution of that power across independent parties -- about as close to zero as the scoring scale allows.",
       "Privacy & Confidentiality scores 22. Whitechain runs the same kind of fully transparent, Ethereum-compatible ledger as many other chains, with no built-in way to hide a transaction and no meaningful privacy applications built on top of it."
     ]
   },
