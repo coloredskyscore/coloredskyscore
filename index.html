@@ -895,7 +895,7 @@ const COLUMNS = [
   { key: 'ai_score', label: 'AI', sortable: true, align: 'num' },
   { key: 'ai_tier', label: 'Tier', sortable: false, align: 'center' },
   { key: 'divergence', label: 'Divergence', sortable: true, align: 'num' },
-  { key: 'scored_date', label: 'Scored', sortable: true, align: 'left' },
+  { key: 'last_updated', label: 'Updated', sortable: true, align: 'left' },
 ];
 
 let sortKey = 'tradfi_score';
@@ -996,7 +996,7 @@ function renderBody() {
       </td>
       <td class="center">${tierBadge(r.ai_tier)}</td>
       <td class="num">${divergenceCell(r.divergence)}</td>
-      <td style="color:var(--text-dim);font-family:'IBM Plex Mono',monospace;font-size:13.5px;">${r.scored_date}</td>
+      <td style="color:var(--text-dim);font-family:'IBM Plex Mono',monospace;font-size:13.5px;">${r.last_updated}</td>
     </tr>
   `).join('');
 
