@@ -4,11 +4,11 @@
   "name": "Sui",
   "cashtag": "$SUI",
   "scored_date": "2026-06",
-  "last_updated": "2026-08-25",
-  "executive_summary": "Sui's mainnet launched in May 2023, a little over three years before this scoring, built around a design that lets many transactions process in parallel rather than one at a time. That design underpins a TradFi score of 74, carried by strong regulatory standing, real-world usage, and a validator base wide enough to be a genuine strength rather than a weakness, with room to grow further as transaction fee economics mature. The AI score of 71 sits well below the network's underlying strength, which actually scores an 86, because a May 2026 network halt triggered a reliability cool-down period that takes months of clean operation to fully recover from.",
+  "last_updated": "2026-08-27",
+  "executive_summary": "Sui's mainnet launched in May 2023, a little over three years before this scoring, built around a design that lets many transactions process in parallel rather than one at a time. That design underpins a TradFi score of 73, carried by strong regulatory standing and real-world usage, with an open, numerous validator base that's a genuine strength on paper -- moderated somewhat by a concentration of validators in a single jurisdiction, the United States -- and with room to grow further as transaction fee economics mature. The AI score of 71 sits well below the network's underlying strength, which actually scores an 86, because a May 2026 network halt triggered a reliability cool-down period that takes months of clean operation to fully recover from.",
   "tradfi": {
-    "score": 74,
-    "raw_score": 73.91,
+    "score": 73,
+    "raw_score": 72.89,
     "tier_code": "EI",
     "gate_capped": false,
     "binding_cap": null,
@@ -25,16 +25,16 @@
       "developer_ecosystem": 75,
       "regulatory_risk": 84,
       "privacy_confidentiality": 68,
-      "decentralization": 62,
+      "decentralization": 45,
       "security_future_proofing": 76
     },
     "categories_verified": true,
     "key_findings": [
       "Regulatory & Risk is a strength at 84. Sui has no history of regulatory litigation, and institutional access -- things like regulated custody and trading venues -- has been built out unusually quickly for a chain this young.",
       "On-Chain Health is the main thing holding Sui's overall score back, at 68. The core issue is fee economics: the network isn't yet generating the level of paid transaction activity that would signal deep, sticky usage.",
-      "Decentralization is one of Sui's strongest categories at 62. Roughly 19 independent entities would need to collude to control a meaningful share of staked SUI, and entry to the validator set is open rather than gated. The main thing holding it back from scoring higher is that all production validators currently run the same client software (sui-node), with no independently built alternative yet in production to check its behavior.",
+      "Decentralization moved from 62 to 45. Roughly 19 independent entities would need to collude to control a meaningful share of staked SUI, and entry to the validator set is open rather than gated -- both real strengths. But a jurisdiction-concentration check found that validators headquartered in the United States account for 24.8% of the network's 108 validators, and that concentration is now the binding factor pulling the score down rather than the underlying validator count and admission policy, which remain genuinely strong on their own. All production validators also still run the same client software (sui-node), with no independently built alternative yet in production to check its behavior.",
       "Privacy & Confidentiality scores 68. Two live mainnet tools do real work here: Seal, which lets developers encrypt data and set on-chain rules for who can decrypt it and when, and Nautilus, which runs sensitive computations inside a secure, tamper-resistant hardware environment and verifies the results on-chain. Important disclosure: both of these protect data and application logic -- neither one shields the SUI token itself or hides a transaction's value. A separate feature that would let SUI transaction amounts be hidden (confidential transfers) still only exists in testing and isn't live on mainnet, so it earns no credit here.",
-      "Sui's 74 today has a credible path upward: if paid transaction activity grows and its post-quantum cryptography protections ship to mainnet, the score would have real room to rise."
+      "Sui's 73 today has a credible path upward: if paid transaction activity grows, validator hosting diversifies across jurisdictions, and its post-quantum cryptography protections ship to mainnet, the score would have real room to rise."
     ]
   },
   "ai": {
@@ -71,11 +71,12 @@
       "Sui's AI score moved up from the 'Experimental' tier into 'Integration Ready' on July 1, 2026, as part of a scheduled recovery: the reliability penalty from the earlier outage eases by a fixed amount for every clean month that passes without another incident."
     ]
   },
-  "divergence": 3,
+  "divergence": 2,
   "watch_items": [
     "Sui is planning to ship a quantum-safe wallet feature to mainnet later in 2026. Once it does, it will trigger a re-check of the quantum-computer readiness check.",
     "A native quantum-resistant signature standard (ML-DSA-65) for account authentication is targeted for Q1 2027. If it ships, it would be the trigger for a full pass on quantum-computer readiness.",
     "The reliability penalty from the May 2026 outage continues easing by a fixed amount for every additional clean month without another incident. If that streak continues uninterrupted, Sui's AI score could reach our top tier around April-May 2027.",
-    "If Sui's confidential-transfer feature, which would let transaction amounts be hidden, moves from testing to a live mainnet launch, it would raise the Privacy & Confidentiality score."
+    "If Sui's confidential-transfer feature, which would let transaction amounts be hidden, moves from testing to a live mainnet launch, it would raise the Privacy & Confidentiality score.",
+    "If validator hosting diversifies away from its current jurisdiction concentration, that would be the clearest path back toward a higher Decentralization score."
   ]
 }

@@ -4,11 +4,11 @@
   "name": "Bitcoin",
   "cashtag": "$BTC",
   "scored_date": "2026-05 (TradFi) / 2026-07 (AI)",
-  "last_updated": "2026-08-19",
+  "last_updated": "2026-08-27",
   "executive_summary": "Bitcoin launched in 2009 as peer-to-peer electronic cash, and seventeen years later at the time of this scoring, that track record shows up in a TradFi score of 80: a fixed 21 million coin supply, deep access through ETFs and regulated custody, and a history with zero protocol-level exploits. The AI score lands much lower at 54, because Bitcoin confirms transactions probabilistically rather than with an instant, guaranteed final settlement, and that's precisely the kind of certainty an autonomous agent needs before it can safely act on a payment. The 26-point gap between the two scores comes down to that one architectural choice: built for slow, battle-tested trust rather than machine-speed certainty.",
   "tradfi": {
     "score": 80,
-    "raw_score": 80.44,
+    "raw_score": 79.72,
     "tier_code": "IG",
     "gate_capped": false,
     "binding_cap": null,
@@ -25,7 +25,7 @@
       "developer_ecosystem": 72,
       "regulatory_risk": 90,
       "privacy_confidentiality": 36,
-      "decentralization": 52,
+      "decentralization": 40,
       "security_future_proofing": 82
     },
     "categories_verified": true,
@@ -33,7 +33,8 @@
       "TradFi Approved is Bitcoin's strongest category at 97, the highest score in this category across our whole scoring history. Regulated ETFs, professional custody services, and licensed trading venues all exist at scale, giving institutions about as much clean, direct access to Bitcoin as any asset in traditional finance.",
       "Tokenomics & Supply scores 95, near the top of the scale. Bitcoin's 21 million coin cap is fixed and its issuance schedule, which cuts new supply in half on a predictable timer, is transparent and unchangeable. The score isn't a perfect 100 because a large amount of Bitcoin mined in the network's earliest days, believed to belong to its pseudonymous creator, has never moved -- a small but real concentration and supply-uncertainty factor.",
       "Privacy & Confidentiality is a clear weak point at 36. Every Bitcoin transaction is permanently visible on a fully public ledger, with no built-in way to hide amounts or participants. Third-party mixing tools that once let users blend their coins with others' for extra privacy have thinned out significantly since several of the services that ran them shut down. Simply not disclosing which address belongs to you offers some privacy, but it's a personal habit, not a network protection, and specialized chain-analysis firms have repeatedly de-anonymized addresses in practice.",
-      "Bitcoin's TradFi score of 80 sits right at the boundary of our top tier -- a razor-thin margin. A small shift in almost any single category, in either direction, could be enough to move Bitcoin into or out of that top band at the next review."
+      "Decentralization moved from 52 to 40. Roughly 37% of global Bitcoin mining hashrate is concentrated in the United States by jurisdiction -- a real concentration risk, though it's tempered by how slow and costly it would be for that hashrate to actually relocate: the 2021 China mining ban showed that kind of physical move takes months, not the near-instant switch a miner has between mining pools. That slower-moving risk is why this revision is a calibrated discount rather than a straight mechanical read of the jurisdiction concentration alone.",
+      "Bitcoin's TradFi score of 80 sits right at the boundary of our top tier -- now an even thinner margin than before, following the Decentralization revision above. A small shift in almost any single category, in either direction, could be enough to move Bitcoin into or out of that top band at the next review."
     ]
   },
   "ai": {
@@ -75,6 +76,6 @@
     "Two proposed upgrades (known as CTV and OP_CAT) that would expand what Bitcoin's scripting language can do are open for network signaling but haven't been activated yet. If adopted, they'd raise the ceiling on how programmable Bitcoin can be scored.",
     "Two proposals addressing Bitcoin's quantum-computer vulnerability -- a new quantum-resistant address format, and a plan to eventually retire older, more vulnerable address types -- are formally documented as of February 2026 but remain in draft and testnet only, with no live mainnet activation yet. Separately, expert estimates of when a quantum computer capable of breaking Bitcoin's current signature scheme might exist have shifted earlier during 2026 research, though there's still no single agreed-upon timeline.",
     "There's no credible near-term path for Bitcoin to pass our fast-finality check. This isn't a maturity issue that more development time would fix -- it's a fundamental result of how Bitcoin's proof-of-work settlement is designed.",
-    "Two items are still under review that could adjust Bitcoin's TradFi score in a future update: a possible recalibration of how the Decentralization category is measured (currently scoring Bitcoin at 52), and a possible upward revision to the Tokenomics & Supply score (currently 95, potentially closer to 97-98). These two would move in opposite directions, so they'll be evaluated together rather than one at a time."
+    "Bitcoin's Decentralization score (now 40) was revised via an infrastructure/geographic concentration check layered on top of the existing mining-pool concentration measure -- see above. A separate, still-open item is a possible upward revision to the Tokenomics & Supply score (currently 95, potentially closer to 97-98)."
   ]
 }
