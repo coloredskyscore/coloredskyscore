@@ -4,11 +4,11 @@
   "name": "Ethereum",
   "cashtag": "$ETH",
   "scored_date": "2026-06",
-  "last_updated": "2026-08-25",
+  "last_updated": "2026-08-28",
   "executive_summary": "Ethereum launched in 2015 as a general-purpose smart contract platform, and about a decade later at the time of this scoring it's carrying a privacy application ecosystem worth roughly $4.2 billion in cumulative volume on top of deep institutional and developer adoption, driving a TradFi score of 80. The AI score of 74 is held back mainly by settlement speed: transactions take roughly 13-15 minutes to become fully final, which is slow for an agent trying to act and confirm in real time. The 6-point gap between the two scores comes from that finality lag combined with a fee market that's hard to predict and thin privacy tooling at the base layer.",
   "tradfi": {
     "score": 80,
-    "raw_score": 79.82,
+    "raw_score": 79.56,
     "tier_code": "IG",
     "gate_capped": false,
     "binding_cap": null,
@@ -21,7 +21,7 @@
       "on_chain_health": 78,
       "tradfi_approved": 90,
       "real_world_utility": 88,
-      "tokenomics_supply": 80,
+      "tokenomics_supply": 78,
       "developer_ecosystem": 90,
       "regulatory_risk": 90,
       "privacy_confidentiality": 48,
@@ -33,7 +33,9 @@
       "This score covers Ethereum's base layer only, under its current proof-of-stake design -- activity happening on Layer 2 scaling networks that settle back to Ethereum isn't counted in any of these numbers.",
       "Ethereum's three strongest categories -- Developer & Ecosystem, TradFi Approved, and Regulatory & Risk -- all score 90, reflecting genuinely deep penetration on both sides: a large, active base of developers building on the network, and substantial institutional access and regulatory comfort around the asset.",
       "Privacy & Confidentiality lands at a middling 48. Ethereum's base layer has no built-in way to hide a transaction, but a substantial ecosystem of third-party privacy applications has grown on top of it -- roughly $4.2 billion in cumulative volume through tools like Railgun, zkBOB, and Tornado Cash. One related project, Aztec, isn't counted here because it runs its own separate security setup rather than relying on Ethereum's.",
-      "Ethereum only partially passes our quantum-computer readiness check, but that check isn't what's holding the score back -- even the strictest ceiling it would impose sits well above where Ethereum actually landed on its category-by-category merits."
+      "Tokenomics & Supply moved from 80 to 78. Part of the original score rested on a strong post-Merge deflationary dynamic -- transaction fees being burned faster than new supply was issued. Since the Dencun upgrade, activity has shifted toward Layer 2 networks, base-layer fees and the resulting burn have declined, and net issuance has drifted mildly positive during quieter periods. The revision reflects that shift in the underlying dynamic rather than the story the original score was built on.",
+      "Ethereum only partially passes our quantum-computer readiness check, but that check isn't what's holding the score back -- even the strictest ceiling it would impose sits well above where Ethereum actually landed on its category-by-category merits.",
+      "Ethereum's TradFi score of 80 sits at the boundary of our top tier, with a thin cushion underneath following the Tokenomics & Supply revision above. A shift of even a point or two in a single category could be enough to move Ethereum out of that top band at a future review."
     ]
   },
   "ai": {
@@ -68,7 +70,6 @@
   },
   "divergence": 6,
   "watch_items": [
-    "An upgrade called Dencun significantly reduced the rate at which transaction fees are permanently removed from circulation ('burned'), which changes Ethereum's supply dynamics. This may justify revising the Tokenomics & Supply score down from 80 toward the 76-78 range at a future reassessment.",
     "Two upcoming upgrades on Ethereum's roadmap, known as Fusaka and Glamsterdam, include changes aimed at making transactions final in a single step rather than over many minutes, along with other performance and storage improvements. If they ship as planned, they could meaningfully raise the Execution Layer score."
   ]
 }
