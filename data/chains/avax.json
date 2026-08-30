@@ -5,11 +5,11 @@
   "cashtag": "$AVAX",
   "scored_date": "2026-08",
   "last_updated": "2026-08-30",
-  "executive_summary": "Avalanche launched in September 2020 as a general-purpose smart-contract platform built around a fast, probabilistic consensus design rather than a single-purpose chain. That breadth shows up as real but not exceptional activity: several hundred thousand daily active addresses and multiple millions of daily transactions on the main smart-contract chain, alongside genuine institutional footholds -- a live spot ETF and tokenized funds from BlackRock and Apollo -- that are each thinner than headline coverage suggests once checked directly. The TradFi score of 58 combines a clean regulatory picture with a Decentralization score held down by a single validator software implementation despite a large, well-documented validator count. The AI score of 60 is anchored by a genuinely strong, currently-confirmed fee and throughput picture, offset by thin agent-specific tooling and no protocol-native way to verify an AI agent's identity.",
+  "executive_summary": "Avalanche launched in September 2020 as a general-purpose smart-contract platform built around a fast, probabilistic consensus design rather than a single-purpose chain. That breadth shows up as real but not exceptional activity: several hundred thousand daily active addresses and multiple millions of daily transactions on the main smart-contract chain, alongside a broader institutional footprint than first captured -- six distinct named managers, including BlackRock, Franklin Templeton, and Janus Henderson, hold over $1.2 billion here today. The TradFi score of 60 crosses into Emerging Institutional on the strength of that broadened institutional access and two newly-confirmed real-world-utility verticals, offset by a Decentralization score held down by a single validator software implementation despite a large, well-documented validator count. The AI score of 60 is anchored by a genuinely strong, currently-confirmed fee and throughput picture, offset by thin agent-specific tooling and no protocol-native way to verify an AI agent's identity.",
   "tradfi": {
-    "score": 58,
-    "raw_score": 58.17,
-    "tier_code": "RG",
+    "score": 60,
+    "raw_score": 59.61,
+    "tier_code": "EI",
     "gate_capped": false,
     "binding_cap": null,
     "gates": {
@@ -19,8 +19,8 @@
     },
     "categories": {
       "on_chain_health": 63,
-      "tradfi_approved": 55,
-      "real_world_utility": 60,
+      "tradfi_approved": 61,
+      "real_world_utility": 63,
       "tokenomics_supply": 58,
       "developer_ecosystem": 55,
       "regulatory_risk": 80,
@@ -32,7 +32,8 @@
     "key_findings": [
       "Avalanche clears our regulatory-access check outright: it's named directly in a March 2026 joint US regulatory interpretive release, and a spot ETF (VanEck's VAVX) has been trading on Nasdaq since January 2026, holding AVAX directly with staking rewards passed through to holders. No open government investigation or enforcement action was found against the team.",
       "On-Chain Health (63) reflects genuine, sustained usage -- several hundred thousand daily active addresses and multiple millions of daily transactions, rising toward a recent peak near 3 million transactions in a single day. What's missing for a stronger score is the elite fee revenue seen on the very largest smart-contract platforms.",
-      "TradFi Approved (55) is real but shallower than headline coverage suggests. BlackRock's tokenized fund holds roughly $564 million on this chain -- about a fifth of that fund's total size. Apollo's credit fund, Wyoming's stablecoin, and Fosun's stablecoin each hold small single-digit-million-dollar positions here, and the two live AVAX-based ETFs combined hold only about $37 million in assets.",
+      "TradFi Approved (61) is broader than first captured. BlackRock's tokenized fund holds roughly $564 million on this chain -- about a fifth of that fund's total size -- and Apollo's credit fund holds roughly $4.9 million. Two further global asset managers are live here: Franklin Templeton's BENJI fund ($34.2 million) and Janus Henderson's AAA CLO fund, deployed via Centrifuge at roughly $262 million as part of a broader real-world-asset allocation. Galaxy Digital's CLO 2025-1 holds $17.9 million distributed on-chain. A tokenized natural-resource security, Bridgetower's DOM X Arizona copper-gold project, carries a real, transferable $333.6 million position here -- separate from and far smaller than an unverified $11 billion headline valuation for the underlying project, which earns no credit. Wyoming's and Fosun's stablecoins and the two live AVAX-based ETFs remain small positions in the single-digit-to-tens-of-millions range. Six distinct institutional counterparties now hold a documented $1.2 billion-plus here, roughly double what was captured at the original scoring session.",
+      "Real-World Utility (63): breadth widened on a closer look. Beyond the tokenized-fund and stablecoin activity captured above, two independent verticals are confirmed live -- OpenTrade's real-world-yield platform ($200.7 million distributed on this chain) and Dinari's tokenized U.S. equities (over 350 tickers including SpaceX, though dollar value in this specific vertical stays modest). Genuinely separate verticals from the fund-tokenization story, not more of the same one.",
       "Tokenomics & Supply (58): AVAX has a 720 million hard cap with roughly 60% (about 432 million tokens) already circulating. The network currently mints more in staking rewards each year than it burns in fees, so supply is still growing on net. A foundation proposal to end that growth by shifting validator pay toward fee revenue-sharing was floated days before this scoring, but nothing has shipped, so it earns no credit yet.",
       "Decentralization (45) combines two separate checks. Counting independent validator entities looks strong at 24, enough to place Avalanche near the top of our mid-tier band on that measure alone -- but every validator runs the same consensus software with no independently built alternative to check it, which caps that reading lower. A second, separate check on where validators are physically and legally located lands lower still: roughly a quarter of measured nodes sit in a single country and a similar share sit with a single cloud provider. The lower of the two readings governs.",
       "Privacy & Confidentiality (32): nearly everything on this chain is public by default. One encrypted-token standard has working code deployed, but shows zero recorded real-world usage, earning only minimal credit for existing.",
@@ -74,7 +75,7 @@
       "KYA (24): no protocol-native system exists for verifying or authorizing an AI agent's identity on this chain. One emerging cross-industry identity standard has a single demonstration deployment here, not real adoption, and a separate institutional compliance framework elsewhere in the ecosystem is aimed at human KYC, still pilot-stage, and not built for agents."
     ]
   },
-  "divergence": -2,
+  "divergence": 0,
   "watch_items": [
     "Quantum-computer readiness rests on the weakest basis found in this scoring -- a single outside researcher's proposal, not an official position from the team. Re-check whether this develops into an acknowledged plan at the next reassessment.",
     "A foundation proposal to move validator rewards toward a zero-inflation model was posted days before this scoring, with no committed timeline -- a Tokenomics & Supply re-credit candidate if it ships.",
@@ -82,6 +83,8 @@
     "A continuous-execution throughput upgrade is confirmed on testnet only as of this scoring -- an Execution Layer re-credit candidate on mainnet activation.",
     "Account-abstraction infrastructure is live with real historical usage, but current volume is unconfirmed -- re-check adoption depth at the next reassessment.",
     "The one security audit on record predates two subsequent network upgrades -- a new, current-scope audit would be a direct re-credit candidate on both scores.",
-    "A five-year, $240 billion contract to digitize 370,000 property deeds for a New Jersey county on this chain was signed in May 2025. As of this scoring, more than a year later, no public reporting shows it live -- no on-chain deed count, public search tool, or operational milestone was found anywhere. A genuine Real-World Utility and TradFi Approved re-credit candidate if it materializes; zero credit today per score-reality discipline."
+    "A five-year, $240 billion contract to digitize 370,000 property deeds for a New Jersey county on this chain was signed in May 2025. As of this scoring, more than a year later, no public reporting shows it live -- no on-chain deed count, public search tool, or operational milestone was found anywhere. A genuine Real-World Utility and TradFi Approved re-credit candidate if it materializes; zero credit today per score-reality discipline.",
+    "Bridgetower's DOM X Arizona copper-gold project carries a real, transferable $333.6 million position on this chain, now reflected in TradFi Approved. The touted $11 billion total project valuation remains unverified as investor-held or transferable value and earns no credit -- re-check if a larger confirmed distributed position emerges.",
+    "A separate Japanese tokenization platform, Progmat, reported migrating over $2 billion in tokenized securities to this chain in 2026. Independently reported by multiple outlets, but the underlying securities are likely permissioned and non-transferable, and this figure isn't reflected in independent RWA trackers of this chain. Zero credit today; a re-credit candidate if a confirmed transferable position surfaces."
   ]
 }
