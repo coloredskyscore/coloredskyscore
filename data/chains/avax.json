@@ -1,0 +1,86 @@
+{
+  "slug": "avax",
+  "ticker": "AVAX",
+  "name": "Avalanche",
+  "cashtag": "$AVAX",
+  "scored_date": "2026-08",
+  "last_updated": "2026-08-30",
+  "executive_summary": "Avalanche launched in September 2020 as a general-purpose smart-contract platform built around a fast, probabilistic consensus design rather than a single-purpose chain. That breadth shows up as real but not exceptional activity: several hundred thousand daily active addresses and multiple millions of daily transactions on the main smart-contract chain, alongside genuine institutional footholds -- a live spot ETF and tokenized funds from BlackRock and Apollo -- that are each thinner than headline coverage suggests once checked directly. The TradFi score of 58 combines a clean regulatory picture with a Decentralization score held down by a single validator software implementation despite a large, well-documented validator count. The AI score of 60 is anchored by a genuinely strong, currently-confirmed fee and throughput picture, offset by thin agent-specific tooling and no protocol-native way to verify an AI agent's identity.",
+  "tradfi": {
+    "score": 58,
+    "raw_score": 58.17,
+    "tier_code": "RG",
+    "gate_capped": false,
+    "binding_cap": null,
+    "gates": {
+      "quantum_resistance": "partial",
+      "regulatory_clarity": "pass",
+      "security_posture": "partial"
+    },
+    "categories": {
+      "on_chain_health": 63,
+      "tradfi_approved": 55,
+      "real_world_utility": 60,
+      "tokenomics_supply": 58,
+      "developer_ecosystem": 55,
+      "regulatory_risk": 80,
+      "privacy_confidentiality": 32,
+      "decentralization": 45,
+      "security_future_proofing": 62
+    },
+    "categories_verified": true,
+    "key_findings": [
+      "Avalanche clears our regulatory-access check outright: it's named directly in a March 2026 joint US regulatory interpretive release, and a spot ETF (VanEck's VAVX) has been trading on Nasdaq since January 2026, holding AVAX directly with staking rewards passed through to holders. No open government investigation or enforcement action was found against the team.",
+      "On-Chain Health (63) reflects genuine, sustained usage -- several hundred thousand daily active addresses and multiple millions of daily transactions, rising toward a recent peak near 3 million transactions in a single day, once an implausible outside figure was checked and set aside in favor of reconciled data. What's missing for a stronger score is the elite fee revenue seen on the very largest smart-contract platforms.",
+      "TradFi Approved (55) is real but shallower than headline coverage suggests. BlackRock's tokenized fund holds roughly $564 million on this chain -- about a fifth of that fund's total size, not the whole fund as an earlier figure implied. Apollo's credit fund, Wyoming's stablecoin, and Fosun's stablecoin each hold small single-digit-million-dollar positions here, and the two live AVAX-based ETFs combined hold only about $37 million in assets.",
+      "Tokenomics & Supply (58): AVAX has a 720 million hard cap with roughly 60% (about 432 million tokens) already circulating. The network currently mints more in staking rewards each year than it burns in fees, so supply is still growing on net. A foundation proposal to end that growth by shifting validator pay toward fee revenue-sharing was floated days before this scoring, but nothing has shipped, so it earns no credit yet.",
+      "Decentralization (45) combines two separate checks. Counting independent validator entities looks strong at 24, enough to place Avalanche near the top of our mid-tier band on that measure alone -- but every validator runs the same consensus software with no independently built alternative to check it, which caps that reading lower. A second, separate check on where validators are physically and legally located lands lower still: roughly a quarter of measured nodes sit in a single country and a similar share sit with a single cloud provider. The lower of the two readings governs.",
+      "Privacy & Confidentiality (32): nearly everything on this chain is public by default. One encrypted-token standard has working code deployed, but shows zero recorded real-world usage, earning only minimal credit for existing.",
+      "Security & Future-Proofing (62): the one independent security audit on record found and fixed a serious bug before it could be exploited -- a flaw that could have let an attacker impersonate another user's identity in certain contract calls -- a genuine catch-before-harm result. But that audit predates two later network upgrades, so current code hasn't had a fresh independent look. An active, funded bug bounty program is a positive; no public post-quantum research from the team is not."
+    ]
+  },
+  "ai": {
+    "score": 60,
+    "raw_score": 59.64,
+    "tier_code": "EX",
+    "gate_capped": false,
+    "binding_cap": null,
+    "gates": {
+      "deterministic_finality": "partial",
+      "programmability_tier": "pass",
+      "operational_reliability": "pass"
+    },
+    "categories": {
+      "execution_layer": 75,
+      "composability_atomicity": 78,
+      "security_posture": 60,
+      "state_api_quality": 72,
+      "privacy_confidentiality": 24,
+      "economic_predictability": 54,
+      "agent_tooling": 44,
+      "standards_interoperability": 67,
+      "kya": 24
+    },
+    "categories_verified": true,
+    "key_findings": [
+      "Execution Layer (75) is a real strength: fees can fall to near zero under normal conditions, and a live 24-hour view of network activity showed sustained throughput with real headroom to handle roughly double the typical load without visible slowdown. What holds this back from a higher score is finality speed -- transactions are practically confirmed in one to two seconds, fast for a probabilistic design but short of true sub-second deterministic settlement.",
+      "Composability & Atomicity (78): all three of the standard tools an autonomous agent needs to batch multiple actions into one all-or-nothing transaction -- a multicall utility, a smart-account factory, and a token-approval standard -- are confirmed live and in active use on this chain today, not just theoretically available.",
+      "Security Posture (60) applies the same audit and client findings as the TradFi score, scored directly here rather than through a pass/fail gate. The bug caught and fixed before exploitation is a genuine positive signal; a documented history of application-level exploits elsewhere in the ecosystem is a real negative one.",
+      "State & API Quality (72): multiple independent, non-affiliated data providers exist for reading chain data, and a mature indexing service has supported developers for years. The real gap: a standard node keeps only about the last 32 blocks of history, so pulling older records requires a specialized archive node rather than the default setup.",
+      "Privacy & Confidentiality (24) mirrors the TradFi finding -- transparent by default. The one privacy-oriented tool live in code shows no real on-chain usage, and its intended deployment path points toward separate custom instances rather than this chain directly.",
+      "Economic Predictability (54): the fee mechanism itself is genuinely predictable and protocol-enforced. Working against that, a documented 2025 incident saw an attacker exploit the public pending-transaction pool to front-run trades (patched with rate-limiting rather than a structural fix), and no published policy anywhere commits to fair transaction ordering.",
+      "Agent Tooling (44) is thin. General smart-contract developer tools work fully here, but agent-specific infrastructure built directly on this chain is limited to one small community-built framework and one third-party agent wallet product, both with unconfirmed real adoption. A separate, purpose-built agent-identity blockchain has launched in the wider ecosystem, but it runs its own independent validators and is scored on its own terms, not credited here.",
+      "Standards & Interoperability (67): no account-abstraction standard is a first-class native feature yet, though the generic infrastructure for it is live with some real usage. The chain's own cross-chain messaging protocol connects it to the rest of its ecosystem without relying on third-party bridges -- a genuine strength for that specific reach. Connecting beyond that ecosystem still depends on bridges and oracle networks.",
+      "KYA (24): no protocol-native system exists for verifying or authorizing an AI agent's identity on this chain. One emerging cross-industry identity standard has a single demonstration deployment here, not real adoption, and a separate institutional compliance framework elsewhere in the ecosystem is aimed at human KYC, still pilot-stage, and not built for agents."
+    ]
+  },
+  "divergence": -2,
+  "watch_items": [
+    "Quantum-computer readiness rests on the weakest basis found in this scoring -- a single outside researcher's proposal, not an official position from the team. Re-check whether this develops into an acknowledged plan at the next reassessment.",
+    "A foundation proposal to move validator rewards toward a zero-inflation model was posted days before this scoring, with no committed timeline -- a Tokenomics & Supply re-credit candidate if it ships.",
+    "An encrypted-token privacy tool is live in code but shows no real usage yet -- a Privacy re-credit candidate on both scores if that changes.",
+    "A continuous-execution throughput upgrade is confirmed on testnet only as of this scoring -- an Execution Layer re-credit candidate on mainnet activation.",
+    "Account-abstraction infrastructure is live with real historical usage, but current volume is unconfirmed -- re-check adoption depth at the next reassessment.",
+    "The one security audit on record predates two subsequent network upgrades -- a new, current-scope audit would be a direct re-credit candidate on both scores."
+  ]
+}
