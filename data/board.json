@@ -2,8 +2,8 @@
   "_schema_notes": "Loaded on every page visit. Keep this file NUMBERS AND SHORT STRINGS ONLY -- no reasoning prose, no long findings lists. That content lives in /data/chains/<slug>.json and is fetched only when a chain's panel is opened. detail_url uses the stable slug, not the ticker -- tickers can change (rebrands, symbol reuse) but the slug and its file never do.",
   "meta": {
     "site": "coloredskyscore.com",
-    "last_updated": "2026-08-30",
-    "chains_scored": 16,
+    "last_updated": "2026-09-02",
+    "chains_scored": 17,
     "tradfi_framework_version": "v2.0",
     "ai_framework_version": "v1.1"
   },
@@ -304,6 +304,22 @@
       "divergence": 0,
       "scored_date": "2026-08",
       "last_updated": "2026-08-25"
+    },
+    {
+      "slug": "bch",
+      "ticker": "BCH",
+      "name": "Bitcoin Cash",
+      "cashtag": "$BCH",
+      "detail_url": "data/chains/bch.json",
+      "tradfi_score": 43,
+      "tradfi_tier": "RG",
+      "tradfi_capped": false,
+      "ai_score": 41,
+      "ai_tier": "PO",
+      "ai_capped": false,
+      "divergence": 2,
+      "scored_date": "2026-09",
+      "last_updated": "2026-09-02"
     }
   ]
 }

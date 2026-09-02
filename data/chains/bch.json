@@ -1,0 +1,78 @@
+{
+  "slug": "bch",
+  "ticker": "BCH",
+  "name": "Bitcoin Cash",
+  "cashtag": "$BCH",
+  "scored_date": "2026-09",
+  "last_updated": "2026-09-02",
+  "executive_summary": "Bitcoin Cash launched in August 2017 as a hard fork of Bitcoin, built around the idea that Bitcoin should prioritize cheap, everyday on-chain payments rather than only acting as a store of value. It's a proof-of-work blockchain using Bitcoin's original UTXO transaction model, and a May 2026 network upgrade added real, if bounded, smart-contract capability on top of that base. Its clear strength is monetary policy: a fixed 21 million coin supply with roughly 96% already issued, built the same way Bitcoin's is. Its clear weakness is thin on-chain activity, with modest transaction counts and network fee revenue relative to its size, and that gap between elite tokenomics and light usage is the main story behind both of today's scores.",
+  "tradfi": {
+    "score": 43,
+    "raw_score": 43.14,
+    "tier_code": "RG",
+    "gate_capped": false,
+    "binding_cap": null,
+    "gates": {
+      "quantum_resistance": "partial",
+      "regulatory_clarity": "partial",
+      "security_posture": "partial"
+    },
+    "categories": {
+      "on_chain_health": 25,
+      "tradfi_approved": 25,
+      "real_world_utility": 29,
+      "tokenomics_supply": 94,
+      "developer_ecosystem": 33,
+      "regulatory_risk": 67,
+      "privacy_confidentiality": 44,
+      "decentralization": 38,
+      "security_future_proofing": 55
+    },
+    "categories_verified": true,
+    "key_findings": [
+      "Tokenomics & Supply is Bitcoin Cash's strongest category by far at 94, built the same way Bitcoin's is: a fixed 21 million coin supply, no early insider allocation, and roughly 96% of all coins that will ever exist already in circulation.",
+      "On-Chain Health is the weakest category at 25. Daily transaction counts and network fee revenue are both modest relative to the size of the asset, with no clear growth trend showing up in the data reviewed for this score.",
+      "Regulatory & Risk scores a solid 67. Bitcoin Cash was named alongside a small group of assets in a March 2026 joint SEC-CFTC interpretive release recognizing it as a digital commodity, real positive standing. Separately, a federal tax case against Bitcoin Cash's most prominent early promoter was resolved in October 2025 through a deferred prosecution agreement; that outcome is personal to the individual involved and carries no ongoing effect on the chain's own score.",
+      "Our regulatory baseline check landed on a partial pass rather than a full one: Bitcoin Cash has real federal recognition as described above, but no fully live US spot ETF exists yet to give institutions a straightforward way to gain exposure. The closest vehicle is an existing OTC trust that filed in September 2025 to convert into a NYSE-listed ETF but had not completed that conversion as of this score.",
+      "Privacy & Confidentiality scores 44. CashFusion, a real opt-in privacy tool available through a third-party wallet, gives users a genuine way to obscure their transaction history if they choose to use it. A widely repeated statistic claiming 94% of all Bitcoin Cash is privately mixed turned out, on closer inspection, to be based on 2020-2021 ownership-history data rather than current usage, so this score reflects the feature being real but optional and third-party, not that inflated adoption figure.",
+      "Decentralization scores 38, with genuine uncertainty behind the number. No reliable public tracker currently measures how concentrated Bitcoin Cash mining is today, and while node software is nominally split across several programs, the two largest by far share the same underlying codebase lineage rather than representing truly independent implementations."
+    ]
+  },
+  "ai": {
+    "score": 41,
+    "raw_score": 41.08,
+    "tier_code": "PO",
+    "gate_capped": false,
+    "binding_cap": null,
+    "gates": {
+      "deterministic_finality": "fail",
+      "programmability_tier": "partial",
+      "operational_reliability": "pass"
+    },
+    "categories": {
+      "execution_layer": 44,
+      "composability_atomicity": 38,
+      "security_posture": 52,
+      "state_api_quality": 52,
+      "privacy_confidentiality": 52,
+      "economic_predictability": 60,
+      "agent_tooling": 30,
+      "standards_interoperability": 15,
+      "kya": 12
+    },
+    "categories_verified": true,
+    "key_findings": [
+      "Execution Layer scores 44. A May 2026 network upgrade added real new capabilities, including bounded loops, reusable functions, and expanded math operations, but the chain's underlying transaction model still can't hold ongoing contract state the way general-purpose smart contract platforms can. That structural limit, not a lack of real capability, is why this doesn't score as full programmability despite some marketing describing the upgrade in stronger terms.",
+      "Agent Tooling scores 30. Real tools already exist for AI agents to transact on Bitcoin Cash, including a payment toolkit built for AI coding assistants and a marketplace for agent-callable services, but actual usage volume for either isn't independently verifiable yet.",
+      "KYA (agent identity and compliance) scores just 12. There's currently no way to cryptographically bind an AI agent's on-chain identity to a real-world responsible party on Bitcoin Cash, which is the main gap holding this category down."
+    ]
+  },
+  "divergence": 2,
+  "watch_items": [
+    "A newer proposal for quantum-resistant signatures on Bitcoin Cash is still just a draft with no confirmed date to go live -- worth checking again at the next reassessment.",
+    "The quantum-resistant vault feature that did ship in May 2026 has real capability but very little real-world use so far and hasn't been independently audited -- both are re-check triggers.",
+    "If a future upgrade adds persistent contract state, the missing piece that kept this score from reflecting full programmability, that would be reason to revisit the Execution Layer score upward.",
+    "Bitcoin Cash mining concentration and node-software diversity are both hard to verify with confidence right now, since no dependable public tracker exists for either -- flagged to recheck as better data becomes available.",
+    "If the existing OTC Bitcoin Cash trust completes its conversion into a listed US spot ETF, that would be reason to revisit the regulatory score."
+  ]
+}
