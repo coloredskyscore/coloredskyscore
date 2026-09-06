@@ -80,5 +80,11 @@
   "watch_items": [
     "Zenith, a new execution layer Canton is building that would let it run Ethereum- and Solana-style smart contracts, was still testnet-only when this scoring was done. If it reaches mainnet, it would likely raise Canton's AI scores in the categories covering agent tooling, cross-chain standards, and execution performance.",
     "A formal US commodity classification, a spot ETF, or a CME futures listing would raise Canton's regulatory standing from a partial pass toward a full one. Since that's currently the single factor holding the TradFi score roughly twelve points below what its categories alone would earn, this is the highest-impact event pending for Canton's published score."
-  ]
+  ],
+  "tiles": {
+    "cheapest_tx_cost_usd": null,
+    "fee_yield_pct": 13.46,
+    "cheapest_tx_cost_note": "Canton prices bulk USD-denominated network traffic rather than per-transaction gas, so no single transfer-cost figure applies.",
+    "fee_yield_note": "Gross 30-day fee revenue against market cap, not a holder yield; sensitive to still-thin daily traffic volume."
+  }
 }

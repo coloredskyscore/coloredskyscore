@@ -78,5 +78,10 @@
     "The reliability penalty from the May 2026 outage continues easing by a fixed amount for every additional clean month without another incident. If that streak continues uninterrupted, Sui's AI score could reach our top tier around April-May 2027.",
     "If Sui's confidential-transfer feature, which would let transaction amounts be hidden, moves from testing to a live mainnet launch, it would raise the Privacy & Confidentiality score.",
     "If validator hosting diversifies away from its current jurisdiction concentration, that would be the clearest path back toward a higher Decentralization score."
-  ]
+  ],
+  "tiles": {
+    "cheapest_tx_cost_usd": 0.01,
+    "fee_yield_pct": 0.04,
+    "cheapest_tx_cost_note": "Typical paid transfer runs a fraction of a cent; sponsored stablecoin transfers are free."
+  }
 }

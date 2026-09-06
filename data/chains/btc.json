@@ -77,5 +77,10 @@
     "Two proposals addressing Bitcoin's quantum-computer vulnerability -- a new quantum-resistant address format, and a plan to eventually retire older, more vulnerable address types -- are formally documented as of February 2026 but remain in draft and testnet only, with no live mainnet activation yet. Separately, expert estimates of when a quantum computer capable of breaking Bitcoin's current signature scheme might exist have shifted earlier during 2026 research, though there's still no single agreed-upon timeline.",
     "There's no credible near-term path for Bitcoin to pass our fast-finality check. This isn't a maturity issue that more development time would fix -- it's a fundamental result of how Bitcoin's proof-of-work settlement is designed.",
     "Bitcoin's Decentralization score (40) reflects an infrastructure/geographic concentration check layered on top of the existing mining-pool concentration measure -- see above. The Tokenomics & Supply score (97) reflects the adopted treatment of long-dormant, pre-2010 coins as dead capital rather than a live supply overhang."
-  ]
+  ],
+  "tiles": {
+    "cheapest_tx_cost_usd": 0.022,
+    "fee_yield_pct": 0.005,
+    "cheapest_tx_cost_note": "Market floor at roughly 0.2 sat/vB; many wallets default to a more conservative fee near $0.11."
+  }
 }

@@ -84,5 +84,9 @@
     "The number of top-tier validator organizations securing the network was announced as expanding from seven to ten on July 16, 2026, with full integration into the network's trust structure expected by mid-August but not yet confirmed complete. Re-check the current validator count before citing it -- this figure also feeds directly into the Decentralization score.",
     "Every validator on Stellar currently runs the same underlying software (stellar-core), and a February 2026 incident showed the same single-point-of-failure pattern on the data-query side too -- one shared software bug took down multiple independent data providers at once, since they all ran the same code. If a genuinely independent second implementation of either piece of software is built and adopted, that would be grounds to raise the relevant scores.",
     "The most recent published independent security audit of Stellar's core software covers an older version (v25.0.0), while the network currently runs a newer one (v27). A published audit of the current version would close this gap in the security track record."
-  ]
+  ],
+  "tiles": {
+    "cheapest_tx_cost_usd": 2e-06,
+    "fee_yield_pct": 0.0072
+  }
 }

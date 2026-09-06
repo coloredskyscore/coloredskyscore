@@ -72,5 +72,10 @@
     "A regulated TRX futures product (from Bitnomial, under CFTC oversight) began trading on July 27, 2026, starting a six-month countdown toward a standard eligibility milestone for a TRX spot ETF, which would land around late January 2027.",
     "TRON has real early-stage quantum-resistance work underway -- two candidate signature schemes are live on its test network -- though not yet on mainnet. Because the regulatory check is no longer what's limiting the score, a future mainnet launch of this quantum protection would now directly raise the published TradFi score.",
     "If TRON's shielded-transfer feature starts showing measurable usage, or if mainstream wallets begin offering access to it, that would be grounds to raise the Privacy & Confidentiality score."
-  ]
+  ],
+  "tiles": {
+    "cheapest_tx_cost_usd": 0.09,
+    "fee_yield_pct": 0.958,
+    "cheapest_tx_cost_note": "Full protocol-minimum burn cost for an unstaked account; most active accounts pay near $0 by holding staked bandwidth."
+  }
 }

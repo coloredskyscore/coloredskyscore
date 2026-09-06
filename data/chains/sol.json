@@ -76,5 +76,9 @@
     "Alpenglow, an upgrade that would bring transaction finality under 200 milliseconds with a full guarantee, is targeted for mainnet in late Q3 or early Q4 2026. Once live, it would remove the one thing currently limiting Solana's AI score.",
     "The trend in how concentrated Solana's validator power is has been moving in the wrong direction -- both validator count and the coefficient measuring control concentration have declined. Worth watching for a further downward revision if that trend continues.",
     "On August 12, 2026, a routing failure at a company called Teraswitch took roughly 29% of staked SOL offline for 33 minutes, pushing the network to about 86% of the threshold that would have halted finality -- and Solana's own public status page showed no incident at all during this. That infrastructure-concentration risk is now factored directly into the Decentralization score above; the status-page discrepancy is a separate credibility concern and Security & Future-Proofing remains a candidate for re-scoring on that basis. Worth watching whether validator infrastructure diversifies away from AS20326 going forward."
-  ]
+  ],
+  "tiles": {
+    "cheapest_tx_cost_usd": 0.0005,
+    "fee_yield_pct": 0.442
+  }
 }

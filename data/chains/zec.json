@@ -78,5 +78,10 @@
     "Starting July 10, 2027, new EU regulation will bar banks and licensed crypto businesses across the EU and EEA from offering services involving privacy-focused assets like Zcash. It won't stop individuals from holding ZEC themselves or sending it person-to-person, but it will add to the access limits this framework already scores as a weakness.",
     "If Zcash relaunches a funded bug-bounty program, it would fix the one gap currently holding back its Security Posture score and could move that baseline check from a partial pass to a full one.",
     "A project called Crosslink is developing a way to add fast, guaranteed transaction finality on top of Zcash's existing mining-based security -- which would fix the one baseline check Zcash currently fails outright. It's still an early prototype with no confirmed launch date."
-  ]
+  ],
+  "tiles": {
+    "cheapest_tx_cost_usd": 0.12,
+    "fee_yield_pct": 0.0031,
+    "cheapest_tx_cost_note": "ZIP-317 protocol-minimum fee; the ZEC-denominated cost is fixed, the USD figure moves with price."
+  }
 }

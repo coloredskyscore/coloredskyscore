@@ -71,5 +71,10 @@
   "divergence": 6,
   "watch_items": [
     "Two upcoming upgrades on Ethereum's roadmap, known as Fusaka and Glamsterdam, include changes aimed at making transactions final in a single step rather than over many minutes, along with other performance and storage improvements. If they ship as planned, they could meaningfully raise the Execution Layer score."
-  ]
+  ],
+  "tiles": {
+    "cheapest_tx_cost_usd": 0.0051,
+    "fee_yield_pct": 0.043,
+    "cheapest_tx_cost_note": "A single low-gas snapshot (0.098 gwei); actual cost moves with network demand."
+  }
 }

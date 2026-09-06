@@ -71,5 +71,11 @@
     "Hyperliquid's TradFi and AI scores tell a consistent story rather than diverging ones: both frameworks independently find the same pattern -- a genuinely strong, focused trading engine surrounded by categories that are still immature, rather than one framework finding a strength the other misses.",
     "Hyperliquid fails our quantum-computer readiness check by default, because the team hasn't publicly stated a position on quantum resistance one way or another -- not because they've said it won't be addressed. This should be re-checked every time the chain is rescored, regardless of what else prompts the review.",
     "Hyperliquid's validator set is reportedly expanding from 24 toward 27 members. If the foundation's direct share of staked HYPE narrows and validator infrastructure diversifies away from its current single-region concentration as new, independent validators join, that would be the clearest path back toward a higher Decentralization score."
-  ]
+  ],
+  "tiles": {
+    "cheapest_tx_cost_usd": 0.00017,
+    "fee_yield_pct": 0.102,
+    "cheapest_tx_cost_note": "Covers HyperEVM gas only; HyperCore order-book trades carry no separate gas cost.",
+    "fee_yield_note": "Covers chain-level gas fees only, not Hyperliquid's separate trading-fee revenue."
+  }
 }

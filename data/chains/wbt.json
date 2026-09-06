@@ -70,5 +70,11 @@
   "watch_items": [
     "Different sources report wildly different figures for how many WBT tokens are actually in circulation, ranging from about 118.1 million to 213.4 million -- nearly a two-fold spread. This inconsistency is itself a transparency concern worth re-checking at the next assessment.",
     "Two of the AI baseline checks and one of the TradFi baseline checks haven't been formally assessed yet and are recorded as unverified rather than measured. These should be resolved at the next review."
-  ]
+  ],
+  "tiles": {
+    "cheapest_tx_cost_usd": 0.015,
+    "fee_yield_pct": null,
+    "cheapest_tx_cost_note": "Based on the chain explorer's own median gas price.",
+    "fee_yield_note": "No fee-tracking platform currently covers Whitechain."
+  }
 }

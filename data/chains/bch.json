@@ -74,5 +74,9 @@
     "If a future upgrade adds persistent contract state, the missing piece that kept this score from reflecting full programmability, that would be reason to revisit the Execution Layer score upward.",
     "Bitcoin Cash mining concentration and node-software diversity are both hard to verify with confidence right now, since no dependable public tracker exists for either -- flagged to recheck as better data becomes available.",
     "If the existing OTC Bitcoin Cash trust completes its conversion into a listed US spot ETF, that would be reason to revisit the regulatory score."
-  ]
+  ],
+  "tiles": {
+    "cheapest_tx_cost_usd": 0.0006,
+    "fee_yield_pct": 0.00048
+  }
 }

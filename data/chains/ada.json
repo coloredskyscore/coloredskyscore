@@ -77,5 +77,10 @@
     "Peras, a finality upgrade targeted for Q2 2027, would improve how quickly and certainly Cardano transactions become irreversible. It wouldn't fully solve the problem, but it would move Cardano from failing that check outright to partially passing it, which would raise the ceiling on the AI score from 54 to 75 -- a meaningful jump if it ships on schedule.",
     "Cardano's readiness against future quantum computers hasn't been formally assessed yet and is recorded as unverified rather than measured. Expect that to be resolved at the next review.",
     "Amaru, an independently built node implementation, reaching production would end Cardano's current reliance on a single client -- worth checking whether it moves the Decentralization score further once it's live."
-  ]
+  ],
+  "tiles": {
+    "cheapest_tx_cost_usd": 0.0385,
+    "fee_yield_pct": 0.0056,
+    "cheapest_tx_cost_note": "Protocol minFee formula; actual cost varies modestly with transaction size."
+  }
 }

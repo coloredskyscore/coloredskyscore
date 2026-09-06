@@ -72,5 +72,10 @@
     "Dogecoin's TradFi score (40) and AI score (36) are close together, only 4 points apart -- both scores are weak for similar underlying reasons rather than one score being held back by something specific to that framework.",
     "On December 12, 2026, Dogecoin will reach two full years since its last major security incident (an event referred to internally as DogeReaper), which would move its Security Posture check from a fail to a partial pass. That change wouldn't move the published score by itself, though, since both outcomes currently allow the same ceiling.",
     "If the CLARITY Act passes, Dogecoin's regulatory classification would move from informal agency guidance to something written into law, which would remove some of the remaining uncertainty currently weighing on its Regulatory & Risk score."
-  ]
+  ],
+  "tiles": {
+    "cheapest_tx_cost_usd": 0.0002,
+    "fee_yield_pct": 0.0018,
+    "cheapest_tx_cost_note": "Protocol floor; median actual paid fee runs closer to $0.002, since many wallets default above the minimum."
+  }
 }

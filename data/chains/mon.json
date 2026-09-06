@@ -8,7 +8,7 @@
   "executive_summary": "Monad's mainnet launched on November 24, 2025, under a year old at the time of this scoring, built specifically for high-throughput, parallelized transaction execution. That focus shows up in an Execution Layer score of 86 and an AI score of 72, fast and reliable enough to settle transactions in about 600 milliseconds. The TradFi score of 49 tells a different story: insiders hold roughly half the token supply behind a single cliff that unlocks about 1.4 times the current circulating supply in a single day on November 24, 2026, and that concentration is the single biggest drag on the score -- offset partly by a validator set that is open to anyone, though concentrated enough in a single jurisdiction that Decentralization no longer counts as a standout strength.",
   "tradfi": {
     "score": 49,
-    "raw_score": 49.20,
+    "raw_score": 49.2,
     "tier_code": "RG",
     "gate_capped": false,
     "binding_cap": null,
@@ -73,5 +73,9 @@
     "Monad's system for automatically penalizing misbehaving validators currently only logs violations rather than actually enforcing a penalty. This is the single biggest weakness pulling down the Security Posture score on the AI framework, and it's worth checking again at every future review to see if real enforcement has been turned on.",
     "If real usage data for Unlink (Monad's privacy tool) becomes available, it would likely raise the Privacy & Confidentiality score, which is currently held down mainly by the lack of any public evidence of how much it's actually being used.",
     "If validator hosting diversifies away from its current jurisdiction concentration, that would be the clearest path back toward a higher Decentralization score."
-  ]
+  ],
+  "tiles": {
+    "cheapest_tx_cost_usd": 5e-05,
+    "fee_yield_pct": 1.47
+  }
 }

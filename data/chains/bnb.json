@@ -71,5 +71,9 @@
     "BNB Chain's current client software has diverged significantly from its original codebase and hasn't yet had a top-tier independent security audit -- commissioning one would close the last gap holding the security check at a partial pass rather than a full one. That wouldn't move the published score directly, since the security check isn't currently the limiting factor, but it would strengthen the underlying security picture.",
     "BNB Chain is currently running a promotional program (the '0-Fee Stablecoin Carnival') that waives fees on stablecoin transactions, which may be inflating current usage numbers. On-Chain Health is worth re-checking once that promotion ends to see how much activity is organic.",
     "BNB has announced a separate blockchain purpose-built for AI agents, targeting a testnet launch in late 2026. When and if it ships, it would be evaluated as its own chain rather than folded into BNB Chain's existing score."
-  ]
+  ],
+  "tiles": {
+    "cheapest_tx_cost_usd": 0.0008,
+    "fee_yield_pct": 0.203
+  }
 }
