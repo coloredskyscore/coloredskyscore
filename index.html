@@ -71,7 +71,17 @@
     display: flex;
     align-items: center;
     gap: 14px;
+    background: none;
+    border: none;
+    padding: 0;
+    margin: 0;
+    font: inherit;
+    color: inherit;
+    cursor: pointer;
+    text-align: left;
   }
+  .brand:hover .brand-mark { border-color: var(--ivory); }
+  .brand:hover .brand-word .bold { color: var(--brass); }
   .brand-mark {
     width: 40px;
     height: 40px;
@@ -81,6 +91,7 @@
     align-items: center;
     justify-content: center;
     flex-shrink: 0;
+    transition: border-color 0.15s;
   }
   .brand-mark span {
     font-family: 'Hanken Grotesk', sans-serif;
@@ -953,11 +964,11 @@
 <div class="wrap">
 
   <header>
-    <div class="brand">
+    <button class="brand" id="brandHome" aria-label="Back to dashboard home" type="button">
       <div class="brand-mark"><span>CS</span></div>
       <div class="brand-divider"></div>
       <div class="brand-word"><span class="bold">coloredsky</span><span class="italic">score</span><span class="sup">™</span></div>
-    </div>
+    </button>
     <div class="meta-line" id="metaLine">updated 2026-08-08</div>
   </header>
   <div class="subhead">Independent blockchain ratings focusing on institutional fit and AI readiness.<br>No hype. Just fundamentals.</div>
@@ -1075,11 +1086,17 @@ let searchTerm = '';
    the initial page render and the two board tiles' previews. */
 let CHAIN_CACHE = {};
 
-const ORDER = ['tradfi','ai','privacy','rwu','onchain','tokenomics','decentralization','cost','yield'];
+const ORDER = ['tradfi','ai','divergence','privacy','rwu','onchain','tokenomics','decentralization','cost','yield'];
+
+// Board-tile and Divergence-tile previews show this many chains in the grid
+// card itself (2-column list) — separate from the full ranked list shown
+// once the tile is opened, which always covers every scored chain.
+const BOARD_PREVIEW_COUNT = 10;
 
 const VIEW_META = {
   tradfi: { kind: 'medium', railKey: 'TF', title: 'TradFi Board', eyebrow: 'Axis 1 — institutional lens' },
   ai: { kind: 'medium', railKey: 'AI', title: 'AI Board', eyebrow: 'Axis 2 — agent-readiness lens' },
+  divergence: { kind: 'medium', railKey: 'DIV', title: 'Score Divergence', eyebrow: 'TradFi vs. AI, both axes' },
   privacy: { kind: 'small', railKey: 'PRIV', title: 'Top Privacy Chains', eyebrow: 'Free — existing category' },
   rwu: { kind: 'small', railKey: 'RWU', title: 'Top Real-World Utility', eyebrow: 'Free — existing category' },
   onchain: { kind: 'small', railKey: 'OCH', title: 'Top On-Chain Health', eyebrow: 'Free — existing category' },
@@ -1156,12 +1173,14 @@ async function fetchAllChains() {
 
 function renderGrid() {
   const grid = document.getElementById('gridView');
-  const tfTop = [...BOARD.chains].sort((a, b) => b.tradfi_score - a.tradfi_score).slice(0, 5);
-  const aiTop = [...BOARD.chains].sort((a, b) => b.ai_score - a.ai_score).slice(0, 5);
+  const tfTop = [...BOARD.chains].sort((a, b) => b.tradfi_score - a.tradfi_score).slice(0, BOARD_PREVIEW_COUNT);
+  const aiTop = [...BOARD.chains].sort((a, b) => b.ai_score - a.ai_score).slice(0, BOARD_PREVIEW_COUNT);
+  const divTop = [...BOARD.chains].sort((a, b) => Math.abs(b.divergence) - Math.abs(a.divergence)).slice(0, BOARD_PREVIEW_COUNT);
 
   const bodies = {
     tradfi: `<ul class="tile-preview">${tfTop.map(c => `<li><span>${c.cashtag}</span><span class="tv">${c.tradfi_score}</span></li>`).join('')}</ul>`,
     ai: `<ul class="tile-preview">${aiTop.map(c => `<li><span>${c.cashtag}</span><span class="tv">${c.ai_score}</span></li>`).join('')}</ul>`,
+    divergence: `<ul class="tile-preview">${divTop.map(c => `<li><span>${c.cashtag}</span>${divergenceCell(c.divergence)}</li>`).join('')}</ul>`,
     privacy: `<div class="tile-desc">${METRIC_VIEWS.privacy.desc}</div>`,
     rwu: `<div class="tile-desc">${METRIC_VIEWS.rwu.desc}</div>`,
     onchain: `<div class="tile-desc">${METRIC_VIEWS.onchain.desc}</div>`,
@@ -1279,6 +1298,37 @@ async function openMetricView(key) {
   });
 }
 
+// Divergence needs no chain-detail fetch at all — board.json already carries
+// tradfi_score, ai_score, and divergence per chain, so this is the cheapest
+// view to open of any of them. Sign convention matches the existing board
+// table's Divergence column: positive = TradFi outscores AI, negative = AI
+// outscores TradFi.
+function openDivergenceView() {
+  document.getElementById('boardSubview').style.display = 'none';
+  document.getElementById('rankSubview').style.display = '';
+  const noteEl = document.getElementById('rankNote');
+  noteEl.textContent = 'Ranked by |TradFi score − AI score|, widest gap first. Green favors TradFi, red favors AI — same convention as the board table\'s Divergence column.';
+  noteEl.style.display = '';
+
+  const rows = [...BOARD.chains].sort((a, b) => Math.abs(b.divergence) - Math.abs(a.divergence));
+  const scaleMax = Math.max(...rows.map(r => Math.abs(r.divergence)), 1e-12);
+
+  const html = rows.map((r, i) => {
+    const pct = Math.max(2, Math.round((Math.abs(r.divergence) / scaleMax) * 100));
+    const barColor = r.divergence > 0 ? '#8FBF87' : r.divergence < 0 ? '#D98F7A' : 'var(--text-dim)';
+    return `<div class="rank-row" data-slug="${r.slug}" title="TradFi ${r.tradfi_score} · AI ${r.ai_score}">
+      <div class="rank-name"><span class="rank-rank">${i + 1}</span><span class="chain-tag">${r.cashtag}</span>${r.name}</div>
+      <div class="rank-track"><div class="rank-fill" style="width:${pct}%;background:${barColor};opacity:0.65"></div></div>
+      <div class="rank-val">${divergenceCell(r.divergence)}</div>
+    </div>`;
+  }).join('');
+
+  document.getElementById('rankList').innerHTML = html;
+  document.getElementById('rankList').querySelectorAll('.rank-row').forEach(row => {
+    row.addEventListener('click', () => openPanel(row.dataset.slug));
+  });
+}
+
 async function openView(key) {
   if (!VIEW_META[key]) return;
   document.getElementById('gridView').style.display = 'none';
@@ -1290,6 +1340,8 @@ async function openView(key) {
 
   if (key === 'tradfi' || key === 'ai') {
     openBoardView(key);
+  } else if (key === 'divergence') {
+    openDivergenceView();
   } else {
     await openMetricView(key);
   }
@@ -1427,6 +1479,11 @@ function renderChips() {
 document.getElementById('searchInput').addEventListener('input', (e) => {
   searchTerm = e.target.value;
   renderBody();
+});
+
+document.getElementById('brandHome').addEventListener('click', () => {
+  closeView();
+  window.scrollTo({ top: 0, behavior: 'smooth' });
 });
 
 document.getElementById('shareBtn').addEventListener('click', async () => {
