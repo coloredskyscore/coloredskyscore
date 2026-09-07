@@ -555,6 +555,30 @@
   .divergence-flank .side.left { text-align: left; }
   .divergence-flank .side.right { text-align: right; }
 
+  /* Gate-status view (e.g. Quantum Resistance): chains grouped by a
+     three-state gate value rather than ranked by a bar, since Pass/Partial/
+     Fail isn't a magnitude. Structurally similar to the mobile board's
+     tier-section pattern, but its own component so it can render in the
+     same desktop+mobile rankSubview every other tile view already uses. */
+  .gate-group { margin-bottom: 22px; }
+  .gate-group:last-child { margin-bottom: 0; }
+  .gate-group-head {
+    display: flex; align-items: center; gap: 8px; margin-bottom: 6px;
+    padding: 0 6px 8px; border-bottom: 0.5px solid var(--line);
+  }
+  .gate-group-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+  .gate-group-name {
+    font-family: 'IBM Plex Mono', monospace; font-size: 12px; font-weight: 500;
+    letter-spacing: 0.06em; text-transform: uppercase;
+  }
+  .gate-group-count { font-size: 11px; color: var(--text-dim); font-family: 'IBM Plex Mono', monospace; }
+  .gate-chain-row {
+    display: flex; align-items: center; padding: 9px 6px; border-radius: 7px; cursor: pointer;
+  }
+  .gate-chain-row:hover { background: rgba(255,255,255,0.03); }
+  .gate-chain-name { font-size: 13.5px; color: var(--ivory); }
+  .gate-chain-name .chain-tag { margin-right: 8px; }
+
   /* ---------- Slide-out panel ---------- */
 
   .overlay {
@@ -847,6 +871,7 @@
     .rank-row { grid-template-columns: 110px 1fr 70px; gap: 8px; }
     .divergence-flank { grid-template-columns: 110px 1fr 70px; gap: 8px; }
     .rank-name { font-size: 12.5px; }
+    .gate-chain-name { font-size: 12.5px; }
 
     .controls-row { flex-direction: column; align-items: stretch; }
     .search-box { margin-bottom: 12px; }
@@ -1098,7 +1123,7 @@ let searchTerm = '';
    the initial page render and the two board tiles' previews. */
 let CHAIN_CACHE = {};
 
-const ORDER = ['tradfi','ai','divergence','privacy','rwu','onchain','tokenomics','decentralization','cost','yield'];
+const ORDER = ['tradfi','ai','divergence','privacy','rwu','onchain','tokenomics','decentralization','quantum','cost','yield'];
 
 // Board-tile and Divergence-tile previews show this many chains in the grid
 // card itself (2-column list) — separate from the full ranked list shown
@@ -1114,6 +1139,7 @@ const VIEW_META = {
   onchain: { kind: 'small', railKey: 'OCH', title: 'Top On-Chain Health', eyebrow: 'Category view' },
   tokenomics: { kind: 'small', railKey: 'TOK', title: 'Top Tokenomics & Supply', eyebrow: 'Category view' },
   decentralization: { kind: 'small', railKey: 'DECN', title: 'Top Decentralization', eyebrow: 'Category view' },
+  quantum: { kind: 'small', railKey: 'QR', title: 'Quantum Resistance', eyebrow: 'Gate status' },
   cost: { kind: 'small', railKey: 'COST', title: 'Cheapest Tx Cost', eyebrow: 'Extra data' },
   yield: { kind: 'small', railKey: 'YLD', title: 'Fee Yield (Price/Fee)', eyebrow: 'Extra data' }
 };
@@ -1138,6 +1164,27 @@ const METRIC_VIEWS = {
   yield: { axis: 'tiles', catKey: 'fee_yield_pct', noteKey: 'fee_yield_note', unit: 'pf', logScale: true,
     desc: 'Trailing 30-day chain fee revenue, annualized, vs. current market cap — shown as an implied price/fee multiple (market cap ÷ annualized fees), the inverse of the raw yield percentage. Lower multiple means the market is pricing the chain closer to the fee revenue it already generates. Presentation only — never weighted into either score. Richest (lowest multiple) first.' }
 };
+
+// Gate-status views. A gate is a three-state field (Pass/Partial/Fail), not
+// a continuous score, so it gets its own view type — grouped by state
+// rather than ranked by a bar length that wouldn't mean anything. `axis` +
+// `gateKey` locate the value at detail[axis].gates[gateKey], the same path
+// the chain-detail panel's gate pills already read. Deliberately generic:
+// adding any of the site's other four gates (Regulatory Clarity, Security
+// Posture on TradFi; Deterministic Finality, Programmability Tier,
+// Operational Reliability on AI) is a one-entry addition here, not new
+// code — see openGateView below.
+const GATE_VIEWS = {
+  quantum: { axis: 'tradfi', gateKey: 'quantum_resistance' }
+};
+
+// Same green/amber/red mapping the chain-detail panel's gate pills already
+// use (.gate-pass/.gate-partial/.gate-fail dot colors) — reused rather than
+// reinvented, so gate-state color means the same thing everywhere on the
+// site. 'unknown' covers a chain whose detail JSON has no state recorded
+// for this gate, same convention as gateStateLabel's 'Unverified'.
+const GATE_STATE_COLOR = { pass: '#56A374', partial: '#D2A94F', fail: '#C0655C', unknown: 'var(--text-dim)' };
+const GATE_STATE_ORDER = ['pass', 'partial', 'fail', 'unknown'];
 
 function fmtCost(v) {
   if (v === null || v === undefined) return '—';
@@ -1229,6 +1276,7 @@ function renderGrid() {
     onchain: `<div class="tile-desc">${METRIC_VIEWS.onchain.desc}</div>`,
     tokenomics: `<div class="tile-desc">${METRIC_VIEWS.tokenomics.desc}</div>`,
     decentralization: `<div class="tile-desc">${METRIC_VIEWS.decentralization.desc}</div>`,
+    quantum: `<div class="tile-desc">${GATE_DESC.tradfi.quantum_resistance} Grouped by gate state — Pass, Partial, or Fail.</div>`,
     cost: `<div class="tile-desc">USD cost of one standard native transfer, ranked cheapest to priciest.</div>`,
     yield: `<div class="tile-desc">Trailing 30-day annualized fee revenue vs. market cap, shown as a price/fee multiple — lower means richer.</div>`
   };
@@ -1387,6 +1435,62 @@ function openDivergenceView() {
   });
 }
 
+// Generic gate-status view. Unlike the category/metric tiles (a continuous
+// 0-100 score) or Divergence (a signed number with a natural zero line), a
+// gate is a three-state field — Pass / Partial / Fail — so there's no
+// meaningful bar length to draw. Chains are grouped by state instead,
+// mirroring why the mobile board view groups by tier rather than drawing a
+// bar for a discrete field. Reuses gateStateLabel() and GATE_DESC, both
+// already defined below for the chain-detail panel's own gate pills, so
+// this view's labels and description text stay in sync with the panel's
+// automatically. A chain with no recorded state for this gate is bucketed
+// under 'unknown' rather than silently dropped, same convention as the
+// metric-tile views' null-value rows.
+async function openGateView(key) {
+  const gv = GATE_VIEWS[key];
+  document.getElementById('boardSubview').style.display = 'none';
+  document.getElementById('rankSubview').style.display = '';
+  const noteEl = document.getElementById('rankNote');
+  noteEl.style.display = '';
+  document.getElementById('rankList').innerHTML = '<div class="rank-loading">Loading chain detail…</div>';
+
+  await fetchAllChains();
+
+  noteEl.textContent = `${GATE_DESC[gv.axis][gv.gateKey]} Chains are grouped by gate state — Pass, Partial, or Fail.`;
+
+  const groups = { pass: [], partial: [], fail: [], unknown: [] };
+  BOARD.chains.forEach(c => {
+    const detail = CHAIN_CACHE[c.slug];
+    if (!detail) return;
+    const gates = detail[gv.axis] && detail[gv.axis].gates;
+    const state = (gates && gates[gv.gateKey]) || 'unknown';
+    (groups[state] || groups.unknown).push(c);
+  });
+
+  const scoreKey = gv.axis === 'tradfi' ? 'tradfi_score' : 'ai_score';
+  GATE_STATE_ORDER.forEach(state => groups[state].sort((a, b) => b[scoreKey] - a[scoreKey]));
+
+  const html = GATE_STATE_ORDER.filter(state => groups[state].length).map(state => {
+    const color = GATE_STATE_COLOR[state];
+    const rows = groups[state].map(c => `<div class="gate-chain-row" data-slug="${c.slug}">
+      <span class="gate-chain-name"><span class="chain-tag">${c.cashtag}</span>${c.name}</span>
+    </div>`).join('');
+    return `<div class="gate-group">
+      <div class="gate-group-head">
+        <span class="gate-group-dot" style="background:${color}"></span>
+        <span class="gate-group-name" style="color:${color}">${gateStateLabel(state)}</span>
+        <span class="gate-group-count">${groups[state].length}</span>
+      </div>
+      ${rows}
+    </div>`;
+  }).join('');
+
+  document.getElementById('rankList').innerHTML = html;
+  document.getElementById('rankList').querySelectorAll('.gate-chain-row').forEach(row => {
+    row.addEventListener('click', () => openPanel(row.dataset.slug));
+  });
+}
+
 async function openView(key) {
   if (!VIEW_META[key]) return;
   document.getElementById('gridView').style.display = 'none';
@@ -1400,6 +1504,8 @@ async function openView(key) {
     openBoardView(key);
   } else if (key === 'divergence') {
     openDivergenceView();
+  } else if (GATE_VIEWS[key]) {
+    await openGateView(key);
   } else {
     await openMetricView(key);
   }
