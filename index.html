@@ -506,7 +506,7 @@
   /* ---------- Ranked single-metric view (track + marker bars) ---------- */
   .rank-list { display: flex; flex-direction: column; gap: 2px; }
   .rank-row {
-    display: grid; grid-template-columns: 220px 1fr 74px; align-items: center;
+    display: grid; grid-template-columns: 220px 1fr 88px; align-items: center;
     gap: 14px; padding: 9px 6px; border-radius: 7px; cursor: pointer;
   }
   .rank-row:hover { background: rgba(255,255,255,0.03); }
@@ -822,7 +822,7 @@
     .rail-item .k { display: none; }
     .rail-div { display: none; }
     .view-pane-head h2 { font-size: 17px; }
-    .rank-row { grid-template-columns: 118px 1fr 58px; gap: 8px; }
+    .rank-row { grid-template-columns: 110px 1fr 70px; gap: 8px; }
     .rank-name { font-size: 12.5px; }
 
     .controls-row { flex-direction: column; align-items: stretch; }
@@ -1092,7 +1092,7 @@ const VIEW_META = {
   tokenomics: { kind: 'small', railKey: 'TOK', title: 'Top Tokenomics & Supply', eyebrow: 'Free — existing category' },
   decentralization: { kind: 'small', railKey: 'DECN', title: 'Top Decentralization', eyebrow: 'Free — existing category' },
   cost: { kind: 'small', railKey: 'COST', title: 'Cheapest Tx Cost', eyebrow: 'Cheapest native transfer' },
-  yield: { kind: 'small', railKey: 'YLD', title: 'Fee Yield (Fees ÷ Mkt Cap)', eyebrow: 'Fees vs. market cap' }
+  yield: { kind: 'small', railKey: 'YLD', title: 'Fee Yield (Price/Fee)', eyebrow: 'Lower multiple = richer yield' }
 };
 
 // Single-metric ranked views. `axis` + `catKey` locate the value inside a
@@ -1110,10 +1110,10 @@ const METRIC_VIEWS = {
     desc: 'Ranked by the TradFi Tokenomics & Supply category score (0–100) — caps, emission, concentration.' },
   decentralization: { axis: 'tradfi', catKey: 'decentralization', unit: 'score',
     desc: 'Ranked by the TradFi Decentralization category score (0–100).' },
-  cost: { axis: 'tiles', catKey: 'cheapest_tx_cost_usd', noteKey: 'cheapest_tx_cost_note', unit: 'usd', ascending: true,
+  cost: { axis: 'tiles', catKey: 'cheapest_tx_cost_usd', noteKey: 'cheapest_tx_cost_note', unit: 'usd', ascending: true, logScale: true,
     desc: 'USD cost of one standard native transfer, current floor/base fee rate. Presentation only — never weighted into either score. Cheapest first.' },
-  yield: { axis: 'tiles', catKey: 'fee_yield_pct', noteKey: 'fee_yield_note', unit: 'pct',
-    desc: 'Trailing 30-day chain fee revenue, annualized, ÷ current market cap. Presentation only — never weighted into either score. Richest first.' }
+  yield: { axis: 'tiles', catKey: 'fee_yield_pct', noteKey: 'fee_yield_note', unit: 'pf', logScale: true,
+    desc: 'Trailing 30-day chain fee revenue, annualized, vs. current market cap — shown as an implied price/fee multiple (market cap ÷ annualized fees), the inverse of the raw yield percentage. Lower multiple means the market is pricing the chain closer to the fee revenue it already generates. Presentation only — never weighted into either score. Richest (lowest multiple) first.' }
 };
 
 function fmtCost(v) {
@@ -1132,11 +1132,42 @@ function fmtPct(v) {
   const s = v.toFixed(decimals).replace(/0+$/, '').replace(/\.$/, '');
   return s + '%';
 }
+// Fee Yield's raw percentage (fees ÷ market cap) reads as an unintuitive
+// wall of leading zeros for most chains (XRP: 0.00017%) — the same figure
+// inverted, as a price/fee multiple, is the format this project already
+// uses everywhere else (session files, Scorecard board notes: "~226x",
+// "~7.4x"). fmtMetric calls this for unit 'pf'; fmtPct above is kept for
+// the raw-percentage tooltip on those rows.
+function fmtPF(v) {
+  if (v === null || v === undefined || v === 0) return '—';
+  const mult = 100 / v;
+  if (mult < 20) return mult.toFixed(1) + 'x';
+  return Math.round(mult).toLocaleString('en-US') + 'x';
+}
 function fmtMetric(v, mv) {
   if (v === null || v === undefined) return '—';
   if (mv.unit === 'usd') return fmtCost(v);
-  if (mv.unit === 'pct') return fmtPct(v);
+  if (mv.unit === 'pf') return fmtPF(v);
   return String(v);
+}
+// Bar width for the rank-list track. Cheapest Tx Cost and Fee Yield both
+// span 4-5 orders of magnitude across the board (XLM's $0.000002 floor to
+// TRON's $0.09; Canton's 13.46% to XRP's 0.00017%) — a plain linear scale
+// against the richest chain leaves every other bar visually flat at the
+// 2% floor. Log scale keeps every chain's bar visually distinguishable.
+function barPercent(v, rows, mv) {
+  if (mv.logScale) {
+    const vals = rows.map(r => r.v).filter(x => x > 0);
+    if (!vals.length) return 4;
+    const logMin = Math.log10(Math.min(...vals));
+    const logMax = Math.log10(Math.max(...vals));
+    let range = logMax - logMin;
+    if (!isFinite(range) || range <= 0) range = 1;
+    const t = (Math.log10(Math.max(v, 1e-12)) - logMin) / range;
+    return Math.max(4, Math.round(t * 100));
+  }
+  const scaleMax = Math.max(...rows.map(r => r.v), 1e-12);
+  return Math.max(2, Math.round((v / scaleMax) * 100));
 }
 function metricValue(detail, mv) {
   if (mv.axis === 'tiles') return detail.tiles ? (detail.tiles[mv.catKey] ?? null) : null;
@@ -1176,7 +1207,7 @@ function renderGrid() {
     tokenomics: `<div class="tile-desc">${METRIC_VIEWS.tokenomics.desc}</div>`,
     decentralization: `<div class="tile-desc">${METRIC_VIEWS.decentralization.desc}</div>`,
     cost: `<div class="tile-desc">USD cost of one standard native transfer, ranked cheapest to priciest.</div>`,
-    yield: `<div class="tile-desc">Trailing 30-day annualized fee revenue ÷ market cap.</div>`
+    yield: `<div class="tile-desc">Trailing 30-day annualized fee revenue vs. market cap, shown as a price/fee multiple — lower means richer.</div>`
   };
 
   grid.innerHTML = ORDER.map(key => {
@@ -1264,12 +1295,12 @@ async function openMetricView(key) {
     }
   });
   rows.sort((a, b) => mv.ascending ? a.v - b.v : b.v - a.v);
-  const scaleMax = mv.unit === 'score' ? 100 : Math.max(...rows.map(r => r.v), 1e-12);
 
   const esc = (s) => (s || '').replace(/"/g, '&quot;');
   let html = rows.map((r, i) => {
-    const pct = Math.max(2, Math.round((r.v / scaleMax) * 100));
-    return `<div class="rank-row" data-slug="${r.slug}" title="${esc(r.note)}">
+    const pct = mv.unit === 'score' ? Math.max(2, Math.round(r.v)) : barPercent(r.v, rows, mv);
+    const tooltipPrefix = mv.unit === 'pf' ? `${fmtPct(r.v)} of market cap in annualized fees. ` : '';
+    return `<div class="rank-row" data-slug="${r.slug}" title="${esc(tooltipPrefix + r.note)}">
       <div class="rank-name"><span class="rank-rank">${i + 1}</span><span class="chain-tag">${r.cashtag}</span>${r.name}</div>
       <div class="rank-track"><div class="rank-fill" style="width:${pct}%"></div></div>
       <div class="rank-val">${fmtMetric(r.v, mv)}</div>
