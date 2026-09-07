@@ -533,6 +533,28 @@
     font-size: 12.5px; color: var(--text-mid); line-height: 1.5;
   }
 
+  /* Divergence view: a centered diverging bar rather than the left-anchored
+     bar the other rank views use. TradFi (positive) grows left from a zero
+     line, AI (negative) grows right — matching TradFi-before-AI order used
+     everywhere else on the site (board table columns, panel layout). Left
+     and width are set inline per row in JS; the fill keeps the shared
+     .rank-fill brass color, so direction reads from bar position, not hue. */
+  .rank-track.diverging::after {
+    content: ''; position: absolute; left: 50%; top: 0; bottom: 0; width: 1px;
+    background: var(--line-strong);
+  }
+  .divergence-flank {
+    display: grid; grid-template-columns: 220px 1fr 88px; align-items: center;
+    gap: 14px; padding: 0 6px; margin-bottom: 6px;
+  }
+  .divergence-flank .split { display: flex; }
+  .divergence-flank .side {
+    flex: 1; font-family: 'IBM Plex Mono', monospace; font-size: 10.5px;
+    letter-spacing: 0.05em; text-transform: uppercase; color: var(--text-mid); font-weight: 500;
+  }
+  .divergence-flank .side.left { text-align: left; }
+  .divergence-flank .side.right { text-align: right; }
+
   /* ---------- Slide-out panel ---------- */
 
   .overlay {
@@ -823,6 +845,7 @@
     .rail-div { display: none; }
     .view-pane-head h2 { font-size: 17px; }
     .rank-row { grid-template-columns: 110px 1fr 70px; gap: 8px; }
+    .divergence-flank { grid-template-columns: 110px 1fr 70px; gap: 8px; }
     .rank-name { font-size: 12.5px; }
 
     .controls-row { flex-direction: column; align-items: stretch; }
@@ -1323,23 +1346,38 @@ async function openMetricView(key) {
 // view to open of any of them. Sign convention matches the existing board
 // table's Divergence column: positive = TradFi outscores AI, negative = AI
 // outscores TradFi.
+//
+// Sorted as a spectrum (signed value, not magnitude) — strongest TradFi lead
+// at top, through zero, to strongest AI lead at bottom — rather than ranked
+// by gap size, so the list reads as one continuum instead of jumping between
+// directions. The bar itself is a centered diverging bar: TradFi grows left
+// from a zero line, AI grows right, matching TradFi-before-AI order used
+// everywhere else on the site. Direction now reads from bar position and the
+// flanking "TradFi Divergence" / "AI Divergence" labels, not from color — a
+// single neutral brass fill (the shared .rank-fill default) avoids the
+// green/red-implies-good/bad reading a quality-coded color would invite.
 function openDivergenceView() {
   document.getElementById('boardSubview').style.display = 'none';
   document.getElementById('rankSubview').style.display = '';
   const noteEl = document.getElementById('rankNote');
-  noteEl.textContent = 'Ranked by |TradFi score − AI score|, widest gap first. Green favors TradFi, red favors AI — same convention as the board table\'s Divergence column.';
+  noteEl.textContent = 'Divergence is the comparison between our two main TradFi and AI axes. It helps visualize the strength of the chain, whether it\'s more fit for TradFi adoption or AI readiness.';
   noteEl.style.display = '';
 
-  const rows = [...BOARD.chains].sort((a, b) => Math.abs(b.divergence) - Math.abs(a.divergence));
+  const rows = [...BOARD.chains].sort((a, b) => b.divergence - a.divergence);
   const scaleMax = Math.max(...rows.map(r => Math.abs(r.divergence)), 1e-12);
 
-  const html = rows.map((r, i) => {
-    const pct = Math.max(2, Math.round((Math.abs(r.divergence) / scaleMax) * 100));
-    const barColor = r.divergence > 0 ? '#8FBF87' : r.divergence < 0 ? '#D98F7A' : 'var(--text-dim)';
+  const flank = `<div class="divergence-flank"><div></div><div class="split"><span class="side left">TradFi Divergence</span><span class="side right">AI Divergence</span></div><div></div></div>`;
+
+  const html = flank + rows.map((r, i) => {
+    const halfPct = (Math.abs(r.divergence) / scaleMax) * 50;
+    const style = r.divergence >= 0
+      ? `left:${50 - halfPct}%; width:${halfPct}%;`
+      : `left:50%; width:${halfPct}%;`;
+    const sign = r.divergence > 0 ? '+' : '';
     return `<div class="rank-row" data-slug="${r.slug}" title="TradFi ${r.tradfi_score} · AI ${r.ai_score}">
       <div class="rank-name"><span class="rank-rank">${i + 1}</span><span class="chain-tag">${r.cashtag}</span>${r.name}</div>
-      <div class="rank-track"><div class="rank-fill" style="width:${pct}%;background:${barColor};opacity:0.65"></div></div>
-      <div class="rank-val">${divergenceCell(r.divergence)}</div>
+      <div class="rank-track diverging"><div class="rank-fill" style="${style}"></div></div>
+      <div class="rank-val">${sign}${r.divergence}</div>
     </div>`;
   }).join('');
 
