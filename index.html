@@ -557,25 +557,39 @@
 
   /* Gate-status view (e.g. Quantum Resistance): chains grouped by a
      three-state gate value rather than ranked by a bar, since Pass/Partial/
-     Fail isn't a magnitude. Structurally similar to the mobile board's
-     tier-section pattern, but its own component so it can render in the
-     same desktop+mobile rankSubview every other tile view already uses. */
-  .gate-group { margin-bottom: 22px; }
+     Fail isn't a magnitude. Each group is a whole card — a flat, low-opacity
+     tint of the state color across the full box, not just the header — so
+     the color reads as "this section is Partial" rather than decorating one
+     label. Still flat, ungraded color per state (no gradient), same
+     "ratings not rainbows" language the tier-color bands use elsewhere;
+     colors set inline per group via GATE_STATE_RGB in the script since each
+     card needs its own background/border/text tint. Chains within a card
+     flow into columns (CSS multi-column, not a grid) rather than stacking
+     in one tall list, so a large group like Partial doesn't leave the rest
+     of the row empty. */
+  .gate-group {
+    margin-bottom: 18px; padding: 18px 20px 20px; border-radius: 14px;
+    border: 1px solid rgba(255,255,255,0.08);
+  }
   .gate-group:last-child { margin-bottom: 0; }
   .gate-group-head {
-    display: flex; align-items: center; gap: 8px; margin-bottom: 6px;
-    padding: 0 6px 8px; border-bottom: 0.5px solid var(--line);
+    display: flex; align-items: center; gap: 9px; margin-bottom: 14px;
   }
-  .gate-group-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+  .gate-group-dot { width: 9px; height: 9px; border-radius: 50%; flex-shrink: 0; }
   .gate-group-name {
-    font-family: 'IBM Plex Mono', monospace; font-size: 12px; font-weight: 500;
+    font-family: 'IBM Plex Mono', monospace; font-size: 13px; font-weight: 600;
     letter-spacing: 0.06em; text-transform: uppercase;
   }
-  .gate-group-count { font-size: 11px; color: var(--text-dim); font-family: 'IBM Plex Mono', monospace; }
-  .gate-chain-row {
-    display: flex; align-items: center; padding: 9px 6px; border-radius: 7px; cursor: pointer;
+  .gate-group-count {
+    font-family: 'IBM Plex Mono', monospace; font-size: 12px; font-weight: 500;
+    color: var(--text-dim);
   }
-  .gate-chain-row:hover { background: rgba(255,255,255,0.03); }
+  .gate-group-rows { columns: 200px 3; column-gap: 22px; }
+  .gate-chain-row {
+    display: flex; align-items: center; padding: 8px 6px; border-radius: 7px; cursor: pointer;
+    break-inside: avoid;
+  }
+  .gate-chain-row:hover { background: rgba(255,255,255,0.06); }
   .gate-chain-name { font-size: 13.5px; color: var(--ivory); }
   .gate-chain-name .chain-tag { margin-right: 8px; }
 
@@ -872,6 +886,7 @@
     .divergence-flank { grid-template-columns: 110px 1fr 70px; gap: 8px; }
     .rank-name { font-size: 12.5px; }
     .gate-chain-name { font-size: 12.5px; }
+    .gate-group-rows { columns: 1; }
 
     .controls-row { flex-direction: column; align-items: stretch; }
     .search-box { margin-bottom: 12px; }
@@ -1181,10 +1196,34 @@ const GATE_VIEWS = {
 // Same green/amber/red mapping the chain-detail panel's gate pills already
 // use (.gate-pass/.gate-partial/.gate-fail dot colors) — reused rather than
 // reinvented, so gate-state color means the same thing everywhere on the
-// site. 'unknown' covers a chain whose detail JSON has no state recorded
-// for this gate, same convention as gateStateLabel's 'Unverified'.
-const GATE_STATE_COLOR = { pass: '#56A374', partial: '#D2A94F', fail: '#C0655C', unknown: 'var(--text-dim)' };
+// site. Kept as RGB triples (not hex) because each gate-group card tints
+// its whole background/border/text from this one value via rgba() at
+// different opacities — see gateGroupStyle. 'unknown' covers a chain whose
+// detail JSON has no state recorded for this gate (same convention as
+// gateStateLabel's 'Unverified') and is styled separately, as a neutral
+// card rather than a tinted one — there's no real gate color to tint with.
+const GATE_STATE_RGB = { pass: '86,163,116', partial: '210,169,79', fail: '192,101,92' };
 const GATE_STATE_ORDER = ['pass', 'partial', 'fail', 'unknown'];
+
+// Flat, ungraded tint per state — same "ratings not rainbows" language the
+// tier-color bands use, just applied as a light card wash instead of a
+// solid fill. Dot and label text use the full-strength color; background
+// and border are low-opacity so chain names (ivory) stay readable inside.
+function gateGroupStyle(state) {
+  if (state === 'unknown') {
+    return {
+      box: 'background:rgba(255,255,255,0.03);border-color:rgba(255,255,255,0.10)',
+      dot: 'background:var(--text-dim)',
+      name: 'color:var(--text-mid)'
+    };
+  }
+  const rgb = GATE_STATE_RGB[state];
+  return {
+    box: `background:rgba(${rgb},0.09);border-color:rgba(${rgb},0.28)`,
+    dot: `background:rgb(${rgb})`,
+    name: `color:rgb(${rgb})`
+  };
+}
 
 function fmtCost(v) {
   if (v === null || v === undefined) return '—';
@@ -1471,17 +1510,17 @@ async function openGateView(key) {
   GATE_STATE_ORDER.forEach(state => groups[state].sort((a, b) => b[scoreKey] - a[scoreKey]));
 
   const html = GATE_STATE_ORDER.filter(state => groups[state].length).map(state => {
-    const color = GATE_STATE_COLOR[state];
+    const st = gateGroupStyle(state);
     const rows = groups[state].map(c => `<div class="gate-chain-row" data-slug="${c.slug}">
       <span class="gate-chain-name"><span class="chain-tag">${c.cashtag}</span>${c.name}</span>
     </div>`).join('');
-    return `<div class="gate-group">
+    return `<div class="gate-group" style="${st.box}">
       <div class="gate-group-head">
-        <span class="gate-group-dot" style="background:${color}"></span>
-        <span class="gate-group-name" style="color:${color}">${gateStateLabel(state)}</span>
+        <span class="gate-group-dot" style="${st.dot}"></span>
+        <span class="gate-group-name" style="${st.name}">${gateStateLabel(state)}</span>
         <span class="gate-group-count">${groups[state].length}</span>
       </div>
-      ${rows}
+      <div class="gate-group-rows">${rows}</div>
     </div>`;
   }).join('');
 
