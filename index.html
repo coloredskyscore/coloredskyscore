@@ -479,7 +479,7 @@
     color: var(--text-dim); border-left: 2px solid transparent; font-family: 'Hanken Grotesk', sans-serif;
   }
   .rail-item:hover { background: rgba(255,255,255,0.05); color: var(--ivory); }
-  .rail-item.current { background: rgba(198,161,91,0.08); color: var(--ivory); border-left-color: var(--brass); font-weight: 500; }
+  .rail-item.current { background: rgba(198,161,91,0.08); color: var(--ivory); border-left-color: var(--brass); font-weight: 500; border-radius: 0 7px 7px 0; }
   .rail-item .k {
     display: block; font-family: 'IBM Plex Mono', monospace; font-size: 9.5px;
     color: var(--brass); letter-spacing: 0.05em; text-transform: uppercase; margin-bottom: 1px;
@@ -818,7 +818,7 @@
     }
     .rail-back { width: auto; flex: none; margin-bottom: 0; white-space: nowrap; }
     .rail-item { width: auto; flex: none; white-space: nowrap; border-left: none; border-bottom: 2px solid transparent; padding: 8px 10px; }
-    .rail-item.current { border-left: none; border-bottom-color: var(--brass); }
+    .rail-item.current { border-left: none; border-bottom-color: var(--brass); border-radius: 7px 7px 0 0; }
     .rail-item .k { display: none; }
     .rail-div { display: none; }
     .view-pane-head h2 { font-size: 17px; }
@@ -1086,13 +1086,13 @@ const VIEW_META = {
   tradfi: { kind: 'medium', railKey: 'TF', title: 'TradFi Board', eyebrow: 'Axis 1 — institutional lens' },
   ai: { kind: 'medium', railKey: 'AI', title: 'AI Board', eyebrow: 'Axis 2 — agent-readiness lens' },
   divergence: { kind: 'medium', railKey: 'DIV', title: 'Score Divergence', eyebrow: 'TradFi vs. AI, both axes' },
-  privacy: { kind: 'small', railKey: 'PRIV', title: 'Top Privacy Chains', eyebrow: 'Free — existing category' },
-  rwu: { kind: 'small', railKey: 'RWU', title: 'Top Real-World Utility', eyebrow: 'Free — existing category' },
-  onchain: { kind: 'small', railKey: 'OCH', title: 'Top On-Chain Health', eyebrow: 'Free — existing category' },
-  tokenomics: { kind: 'small', railKey: 'TOK', title: 'Top Tokenomics & Supply', eyebrow: 'Free — existing category' },
-  decentralization: { kind: 'small', railKey: 'DECN', title: 'Top Decentralization', eyebrow: 'Free — existing category' },
-  cost: { kind: 'small', railKey: 'COST', title: 'Cheapest Tx Cost', eyebrow: 'Cheapest native transfer' },
-  yield: { kind: 'small', railKey: 'YLD', title: 'Fee Yield (Price/Fee)', eyebrow: 'Lower multiple = richer yield' }
+  privacy: { kind: 'small', railKey: 'PRIV', title: 'Top Privacy Chains', eyebrow: 'Category view' },
+  rwu: { kind: 'small', railKey: 'RWU', title: 'Top Real-World Utility', eyebrow: 'Category view' },
+  onchain: { kind: 'small', railKey: 'OCH', title: 'Top On-Chain Health', eyebrow: 'Category view' },
+  tokenomics: { kind: 'small', railKey: 'TOK', title: 'Top Tokenomics & Supply', eyebrow: 'Category view' },
+  decentralization: { kind: 'small', railKey: 'DECN', title: 'Top Decentralization', eyebrow: 'Category view' },
+  cost: { kind: 'small', railKey: 'COST', title: 'Cheapest Tx Cost', eyebrow: 'Extra data' },
+  yield: { kind: 'small', railKey: 'YLD', title: 'Fee Yield (Price/Fee)', eyebrow: 'Extra data' }
 };
 
 // Single-metric ranked views. `axis` + `catKey` locate the value inside a
