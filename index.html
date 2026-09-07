@@ -1175,9 +1175,9 @@ const METRIC_VIEWS = {
   decentralization: { axis: 'tradfi', catKey: 'decentralization', unit: 'score',
     desc: 'Ranked by the TradFi Decentralization category score (0–100).' },
   cost: { axis: 'tiles', catKey: 'cheapest_tx_cost_usd', noteKey: 'cheapest_tx_cost_note', unit: 'usd', ascending: true, logScale: true,
-    desc: 'USD cost of one standard native transfer, current floor/base fee rate. Presentation only — never weighted into either score. Cheapest first.' },
+    desc: 'USD cost of one standard native transfer, current floor/base fee rate. Cheapest first.' },
   yield: { axis: 'tiles', catKey: 'fee_yield_pct', noteKey: 'fee_yield_note', unit: 'pf', logScale: true,
-    desc: 'Trailing 30-day chain fee revenue, annualized, vs. current market cap — shown as an implied price/fee multiple (market cap ÷ annualized fees), the inverse of the raw yield percentage. Lower multiple means the market is pricing the chain closer to the fee revenue it already generates. Presentation only — never weighted into either score. Richest (lowest multiple) first.' }
+    desc: 'Trailing 30-day chain fee revenue, annualized, vs. current market cap — shown as an implied price/fee multiple (market cap ÷ annualized fees), the inverse of the raw yield percentage. Lower multiple means the market is pricing the chain closer to the fee revenue it already generates. Richest (lowest multiple) first.' }
 };
 
 // Gate-status views. A gate is a three-state field (Pass/Partial/Fail), not
@@ -1447,7 +1447,7 @@ function openDivergenceView() {
   document.getElementById('boardSubview').style.display = 'none';
   document.getElementById('rankSubview').style.display = '';
   const noteEl = document.getElementById('rankNote');
-  noteEl.textContent = 'Divergence is the comparison between our two main TradFi and AI axes. It helps visualize the strength of the chain, whether it\'s more fit for TradFi adoption or AI readiness.';
+  noteEl.textContent = 'Divergence is the comparison between our two main TradFi and AI axes. It helps visualize the strength of the chain, whether it\'s a better fit for TradFi adoption or AI readiness.';
   noteEl.style.display = '';
 
   const rows = [...BOARD.chains].sort((a, b) => b.divergence - a.divergence);
