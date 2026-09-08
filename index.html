@@ -1506,8 +1506,11 @@ async function openGateView(key) {
     (groups[state] || groups.unknown).push(c);
   });
 
-  const scoreKey = gv.axis === 'tradfi' ? 'tradfi_score' : 'ai_score';
-  GATE_STATE_ORDER.forEach(state => groups[state].sort((a, b) => b[scoreKey] - a[scoreKey]));
+  // Alphabetical by name, not score: this list shows no score next to each
+  // chain, so a score-based order isn't legible to a viewer and reads as
+  // arbitrary. A-Z is self-evidently ordered and makes a specific chain
+  // easy to find within a group, which matters most for the larger groups.
+  GATE_STATE_ORDER.forEach(state => groups[state].sort((a, b) => a.name.localeCompare(b.name)));
 
   const html = GATE_STATE_ORDER.filter(state => groups[state].length).map(state => {
     const st = gateGroupStyle(state);
