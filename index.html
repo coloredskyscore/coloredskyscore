@@ -547,7 +547,7 @@
     display: grid; grid-template-columns: 220px 1fr 88px; align-items: center;
     gap: 14px; padding: 0 6px; margin-bottom: 6px;
   }
-  .divergence-flank .split { display: flex; }
+  .divergence-flank .split { display: flex; gap: 8px; }
   .divergence-flank .side {
     flex: 1; font-family: 'IBM Plex Mono', monospace; font-size: 10.5px;
     letter-spacing: 0.05em; text-transform: uppercase; color: var(--text-mid); font-weight: 500;
@@ -1453,7 +1453,12 @@ function openDivergenceView() {
   const rows = [...BOARD.chains].sort((a, b) => b.divergence - a.divergence);
   const scaleMax = Math.max(...rows.map(r => Math.abs(r.divergence)), 1e-12);
 
-  const flank = `<div class="divergence-flank"><div></div><div class="split"><span class="side left">TradFi Divergence</span><span class="side right">AI Divergence</span></div><div></div></div>`;
+  // Shortened from "TradFi Divergence"/"AI Divergence": at the 720px mobile
+  // breakpoint the flank grid's middle column narrows enough that the two
+  // labels wrap to two lines each and visually collide with no gap between
+  // them. The view's own note text and the "Score Divergence" title already
+  // establish what's being compared, so the axis name alone reads fine here.
+  const flank = `<div class="divergence-flank"><div></div><div class="split"><span class="side left">TradFi</span><span class="side right">AI</span></div><div></div></div>`;
 
   const html = flank + rows.map((r, i) => {
     const halfPct = (Math.abs(r.divergence) / scaleMax) * 50;
