@@ -2,7 +2,7 @@
   "_schema_notes": "Loaded on every page visit. Keep this file NUMBERS AND SHORT STRINGS ONLY -- no reasoning prose, no long findings lists. That content lives in /data/chains/<slug>.json and is fetched only when a chain's panel is opened. detail_url uses the stable slug, not the ticker -- tickers can change (rebrands, symbol reuse) but the slug and its file never do.",
   "meta": {
     "site": "coloredskyscore.com",
-    "last_updated": "2026-09-06",
+    "last_updated": "2026-09-10",
     "chains_scored": 17,
     "tradfi_framework_version": "v2.0",
     "ai_framework_version": "v1.1"
@@ -58,12 +58,12 @@
       "tradfi_score": 73,
       "tradfi_tier": "EI",
       "tradfi_capped": false,
-      "ai_score": 71,
+      "ai_score": 72,
       "ai_tier": "IR",
       "ai_capped": true,
-      "divergence": 2,
+      "divergence": 1,
       "scored_date": "2026-06",
-      "last_updated": "2026-08-27"
+      "last_updated": "2026-09-10"
     },
     {
       "slug": "eth",

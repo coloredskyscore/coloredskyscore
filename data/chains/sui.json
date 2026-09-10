@@ -4,8 +4,8 @@
   "name": "Sui",
   "cashtag": "$SUI",
   "scored_date": "2026-06",
-  "last_updated": "2026-08-27",
-  "executive_summary": "Sui's mainnet launched in May 2023, a little over three years before this scoring, built around a design that lets many transactions process in parallel rather than one at a time. That design underpins a TradFi score of 73, carried by strong regulatory standing and real-world usage, with an open, numerous validator base that's a genuine strength on paper -- moderated somewhat by a concentration of validators in a single jurisdiction, the United States -- and with room to grow further as transaction fee economics mature. The AI score of 71 sits well below the network's underlying strength, which actually scores an 86, because a May 2026 network halt triggered a reliability cool-down period that takes months of clean operation to fully recover from.",
+  "last_updated": "2026-09-10",
+  "executive_summary": "Sui's mainnet launched in May 2023, a little over three years before this scoring, built around a design that lets many transactions process in parallel rather than one at a time. That design underpins a TradFi score of 73, carried by strong regulatory standing and real-world usage, with an open, numerous validator base that's a genuine strength on paper -- moderated somewhat by a concentration of validators in a single jurisdiction, the United States -- and with room to grow further as transaction fee economics mature. The AI score of 72 sits well below the network's underlying strength, which actually scores an 86, because a May 2026 network halt triggered a reliability cool-down period that takes months of clean operation to fully recover from.",
   "tradfi": {
     "score": 73,
     "raw_score": 72.89,
@@ -38,15 +38,15 @@
     ]
   },
   "ai": {
-    "score": 71,
+    "score": 72,
     "raw_score": 86,
     "tier_code": "IR",
     "gate_capped": true,
     "binding_cap": {
       "gate": "operational_reliability",
-      "cap_value": 71,
+      "cap_value": 72,
       "short_note": "Capped by the Operational Reliability cool-down timer, anchored to the May 28-29, 2026 halt.",
-      "as_of": "2026-08-01"
+      "as_of": "2026-09-01"
     },
     "gates": {
       "deterministic_finality": "pass",
@@ -67,17 +67,18 @@
     "categories_verified": true,
     "key_findings": [
       "Based purely on its category-by-category performance, Sui's AI score would be 86 -- genuinely excellent fundamentals, with execution speed, the ability to bundle multiple actions into one transaction, and privacy tooling all scoring in the high 80s to 90s.",
-      "The published score of 71 is held down entirely by a reliability penalty tied to a past network outage, not by any weakness in the underlying technology -- without that outage in its recent history, this would be an 86.",
+      "The published score of 72 is held down entirely by a reliability penalty tied to a past network outage, not by any weakness in the underlying technology -- without that outage in its recent history, this would be an 86.",
       "Sui's AI score moved up from the 'Experimental' tier into 'Integration Ready' on July 1, 2026, as part of a scheduled recovery: the reliability penalty from the earlier outage eases by a fixed amount for every clean month that passes without another incident."
     ]
   },
-  "divergence": 2,
+  "divergence": 1,
   "watch_items": [
     "Sui is planning to ship a quantum-safe wallet feature to mainnet later in 2026. Once it does, it will trigger a re-check of the quantum-computer readiness check.",
     "A native quantum-resistant signature standard (ML-DSA-65) for account authentication is targeted for Q1 2027. If it ships, it would be the trigger for a full pass on quantum-computer readiness.",
     "The reliability penalty from the May 2026 outage continues easing by a fixed amount for every additional clean month without another incident. If that streak continues uninterrupted, Sui's AI score could reach our top tier around April-May 2027.",
     "If Sui's confidential-transfer feature, which would let transaction amounts be hidden, moves from testing to a live mainnet launch, it would raise the Privacy & Confidentiality score.",
-    "If validator hosting diversifies away from its current jurisdiction concentration, that would be the clearest path back toward a higher Decentralization score."
+    "If validator hosting diversifies away from its current jurisdiction concentration, that would be the clearest path back toward a higher Decentralization score.",
+    "The Sui Foundation runs a daily on-chain buyback funded by stablecoin yield, but the repurchased SUI is redistributed to ecosystem participants rather than burned, so it doesn't reduce circulating supply. At current scale (a few million dollars a year) it's immaterial to the Tokenomics & Supply score either way -- worth re-checking only if the program grows substantially or shifts toward actually burning the tokens it buys."
   ],
   "tiles": {
     "cheapest_tx_cost_usd": 0.01,
