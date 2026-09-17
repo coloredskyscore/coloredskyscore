@@ -2068,16 +2068,18 @@ async function openPanel(slug) {
 
     <div class="external-links">
       <span class="axis-title">Learn More</span>
+      ${EXTERNAL_SLUGS[slug] ? `
       <div class="external-links-row">
-        <a class="ext-link" href="https://www.coingecko.com/en/coins/${(EXTERNAL_SLUGS[slug]||{}).cg}" target="_blank" rel="noopener">
+        <a class="ext-link" href="https://www.coingecko.com/en/coins/${EXTERNAL_SLUGS[slug].cg}" target="_blank" rel="noopener">
           CoinGecko
           <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M7 7h10v10"/></svg>
         </a>
-        <a class="ext-link" href="https://coinmarketcap.com/currencies/${(EXTERNAL_SLUGS[slug]||{}).cmc}/" target="_blank" rel="noopener">
+        <a class="ext-link" href="https://coinmarketcap.com/currencies/${EXTERNAL_SLUGS[slug].cmc}/" target="_blank" rel="noopener">
           CoinMarketCap
           <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M7 7h10v10"/></svg>
         </a>
-      </div>
+      </div>` : `
+      <div class="raw-note">No live market data — the token is not yet publicly tradeable.</div>`}
     </div>
   `;
 
