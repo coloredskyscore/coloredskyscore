@@ -1884,6 +1884,11 @@ window.addEventListener('resize', () => {
 
 const EXTERNAL_SLUGS = {"btc":{"cg":"bitcoin","cmc":"bitcoin"},"eth":{"cg":"ethereum","cmc":"ethereum"},"sol":{"cg":"solana","cmc":"solana"},"sui":{"cg":"sui","cmc":"sui"},"xrp":{"cg":"xrp","cmc":"xrp"},"bnb":{"cg":"bnb","cmc":"bnb"},"cc":{"cg":"canton","cmc":"canton"},"hype":{"cg":"hyperliquid","cmc":"hyperliquid"},"avax":{"cg":"avalanche","cmc":"avalanche"},"mon":{"cg":"monad","cmc":"monad"},"tron":{"cg":"tron","cmc":"tron"},"wbt":{"cg":"whitebit","cmc":"whitebit-token"},"ada":{"cg":"cardano","cmc":"cardano"},"doge":{"cg":"dogecoin","cmc":"dogecoin"},"zec":{"cg":"zcash","cmc":"zcash"},"xlm":{"cg":"stellar","cmc":"stellar"},"bch":{"cg":"bitcoin-cash","cmc":"bitcoin-cash"}};
 
+// Fallback for a chain with no live CoinGecko/CoinMarketCap listing yet (e.g. ARC:
+// its ticker collides with an unrelated project on both trackers). Points Learn More
+// at the chain's own official site instead of a broken or misleading market-data link.
+const NO_MARKET_FALLBACK = {"arc":{"label":"arc.io","url":"https://www.arc.io/"}};
+
 const GATE_DESC = {
   tradfi: {
     quantum_resistance: 'Whether the chain has a real plan to migrate off cryptography that quantum computers could eventually break.',
@@ -2078,8 +2083,14 @@ async function openPanel(slug) {
           CoinMarketCap
           <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M7 7h10v10"/></svg>
         </a>
+      </div>` : (NO_MARKET_FALLBACK[slug] ? `
+      <div class="external-links-row">
+        <a class="ext-link" href="${NO_MARKET_FALLBACK[slug].url}" target="_blank" rel="noopener">
+          ${NO_MARKET_FALLBACK[slug].label}
+          <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M7 7h10v10"/></svg>
+        </a>
       </div>` : `
-      <div class="raw-note">No live market data — the token is not yet publicly tradeable.</div>`}
+      <div class="raw-note">No live market data — the token is not yet publicly tradeable.</div>`)}
     </div>
   `;
 
