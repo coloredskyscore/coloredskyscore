@@ -1,1 +1,89 @@
-PLACEHOLDER
+{
+  "slug": "arc",
+  "ticker": "ARC",
+  "name": "Arc",
+  "cashtag": "$ARC",
+  "scored_date": "2026-09",
+  "last_updated": "2026-09-17",
+  "executive_summary": "Arc launched its public mainnet on September 16, 2026, built by Circle as an institutional layer-1 running on Malachite, a Byzantine fault-tolerant consensus engine originally built for Tendermint and CometBFT. It's an EVM-compatible chain that runs entirely on USDC as its gas token, secured today by eleven permissioned validator institutions including BlackRock, DTCC, Visa, and Mastercard. At scoring time the chain was one to two days old, and both scores reflect that: TradFi Approved scores a strong 74 on the strength of that validator roster alone, but On-Chain Health sits at just 13 and Tokenomics & Supply at 20, since the chain's own ARC token -- the asset that would eventually function as an investable stake in the network -- is minted but not yet tradeable, staked, or governing anything. The result is a chain with an extraordinary institutional foundation and almost no usable track record yet, which is why this is published explicitly as a first look with a one-month reassessment already scheduled.",
+  "tradfi": {
+    "score": 38,
+    "raw_score": 38.26,
+    "tier_code": "SP",
+    "gate_capped": false,
+    "binding_cap": null,
+    "gates": {
+      "quantum_resistance": "partial",
+      "regulatory_clarity": "partial",
+      "security_posture": "fail"
+    },
+    "categories": {
+      "on_chain_health": 13,
+      "tradfi_approved": 74,
+      "real_world_utility": 32,
+      "tokenomics_supply": 20,
+      "developer_ecosystem": 40,
+      "regulatory_risk": 68,
+      "privacy_confidentiality": 22,
+      "decentralization": 47,
+      "security_future_proofing": 22
+    },
+    "categories_verified": true,
+    "key_findings": [
+      "TradFi Approved scores 74, one of Arc's clearest strengths: the validators securing this chain today are institutions like BlackRock, DTCC, Visa, Mastercard, ICE, and Standard Chartered, not partners or sponsors but the literal infrastructure of the network, confirmed by an independent on-chain read rather than a press release. The score sits below what that roster alone might suggest because it's a two-day-old footprint, and this framework weights a track record built over years more heavily than one built over a weekend.",
+      "On-Chain Health is Arc's weakest category at 13. About a day and a half of transaction history existed at scoring time -- roughly 7.8 million transactions -- but most of that is memecoin and launchpad trading rather than payments or settlement activity, and several of the most-traded new tokens had already fallen 56-77% from their first-day highs. Real institutional money is on the chain too (about $649 million in USDC), but there isn't yet enough history to call any of it a track record.",
+      "Real-World Utility scores 32. Launch coverage described several major institutional funds, including BlackRock's BUIDL and two Janus Henderson funds, as live on this chain. Checking the chain's own published contract addresses found that three of those four are not actually deployed here; only one product, gated to non-U.S. institutions with a $100,000 minimum, has a confirmed live contract. Real DeFi lending activity exists underneath that story (one lending market alone holds over $200 million in deposits), but the flagship institutional-asset story was an announcement, not a deployment, at the time of scoring.",
+      "Tokenomics & Supply scores 20. Ten billion ARC tokens were minted at genesis with a disclosed 60/25/15 allocation, but the token isn't tradeable, isn't staked, isn't used for gas, and doesn't govern anything -- Circle's own materials describe the genesis mint as \"not a commitment to publicly launch.\" The chain's actual transactional currency is USDC, Circle's own stablecoin, which carries no economic exposure to whether this network succeeds or fails.",
+      "Decentralization scores 47. An independent read of the validator set found 15 active validators, with the largest holding just 7.69% of voting power -- a reasonably even split for a set this size -- but only 5 of the 15 are needed to halt the network and only 9 to break its safety threshold, a small number of institutions to concentrate that much control in.",
+      "Security & Future-Proofing scores 22. Arc runs an active bug bounty that had already found and fixed a real consensus-layer vulnerability before mainnet launched, a genuine positive. But no independent audit of the chain's core protocol exists yet, and the protocol's own team describes its software as alpha and not externally audited -- combined with zero days of mainnet operating history at scoring time, that holds this category down regardless of the clean bug-bounty record.",
+      "Regulatory & Risk scores 68. No enforcement action and no adverse classification exist against this chain or its token, compliance tooling from established providers is built in at launch, and the operating company itself holds a federal trust charter and is separately publicly listed. The only distribution of the ARC token to date was a closed institutional presale to accredited investors, a minor note at this category's weight rather than a material risk."
+    ]
+  },
+  "ai": {
+    "score": 44,
+    "raw_score": 44.19,
+    "tier_code": "PO",
+    "gate_capped": false,
+    "binding_cap": null,
+    "gates": {
+      "deterministic_finality": "pass",
+      "programmability_tier": "pass",
+      "operational_reliability": "pass"
+    },
+    "categories": {
+      "execution_layer": 62,
+      "composability_atomicity": 68,
+      "security_posture": 15,
+      "state_api_quality": 38,
+      "privacy_confidentiality": 20,
+      "economic_predictability": 35,
+      "agent_tooling": 45,
+      "standards_interoperability": 58,
+      "kya": 28
+    },
+    "categories_verified": true,
+    "key_findings": [
+      "Execution Layer scores 62. Transactions finalize in under a second with no reported congestion, even during a first-day flood of memecoin trading, and fees are priced in USD-pegged USDC rather than a volatile native token, which matters for automated systems that need predictable costs. The open question is real load: the chain saw roughly 90 transactions per second on day one against a stated design target above 3,000, so performance well beyond that remains untested.",
+      "Composability & Atomicity scores 68, one of Arc's stronger AI-axis categories. Standard batching and permit tools (Multicall3, Permit2, a CREATE2 factory) are confirmed live at their expected addresses, and the chain shipped its own precompiles that let a batched call preserve the original caller's identity, solving an attribution problem most general-purpose EVM chains leave unsolved. The one gap: a smart-account factory address isn't listed in the chain's own official documentation yet, even though custody providers claim support.",
+      "Security Posture scores just 15, the weakest category on either axis. The same facts that drove this chain's TradFi security check to a fail apply here at full weight: no independent audit of the core protocol exists, and an outside technical review flagged that both the execution client and the consensus client run as a single implementation each, a double point of failure. Layered on top is the same validator concentration noted elsewhere (15 validators, the largest holding 7.69%) and zero days of operating history at scoring time. An active bug bounty that already caught one real vulnerability before launch is the one thing working in this category's favor.",
+      "Economic Predictability scores 35. Gas priced in USD-pegged USDC is a genuine plus for an automated system that can't tolerate volatile costs. Working against it: block production is entirely permissioned, and the chain has confirmed, in production, a mechanism that can block specific addresses from moving USDC -- a live censorship capability with no published commitment from any validator not to use it.",
+      "Agent Tooling scores 45. Real, chain-specific infrastructure for autonomous agents exists at launch rather than being borrowed generic EVM tooling -- agent wallets with policy limits, a small-payments mechanism, an agent marketplace, and a payment-facilitator service are all reported live from day one. This is held back from a higher score because the agent platforms said to be building here are announced rather than independently confirmed as live traffic, and a separate verifiable-compute component for agents is still in the design stage.",
+      "Standards & Interoperability scores 58. Account abstraction is more than a compatibility claim here -- the chain operator's own production wallet is genuinely built as a smart-contract account with real operational monitoring, and a native token-bridging mechanism avoids the custody risk of a typical lock-and-mint bridge. Held back because the canonical account-abstraction entry-point address isn't published anywhere official yet.",
+      "KYA scores 28. A documented path toward agent identity exists, including a tutorial for an agent identity-and-reputation standard and a companion job-and-escrow standard, but the official tutorial materials still point to testnet contract addresses, not mainnet. This is an architectural pathway toward agent identity today, not confirmed live adoption."
+    ]
+  },
+  "divergence": -6,
+  "watch_items": [
+    "The ARC token itself is the single biggest swing factor for this chain's next reassessment. No staking, no live governance, no confirmed fee-burn mechanics, and no public launch date exist today. Any of those becoming live would be a direct re-credit candidate for Tokenomics & Supply.",
+    "Three of the four flagship real-world-asset products announced at launch are not actually deployed on this chain yet. Any of them actually shipping, or meaningful transaction volume appearing through the one product that is live, would be a direct re-credit candidate for Real-World Utility.",
+    "No independent audit of the core protocol exists yet. A published, scoped audit would be a direct re-credit candidate on both the security-posture gate and both axes' security categories.",
+    "A live, protocol-level mechanism that can block specific addresses from moving USDC is confirmed in production today. Any documented use of it would be a further consideration at the next reassessment.",
+    "This chain is scored explicitly as a first look at one to two days old. A full reassessment is scheduled for October 17, 2026, with the ARC token's status, audit progress, real usage growth, and validator concentration as the specific things to check."
+  ],
+  "tiles": {
+    "cheapest_tx_cost_usd": null,
+    "cheapest_tx_cost_note": "Not yet determined. Gas is paid in USDC, but pricing data for this chain is not yet tracked by the fee-data sources this board uses. A read is planned at the October 17, 2026 reassessment.",
+    "fee_yield_pct": null,
+    "fee_yield_note": "Not measurable. This metric divides fee revenue by market cap, and the ARC token has no live market or market cap to divide by -- the chain's actual gas token, USDC, is not an investable asset this metric is designed to measure."
+  }
+}
