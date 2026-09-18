@@ -1,1 +1,90 @@
-PLACEHOLDER
+{
+  "slug": "ltc",
+  "ticker": "LTC",
+  "name": "Litecoin",
+  "cashtag": "$LTC",
+  "scored_date": "2026-09",
+  "last_updated": "2026-09-18",
+  "executive_summary": "Litecoin launched in October 2011 as one of the earliest Bitcoin forks, built to settle everyday payments faster and more cheaply than Bitcoin while keeping the same proof-of-work security model. In 2019 it added an optional privacy layer called MWEB, letting users shield transaction amounts on the same base chain if they choose to. Its clear strength is institutional access: a live spot ETF, a Nasdaq-listed company holding it as a treasury asset, and formal recognition as a digital commodity from US regulators combine to push its TradFi score to 44. Its clear weakness is security: a real 2026 exploit in the MWEB privacy layer let an attacker forge a large fake transaction, and the response so far has been a patch rather than a full redesign, with no fresh outside audit and no funded bug-bounty program. That unresolved security gap is the main reason the AI-agent-readiness score lands much lower, at 30, since an AI agent transacting autonomously leans even harder on a clean, proven security track record than a human investor typically does.",
+  "tradfi": {
+    "score": 44,
+    "raw_score": 44.04,
+    "tier_code": "RG",
+    "gate_capped": false,
+    "binding_cap": null,
+    "gates": {
+      "quantum_resistance": "fail",
+      "regulatory_clarity": "pass",
+      "security_posture": "fail"
+    },
+    "categories": {
+      "on_chain_health": 24,
+      "tradfi_approved": 56,
+      "real_world_utility": 20,
+      "tokenomics_supply": 90,
+      "developer_ecosystem": 30,
+      "regulatory_risk": 68,
+      "privacy_confidentiality": 56,
+      "decentralization": 18,
+      "security_future_proofing": 18
+    },
+    "categories_verified": true,
+    "key_findings": [
+      "Litecoin clears our regulatory baseline check outright, one of the cleaner cases we've reviewed: a live, physically-backed spot ETF is already trading, and US regulators formally named Litecoin a digital commodity in a joint interpretive release in 2026.",
+      "TradFi Approved scores a solid 56, broader institutional access than a mid-tier score alone suggests. Litecoin has a live spot ETF, a major European securities depository added it to institutional custody in 2026, and a Nasdaq-listed company holds over 800,000 LTC as its primary treasury asset. Each individual pathway is still small in dollar terms next to what a fully mature institutional asset would show, which is why this lands as a solid middle score rather than a top one.",
+      "Tokenomics & Supply is Litecoin's strongest category by far at 90. Total supply is capped at 84 million coins, there was no pre-mine or insider allocation at launch in 2011, and roughly 92% of all coins that will ever exist are already in circulation -- monetary discipline on par with Bitcoin's.",
+      "Security is Litecoin's clearest weakness, and it fails our baseline security check outright. In 2026, a flaw in Litecoin's optional privacy feature let an attacker forge a large fake transaction, and weeks later a second attempted exploit briefly split the network into two competing chains. Outside services that mistakenly trusted the fake transaction lost real money. The fix patched the immediate bug rather than redesigning the underlying system, no fresh independent security audit of the current code has been published, and there's no funded bug-bounty program rewarding researchers for finding the next flaw first -- all three are why this doesn't clear the bar.",
+      "Litecoin also does not currently meet our baseline check for having a real plan against future quantum computers breaking its cryptography. A proposal addressing this was drafted in 2019 but was never finished, and the developer responsible for it has said publicly he doesn't know what a real solution would look like yet.",
+      "Privacy & Confidentiality scores 56, a genuinely mixed picture. Litecoin's optional privacy feature is built directly into the core protocol rather than bolted on by a third party, a real structural plus, and its shielded balance has grown past its pre-2026 high. But the very guarantee this feature depends on was broken by a real attacker in 2026, and day-to-day private transaction activity remains thin. Genuine capability and real usage, but a proven security breach in the same feature, is why this lands in the middle of the scale rather than higher.",
+      "Real-World Utility scores a weak 20. Litecoin is accepted by several payment processors, but there's no independently verifiable data showing meaningful transaction volume through any of them, and Litecoin's own dedicated payments push from 2018 shut down within months.",
+      "On-Chain Health scores 24. Daily network fee revenue is very low relative to Litecoin's market size, even though the number of transactions and active addresses each day remains meaningfully large in absolute terms -- that mismatch between real usage and thin fee revenue is what holds this category down.",
+      "Decentralization scores 18. A small handful of mining pools control more than half of Litecoin's total mining power between them, and that same concentration was directly demonstrated in 2026 when upgraded mining pools coordinated in real time to reorganize the chain during the security incident described above."
+    ]
+  },
+  "ai": {
+    "score": 30,
+    "raw_score": 29.90,
+    "tier_code": "NV",
+    "gate_capped": false,
+    "binding_cap": null,
+    "gates": {
+      "deterministic_finality": "fail",
+      "programmability_tier": "partial",
+      "operational_reliability": "fail"
+    },
+    "categories": {
+      "execution_layer": 50,
+      "composability_atomicity": 18,
+      "security_posture": 14,
+      "state_api_quality": 42,
+      "privacy_confidentiality": 42,
+      "economic_predictability": 48,
+      "agent_tooling": 10,
+      "standards_interoperability": 15,
+      "kya": 5
+    },
+    "categories_verified": true,
+    "key_findings": [
+      "Security Posture is Litecoin's weakest category on the agent-readiness side, at 14, and it's the most heavily weighted category in this framework. The same 2026 privacy-layer exploit described on the investor side is even more consequential here: real money was forged and lost, the fix was a patch rather than a full redesign, no current published security audit exists, and no funded bug-bounty program is in place.",
+      "Litecoin doesn't offer instant, mathematically final settlement. Like Bitcoin, its confirmations become more certain over time rather than being final the moment they happen -- a structural limitation an AI agent transacting on it would need to plan around.",
+      "Execution Layer is a relative bright spot at 50: Litecoin produces a new block every 2.5 minutes, four times faster than Bitcoin, with consistently low and stable network fees (a typical transfer costs a fraction of a cent). The network hasn't been meaningfully congested over the past year, though that also means its true capacity under heavy real-world load hasn't yet been tested.",
+      "Composability & Atomicity scores 18. Litecoin has no smart-contract layer, so there's no way for an agent to bundle multiple actions into a single all-or-nothing transaction the way it could on a general-purpose smart-contract chain.",
+      "Agent Tooling scores just 10. A dedicated search found no Litecoin-specific payment tools, software kits, or marketplaces built for AI agents anywhere in today's agent-payment landscape, which today runs almost entirely on other chains.",
+      "KYA (agent identity and compliance) scores 5, near the bottom of the scale. There's no way to cryptographically link an AI agent's on-chain identity to a responsible real-world party on Litecoin today, and because the chain has no smart-contract layer, there's nothing to build that kind of identity system on top of even in principle."
+    ]
+  },
+  "divergence": 14,
+  "watch_items": [
+    "Litecoin's Foundation has only ever published a summary of its investigation into the 2026 privacy-layer exploit, not the full findings. A published, complete report would be a direct trigger to revisit the security score on both the investor and agent-readiness sides.",
+    "Litecoin currently has no funded bug-bounty program, only a private email channel for reporting vulnerabilities. Standing up a funded program would remove a specific penalty currently applied on both scores.",
+    "A 2019 proposal addressing quantum-computer resistance in Litecoin's privacy layer remains unfinished with no development timeline. Worth re-checking if it's ever picked back up, or if a proposal addressing the actual signature-forgery risk emerges.",
+    "A legacy Litecoin trust has filed to convert into a listed ETF, and a Nasdaq-listed company holds a large and growing Litecoin treasury position. Either developing further would be a trigger to revisit the institutional-access score.",
+    "Litecoin's core software hasn't yet adopted some of the wallet-security improvements that Bitcoin's software has picked up in recent versions -- worth re-checking at the next reassessment.",
+    "No public dataset currently tracks where Litecoin's mining hardware is physically located or hosted, so that specific concentration risk couldn't be measured directly this round -- flagged to re-check if a tracker like this becomes available.",
+    "Two outside protocols that lost funds during the 2026 incident have each since had their own separate security incidents. If their track records improve, or if Litecoin's trading volume through those cross-chain routes grows, that's worth revisiting on the agent-readiness side."
+  ],
+  "tiles": {
+    "cheapest_tx_cost_usd": 0.0004,
+    "fee_yield_pct": 0.0038
+  }
+}
