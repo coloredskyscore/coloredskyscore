@@ -4,7 +4,7 @@
   "name": "XRP Ledger",
   "cashtag": "$XRP",
   "scored_date": "2026-06",
-  "last_updated": "2026-08-25",
+  "last_updated": "2026-09-18",
   "executive_summary": "The XRP Ledger has been running since 2012, designed from the start for fast, low-cost cross-border payments rather than general-purpose computing, and fourteen years later at the time of this scoring that focus shows up in a Real-World Utility score of 86 and a TradFi score of 71. Real-world payment usage and TradFi rail access carry the score, while a small, curated set of roughly 35 validators and token supply that was mostly pre-mined at launch hold it back. The AI score of 65 reflects a ledger with rich built-in payment features but no ability to deploy custom code on top of it, a limitation that's been in place since launch.",
   "tradfi": {
     "score": 71,
@@ -65,8 +65,10 @@
     },
     "categories_verified": true,
     "key_findings": [
-      "XRP Ledger only partially passes our programmability check. It has genuinely rich built-in financial features -- a native decentralized exchange, an automated market maker, and escrow -- but there's no way for a developer to deploy custom code on top of it, the way there is on a general-purpose smart-contract chain.",
-      "XRP Ledger earns a full pass on our reliability check, having gone twelve consecutive clean months without a qualifying network incident -- proof that our reliability scoring can recover fully to a full pass over time, not just partially.",
+      "XRP Ledger only partially passes our programmability check, and that's what caps the AI score at 65 even though the underlying categories average to 69.3. The ledger has genuinely rich built-in financial features -- a native decentralized exchange, an automated market maker, and escrow -- but there's no way to deploy custom code on top of it. Two things that might look like exceptions don't count toward this: Hooks-style smart contracts live on a separate network, not this ledger, and the EVM-compatible sidechain has its own validators and its own security, so neither adds programmability to XRP Ledger itself.",
+      "Composability & Atomicity is the weakest AI category at 56. A general-purpose batching feature meant to let multiple actions execute atomically shipped with a bug in February 2026, was never turned on, and was formally withdrawn the same month, with no announced date for a replacement. What's usable today is native atomic payments and escrow -- real, but narrower than the missing custom-code layer would otherwise allow.",
+      "Privacy & Confidentiality scores 48 on the AI axis. Every transaction is visible by default with no confidential compute or zero-knowledge option, so an agent can't hide amounts or transaction logic. Permissioned Domains can restrict who's allowed to act, but they don't hide what was done once someone's allowed.",
+      "XRP Ledger earns a full pass on our reliability check, having gone twelve consecutive clean months without a qualifying network incident -- proof that our reliability scoring can recover fully to a pass over time, not just partially.",
       "Economic Predictability is XRP Ledger's strongest category on the AI framework at 85. Transaction fees are fixed and near-zero, with no bidding war for space -- an agent can know its exact cost every time."
     ]
   },
