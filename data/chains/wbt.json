@@ -13,7 +13,7 @@
     "gate_capped": false,
     "binding_cap": null,
     "gates": {
-      "quantum_resistance": "unknown",
+      "quantum_resistance": "fail",
       "regulatory_clarity": "partial",
       "security_posture": "partial"
     },
@@ -45,8 +45,8 @@
     "binding_cap": null,
     "gates": {
       "deterministic_finality": "fail",
-      "programmability_tier": "unknown",
-      "operational_reliability": "unknown"
+      "programmability_tier": "pass",
+      "operational_reliability": "pass"
     },
     "categories": {
       "execution_layer": 55,
@@ -69,7 +69,7 @@
   "divergence": -14,
   "watch_items": [
     "Different sources report wildly different figures for how many WBT tokens are actually in circulation, ranging from about 118.1 million to 213.4 million -- nearly a two-fold spread. This inconsistency is itself a transparency concern worth re-checking at the next assessment.",
-    "Two of the AI baseline checks and one of the TradFi baseline checks haven't been formally assessed yet and are recorded as unverified rather than measured. These should be resolved at the next review."
+    "Whitechain passes the reliability check because no network halt has been found in its mainnet history, not because anyone independently monitors it: there is no public status page or uptime tracker for the chain itself. Independent monitoring would make that pass more trustworthy, and a recorded halt would reset it."
   ],
   "tiles": {
     "cheapest_tx_cost_usd": 0.015,

@@ -5,7 +5,7 @@
   "cashtag": "$BTC",
   "scored_date": "2026-05 (TradFi) / 2026-07 (AI)",
   "last_updated": "2026-08-28",
-  "executive_summary": "Bitcoin launched in 2009 as peer-to-peer electronic cash, and seventeen years later at the time of this scoring, that track record shows up in a TradFi score of 80: a fixed 21 million coin supply, deep access through ETFs and regulated custody, and a history with zero protocol-level exploits. The AI score lands much lower at 54, because Bitcoin confirms transactions probabilistically rather than with an instant, guaranteed final settlement, and that's precisely the kind of certainty an autonomous agent needs before it can safely act on a payment. The 26-point gap between the two scores comes down to that one architectural choice: built for slow, battle-tested trust rather than machine-speed certainty.",
+  "executive_summary": "Bitcoin launched in 2009 as peer-to-peer electronic cash, and seventeen years later at the time of this scoring, that track record shows up in a TradFi score of 80: a fixed 21 million coin supply, deep access through ETFs and regulated custody, and more than 15 years of operation with a single exploited protocol bug, in 2010, reversed within hours. The AI score lands much lower at 54, because Bitcoin confirms transactions probabilistically rather than with an instant, guaranteed final settlement, and that's precisely the kind of certainty an autonomous agent needs before it can safely act on a payment. The 26-point gap between the two scores comes down to that one architectural choice: built for slow, battle-tested trust rather than machine-speed certainty.",
   "tradfi": {
     "score": 80,
     "raw_score": 79.98,
@@ -68,7 +68,7 @@
     "key_findings": [
       "Bitcoin's AI score sits 26 points below its TradFi score, the widest gap between the two frameworks for this chain. The reason is structural: institutions trust Bitcoin deeply, but that trust was built on nearly two decades of slow, battle-tested settlement, not on the fast, mathematically guaranteed finality an autonomous agent needs before it can safely treat a payment as done.",
       "Bitcoin fails our check for fast, guaranteed transaction finality outright, because it only ever confirms transactions probabilistically -- there's no point at which the network formally guarantees a transaction can never be reversed, only that reversal becomes increasingly unlikely over time. That failure caps Bitcoin's AI score at 54, just one point below the next tier up.",
-      "Security Posture is Bitcoin's strongest category on the AI framework at 88. Over more than 15 years of continuous operation, the core protocol has never suffered a successful exploit -- the longest clean track record of any chain we score."
+      "Security Posture is Bitcoin's strongest category on the AI framework at 88. The core protocol has run continuously for more than 15 years, and its one exploited protocol bug came in August 2010, when an overflow briefly created about 184 billion coins before a patched release and a chain rollback erased them within hours. Nothing comparable has happened since."
     ]
   },
   "divergence": 26,
