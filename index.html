@@ -78,7 +78,6 @@
   html, body { margin: 0; background: var(--bg); color: var(--fg); }
   body { font-family: var(--sans); -webkit-font-smoothing: antialiased; font-size: 16px; }
   a { color: var(--accent); text-decoration: none; }
-  a:hover { color: var(--fg); }
   button, input, select { font: inherit; color: inherit; }
   button { cursor: pointer; }
   :focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
@@ -96,7 +95,6 @@
   .site-header { border-bottom: 1px solid var(--line); position: relative; z-index: 40; background: var(--bg); }
   .site-header .wrap { display: flex; align-items: center; justify-content: space-between; gap: 24px; padding-top: 16px; padding-bottom: 16px; }
   .brand { display: flex; align-items: center; gap: 14px; color: var(--fg); }
-  .brand:hover { color: var(--fg); }
   .seal { width: 38px; height: 38px; border: 1px solid var(--accent); display: flex; align-items: center; justify-content: center; font-family: var(--mono); font-weight: 600; font-size: 13px; color: var(--accent); flex-shrink: 0; }
   .brand-div { width: 1px; height: 30px; background: var(--line2); }
   .wordmark { font-family: var(--serif); font-size: 27px; line-height: 1; white-space: nowrap; }
@@ -105,7 +103,7 @@
   .wordmark sup { font-family: var(--sans); font-size: 12px; margin-left: 2px; color: var(--accent); }
   .nav { display: flex; align-items: center; gap: 28px; font-size: 15px; }
   .nav .nav-link { color: var(--fg2); padding-bottom: 4px; border-bottom: 1px solid transparent; }
-  .nav .nav-link:hover, .nav .nav-link.current { color: var(--fg); border-bottom-color: var(--accent); }
+  .nav .nav-link.current { color: var(--fg); border-bottom-color: var(--accent); }
   .nav .x-link { font-family: var(--mono); font-size: 13px; }
   .search { position: relative; }
   .search-box { display: flex; align-items: center; gap: 10px; border: 1px solid var(--line2); padding: 8px 12px; width: 220px; color: var(--fg3); background: transparent; }
@@ -114,10 +112,9 @@
   .search-results { position: absolute; top: calc(100% + 6px); right: 0; width: 300px; background: var(--bg); border: 1px solid var(--line2); box-shadow: var(--shadow); z-index: 50; }
   .search-results a { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; padding: 11px 14px; color: var(--fg); border-bottom: 1px solid var(--line); font-size: 15px; }
   .search-results a:last-child { border-bottom: none; }
-  .search-results a:hover, .search-results a.active { background: var(--panel); }
+  .search-results a.active { background: var(--panel); }
   .search-results .empty { padding: 12px 14px; font-size: 14px; color: var(--fg3); }
   .icon-btn { width: 40px; height: 40px; border: 1px solid var(--line2); background: transparent; color: var(--fg2); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
-  .icon-btn:hover { color: var(--fg); border-color: var(--accent); }
   html[data-theme="dark"] .ico-moon, html[data-theme="light"] .ico-sun { display: none; }
   .search-toggle { display: none; }
 
@@ -142,7 +139,6 @@
   .map .tick { position: absolute; font-family: var(--mono); font-size: 10px; color: var(--fg4); }
   .map .region { position: absolute; font-family: var(--mono); font-size: 11px; letter-spacing: 0.2em; color: var(--fg3); }
   .map .dot { position: absolute; border-radius: 50%; border: 2px solid var(--dot); background: var(--bg); padding: 0; transform: translate(-50%, -50%); width: 12px; height: 12px; }
-  .map .dot:hover { border-color: var(--sel); }
   .map .dot.on { width: 18px; height: 18px; border-width: 3px; border-color: var(--sel); z-index: 2; }
   .map .lbl { position: absolute; font-family: var(--mono); font-size: 11px; line-height: 1; white-space: nowrap; color: var(--fg2); pointer-events: none; }
   .map .lbl.on { color: var(--sel); font-weight: 600; }
@@ -166,7 +162,6 @@
   .list-head { display: flex; justify-content: space-between; align-items: baseline; padding-bottom: 12px; border-bottom: 1px solid var(--line2); }
   .list-head h3 { margin: 0; font-family: var(--serif); font-weight: 600; font-size: 20px; }
   .split-row { display: grid; grid-template-columns: 150px minmax(0, 1fr) 150px 52px; align-items: center; gap: 16px; padding: 13px 0; border: none; border-bottom: 1px solid var(--line); background: transparent; text-align: left; width: 100%; }
-  .split-row:hover .sr-nm { color: var(--accent); }
   .split-row .sr-nm { font-size: 15px; }
   .split-row .sr-nm small { display: none; }
   .split-row .sr-sc { font-family: var(--mono); font-size: 12px; color: var(--fg3); }
@@ -175,7 +170,6 @@
   .split-bar .fillbar { position: absolute; top: 0; height: 8px; background: var(--fill); }
   .split-row .sr-v { font-family: var(--mono); font-size: 15px; text-align: right; }
   .act-row { display: grid; grid-template-columns: 64px minmax(0, 1fr) 100px 132px; align-items: center; gap: 14px; padding: 12px 0; border-bottom: 1px solid var(--line); font-size: 14px; color: var(--fg); }
-  .act-row:hover { color: var(--fg); } .act-row:hover .an { color: var(--accent); }
   .act-row .ad { font-family: var(--mono); font-size: 12px; color: var(--fg3); }
   .act-row .ak { color: var(--fg2); }
   .act-row .ap { font-family: var(--mono); font-size: 13px; text-align: right; }
@@ -187,7 +181,6 @@
   .link-copy { display: flex; align-items: center; gap: 10px; }
   .link-copy .url { font-family: var(--mono); font-size: 13px; color: var(--fg3); }
   .btn { border: 1px solid var(--line2); background: transparent; color: var(--fg); padding: 9px 14px; font-size: 14px; display: inline-flex; align-items: center; gap: 8px; }
-  .btn:hover { border-color: var(--accent); color: var(--fg); }
   .btn.accent { border-color: var(--accent); color: var(--accent); }
   .btn.done { border-color: var(--t0); color: var(--t0); }
   .rankings { padding-top: 72px; }
@@ -196,7 +189,6 @@
   .rail-group { display: flex; flex-direction: column; gap: 2px; }
   .rail-group .label { padding: 0 0 6px 12px; }
   .rail button { text-align: left; border: none; padding: 10px 12px; font-size: 15px; background: transparent; color: var(--fg2); }
-  .rail button:hover { color: var(--fg); background: var(--panel); }
   .rail button.current { background: var(--panel); color: var(--fg); font-weight: 600; box-shadow: inset 2px 0 0 var(--accent); }
   .lens-select { display: none; flex-direction: column; gap: 6px; }
   .lens-select select { height: 48px; padding: 0 12px; border: 1px solid var(--line2); background: var(--panel); color: var(--fg); font-size: 16px; border-radius: 0; width: 100%; }
@@ -212,11 +204,11 @@
   .rk-loading { padding: 40px 0; font-family: var(--mono); font-size: 13px; color: var(--fg3); }
 
   .rk-row { display: grid; gap: 16px; align-items: center; padding: 13px 0; border-bottom: 1px solid var(--line); color: var(--fg); }
-  .rk-row:hover { color: var(--fg); }
-  .rk-row:hover .nm { color: var(--accent); }
   .rk-rank { font-family: var(--mono); font-size: 13px; color: var(--fg3); }
   .rk-name { display: flex; align-items: baseline; gap: 10px; min-width: 0; }
   .rk-name .nm { font-family: var(--serif); font-size: 18px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .rk-name .tk { display: none; font-family: var(--serif); font-size: 17px; white-space: nowrap; }
+  .gg-list .tk { display: none; }
   .rk-sc { display: flex; align-items: baseline; gap: 8px; white-space: nowrap; }
   .rk-sc b { font-family: var(--mono); font-weight: 400; font-size: 20px; }
   .rk-sc .full { font-size: 14px; }
@@ -260,7 +252,6 @@
   .gg-head .ct { font-weight: 500; color: var(--fg3); letter-spacing: 0; }
   .gg-list { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 2px 20px; }
   .gg-list a { padding: 7px 0; font-size: 15px; color: var(--fg); }
-  .gg-list a:hover { color: var(--accent); }
   .gg-list .tag { margin-right: 8px; }
 
   @container (max-width: 880px) {
@@ -269,6 +260,7 @@
     .rk-row.both .rk-sc { gap: 5px; }
     .rk-sc .cap { padding: 1px 3px; }
     .rk-axis.mob span:nth-child(3), .rk-axis.mob span:nth-child(4) { text-align: left; }
+    .rk-axis.mob span:last-child { justify-self: end; }
     .rk-row.both { grid-template-columns: 26px minmax(0, 1fr) 72px 72px 34px; grid-template-areas: "rank name tf ai split" "db db db db db"; row-gap: 10px; column-gap: 12px; }
     .rk-row.both .rk-rank { grid-area: rank; } .rk-row.both .rk-name { grid-area: name; }
     .rk-row.both .rk-tf { grid-area: tf; } .rk-row.both .rk-ai { grid-area: ai; } .rk-row.both .rk-split { grid-area: split; font-size: 14px; color: var(--fg3); }
@@ -284,6 +276,35 @@
     .gg-list .tag { display: none; }
     .lens-head { flex-direction: column; gap: 14px; }
     .seg { width: 100%; } .seg button { flex: 1; }
+  }
+  /* Phone-width Rankings: tickers replace names, so no name is ever cut off
+     (the map already labels chains by cashtag). Full names stay on the chain page. */
+  @container (max-width: 600px) {
+    .rk-name .nm, .rk-name .tag { display: none; }
+    .rk-name .tk { display: inline; }
+    .gg-list .gn { display: none; }
+    .gg-list .tk { display: inline; }
+    .gg-list { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  }
+
+  /* Hover colors only where a real pointer can hover. On a touchscreen a tap
+     would otherwise leave the row stuck in its hover color. */
+  @media (hover: hover) {
+    a:hover { color: var(--fg); }
+    .brand:hover { color: var(--fg); }
+    .icon-btn:hover { color: var(--fg); border-color: var(--accent); }
+    .map .dot:hover { border-color: var(--sel); }
+    .split-row:hover .sr-nm { color: var(--accent); }
+    .act-row:hover { color: var(--fg); } .act-row:hover .an { color: var(--accent); }
+    .btn:hover { border-color: var(--accent); color: var(--fg); }
+    .rail button:hover { color: var(--fg); background: var(--panel); }
+    .rk-row:hover { color: var(--fg); }
+    .rk-row:hover .nm { color: var(--accent); }
+    .gg-list a:hover { color: var(--accent); }
+    .cat-row:hover .cl { color: var(--fg); }
+    .nav .nav-link:hover { color: var(--fg); border-bottom-color: var(--accent); }
+    .search-results a:hover { background: var(--panel); }
+    .rk-row:hover .tk { color: var(--accent); }
   }
 
   /* ---------- How it works + footer ---------- */
@@ -349,7 +370,6 @@
   .cat-col .label.axk { color: var(--accent); font-size: 12px; letter-spacing: 0.2em; display: block; padding-bottom: 8px; border-bottom: 1px solid var(--line); }
   .cat-row { display: grid; grid-template-columns: 260px minmax(0, 1fr) 36px 30px; gap: 14px; align-items: center; padding: 11px 0; border: none; border-bottom: 1px solid var(--grid); background: transparent; width: 100%; text-align: left; }
   .cat-row .cl { font-size: 15px; color: var(--fg2); text-decoration: underline dotted var(--line2); text-underline-offset: 4px; }
-  .cat-row:hover .cl { color: var(--fg); }
   .cat-row .cv { font-family: var(--mono); font-size: 16px; text-align: right; }
   .cat-row .cc { font-family: var(--mono); font-size: 12px; }
   .cat-desc { font-size: 14px; line-height: 1.55; color: var(--fg2); padding: 8px 0 12px; border-bottom: 1px solid var(--grid); }
@@ -697,6 +717,7 @@ function fmtPct(v) { const a = Math.abs(v); const d = a >= 1 ? 2 : a >= 0.01 ? 3
 function tiers(axis) { return BOARD.tiers[axis]; }
 function tierOf(axis, code) { const i = tiers(axis).findIndex((t) => t.code === code); return { i: Math.max(0, i), t: tiers(axis)[Math.max(0, i)] }; }
 function tierForScore(axis, v) { const list = tiers(axis); const i = list.findIndex((t) => v >= t.min && v <= t.max); const k = i < 0 ? list.length - 1 : i; return { i: k, t: list[k] }; }
+function tick(c) { return String(c.cashtag || c.ticker || '').replace(/^\$/, ''); }
 function chainBy(slug) { return BOARD.chains.find((c) => c.slug === slug); }
 function isNarrow() { return window.matchMedia('(max-width: 720px)').matches; }
 
@@ -919,7 +940,7 @@ async function renderLens() {
         const lo = Math.min(c.tradfi_score, c.ai_score), hi = Math.max(c.tradfi_score, c.ai_score);
         return `<a class="rk-row both" href="#chain=${esc(c.slug)}">
           <span class="rk-rank">${i + 1}</span>
-          <span class="rk-name"><span class="nm">${esc(c.name)}</span><span class="tag">${esc(c.cashtag)}</span></span>
+          <span class="rk-name"><span class="nm">${esc(c.name)}</span><span class="tag">${esc(c.cashtag)}</span><span class="tk">${esc(tick(c))}</span></span>
           <span class="rk-sc rk-tf"><b>${c.tradfi_score}</b>${c.tradfi_capped ? capTag : ''}<span class="full t${tf.i}">${esc(tf.t.name)}</span><span class="short t${tf.i}">${esc(c.tradfi_tier)}</span></span>
           <span class="rk-sc rk-ai"><b>${c.ai_score}</b>${c.ai_capped ? capTag : ''}<span class="full t${ai.i}">${esc(ai.t.name)}</span><span class="short t${ai.i}">${esc(c.ai_tier)}</span></span>
           <span class="db" aria-hidden="true"><span class="base"></span>${ticks}<span class="bar" style="left:${lo}%;width:${hi - lo}%"></span><span class="d ai" style="left:${c.ai_score}%"></span><span class="d tf" style="left:${c.tradfi_score}%"></span></span>
@@ -942,7 +963,7 @@ async function renderLens() {
       .filter((x) => x.v !== null && x.v !== undefined).sort((a, b) => b.v - a.v).slice(0, RANK_LIMIT);
     body.innerHTML = rows.map((x, i) => {
       const tr = tierForScore(lens.axis, x.v);
-      return `<a class="rk-row score" href="#chain=${esc(x.c.slug)}"><span class="rk-rank">${i + 1}</span><span class="rk-name"><span class="nm">${esc(x.c.name)}</span><span class="tag">${esc(x.c.cashtag)}</span></span><span class="track"><i style="width:${Math.max(1, x.v)}%"></i></span><span class="rk-v">${x.v}</span><span class="rk-code t${tr.i}">${esc(tr.t.code)}</span></a>`;
+      return `<a class="rk-row score" href="#chain=${esc(x.c.slug)}"><span class="rk-rank">${i + 1}</span><span class="rk-name"><span class="nm">${esc(x.c.name)}</span><span class="tag">${esc(x.c.cashtag)}</span><span class="tk">${esc(tick(x.c))}</span></span><span class="track"><i style="width:${Math.max(1, x.v)}%"></i></span><span class="rk-v">${x.v}</span><span class="rk-code t${tr.i}">${esc(tr.t.code)}</span></a>`;
     }).join('') + capNote(rows.length);
     return;
   }
@@ -952,8 +973,8 @@ async function renderLens() {
     const groups = { pass: [], partial: [], fail: [], unknown: [] };
     details.forEach((x) => { const s = (x.d[lens.axis] && x.d[lens.axis].gates && x.d[lens.axis].gates[lens.gate]) || 'unknown'; (groups[s] || groups.unknown).push(x.c); });
     body.innerHTML = `<div class="gate-groups">` + Object.keys(meta).filter((k) => groups[k].length).map((k) => {
-      const list = groups[k].sort((a, b) => a.name.localeCompare(b.name));
-      return `<div class="gate-group ${k}"><div class="gg-head ${k}"><span>${meta[k][0]}</span><span>${meta[k][1]}</span><span class="ct">${list.length}</span></div><div class="gg-list">${list.map((c) => `<a href="#chain=${esc(c.slug)}"><span class="tag">${esc(c.cashtag)}</span>${esc(c.name)}</a>`).join('')}</div></div>`;
+      const list = groups[k].sort((a, b) => tick(a).localeCompare(tick(b)));
+      return `<div class="gate-group ${k}"><div class="gg-head ${k}"><span>${meta[k][0]}</span><span>${meta[k][1]}</span><span class="ct">${list.length}</span></div><div class="gg-list">${list.map((c) => `<a href="#chain=${esc(c.slug)}"><span class="tag">${esc(c.cashtag)}</span><span class="gn">${esc(c.name)}</span><span class="tk">${esc(tick(c))}</span></a>`).join('')}</div></div>`;
     }).join('') + `</div>`;
     return;
   }
@@ -969,8 +990,8 @@ async function renderLens() {
     body.innerHTML = shown.map((x, i) => {
       const v = val(x), w = Math.max(4, Math.round((Math.log10(v) - lo) / range * 100));
       const tip = (lens.fmt === 'pf' ? `${fmtPct(v)} of market cap in annualized fees. ` : '') + clean(note(x));
-      return `<a class="rk-row extra" href="#chain=${esc(x.c.slug)}" title="${esc(tip.trim())}"><span class="rk-rank">${i + 1}</span><span class="rk-name"><span class="nm">${esc(x.c.name)}</span><span class="tag">${esc(x.c.cashtag)}</span></span><span class="xcell"><span class="track"><i style="width:${w}%"></i></span></span><span class="rk-v">${lens.fmt === 'usd' ? fmtCost(v) : fmtPF(v)}</span></a>`;
-    }).join('') + none.map((x) => `<a class="rk-row extra" href="#chain=${esc(x.c.slug)}"><span class="rk-rank">·</span><span class="rk-name"><span class="nm">${esc(x.c.name)}</span><span class="tag">${esc(x.c.cashtag)}</span></span><span class="xcell"><span class="rk-xnote">${esc(clean(note(x)) || 'No figure recorded yet.')}</span></span><span class="rk-v">n/a</span></a>`).join('') + capNote(shown.length + none.length);
+      return `<a class="rk-row extra" href="#chain=${esc(x.c.slug)}" title="${esc(tip.trim())}"><span class="rk-rank">${i + 1}</span><span class="rk-name"><span class="nm">${esc(x.c.name)}</span><span class="tag">${esc(x.c.cashtag)}</span><span class="tk">${esc(tick(x.c))}</span></span><span class="xcell"><span class="track"><i style="width:${w}%"></i></span></span><span class="rk-v">${lens.fmt === 'usd' ? fmtCost(v) : fmtPF(v)}</span></a>`;
+    }).join('') + none.map((x) => `<a class="rk-row extra" href="#chain=${esc(x.c.slug)}"><span class="rk-rank">·</span><span class="rk-name"><span class="nm">${esc(x.c.name)}</span><span class="tag">${esc(x.c.cashtag)}</span><span class="tk">${esc(tick(x.c))}</span></span><span class="xcell"><span class="rk-xnote">${esc(clean(note(x)) || 'No figure recorded yet.')}</span></span><span class="rk-v">n/a</span></a>`).join('') + capNote(shown.length + none.length);
   }
 }
 $('lensCopy').addEventListener('click', () => copyText('https://coloredskyscore.com/' + lensHash(), $('lensCopy')));
