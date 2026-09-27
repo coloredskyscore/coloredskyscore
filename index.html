@@ -1,1894 +1,623 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>coloredsky score™ — Fundamentals-First Crypto Ratings</title>
-<meta name="description" content="Independent, no-hype crypto ratings scored on documented fundamentals only. coloredsky score™ rates major chains on institutional (TradFi) fit and autonomous AI agent readiness — two separate scores, no price targets.">
+<title>coloredsky score™ · Credit ratings for the chains</title>
+<meta name="description" content="Independent blockchain ratings scored on documented fundamentals only. Every chain gets two separate ratings: institutional adoption (TradFi) and AI readiness. No hype, no price targets.">
 <link rel="canonical" href="https://coloredskyscore.com/">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="coloredsky score">
-<meta property="og:title" content="coloredsky score™ — Fundamentals-First Crypto Ratings">
-<meta property="og:description" content="Independent, no-hype crypto ratings scored on documented fundamentals only. TradFi fit and AI agent readiness, scored separately.">
+<meta property="og:title" content="coloredsky score™ · Credit ratings for the chains">
+<meta property="og:description" content="Where each chain stands with institutional adoption and AI readiness. Two separate ratings, scored on fundamentals. No price targets.">
 <meta property="og:url" content="https://coloredskyscore.com/">
 <meta property="og:image" content="https://coloredskyscore.com/og_image.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="coloredsky score — fundamentals-first crypto ratings, TradFi and AI scored separately">
+<meta property="og:image:alt" content="coloredsky score: fundamentals-first ratings for blockchains, TradFi and AI scored separately">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:site" content="@thecoloredsky">
-<meta name="twitter:title" content="coloredsky score™ — Fundamentals-First Crypto Ratings">
-<meta name="twitter:description" content="Independent, no-hype crypto ratings scored on documented fundamentals only. TradFi fit and AI agent readiness, scored separately.">
+<meta name="twitter:title" content="coloredsky score™ · Credit ratings for the chains">
+<meta name="twitter:description" content="Where each chain stands with institutional adoption and AI readiness. Two separate ratings, scored on fundamentals. No price targets.">
 <meta name="twitter:image" content="https://coloredskyscore.com/og_image.png">
+<meta name="theme-color" content="#0B1220">
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
-<style>
-  @import url('https://fonts.googleapis.com/css2?family=Source+Serif+4:wght@500;600&family=Hanken+Grotesk:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap');
-
-  :root {
-    --ink: #081220;
-    --ink-2: #0f1c30;
-    --ivory: #F7F4EC;
-    --ivory-dim: #EDE8DA;
-    --brass: #C6A15B;
-    --brass-dim: #8A754A;
-    --line: rgba(255,255,255,0.08);
-    --line-strong: rgba(255,255,255,0.14);
-    --text-dim: rgba(247,244,236,0.55);
-    --text-mid: rgba(247,244,236,0.78);
+<script>
+/* Theme boot: runs before first paint so there is no flash. A visitor's own
+   choice (stored by the header toggle) wins; otherwise follow the device's
+   light/dark setting; dark if the device doesn't say. */
+(function () {
+  var t = null;
+  try { t = localStorage.getItem('cs-theme'); } catch (e) {}
+  if (t !== 'light' && t !== 'dark') {
+    t = (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches) ? 'light' : 'dark';
   }
+  document.documentElement.setAttribute('data-theme', t);
+})();
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400;1,8..60,500&family=Hanken+Grotesk:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  /* ============ Meridian tokens, both themes ============
+     Tier slots t0..t4 follow each axis's tier order in board.json (top tier
+     first). Text colors are tuned for contrast per theme; fills are the
+     flat band colors. "Ratings, not rainbows": five flat bands, no gradients
+     except the single Horizon rule. */
+  html[data-theme="dark"] {
+    --bg: #0B1220; --panel: #111A2C; --track: #16233B;
+    --fg: #F4F1E9; --fg2: #B7BCC6; --fg3: #8E96A3; --fg4: #7C8595;
+    --line: #1F2B40; --line2: #2E3C57; --grid: #1A2538; --diag: #3A4A66;
+    --accent: #C2A268; --fill: #C2A268; --sel: #C2A268; --dot: #F4F1E9;
+    --tab-bg: #C2A268; --tab-fg: #0B1220;
+    --t0: #56A374; --t1: #A6B45A; --t2: #D2A94F; --t3: #CD8351; --t4: #C0655C;
+    --b0: #56A374; --b1: #A6B45A; --b2: #D2A94F; --b3: #CD8351; --b4: #C0655C;
+    --pass-bg: rgba(86,163,116,0.09); --partial-bg: rgba(210,169,79,0.09); --fail-bg: rgba(192,101,92,0.09); --unk-bg: rgba(255,255,255,0.03);
+    --pass-bd: rgba(86,163,116,0.35); --partial-bd: rgba(210,169,79,0.35); --fail-bd: rgba(192,101,92,0.35); --unk-bd: rgba(255,255,255,0.12);
+    --shadow: 0 12px 32px rgba(0,0,0,0.45);
+    color-scheme: dark;
+  }
+  html[data-theme="light"] {
+    --bg: #F4F1E9; --panel: #EBE6D8; --track: #E2DDCE;
+    --fg: #191B1F; --fg2: #3A3F47; --fg3: #5B616B; --fg4: #686E78;
+    --line: #DDD7C7; --line2: #C9C2AF; --grid: #E6E1D4; --diag: #A39A84;
+    --accent: #7A5E33; --fill: #A8864D; --sel: #8C6D3F; --dot: #191B1F;
+    --tab-bg: #7A5E33; --tab-fg: #F4F1E9;
+    --t0: #2F6A48; --t1: #5C6A2C; --t2: #7F6322; --t3: #94511F; --t4: #8A3E36;
+    --b0: #3D7D57; --b1: #6E7E38; --b2: #9A7A2E; --b3: #A85E30; --b4: #9A473F;
+    --pass-bg: rgba(61,125,87,0.08); --partial-bg: rgba(154,122,46,0.09); --fail-bg: rgba(154,71,63,0.08); --unk-bg: rgba(25,27,31,0.03);
+    --pass-bd: rgba(61,125,87,0.4); --partial-bd: rgba(154,122,46,0.4); --fail-bd: rgba(154,71,63,0.4); --unk-bd: rgba(25,27,31,0.15);
+    --shadow: 0 12px 32px rgba(25,27,31,0.15);
+    color-scheme: light;
+  }
+  :root { --serif: 'Source Serif 4', Georgia, serif; --sans: 'Hanken Grotesk', system-ui, sans-serif; --mono: 'IBM Plex Mono', ui-monospace, monospace; }
+  .t0 { color: var(--t0); } .t1 { color: var(--t1); } .t2 { color: var(--t2); } .t3 { color: var(--t3); } .t4 { color: var(--t4); }
+  .pass { color: var(--t0); } .partial { color: var(--t2); } .fail { color: var(--t4); } .unknown { color: var(--fg2); }
 
   * { box-sizing: border-box; }
+  html, body { margin: 0; background: var(--bg); color: var(--fg); }
+  body { font-family: var(--sans); -webkit-font-smoothing: antialiased; font-size: 16px; }
+  a { color: var(--accent); text-decoration: none; }
+  a:hover { color: var(--fg); }
+  button, input, select { font: inherit; color: inherit; }
+  button { cursor: pointer; }
+  :focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+  [hidden] { display: none !important; }
+  .mono { font-family: var(--mono); }
+  .kicker { font-family: var(--mono); font-size: 12px; letter-spacing: 0.22em; color: var(--accent); text-transform: uppercase; }
+  .label { font-family: var(--mono); font-size: 11px; letter-spacing: 0.16em; color: var(--fg3); text-transform: uppercase; }
+  .tag { font-family: var(--mono); font-size: 12px; color: var(--fg3); }
+  .sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
 
-  body {
-    margin: 0;
-    background: var(--ink);
-    color: var(--ivory);
-    font-family: 'Hanken Grotesk', sans-serif;
-    -webkit-font-smoothing: antialiased;
-  }
+  .horizon { height: 4px; background: linear-gradient(90deg, #0B1220 0%, #8C6D3F 42%, #C2A268 62%, #F4F1E9 100%); }
+  .wrap { max-width: 1440px; margin: 0 auto; padding: 0 64px; }
 
-  .wrap {
-    max-width: 1180px;
-    margin: 0 auto;
-    padding: 24px 32px 80px;
-  }
+  /* ---------- Header ---------- */
+  .site-header { border-bottom: 1px solid var(--line); position: relative; z-index: 40; background: var(--bg); }
+  .site-header .wrap { display: flex; align-items: center; justify-content: space-between; gap: 24px; padding-top: 16px; padding-bottom: 16px; }
+  .brand { display: flex; align-items: center; gap: 14px; color: var(--fg); }
+  .brand:hover { color: var(--fg); }
+  .seal { width: 38px; height: 38px; border: 1px solid var(--accent); display: flex; align-items: center; justify-content: center; font-family: var(--mono); font-weight: 600; font-size: 13px; color: var(--accent); flex-shrink: 0; }
+  .brand-div { width: 1px; height: 30px; background: var(--line2); }
+  .wordmark { font-family: var(--serif); font-size: 27px; line-height: 1; white-space: nowrap; }
+  .wordmark b { font-weight: 600; }
+  .wordmark i { font-weight: 500; margin-left: 6px; color: var(--fg2); }
+  .wordmark sup { font-family: var(--sans); font-size: 12px; margin-left: 2px; color: var(--accent); }
+  .nav { display: flex; align-items: center; gap: 28px; font-size: 15px; }
+  .nav .nav-link { color: var(--fg2); padding-bottom: 4px; border-bottom: 1px solid transparent; }
+  .nav .nav-link:hover, .nav .nav-link.current { color: var(--fg); border-bottom-color: var(--accent); }
+  .nav .x-link { font-family: var(--mono); font-size: 13px; }
+  .search { position: relative; }
+  .search-box { display: flex; align-items: center; gap: 10px; border: 1px solid var(--line2); padding: 8px 12px; width: 220px; color: var(--fg3); background: transparent; }
+  .search-box input { background: transparent; border: none; outline: none; color: var(--fg); font-size: 14px; width: 100%; }
+  .search-box input::placeholder { color: var(--fg3); }
+  .search-results { position: absolute; top: calc(100% + 6px); right: 0; width: 300px; background: var(--bg); border: 1px solid var(--line2); box-shadow: var(--shadow); z-index: 50; }
+  .search-results a { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; padding: 11px 14px; color: var(--fg); border-bottom: 1px solid var(--line); font-size: 15px; }
+  .search-results a:last-child { border-bottom: none; }
+  .search-results a:hover, .search-results a.active { background: var(--panel); }
+  .search-results .empty { padding: 12px 14px; font-size: 14px; color: var(--fg3); }
+  .icon-btn { width: 40px; height: 40px; border: 1px solid var(--line2); background: transparent; color: var(--fg2); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+  .icon-btn:hover { color: var(--fg); border-color: var(--accent); }
+  html[data-theme="dark"] .ico-moon, html[data-theme="light"] .ico-sun { display: none; }
+  .search-toggle { display: none; }
 
-  .top-bar {
-    height: 4px;
-    background: linear-gradient(90deg, #C6A15B 0%, #E8C97A 35%, #7FA5C9 70%, #4A6B8A 100%);
-  }
+  /* ---------- Hero ---------- */
+  .hero { padding-top: 56px; display: flex; justify-content: space-between; align-items: flex-end; gap: 48px; }
+  .hero-copy { display: flex; flex-direction: column; gap: 18px; max-width: 920px; }
+  .hero h1 { margin: 0; font-family: var(--serif); font-weight: 600; font-size: 54px; line-height: 1.08; letter-spacing: -0.01em; text-wrap: balance; }
+  .hero p { margin: 0; font-size: 18px; line-height: 1.6; color: var(--fg2); max-width: 780px; }
+  .hero-stats { display: flex; gap: 36px; font-family: var(--mono); padding-bottom: 6px; flex-shrink: 0; }
+  .hero-stats div { display: flex; flex-direction: column; gap: 4px; }
+  .hero-stats b { font-weight: 400; font-size: 30px; }
 
-  header {
-    display: flex;
-    align-items: baseline;
-    justify-content: space-between;
-    margin: 8px 0 6px;
-    flex-wrap: wrap;
-    gap: 16px;
-  }
+  /* ---------- Map ---------- */
+  .map-row { padding-top: 44px; display: flex; gap: 56px; align-items: flex-start; }
+  .map-col { flex-shrink: 0; display: flex; flex-direction: column; gap: 8px; width: 684px; max-width: 100%; }
+  .map { position: relative; }
+  .map .ax-title { position: absolute; font-family: var(--mono); font-size: 11px; letter-spacing: 0.18em; color: var(--fg2); white-space: nowrap; }
+  .map .strip { position: absolute; }
+  .map .code { position: absolute; font-family: var(--mono); font-size: 11px; }
+  .map .plot { position: absolute; border: 1px solid var(--line2); }
+  .map .gl { position: absolute; background: var(--grid); }
+  .map .tick { position: absolute; font-family: var(--mono); font-size: 10px; color: var(--fg4); }
+  .map .region { position: absolute; font-family: var(--mono); font-size: 11px; letter-spacing: 0.2em; color: var(--fg3); }
+  .map .dot { position: absolute; border-radius: 50%; border: 2px solid var(--dot); background: var(--bg); padding: 0; transform: translate(-50%, -50%); width: 12px; height: 12px; }
+  .map .dot:hover { border-color: var(--sel); }
+  .map .dot.on { width: 18px; height: 18px; border-width: 3px; border-color: var(--sel); z-index: 2; }
+  .map .lbl { position: absolute; font-family: var(--mono); font-size: 11px; line-height: 1; white-space: nowrap; color: var(--fg2); pointer-events: none; }
+  .map .lbl.on { color: var(--sel); font-weight: 600; }
+  .map-note { font-size: 13px; color: var(--fg3); padding-left: 44px; }
 
-  .brand {
-    display: flex;
-    align-items: center;
-    gap: 14px;
-    background: none;
-    border: none;
-    padding: 0;
-    margin: 0;
-    font: inherit;
-    color: inherit;
-    cursor: pointer;
-    text-align: left;
-  }
-  .brand:hover .brand-mark { border-color: var(--ivory); }
-  .brand:hover .brand-word .bold { color: var(--brass); }
-  .brand-mark {
-    width: 40px;
-    height: 40px;
-    border: 1px solid var(--brass);
-    border-radius: 3px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-shrink: 0;
-    transition: border-color 0.15s;
-  }
-  .brand-mark span {
-    font-family: 'Hanken Grotesk', sans-serif;
-    font-weight: 500;
-    font-size: 14px;
-    color: var(--brass);
-    letter-spacing: 0.03em;
-  }
-  .brand-divider {
-    width: 1px;
-    height: 30px;
-    background: var(--line-strong);
-    flex-shrink: 0;
-  }
-  .brand-word {
-    font-family: 'Source Serif 4', serif;
-    font-size: 26px;
-    letter-spacing: -0.01em;
-    color: var(--ivory);
-    white-space: nowrap;
-  }
-  .brand-word .bold { font-weight: 600; }
-  .brand-word .italic { font-style: italic; font-weight: 500; margin-left: 6px; }
-  .brand-word .sup {
-    font-size: 12px;
-    vertical-align: super;
-    color: var(--brass);
-    font-family: 'Hanken Grotesk', sans-serif;
-    margin-left: 2px;
-  }
+  .aside { flex-grow: 1; min-width: 0; display: flex; flex-direction: column; gap: 36px; padding-top: 28px; }
+  .sel-card { border: 1px solid var(--line2); background: var(--panel); padding: 26px 28px; display: flex; flex-direction: column; gap: 20px; }
+  .sel-head { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; }
+  .sel-head .nm { font-family: var(--serif); font-weight: 600; font-size: 30px; }
+  .sel-head .cash { font-family: var(--mono); font-size: 14px; color: var(--accent); margin-left: 12px; }
+  .sel-axes { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; }
+  .sel-axis { display: flex; flex-direction: column; gap: 8px; }
+  .sel-axis .ax { font-family: var(--mono); font-size: 11px; letter-spacing: 0.18em; color: var(--accent); }
+  .sel-axis .num { display: flex; align-items: center; gap: 12px; }
+  .sel-axis .num b { font-family: var(--mono); font-weight: 500; font-size: 48px; line-height: 1; }
+  .badge { font-family: var(--mono); font-size: 15px; padding: 4px 9px; border: 1px solid currentColor; }
+  .sel-axis .tname { font-size: 15px; }
+  .sel-foot { display: flex; justify-content: space-between; align-items: center; gap: 12px; border-top: 1px solid var(--line); padding-top: 16px; font-size: 14px; color: var(--fg2); flex-wrap: wrap; }
+  .sel-foot a { font-weight: 500; }
 
-  .meta-line {
-    font-size: 14px;
-    color: var(--text-dim);
-    font-family: 'IBM Plex Mono', monospace;
-  }
+  .list-head { display: flex; justify-content: space-between; align-items: baseline; padding-bottom: 12px; border-bottom: 1px solid var(--line2); }
+  .list-head h3 { margin: 0; font-family: var(--serif); font-weight: 600; font-size: 20px; }
+  .split-row { display: grid; grid-template-columns: 150px minmax(0, 1fr) 150px 52px; align-items: center; gap: 16px; padding: 13px 0; border: none; border-bottom: 1px solid var(--line); background: transparent; text-align: left; width: 100%; }
+  .split-row:hover .sr-nm { color: var(--accent); }
+  .split-row .sr-nm { font-size: 15px; }
+  .split-row .sr-nm small { display: none; }
+  .split-row .sr-sc { font-family: var(--mono); font-size: 12px; color: var(--fg3); }
+  .split-bar { position: relative; height: 8px; background: var(--track); }
+  .split-bar .zero { position: absolute; left: 50%; top: -3px; width: 1px; height: 14px; background: var(--diag); }
+  .split-bar .fillbar { position: absolute; top: 0; height: 8px; background: var(--fill); }
+  .split-row .sr-v { font-family: var(--mono); font-size: 15px; text-align: right; }
+  .act-row { display: grid; grid-template-columns: 64px minmax(0, 1fr) 100px 132px; align-items: center; gap: 14px; padding: 12px 0; border-bottom: 1px solid var(--line); font-size: 14px; color: var(--fg); }
+  .act-row:hover { color: var(--fg); } .act-row:hover .an { color: var(--accent); }
+  .act-row .ad { font-family: var(--mono); font-size: 12px; color: var(--fg3); }
+  .act-row .ak { color: var(--fg2); }
+  .act-row .ap { font-family: var(--mono); font-size: 13px; text-align: right; }
 
-  .subhead {
-    font-size: 16px;
-    color: var(--text-mid);
-    margin: 6px 0 28px;
-    max-width: 680px;
-    line-height: 1.55;
-  }
+  /* ---------- Rankings ---------- */
+  .section-head { display: flex; justify-content: space-between; align-items: flex-end; gap: 24px; border-top: 1px solid var(--line2); padding-top: 22px; flex-wrap: wrap; }
+  .section-head h2 { margin: 0; font-family: var(--serif); font-weight: 600; font-size: 34px; }
+  .section-head .sub { font-size: 15px; color: var(--fg2); margin-top: 6px; }
+  .link-copy { display: flex; align-items: center; gap: 10px; }
+  .link-copy .url { font-family: var(--mono); font-size: 13px; color: var(--fg3); }
+  .btn { border: 1px solid var(--line2); background: transparent; color: var(--fg); padding: 9px 14px; font-size: 14px; display: inline-flex; align-items: center; gap: 8px; }
+  .btn:hover { border-color: var(--accent); color: var(--fg); }
+  .btn.accent { border-color: var(--accent); color: var(--accent); }
+  .btn.done { border-color: var(--t0); color: var(--t0); }
+  .rankings { padding-top: 72px; }
+  .rk-grid { display: grid; grid-template-columns: 250px minmax(0, 1fr); gap: 48px; align-items: start; margin-top: 24px; }
+  .rail { display: flex; flex-direction: column; gap: 18px; position: sticky; top: 16px; }
+  .rail-group { display: flex; flex-direction: column; gap: 2px; }
+  .rail-group .label { padding: 0 0 6px 12px; }
+  .rail button { text-align: left; border: none; padding: 10px 12px; font-size: 15px; background: transparent; color: var(--fg2); }
+  .rail button:hover { color: var(--fg); background: var(--panel); }
+  .rail button.current { background: var(--panel); color: var(--fg); font-weight: 600; box-shadow: inset 2px 0 0 var(--accent); }
+  .lens-select { display: none; flex-direction: column; gap: 6px; }
+  .lens-select select { height: 48px; padding: 0 12px; border: 1px solid var(--line2); background: var(--panel); color: var(--fg); font-size: 16px; border-radius: 0; width: 100%; }
+  .rk-pane { min-width: 0; container-type: inline-size; }
+  .lens-head { display: flex; justify-content: space-between; align-items: flex-start; gap: 32px; padding-bottom: 16px; }
+  .lens-head .lt { font-family: var(--serif); font-weight: 600; font-size: 24px; }
+  .lens-head .ld { font-size: 15px; line-height: 1.55; color: var(--fg2); margin-top: 6px; max-width: 720px; }
+  .seg { display: flex; border: 1px solid var(--line2); flex-shrink: 0; }
+  .seg button { border: none; padding: 10px 18px; font-size: 14px; background: transparent; color: var(--fg2); }
+  .seg button + button { border-left: 1px solid var(--line2); }
+  .seg button.current { background: var(--tab-bg); color: var(--tab-fg); font-weight: 600; }
+  .rk-note { font-size: 13px; color: var(--fg3); padding: 10px 0 0; }
+  .rk-loading { padding: 40px 0; font-family: var(--mono); font-size: 13px; color: var(--fg3); }
 
-  .controls-row {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 16px;
-    margin-bottom: 18px;
-    flex-wrap: wrap;
-  }
+  .rk-row { display: grid; gap: 16px; align-items: center; padding: 13px 0; border-bottom: 1px solid var(--line); color: var(--fg); }
+  .rk-row:hover { color: var(--fg); }
+  .rk-row:hover .nm { color: var(--accent); }
+  .rk-rank { font-family: var(--mono); font-size: 13px; color: var(--fg3); }
+  .rk-name { display: flex; align-items: baseline; gap: 10px; min-width: 0; }
+  .rk-name .nm { font-family: var(--serif); font-size: 18px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .rk-sc { display: flex; align-items: baseline; gap: 8px; white-space: nowrap; }
+  .rk-sc b { font-family: var(--mono); font-weight: 400; font-size: 20px; }
+  .rk-sc .full { font-size: 14px; }
+  .rk-sc .short { display: none; font-family: var(--mono); font-size: 12px; }
+  .rk-sc .cap { font-family: var(--mono); font-size: 9px; letter-spacing: 0.08em; color: var(--fg3); border: 1px solid var(--line2); padding: 1px 4px; align-self: center; }
+  .rk-split { font-family: var(--mono); font-size: 16px; text-align: right; }
+  .rk-row.both, .rk-axis.both { grid-template-columns: 32px 190px 228px 228px minmax(0, 1fr) 56px; }
+  .rk-axis.mob { display: none; }
+  .rk-axis { display: grid; gap: 16px; align-items: end; padding: 10px 0 8px; border-top: 1px solid var(--line2); border-bottom: 1px solid var(--line); font-family: var(--mono); font-size: 11px; letter-spacing: 0.14em; color: var(--fg3); }
+  .scale { position: relative; height: 14px; }
+  .scale span { position: absolute; transform: translateX(-50%); letter-spacing: 0; }
+  .scale span:first-child { transform: none; } .scale span:last-child { transform: translateX(-100%); }
+  .db { position: relative; height: 16px; }
+  .db .base { position: absolute; left: 0; right: 0; top: 7px; height: 1px; background: var(--line2); }
+  .db .tk { position: absolute; top: 3px; width: 1px; height: 10px; background: var(--line2); }
+  .db .bar { position: absolute; top: 5px; height: 5px; background: var(--fill); }
+  .db .d { position: absolute; top: 1px; width: 13px; height: 13px; border-radius: 50%; transform: translateX(-50%); }
+  .db .d.tf { background: var(--dot); }
+  .db .d.ai { border: 2px solid var(--dot); background: var(--bg); }
+  .legend { display: flex; align-items: center; gap: 18px; padding-top: 12px; font-size: 13px; color: var(--fg3); flex-wrap: wrap; }
+  .legend span { display: flex; align-items: center; gap: 6px; }
+  .legend i { display: inline-block; }
+  .legend .k-tf { width: 11px; height: 11px; border-radius: 50%; background: var(--dot); }
+  .legend .k-ai { width: 11px; height: 11px; border-radius: 50%; border: 2px solid var(--dot); }
+  .legend .k-sp { width: 18px; height: 5px; background: var(--fill); }
+  .rk-row.score { grid-template-columns: 32px 220px minmax(0, 1fr) 40px 30px; }
+  .rk-row.extra { grid-template-columns: 32px 220px minmax(0, 1fr) 120px; }
+  .track { display: block; position: relative; height: 8px; background: var(--track); }
+  .xcell { display: block; min-width: 0; }
+  .track i { position: absolute; left: 0; top: 0; bottom: 0; background: var(--fill); }
+  .rk-v { font-family: var(--mono); font-size: 18px; text-align: right; }
+  .rk-code { font-family: var(--mono); font-size: 12px; }
+  .rk-xnote { font-size: 13px; line-height: 1.45; color: var(--fg3); }
+  .gate-groups { display: flex; flex-direction: column; gap: 14px; padding-top: 4px; }
+  .gate-group { padding: 18px 20px; border: 1px solid; }
+  .gate-group.pass { background: var(--pass-bg); border-color: var(--pass-bd); }
+  .gate-group.partial { background: var(--partial-bg); border-color: var(--partial-bd); }
+  .gate-group.fail { background: var(--fail-bg); border-color: var(--fail-bd); }
+  .gate-group.unknown { background: var(--unk-bg); border-color: var(--unk-bd); }
+  .gg-head { display: flex; align-items: center; gap: 10px; margin-bottom: 12px; font-family: var(--mono); font-size: 13px; font-weight: 600; letter-spacing: 0.08em; }
+  .gg-head .ct { font-weight: 500; color: var(--fg3); letter-spacing: 0; }
+  .gg-list { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 2px 20px; }
+  .gg-list a { padding: 7px 0; font-size: 15px; color: var(--fg); }
+  .gg-list a:hover { color: var(--accent); }
+  .gg-list .tag { margin-right: 8px; }
 
-  .search-box {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    background: rgba(255,255,255,0.04);
-    border: 0.5px solid var(--line-strong);
-    border-radius: 8px;
-    padding: 10px 14px;
-    min-width: 240px;
-  }
-  .search-box input {
-    background: none;
-    border: none;
-    outline: none;
-    color: var(--ivory);
-    font-family: 'Hanken Grotesk', sans-serif;
-    font-size: 14px;
-    width: 100%;
-  }
-  .search-box input::placeholder { color: var(--text-dim); }
-  .search-box svg { flex-shrink: 0; opacity: 0.5; }
-
-  .filter-chips {
-    display: flex;
-    gap: 6px;
-    flex-wrap: wrap;
-  }
-  .chip {
-    font-size: 13px;
-    padding: 7px 13px;
-    border-radius: 20px;
-    border: 0.5px solid var(--line-strong);
-    background: transparent;
-    color: var(--text-mid);
-    cursor: pointer;
-    font-family: 'Hanken Grotesk', sans-serif;
-    transition: all 0.15s;
-    white-space: nowrap;
-  }
-  .chip:hover { background: rgba(255,255,255,0.05); }
-  .chip.active {
-    background: var(--brass);
-    color: var(--ink);
-    border-color: var(--brass);
-    font-weight: 500;
-  }
-
-  table {
-    width: 100%;
-    border-collapse: collapse;
-    font-size: 15px;
-    table-layout: fixed;
-  }
-
-  col.col-chain { width: 26%; }
-  col.col-score { width: 13%; }
-  col.col-tier { width: 10%; }
-  col.col-div { width: 13%; }
-  col.col-date { width: 15%; }
-
-  thead th {
-    text-align: left;
-    padding: 12px 10px;
-    font-weight: 500;
-    color: var(--text-dim);
-    font-size: 12.5px;
-    text-transform: uppercase;
-    letter-spacing: 0.04em;
-    border-bottom: 0.5px solid var(--line-strong);
-    cursor: pointer;
-    user-select: none;
-    white-space: nowrap;
-  }
-  thead th:hover { color: var(--ivory); }
-  thead th.sorted { color: var(--brass); }
-  thead th .arrow { font-size: 10px; margin-left: 3px; opacity: 0.7; }
-
-  thead th.num, tbody td.num { text-align: right; }
-  thead th.num[data-key="tradfi_score"],
-  thead th.num[data-key="ai_score"] { padding-right: 44px; }
-  thead th.center, tbody td.center { text-align: center; }
-
-  tbody tr {
-    border-bottom: 0.5px solid var(--line);
-    cursor: pointer;
-    transition: background 0.1s;
-  }
-  tbody tr:hover { background: rgba(255,255,255,0.03); }
-
-  tbody td {
-    padding: 15px 10px;
-    vertical-align: middle;
-  }
-
-  .chain-cell {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-  }
-  .chain-dot {
-    width: 8px;
-    height: 8px;
-    border-radius: 50%;
-    background: var(--brass-dim);
-    flex-shrink: 0;
-  }
-  .chain-name { font-weight: 500; color: var(--ivory); font-size: 15px; }
-  .chain-tag {
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 13px;
-    color: var(--text-dim);
+  @container (max-width: 880px) {
+    .rk-axis.both { display: none; }
+    .rk-axis.mob { display: grid; grid-template-columns: 26px minmax(0, 1fr) 72px 72px 34px; gap: 12px; letter-spacing: 0.1em; }
+    .rk-row.both .rk-sc { gap: 5px; }
+    .rk-sc .cap { padding: 1px 3px; }
+    .rk-axis.mob span:nth-child(3), .rk-axis.mob span:nth-child(4) { text-align: left; }
+    .rk-row.both { grid-template-columns: 26px minmax(0, 1fr) 72px 72px 34px; grid-template-areas: "rank name tf ai split" "db db db db db"; row-gap: 10px; column-gap: 12px; }
+    .rk-row.both .rk-rank { grid-area: rank; } .rk-row.both .rk-name { grid-area: name; }
+    .rk-row.both .rk-tf { grid-area: tf; } .rk-row.both .rk-ai { grid-area: ai; } .rk-row.both .rk-split { grid-area: split; font-size: 14px; color: var(--fg3); }
+    .rk-row.both .db { grid-area: db; }
+    .rk-sc .full { display: none; } .rk-sc .short { display: inline; }
+    .rk-sc b { font-size: 17px; }
+    .rk-name .nm { font-size: 17px; }
+    .rk-name .tag { display: none; }
+    .rk-row.score { grid-template-columns: 26px minmax(0, 1fr) 80px 30px 26px; gap: 10px; }
+    .rk-row.extra { grid-template-columns: 26px minmax(0, 1fr) auto; grid-template-areas: "rank name v" "bar bar bar"; row-gap: 8px; gap: 10px; }
+    .rk-row.extra .rk-rank { grid-area: rank; } .rk-row.extra .rk-name { grid-area: name; } .rk-row.extra .rk-v { grid-area: v; font-size: 15px; } .rk-row.extra .xcell { grid-area: bar; }
+    .gg-list { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .gg-list .tag { display: none; }
+    .lens-head { flex-direction: column; gap: 14px; }
+    .seg { width: 100%; } .seg button { flex: 1; }
   }
 
-  .score-cell {
-    display: grid;
-    grid-template-columns: 1fr 30px;
-    align-items: center;
-    gap: 4px;
-  }
-  .score-num {
-    font-family: 'IBM Plex Mono', monospace;
-    font-weight: 500;
-    font-size: 17px;
-    text-align: right;
-  }
-  .cap-slot {
-    display: flex;
-    justify-content: flex-start;
-  }
-  .cap-flag {
-    position: relative;
-    font-size: 10px;
-    color: var(--text-dim);
-    border: 0.5px solid var(--line-strong);
-    border-radius: 3px;
-    padding: 2px 5px;
-    line-height: 1.4;
-    cursor: help;
-  }
+  /* ---------- How it works + footer ---------- */
+  .how { margin-top: 72px; padding: 36px 0; border-top: 1px solid var(--line2); border-bottom: 1px solid var(--line2); display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 48px; }
+  .how div { display: flex; flex-direction: column; gap: 10px; }
+  .how .k { font-family: var(--mono); font-size: 11px; letter-spacing: 0.2em; color: var(--accent); }
+  .how p { margin: 0; font-size: 15px; line-height: 1.6; color: var(--fg2); }
+  .site-footer .wrap { padding-top: 28px; padding-bottom: 40px; display: flex; justify-content: space-between; align-items: center; gap: 16px; font-family: var(--mono); font-size: 12px; color: var(--fg3); flex-wrap: wrap; }
+  .site-footer .links { display: flex; gap: 24px; flex-wrap: wrap; }
 
-  .tier-badge {
-    position: relative;
-    display: inline-flex;
-    align-items: center;
-    gap: 4px;
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 12.5px;
-    font-weight: 500;
-    padding: 4px 8px;
-    border-radius: 5px;
-    border: 0.5px solid;
-    white-space: nowrap;
-    cursor: help;
-  }
-  .tier-dot { width: 5px; height: 5px; border-radius: 50%; }
+  /* ---------- Chain view ---------- */
+  .crumbs { display: flex; justify-content: space-between; align-items: center; gap: 16px; padding: 16px 0; border-bottom: 1px solid var(--line); flex-wrap: wrap; }
+  .crumbs .path { font-size: 14px; color: var(--fg3); }
+  .crumbs .path span { margin: 0 8px; }
+  .share { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+  .share .url { font-family: var(--mono); font-size: 13px; color: var(--fg2); }
+  .ch-title { padding-top: 44px; display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 64px; align-items: end; }
+  .ch-title h1 { margin: 0; font-family: var(--serif); font-weight: 600; font-size: 76px; line-height: 1; letter-spacing: -0.015em; }
+  .ch-title .sub { font-family: var(--mono); font-size: 15px; color: var(--accent); margin-top: 12px; }
+  .ch-title .sub span { color: var(--fg3); }
+  .ch-title .meta { font-family: var(--mono); font-size: 12px; color: var(--fg3); margin-top: 10px; line-height: 1.6; }
+  .ch-title blockquote { margin: 0; max-width: 520px; display: flex; flex-direction: column; gap: 10px; }
+  .ch-title blockquote q { font-family: var(--serif); font-style: italic; font-size: 26px; line-height: 1.35; quotes: "\201C" "\201D"; }
+  .ch-main { padding-top: 40px; display: grid; grid-template-columns: 460px minmax(0, 1fr); gap: 48px; align-items: start; }
+  .card { border: 1px solid var(--line2); display: flex; flex-direction: column; }
+  .card .hz { height: 3px; background: linear-gradient(90deg, #0B1220 0%, #8C6D3F 42%, #C2A268 62%, #F4F1E9 100%); }
+  .card .axes { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .card .axis { padding: 24px 0 26px; display: flex; flex-direction: column; align-items: center; gap: 14px; }
+  .card .axis + .axis { border-left: 1px solid var(--line); }
+  .card .ax { font-family: var(--mono); font-size: 12px; letter-spacing: 0.2em; color: var(--accent); }
+  .thermo { position: relative; width: 12px; height: 300px; }
+  .thermo .bands { position: absolute; inset: 0; display: flex; flex-direction: column; gap: 2px; }
+  .thermo .mk { position: absolute; left: 50%; width: 22px; height: 22px; border-radius: 50%; border: 3px solid currentColor; background: var(--bg); transform: translate(-50%, -50%); }
+  .card .score { display: flex; align-items: center; gap: 10px; }
+  .card .score b { font-family: var(--mono); font-weight: 500; font-size: 58px; line-height: 1; }
+  .card .score .badge { font-size: 16px; }
+  .card .tn { font-size: 16px; font-weight: 600; text-align: center; }
+  .card .capnote { font-family: var(--mono); font-size: 12px; color: var(--fg3); }
+  .card .foot { border-top: 1px solid var(--line); padding: 14px 20px; display: flex; justify-content: space-between; font-family: var(--mono); font-size: 12px; color: var(--fg3); }
+  .ch-right { display: flex; flex-direction: column; gap: 36px; min-width: 0; }
+  .ch-right h2, .ch-sec h2 { margin: 0; font-family: var(--serif); font-weight: 600; font-size: 26px; }
+  .drivers { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1px; background: var(--line); border: 1px solid var(--line); margin-top: 16px; }
+  .drv { background: var(--bg); padding: 20px 22px; display: flex; flex-direction: column; gap: 8px; }
+  .drv.capd { background: var(--panel); }
+  .drv .label.capk { color: var(--accent); }
+  .drv .hd { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; }
+  .drv .hd .n { font-size: 18px; font-weight: 600; }
+  .drv .hd .v { font-family: var(--mono); font-size: 22px; white-space: nowrap; }
+  .drv .hd .v small { font-size: 13px; }
+  .drv .hd .st { font-family: var(--mono); font-size: 15px; white-space: nowrap; }
+  .drv p { margin: 0; font-size: 15px; line-height: 1.55; color: var(--fg2); }
+  .gates { display: flex; flex-direction: column; gap: 10px; margin-top: 14px; }
+  .gate-line { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+  .gate-line .label { width: 64px; }
+  .chip { display: inline-flex; align-items: center; gap: 8px; border: 1px solid currentColor; padding: 8px 12px; font-size: 14px; background: transparent; }
+  .chip .g { font-family: var(--mono); font-weight: 600; }
+  .chip .t { color: var(--fg); }
+  .gate-desc { font-size: 14px; line-height: 1.55; color: var(--fg2); padding: 4px 0 0 74px; }
+  .ch-sec { padding-top: 64px; }
+  .ch-sec .sec-top { display: flex; justify-content: space-between; align-items: baseline; gap: 24px; border-top: 1px solid var(--line2); padding-top: 18px; flex-wrap: wrap; }
+  .ch-sec .sec-top .ld { font-size: 14px; color: var(--fg3); }
+  .cats { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 64px; margin-top: 18px; }
+  .cat-col .label.axk { color: var(--accent); font-size: 12px; letter-spacing: 0.2em; display: block; padding-bottom: 8px; border-bottom: 1px solid var(--line); }
+  .cat-row { display: grid; grid-template-columns: 260px minmax(0, 1fr) 36px 30px; gap: 14px; align-items: center; padding: 11px 0; border: none; border-bottom: 1px solid var(--grid); background: transparent; width: 100%; text-align: left; }
+  .cat-row .cl { font-size: 15px; color: var(--fg2); text-decoration: underline dotted var(--line2); text-underline-offset: 4px; }
+  .cat-row:hover .cl { color: var(--fg); }
+  .cat-row .cv { font-family: var(--mono); font-size: 16px; text-align: right; }
+  .cat-row .cc { font-family: var(--mono); font-size: 12px; }
+  .cat-desc { font-size: 14px; line-height: 1.55; color: var(--fg2); padding: 8px 0 12px; border-bottom: 1px solid var(--grid); }
+  .brief { display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: 64px; }
+  .brief > div { display: flex; flex-direction: column; gap: 18px; border-top: 1px solid var(--line2); padding-top: 18px; }
+  .brief .summary { margin: 0; font-size: 17px; line-height: 1.7; color: var(--fg); }
+  .findings, .watch { margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 14px; }
+  .findings li { display: grid; grid-template-columns: 64px minmax(0, 1fr); gap: 12px; font-size: 15px; line-height: 1.6; color: var(--fg2); }
+  .findings li .label { padding-top: 3px; }
+  .watch li { font-size: 15px; line-height: 1.6; color: var(--fg2); padding-bottom: 14px; border-bottom: 1px solid var(--grid); }
+  .watch li:last-child { border-bottom: none; padding-bottom: 0; }
+  .ext { display: flex; gap: 10px; flex-wrap: wrap; padding-top: 6px; }
+  .ch-loading { padding: 80px 0; font-family: var(--mono); font-size: 13px; color: var(--fg3); }
 
-  .tooltip {
-    visibility: hidden;
-    opacity: 0;
-    position: absolute;
-    bottom: calc(100% + 7px);
-    left: 50%;
-    transform: translateX(-50%);
-    background: #16233A;
-    color: var(--ivory);
-    border: 0.5px solid var(--line-strong);
-    border-radius: 6px;
-    padding: 8px 12px;
-    font-size: 13px;
-    font-family: 'Hanken Grotesk', sans-serif;
-    font-weight: 400;
-    white-space: nowrap;
-    box-shadow: 0 4px 16px rgba(0,0,0,0.4);
-    z-index: 20;
-    transition: opacity 0.12s, visibility 0.12s;
-    pointer-events: none;
+  /* ============ Breakpoints ============ */
+  @media (max-width: 1240px) {
+    .nav { gap: 22px; }
+    .nav .x-link { display: none; }
+    .search-box { width: 190px; }
+    .map-row { flex-direction: column; gap: 32px; }
+    .aside { width: 100%; max-width: 720px; padding-top: 0; }
+    .ch-main { grid-template-columns: minmax(0, 1fr); }
+    .ch-main .card { max-width: 520px; }
+  }
+  @media (max-width: 980px) {
+    .rk-grid { grid-template-columns: minmax(0, 1fr); gap: 16px; }
+    .rail { display: none; }
+    .lens-select { display: flex; }
+    .cats, .brief { grid-template-columns: minmax(0, 1fr); gap: 36px; }
+    .how { grid-template-columns: minmax(0, 1fr); gap: 28px; }
+    .nav .nav-link { display: none; }
+    .hero { flex-direction: column; align-items: flex-start; }
+    .ch-title { grid-template-columns: minmax(0, 1fr); gap: 20px; }
   }
-  .tooltip::after {
-    content: '';
-    position: absolute;
-    top: 100%;
-    left: 50%;
-    transform: translateX(-50%);
-    border: 5px solid transparent;
-    border-top-color: #16233A;
-  }
-  .tooltip.wide {
-    white-space: normal;
-    width: 230px;
-    line-height: 1.5;
-    font-size: 12.5px;
-    left: 0;
-    transform: none;
-  }
-  .tooltip.wide::after { left: 16px; transform: none; }
-  .cap-flag:hover .tooltip,
-  .tier-badge:hover .tooltip,
-  .info-label:hover .tooltip,
-  .gate-pill:hover .tooltip {
-    visibility: visible;
-    opacity: 1;
-  }
-
-  .divergence-cell {
-    font-family: 'IBM Plex Mono', monospace;
-    font-weight: 500;
-  }
-  .div-pos { color: #8FBF87; }
-  .div-neg { color: #D98F7A; }
-  .div-zero { color: var(--text-dim); }
-
-  .loading-state {
-    padding: 40px 0;
-    text-align: center;
-    color: var(--text-dim);
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 13px;
-  }
-
-  .row-count {
-    font-size: 13px;
-    color: var(--text-dim);
-    margin-top: 14px;
-    font-family: 'IBM Plex Mono', monospace;
-  }
-
-  .footer-links {
-    margin-top: 32px;
-    padding-top: 20px;
-    border-top: 0.5px solid var(--line);
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    gap: 10px;
-    font-size: 13px;
-    color: var(--text-dim);
-    font-family: 'IBM Plex Mono', monospace;
-  }
-  .footer-x-link {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    color: var(--brass);
-    text-decoration: none;
-    transition: color 0.15s;
-  }
-  .footer-x-link:hover { color: var(--ivory); }
-  .footer-copyright { color: var(--text-dim); }
-  .footer-right {
-    display: flex;
-    align-items: center;
-    gap: 14px;
-  }
-  .footer-const-link {
-    color: var(--brass);
-    text-decoration: none;
-    transition: color 0.15s;
-  }
-  .footer-const-link:hover { color: var(--ivory); }
-
-  /* ---------- Tile grid (landing view) ---------- */
-  .tile-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 14px;
-    margin-bottom: 8px;
-  }
-  .tile {
-    background: rgba(255,255,255,0.03);
-    border: 0.5px solid var(--line-strong);
-    border-radius: 10px;
-    padding: 16px 18px;
-    cursor: pointer;
-    transition: transform 0.14s, border-color 0.14s, background 0.14s;
-  }
-  .tile:hover { transform: translateY(-2px); border-color: var(--brass); background: rgba(255,255,255,0.05); }
-  .tile-medium { grid-column: span 2; }
-  .tile-small { grid-column: span 1; }
-  .tile-eyebrow {
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 10.5px;
-    text-transform: uppercase;
-    letter-spacing: 0.06em;
-    color: var(--brass);
-    margin-bottom: 6px;
-  }
-  .tile-title {
-    font-family: 'Source Serif 4', serif;
-    font-weight: 600;
-    font-size: 16px;
-    color: var(--ivory);
-    margin-bottom: 10px;
-  }
-  .tile-medium .tile-title { font-size: 20px; }
-  .tile-preview {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    font-size: 12.5px;
-    color: var(--text-dim);
-  }
-  .tile-preview li { display: flex; justify-content: space-between; padding: 3px 0; }
-  .tile-preview .tv { font-family: 'IBM Plex Mono', monospace; color: var(--text-mid); }
-  .tile-medium .tile-preview { columns: 2; column-gap: 18px; }
-  .tile-desc { font-size: 12px; color: var(--text-dim); line-height: 1.55; }
-
-  /* ---------- Active view: rail + pane ---------- */
-  #activeView { display: none; gap: 20px; align-items: flex-start; }
-  #activeView.open { display: flex; }
-  .rail {
-    width: 200px;
-    flex: none;
-    background: rgba(255,255,255,0.03);
-    border: 0.5px solid var(--line-strong);
-    border-radius: 10px;
-    padding: 8px;
-    position: sticky;
-    top: 16px;
-  }
-  .rail-back {
-    display: flex; align-items: center; gap: 6px; width: 100%; text-align: left;
-    background: none; border: none; font-family: 'IBM Plex Mono', monospace;
-    font-size: 11.5px; color: var(--text-dim); cursor: pointer; padding: 9px 10px;
-    border-radius: 7px; margin-bottom: 4px;
-  }
-  .rail-back:hover { background: rgba(255,255,255,0.05); color: var(--ivory); }
-  .rail-item {
-    display: block; width: 100%; text-align: left; background: none; border: none;
-    cursor: pointer; padding: 9px 10px; border-radius: 7px; font-size: 13px;
-    color: var(--text-dim); border-left: 2px solid transparent; font-family: 'Hanken Grotesk', sans-serif;
-  }
-  .rail-item:hover { background: rgba(255,255,255,0.05); color: var(--ivory); }
-  .rail-item.current { background: rgba(198,161,91,0.08); color: var(--ivory); border-left-color: var(--brass); font-weight: 500; border-radius: 0 7px 7px 0; }
-  .rail-item .k {
-    display: block; font-family: 'IBM Plex Mono', monospace; font-size: 9.5px;
-    color: var(--brass); letter-spacing: 0.05em; text-transform: uppercase; margin-bottom: 1px;
-  }
-  .rail-div { height: 0.5px; background: var(--line-strong); margin: 6px 4px; }
-
-  .view-pane { flex: 1; min-width: 0; }
-  .view-pane-head {
-    display: flex; align-items: center; justify-content: space-between;
-    margin-bottom: 16px; flex-wrap: wrap; gap: 10px;
-  }
-  .view-pane-head h2 {
-    font-family: 'Source Serif 4', serif; font-weight: 600; font-size: 20px;
-    color: var(--ivory); margin: 0;
-  }
-  .share-btn {
-    font-family: 'IBM Plex Mono', monospace; font-size: 11.5px; background: none;
-    border: 0.5px solid var(--line-strong); color: var(--text-dim); border-radius: 6px;
-    padding: 7px 12px; cursor: pointer; transition: border-color 0.15s, color 0.15s;
-  }
-  .share-btn:hover { border-color: var(--brass); color: var(--brass); }
-  .share-btn.copied { color: #8FBF87; border-color: #8FBF87; }
-
-  /* ---------- Ranked single-metric view (track + marker bars) ---------- */
-  .rank-list { display: flex; flex-direction: column; gap: 2px; }
-  .rank-row {
-    display: grid; grid-template-columns: 220px 1fr 88px; align-items: center;
-    gap: 14px; padding: 9px 6px; border-radius: 7px; cursor: pointer;
-  }
-  .rank-row:hover { background: rgba(255,255,255,0.03); }
-  .rank-rank {
-    font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: var(--text-dim);
-    width: 18px; display: inline-block;
-  }
-  .rank-name { font-size: 13.5px; color: var(--ivory); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-  .rank-name .chain-tag { margin: 0 4px; }
-  .rank-track {
-    position: relative; height: 18px; background: rgba(255,255,255,0.05);
-    border: 0.5px solid var(--line-strong); border-radius: 4px; overflow: hidden;
-  }
-  .rank-fill { position: absolute; top: 0; left: 0; height: 100%; background: var(--brass); opacity: 0.55; }
-  .rank-val {
-    font-family: 'IBM Plex Mono', monospace; font-size: 13px; text-align: right;
-    font-weight: 500; color: var(--ivory);
-  }
-  .rank-val.dim { color: var(--text-dim); font-weight: 400; }
-  .rank-loading { padding: 30px 0; text-align: center; color: var(--text-dim); font-family: 'IBM Plex Mono', monospace; font-size: 13px; }
-  .rank-note {
-    margin: 0 0 14px; padding: 9px 12px; border-radius: 7px;
-    background: rgba(198,161,91,0.07); border: 0.5px solid rgba(198,161,91,0.25);
-    font-size: 12.5px; color: var(--text-mid); line-height: 1.5;
-  }
-
-  /* Divergence view: a centered diverging bar rather than the left-anchored
-     bar the other rank views use. TradFi (positive) grows left from a zero
-     line, AI (negative) grows right — matching TradFi-before-AI order used
-     everywhere else on the site (board table columns, panel layout). Left
-     and width are set inline per row in JS; the fill keeps the shared
-     .rank-fill brass color, so direction reads from bar position, not hue. */
-  .rank-track.diverging::after {
-    content: ''; position: absolute; left: 50%; top: 0; bottom: 0; width: 1px;
-    background: var(--line-strong);
-  }
-  .divergence-flank {
-    display: grid; grid-template-columns: 220px 1fr 88px; align-items: center;
-    gap: 14px; padding: 0 6px; margin-bottom: 6px;
-  }
-  .divergence-flank .split { display: flex; gap: 8px; }
-  .divergence-flank .side {
-    flex: 1; font-family: 'IBM Plex Mono', monospace; font-size: 10.5px;
-    letter-spacing: 0.05em; text-transform: uppercase; color: var(--text-mid); font-weight: 500;
-  }
-  .divergence-flank .side.left { text-align: left; }
-  .divergence-flank .side.right { text-align: right; }
-
-  /* Gate-status view (e.g. Quantum Resistance): chains grouped by a
-     three-state gate value rather than ranked by a bar, since Pass/Partial/
-     Fail isn't a magnitude. Each group is a whole card — a flat, low-opacity
-     tint of the state color across the full box, not just the header — so
-     the color reads as "this section is Partial" rather than decorating one
-     label. Still flat, ungraded color per state (no gradient), same
-     "ratings not rainbows" language the tier-color bands use elsewhere;
-     colors set inline per group via GATE_STATE_RGB in the script since each
-     card needs its own background/border/text tint. Chains within a card
-     flow into columns (CSS multi-column, not a grid) rather than stacking
-     in one tall list, so a large group like Partial doesn't leave the rest
-     of the row empty. */
-  .gate-group {
-    margin-bottom: 18px; padding: 18px 20px 20px; border-radius: 14px;
-    border: 1px solid rgba(255,255,255,0.08);
-  }
-  .gate-group:last-child { margin-bottom: 0; }
-  .gate-group-head {
-    display: flex; align-items: center; gap: 9px; margin-bottom: 14px;
-  }
-  .gate-group-dot { width: 9px; height: 9px; border-radius: 50%; flex-shrink: 0; }
-  .gate-group-name {
-    font-family: 'IBM Plex Mono', monospace; font-size: 13px; font-weight: 600;
-    letter-spacing: 0.06em; text-transform: uppercase;
-  }
-  .gate-group-count {
-    font-family: 'IBM Plex Mono', monospace; font-size: 12px; font-weight: 500;
-    color: var(--text-dim);
-  }
-  .gate-group-rows { columns: 200px 3; column-gap: 22px; }
-  .gate-chain-row {
-    display: flex; align-items: center; padding: 8px 6px; border-radius: 7px; cursor: pointer;
-    break-inside: avoid;
-  }
-  .gate-chain-row:hover { background: rgba(255,255,255,0.06); }
-  .gate-chain-name { font-size: 13.5px; color: var(--ivory); }
-  .gate-chain-name .chain-tag { margin-right: 8px; }
-
-  /* ---------- Slide-out panel ---------- */
-
-  .overlay {
-    position: fixed;
-    inset: 0;
-    background: rgba(4,8,14,0.6);
-    backdrop-filter: blur(2px);
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity 0.22s ease;
-    z-index: 100;
-  }
-  .overlay.open { opacity: 1; pointer-events: auto; }
-
-  .panel {
-    position: fixed;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    width: 560px;
-    max-width: 92vw;
-    background: var(--ink-2);
-    border-left: 0.5px solid var(--line-strong);
-    box-shadow: -24px 0 60px rgba(0,0,0,0.45);
-    transform: translateX(100%);
-    transition: transform 0.28s cubic-bezier(0.2, 0.7, 0.3, 1);
-    z-index: 101;
-    overflow-y: auto;
-  }
-  .panel.open { transform: translateX(0); }
-
-  .panel-inner { padding: 28px 30px 60px; }
-
-  .panel-top {
-    display: flex;
-    align-items: flex-start;
-    justify-content: space-between;
-    margin-bottom: 4px;
-  }
-  .panel-close {
-    width: 32px;
-    height: 32px;
-    border-radius: 7px;
-    border: 0.5px solid var(--line-strong);
-    background: rgba(255,255,255,0.03);
-    color: var(--text-mid);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    flex-shrink: 0;
-    transition: background 0.15s;
-  }
-  .panel-close:hover { background: rgba(255,255,255,0.08); color: var(--ivory); }
-
-  .panel-name {
-    font-family: 'Source Serif 4', serif;
-    font-weight: 600;
-    font-size: 26px;
-    color: var(--ivory);
-    line-height: 1.15;
-  }
-  .panel-tag {
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 14px;
-    color: var(--brass);
-    margin-top: 4px;
-  }
-  .panel-dates {
-    font-size: 12px;
-    color: var(--text-dim);
-    font-family: 'IBM Plex Mono', monospace;
-    margin-top: 10px;
-  }
-
-  .panel-summary {
-    margin-top: 18px;
-    padding: 15px 16px;
-    border-radius: 8px;
-    background: rgba(255,255,255,0.03);
-    border: 0.5px solid var(--line);
-  }
-  .panel-summary-text {
-    font-size: 13.5px;
-    color: var(--text-mid);
-    line-height: 1.62;
-  }
-  .panel-summary-divider {
-    height: 1px;
-    background: var(--line);
-    margin: 13px 0;
-  }
-  .panel-summary-divergence {
-    font-size: 13px;
-    color: var(--text-mid);
-    line-height: 1.5;
-  }
-  .panel-summary-divergence strong { color: var(--ivory); font-family: 'IBM Plex Mono', monospace; }
-
-  .axis-block {
-    margin-top: 28px;
-    padding-top: 24px;
-    border-top: 0.5px solid var(--line);
-  }
-  .axis-block:first-of-type { margin-top: 24px; }
-
-  .axis-head {
-    display: flex;
-    align-items: baseline;
-    justify-content: space-between;
-    margin-bottom: 14px;
-  }
-  .axis-title {
-    display: block;
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 12px;
-    letter-spacing: 0.08em;
-    color: var(--text-dim);
-    text-transform: uppercase;
-    margin-bottom: 10px;
-  }
-  .axis-score-row {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-  }
-  .axis-score {
-    font-family: 'IBM Plex Mono', monospace;
-    font-weight: 500;
-    font-size: 30px;
-    color: var(--ivory);
-  }
-
-  .raw-note {
-    margin: -4px 0 16px;
-    padding: 9px 12px;
-    border-radius: 7px;
-    background: rgba(198,161,91,0.07);
-    border: 0.5px solid rgba(198,161,91,0.25);
-    font-size: 12.5px;
-    color: var(--text-mid);
-    line-height: 1.5;
-  }
-  .raw-note strong { color: var(--brass); font-family: 'IBM Plex Mono', monospace; }
-
-  .gate-row {
-    display: flex;
-    gap: 8px;
-    flex-wrap: wrap;
-    margin-bottom: 18px;
-  }
-  .gate-pill {
-    position: relative;
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    font-size: 11.5px;
-    padding: 5px 10px;
-    border-radius: 20px;
-    border: 0.5px solid var(--line-strong);
-    color: var(--text-mid);
-    font-family: 'Hanken Grotesk', sans-serif;
-    cursor: help;
-  }
-  .gate-dot { width: 7px; height: 7px; border-radius: 50%; flex-shrink: 0; }
-  .gate-pass .gate-dot { background: #56A374; }
-  .gate-partial .gate-dot { background: #D2A94F; }
-  .gate-fail .gate-dot { background: #C0655C; }
-  .gate-unknown .gate-dot { background: var(--text-dim); }
-
-  .cat-row {
-    display: grid;
-    grid-template-columns: 150px 1fr 30px;
-    align-items: center;
-    gap: 12px;
-    padding: 7px 0;
-  }
-  .cat-label {
-    font-size: 12.5px;
-    color: var(--text-mid);
-    position: relative;
-    cursor: help;
-    border-bottom: 1px dotted var(--line-strong);
-    width: fit-content;
-  }
-
-  .info-label { position: relative; }
-  .cat-track {
-    height: 4px;
-    border-radius: 2px;
-    background: rgba(255,255,255,0.08);
-    position: relative;
-  }
-  .cat-fill {
-    position: absolute;
-    top: 0; left: 0; bottom: 0;
-    border-radius: 2px;
-  }
-  .cat-marker {
-    position: absolute;
-    top: 50%;
-    width: 11px;
-    height: 11px;
-    border-radius: 50%;
-    background: var(--ink-2);
-    border: 2px solid;
-    transform: translate(-50%, -50%);
-  }
-  .cat-val {
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 12.5px;
-    color: var(--ivory);
-    text-align: right;
-  }
-
-  .findings-list {
-    list-style: none;
-    margin: 16px 0 0;
-    padding: 0;
-  }
-  .findings-list li {
-    position: relative;
-    padding-left: 16px;
-    margin-bottom: 10px;
-    font-size: 13px;
-    color: var(--text-mid);
-    line-height: 1.55;
-  }
-  .findings-list li::before {
-    content: '';
-    position: absolute;
-    left: 0;
-    top: 7px;
-    width: 5px;
-    height: 5px;
-    border-radius: 50%;
-    background: var(--brass-dim);
-  }
-
-  .watch-block {
-    margin-top: 26px;
-    padding-top: 22px;
-    border-top: 0.5px solid var(--line);
-  }
-
-  .external-links {
-    margin-top: 26px;
-    padding-top: 22px;
-    border-top: 0.5px solid var(--line);
-  }
-  .external-links-row {
-    display: flex;
-    gap: 10px;
-    flex-wrap: wrap;
-  }
-  .ext-link {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    font-size: 13px;
-    color: var(--brass);
-    text-decoration: none;
-    border: 0.5px solid rgba(198,161,91,0.3);
-    padding: 9px 14px;
-    border-radius: 7px;
-    transition: background 0.15s;
-  }
-  .ext-link:hover { background: rgba(198,161,91,0.08); }
-
-  /* ============ MOBILE LAYOUT (below 720px) ============ */
   @media (max-width: 720px) {
-    .wrap { padding: 16px 16px 60px; max-width: 100%; }
-    .desktop-only { display: none !important; }
-    .mobile-only { display: block !important; }
-
-    .tile-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
-    .tile { padding: 13px 14px; }
-    .tile-medium .tile-title { font-size: 17px; }
-    #activeView.open { display: block; }
-    .rail {
-      width: auto; position: static; display: flex; overflow-x: auto; gap: 6px;
-      padding: 8px; margin-bottom: 14px; border-radius: 9px;
-    }
-    .rail-back { width: auto; flex: none; margin-bottom: 0; white-space: nowrap; }
-    .rail-item { width: auto; flex: none; white-space: nowrap; border-left: none; border-bottom: 2px solid transparent; padding: 8px 10px; }
-    .rail-item.current { border-left: none; border-bottom-color: var(--brass); border-radius: 7px 7px 0 0; }
-    .rail-item .k { display: none; }
-    .rail-div { display: none; }
-    .view-pane-head h2 { font-size: 17px; }
-    .rank-row { grid-template-columns: 110px 1fr 70px; gap: 8px; }
-    .divergence-flank { grid-template-columns: 110px 1fr 70px; gap: 8px; }
-    .rank-name { font-size: 12.5px; }
-    .gate-chain-name { font-size: 12.5px; }
-    .gate-group-rows { columns: 1; }
-
-    .controls-row { flex-direction: column; align-items: stretch; }
-    .search-box { margin-bottom: 12px; }
-    .filter-chips { display: flex; gap: 6px; overflow-x: auto; -ms-overflow-style: none; scrollbar-width: none; }
-    .filter-chips::-webkit-scrollbar { display: none; }
-    .panel { width: 100%; max-width: 100%; top: auto; bottom: 0; left: 0; right: 0; height: auto; max-height: min(80vh, calc(100vh - 90px)); border-left: none; border-top: 0.5px solid var(--line-strong); border-radius: 18px 18px 0 0; transform: translateY(100%); box-shadow: 0 -12px 40px rgba(0,0,0,0.45); }
-    .panel.open { transform: translateY(0); }
-    .panel-inner { padding: calc(env(safe-area-inset-top, 0px) + 20px) 20px 40px; }
-    .cat-row { grid-template-columns: 1fr 2fr 26px; gap: 8px; }
-    .cat-label { font-size: 12px; white-space: normal; }
-    .panel-close { width: 40px; height: 40px; }
-
-    .axis-toggle {
-    display: flex;
-    background: rgba(255,255,255,0.04);
-    border: 0.5px solid var(--line-strong);
-    border-radius: 9px;
-    padding: 3px;
-    margin-bottom: 10px;
-  }
-  .axis-toggle button {
-    flex: 1;
-    border: none;
-    background: none;
-    color: var(--text-mid);
-    font-family: 'Hanken Grotesk', sans-serif;
-    font-size: 13px;
-    font-weight: 500;
-    padding: 9px 0;
-    border-radius: 7px;
-    cursor: pointer;
-  }
-  .axis-toggle button.active {
-    background: var(--brass);
-    color: var(--ink);
-  }
-  .toggle-hint {
-    font-size: 11px;
-    color: var(--text-dim);
-    margin-bottom: 16px;
-    line-height: 1.5;
-  }
-  .tier-chips {
-    display: flex;
-    gap: 6px;
-    overflow-x: auto;
-    padding-bottom: 4px;
-    margin-bottom: 18px;
-    -ms-overflow-style: none;
-    scrollbar-width: none;
-  }
-  .tier-chips::-webkit-scrollbar { display: none; }
-  .tier-section { margin-bottom: 22px; }
-  .tier-section-head {
-    display: flex;
-    align-items: baseline;
-    gap: 8px;
-    margin-bottom: 10px;
-    padding-bottom: 8px;
-    border-bottom: 0.5px solid var(--line);
-  }
-  .tier-dot-lg { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
-  .tier-section-name {
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 12px;
-    font-weight: 500;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-  }
-  .tier-section-range { font-size: 11px; color: var(--text-dim); font-family: 'IBM Plex Mono', monospace; }
-  .chain-row {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    padding: 13px 4px;
-    border-bottom: 0.5px solid var(--line);
-  }
-  .chain-row:last-child { border-bottom: none; }
-  .chain-info { flex: 1; min-width: 0; }
-  .chain-info .chain-tag { margin-left: 6px; }
-  .chain-scores { display: flex; align-items: center; gap: 12px; flex-shrink: 0; }
-  .score-block { text-align: right; width: 54px; }
-  .score-block-label { font-size: 9px; color: var(--text-dim); font-family: 'IBM Plex Mono', monospace; letter-spacing: 0.05em; height: 12px; }
-  .score-block-num { font-family: 'IBM Plex Mono', monospace; font-size: 17px; font-weight: 500; text-align: right; }
-  .sheet {
-    position: fixed;
-    left: 0; right: 0; bottom: 0;
-    max-height: 88vh;
-    background: var(--ink-2);
-    border-top: 0.5px solid var(--line-strong);
-    border-radius: 18px 18px 0 0;
-    box-shadow: 0 -12px 40px rgba(0,0,0,0.45);
-    transform: translateY(100%);
-    transition: transform 0.28s cubic-bezier(0.2, 0.7, 0.3, 1);
-    z-index: 101;
-    overflow-y: auto;
-  }
-  .sheet.open { transform: translateY(0); }
-  .sheet-handle {
-    width: 36px; height: 4px;
-    background: var(--line-strong);
-    border-radius: 3px;
-    margin: 10px auto 4px;
-  }
-  .sheet-inner { padding: 12px 20px 40px; }
-  .gate-desc {
-    display: none;
-    width: 100%;
-    font-size: 11.5px;
-    color: var(--text-dim);
-    line-height: 1.5;
-    padding: 4px 2px 0;
-  }
-  .gate-desc.open { display: block; }
-  .cat-label-row { display: flex; align-items: center; justify-content: space-between; gap: 8px; margin-bottom: 4px; }
-  .cat-row-full { padding: 7px 0; }
-  .cat-desc {
-    display: none;
-    font-size: 11.5px;
-    color: var(--text-dim);
-    line-height: 1.5;
-    margin-top: 8px;
-  }
-  .cat-desc.open { display: block; }
+    .wrap { padding: 0 16px; }
+    .site-header .wrap { padding-top: 10px; padding-bottom: 10px; gap: 8px; }
+    .seal { width: 32px; height: 32px; font-size: 12px; }
+    .brand { gap: 10px; }
+    .brand-div { height: 24px; }
+    .wordmark { font-size: 21px; } .wordmark i { margin-left: 5px; } .wordmark sup { font-size: 10px; }
+    .nav { gap: 2px; }
+    .nav .x-link { display: none; }
+    .icon-btn { width: 44px; height: 44px; border: none; }
+    .search-toggle { display: flex; }
+    .search { position: static; }
+    .search-box { display: none; }
+    .site-header.search-open .search-box { display: flex; position: absolute; left: 16px; right: 16px; top: calc(100% + 8px); width: auto; background: var(--bg); padding: 12px; }
+    .site-header.search-open .search-results { left: 16px; right: 16px; width: auto; top: calc(100% + 58px); }
+    .hero { padding-top: 28px; gap: 18px; }
+    .hero-copy { gap: 12px; }
+    .hero .kicker { font-size: 11px; letter-spacing: 0.2em; }
+    .hero h1 { font-size: 29px; line-height: 1.15; }
+    .hero p { font-size: 15px; line-height: 1.55; }
+    .hero-stats { gap: 28px; } .hero-stats b { font-size: 22px; }
+    .map-row { padding-top: 22px; gap: 20px; }
+    .map .ax-title, .map .region { font-size: 10px; letter-spacing: 0.16em; }
+    .map .code { font-size: 10px; }
+    .map .lbl { font-size: 10px; }
+    .map .dot { width: 9px; height: 9px; }
+    .map .dot.on { width: 14px; height: 14px; }
+    .map-note { padding-left: 0; }
+    .aside { gap: 28px; }
+    .sel-card { padding: 18px; gap: 16px; }
+    .sel-head .nm { font-size: 24px; }
+    .sel-axis .num b { font-size: 38px; }
+    .badge { font-size: 13px; padding: 3px 7px; }
+    .sel-axis .tname { font-size: 14px; }
+    .sel-foot a { display: flex; align-items: center; justify-content: center; width: 100%; min-height: 46px; border: 1px solid var(--accent); }
+    .split-row { grid-template-columns: minmax(0, 1fr) 96px 44px; gap: 12px; min-height: 52px; padding: 8px 0; }
+    .split-row .sr-sc { display: none; }
+    .split-row .sr-nm small { display: block; font-family: var(--mono); font-size: 11px; color: var(--fg3); margin-top: 2px; }
+    .act-row { grid-template-columns: 54px minmax(0, 1fr) auto; min-height: 56px; }
+    .act-row .ak { display: none; }
+    .rankings { padding-top: 40px; }
+    .section-head h2 { font-size: 26px; }
+    .link-copy .url { display: none; }
+    .ch-title { padding-top: 24px; }
+    .ch-title h1 { font-size: 46px; }
+    .ch-title .sub { font-size: 13px; }
+    .ch-title .meta { font-size: 11px; }
+    .ch-title blockquote q { font-size: 19px; }
+    .ch-main { padding-top: 22px; }
+    .card .axis { padding: 18px 0 20px; gap: 10px; }
+    .thermo { height: 200px; width: 10px; }
+    .thermo .mk { width: 18px; height: 18px; }
+    .card .score b { font-size: 44px; }
+    .card .score .badge { font-size: 13px; }
+    .card .tn { font-size: 14px; }
+    .drivers { grid-template-columns: minmax(0, 1fr); }
+    .drv { padding: 16px 0; background: transparent !important; }
+    .drivers { background: transparent; border: none; border-top: 1px solid var(--line); gap: 0; }
+    .drv { border-bottom: 1px solid var(--line); }
+    .gate-line { flex-direction: column; align-items: stretch; gap: 6px; }
+    .gate-line .label { width: auto; padding-top: 6px; }
+    .chip { min-height: 44px; }
+    .gate-desc { padding-left: 0; }
+    .cat-row { grid-template-columns: minmax(0, 1fr) 60px 30px 26px; gap: 10px; min-height: 40px; padding: 8px 0; }
+    .cat-row .cl { font-size: 14px; }
+    .ch-sec { padding-top: 36px; }
+    .ch-right h2, .ch-sec h2 { font-size: 22px; }
+    .brief .summary { font-size: 16px; }
+    .findings li { grid-template-columns: minmax(0, 1fr); gap: 2px; }
+    .share .url { display: none; }
+    .site-footer .wrap { flex-direction: column; align-items: flex-start; }
   }
 </style>
 </head>
 <body>
 
-<div class="top-bar"></div>
-<div class="wrap">
+<div class="horizon"></div>
 
-  <header>
-    <button class="brand" id="brandHome" aria-label="Back to dashboard home" type="button">
-      <div class="brand-mark"><span>CS</span></div>
-      <div class="brand-divider"></div>
-      <div class="brand-word"><span class="bold">coloredsky</span><span class="italic">score</span><span class="sup">™</span></div>
-    </button>
-    <div class="meta-line" id="metaLine">updated 2026-08-08</div>
-  </header>
-  <div class="subhead">Independent blockchain ratings focusing on institutional fit and AI readiness.<br>No hype. Just fundamentals.</div>
-
-  <div class="loading-state" id="loadingState">Loading board data…</div>
-
-  <div id="gridView" class="tile-grid" style="display:none;"></div>
-
-  <div id="activeView">
-    <div class="rail" id="rail"></div>
-    <div class="view-pane">
-      <div class="view-pane-head">
-        <h2 id="activeTitle"></h2>
-        <button class="share-btn" id="shareBtn">Copy share link</button>
-      </div>
-
-      <div id="boardSubview">
-        <div class="controls-row desktop-only">
-          <div class="search-box">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
-            <input type="text" id="searchInput" placeholder="Filter by chain or ticker">
-          </div>
-          <div class="filter-chips" id="tierChips"></div>
-        </div>
-
-        <div class="mobile-only" style="display:none;">
-          <div class="search-box">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
-            <input type="text" id="searchInputMobile" placeholder="Filter by chain or ticker">
-          </div>
-          <div class="axis-toggle" id="axisToggle">
-            <button class="active" data-axis="tradfi">TradFi</button>
-            <button data-axis="ai">AI</button>
-          </div>
-          <div class="toggle-hint" id="toggleHint">Grouped by TradFi tier. The AI score is shown alongside each chain.</div>
-          <div class="tier-chips" id="tierChipsMobile"></div>
-          <div id="tierSections"></div>
-          <div class="row-count" id="rowCountMobile"></div>
-        </div>
-
-        <div id="tableWrap" style="display:none;" class="desktop-only">
-          <table>
-            <colgroup>
-              <col class="col-chain">
-              <col class="col-score"><col class="col-tier">
-              <col class="col-score"><col class="col-tier">
-              <col class="col-div">
-              <col class="col-date">
-            </colgroup>
-            <thead>
-              <tr id="tableHead"></tr>
-            </thead>
-            <tbody id="tableBody"></tbody>
-          </table>
-
-          <div class="row-count" id="rowCount"></div>
-        </div>
-      </div>
-
-      <div id="rankSubview" style="display:none;">
-        <div class="rank-note" id="rankNote" style="display:none;"></div>
-        <div class="rank-list" id="rankList"></div>
-      </div>
-    </div>
-  </div>
-
-  <div class="footer-links">
-    <a class="footer-x-link" href="https://x.com/thecoloredsky" target="_blank" rel="noopener">
-      <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
-      @thecoloredsky
+<header class="site-header" id="siteHeader">
+  <div class="wrap">
+    <a class="brand" href="#" id="brandHome" aria-label="coloredsky score home">
+      <span class="seal">CS</span>
+      <span class="brand-div"></span>
+      <span class="wordmark"><b>coloredsky</b><i>score</i><sup>™</sup></span>
     </a>
-    <div class="footer-right">
-      <a class="footer-const-link" href="constitution.html">Project Constitution</a>
-      <span class="footer-copyright">© 2026 coloredsky score™. All rights reserved.</span>
-    </div>
+    <nav class="nav" aria-label="Main">
+      <a class="nav-link" href="#" data-nav="map">Map</a>
+      <a class="nav-link" href="#rank=both" data-nav="rankings">Rankings</a>
+      <a class="nav-link" href="#how" data-nav="how">Methodology</a>
+      <div class="search">
+        <label class="search-box" id="searchBox">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+          <span class="sr-only">Find a chain</span>
+          <input type="text" inputmode="search" enterkeyhint="search" id="searchInput" placeholder="Find a chain or $TICKER" autocomplete="off" aria-controls="searchResults">
+        </label>
+        <div class="search-results" id="searchResults" hidden></div>
+      </div>
+      <button class="icon-btn search-toggle" id="searchToggle" type="button" aria-label="Find a chain">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+      </button>
+      <button class="icon-btn" id="themeToggle" type="button" aria-label="Switch theme">
+        <svg class="ico-sun" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+        <svg class="ico-moon" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+      </button>
+      <a class="x-link" href="https://x.com/thecoloredsky" target="_blank" rel="noopener">@thecoloredsky</a>
+    </nav>
   </div>
+</header>
 
-</div>
+<main id="homeView">
+  <div class="wrap">
+    <section class="hero">
+      <div class="hero-copy">
+        <span class="kicker">Credit ratings for the chains</span>
+        <h1>Where each chain stands with institutional adoption and AI readiness.</h1>
+        <p>Every chain gets two independent ratings on a 0–100 scale. Across is institutional adoption (TradFi). Up is readiness for autonomous AI agents. The farther a chain sits from the diagonal, the more its two ratings disagree.</p>
+      </div>
+      <div class="hero-stats">
+        <div><b id="statCount">–</b><span class="label">Chains rated</span></div>
+        <div><b id="statLast">–</b><span class="label">Last update</span></div>
+      </div>
+    </section>
 
-<div class="overlay" id="overlay"></div>
-<div class="panel" id="panel">
-  <div class="panel-inner" id="panelInner"></div>
-</div>
+    <section class="map-row" id="map" aria-label="TradFi and AI ratings map">
+      <div class="map-col" id="mapCol">
+        <div class="map" id="mapCanvas"><div class="rk-loading">Loading ratings…</div></div>
+        <span class="map-note" id="mapNote"></span>
+      </div>
+      <div class="aside">
+        <div class="sel-card" id="selCard" aria-live="polite"></div>
+        <div>
+          <div class="list-head"><h3>Widest splits</h3><span class="label">TradFi ← → AI</span></div>
+          <div id="splitList"></div>
+        </div>
+        <div id="actions">
+          <div class="list-head"><h3>Latest rating actions</h3><span class="label">New and updated</span></div>
+          <div id="actionList"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="rankings" id="rankings" aria-label="Rankings">
+      <div class="section-head">
+        <div>
+          <h2>Rankings</h2>
+          <div class="sub">Every rated chain, ranked by the lens you pick. Each lens has its own link.</div>
+        </div>
+        <div class="link-copy">
+          <span class="url" id="lensUrl"></span>
+          <button class="btn" type="button" id="lensCopy">Copy link</button>
+        </div>
+      </div>
+      <div class="rk-grid">
+        <nav class="rail" id="lensRail" aria-label="Ranking lenses"></nav>
+        <label class="lens-select">
+          <span class="label">Rank by</span>
+          <select id="lensSelect"></select>
+        </label>
+        <div class="rk-pane">
+          <div class="lens-head">
+            <div>
+              <div class="lt" id="lensTitle"></div>
+              <div class="ld" id="lensDesc"></div>
+            </div>
+            <div class="seg" id="sortCtl" role="group" aria-label="Sort">
+              <button type="button" data-sort="tradfi">TradFi</button>
+              <button type="button" data-sort="ai">AI</button>
+              <button type="button" data-sort="split">Split</button>
+            </div>
+          </div>
+          <div id="lensBody"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="how" id="how" aria-label="How a rating works">
+      <div>
+        <span class="k">01 · TWO RATINGS, NEVER BLENDED</span>
+        <p>TradFi asks whether an institution can hold and use the asset today. AI asks whether an autonomous agent can safely transact on the chain today. Each has its own gates, categories and tier names.</p>
+      </div>
+      <div>
+        <span class="k">02 · GATES CAN CAP A RATING</span>
+        <p>Three pass, partial or fail checks per axis come first. A partial or failed check sets a ceiling, and a chain marked capped would rate higher without it.</p>
+      </div>
+      <div>
+        <span class="k">03 · LIVE TODAY, NOT ROADMAP</span>
+        <p>Testnet features and announced plans earn nothing until they ship to mainnet. Price, sentiment and narrative never move a rating. <a href="constitution.html">Read the project constitution →</a></p>
+      </div>
+    </section>
+  </div>
+</main>
+
+<main id="chainView" hidden>
+  <div class="wrap" id="chainInner"></div>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <span id="footVersions">Fundamentals only. Not financial advice.</span>
+    <span class="links">
+      <a href="constitution.html">Project constitution</a>
+      <a href="https://x.com/thecoloredsky" target="_blank" rel="noopener">@thecoloredsky</a>
+      <span>© 2026 coloredsky score™</span>
+    </span>
+  </div>
+</footer>
 
 <script>
+/* ============================================================
+   coloredsky score dashboard
+   Data: data/board.json on load (scores, tiers, dates only), and
+   data/chains/<slug>.json lazily, only when a chain page or a lens
+   that needs category, gate or tile data is opened. Fetched once per
+   visit and cached in CHAIN_CACHE. Weights never ship to the client.
+   Routes (hash): #chain=<slug>, #rank=<lens>[&sort=tradfi|ai|split].
+   Old #view=<tile> links from the tile-grid era redirect to #rank=.
+   ============================================================ */
 let BOARD = null;
-
-const tierMap = {};
-
-const COLUMNS = [
-  { key: 'chain', label: 'Chain', sortable: true, align: 'left' },
-  { key: 'tradfi_score', label: 'TradFi', sortable: true, align: 'num' },
-  { key: 'tradfi_tier', label: 'Tier', sortable: false, align: 'center' },
-  { key: 'ai_score', label: 'AI', sortable: true, align: 'num' },
-  { key: 'ai_tier', label: 'Tier', sortable: false, align: 'center' },
-  { key: 'divergence', label: 'Divergence', sortable: true, align: 'num' },
-  { key: 'last_updated', label: 'Updated', sortable: true, align: 'left' },
-];
-
-let sortKey = 'tradfi_score';
-let sortDir = -1;
-let activeTierFilter = null;
-let searchTerm = '';
-
-/* ---------- Dashboard Tiles: view config + chain-detail cache ---------- */
-/* Chain-detail JSON is still fetched lazily, never bundled into board.json or
-   embedded in this file — see Dashboard_Build_Handoff.md's design decisions.
-   The only change here is WHEN "lazily" happens: previously only on opening a
-   chain's slideout panel, now also (once, in parallel, then cached) the first
-   time any single-metric tile view is opened. board.json alone still drives
-   the initial page render and the two board tiles' previews. */
-let CHAIN_CACHE = {};
-
-const ORDER = ['tradfi','ai','divergence','privacy','rwu','onchain','tokenomics','decentralization','quantum','cost','yield'];
-
-// Board-tile and Divergence-tile previews show this many chains in the grid
-// card itself (2-column list) — separate from the full ranked list shown
-// once the tile is opened, which always covers every scored chain.
-const BOARD_PREVIEW_COUNT = 10;
-
-const VIEW_META = {
-  tradfi: { kind: 'medium', railKey: 'TF', title: 'TradFi Board', eyebrow: 'Axis 1 — institutional lens' },
-  ai: { kind: 'medium', railKey: 'AI', title: 'AI Board', eyebrow: 'Axis 2 — agent-readiness lens' },
-  divergence: { kind: 'medium', railKey: 'DIV', title: 'Score Divergence', eyebrow: 'TradFi vs. AI, both axes' },
-  privacy: { kind: 'small', railKey: 'PRIV', title: 'Top Privacy Chains', eyebrow: 'Category view' },
-  rwu: { kind: 'small', railKey: 'RWU', title: 'Top Real-World Utility', eyebrow: 'Category view' },
-  onchain: { kind: 'small', railKey: 'OCH', title: 'Top On-Chain Health', eyebrow: 'Category view' },
-  tokenomics: { kind: 'small', railKey: 'TOK', title: 'Top Tokenomics & Supply', eyebrow: 'Category view' },
-  decentralization: { kind: 'small', railKey: 'DECN', title: 'Top Decentralization', eyebrow: 'Category view' },
-  quantum: { kind: 'small', railKey: 'QR', title: 'Quantum Resistance', eyebrow: 'Gate status' },
-  cost: { kind: 'small', railKey: 'COST', title: 'Cheapest Tx Cost', eyebrow: 'Extra data' },
-  yield: { kind: 'small', railKey: 'YLD', title: 'Fee Yield (Price/Fee)', eyebrow: 'Extra data' }
-};
-
-// Single-metric ranked views. `axis` + `catKey` locate the value inside a
-// chain's detail JSON: 'tradfi'/'ai' read detail[axis].categories[catKey],
-// 'tiles' reads detail.tiles[catKey]. Never weighted into either framework —
-// presentation only, same as the categories and tiles fields themselves.
-const METRIC_VIEWS = {
-  privacy: { axis: 'tradfi', catKey: 'privacy_confidentiality', unit: 'score',
-    desc: 'Ranked by the TradFi Privacy & Confidentiality category score (0–100).' },
-  rwu: { axis: 'tradfi', catKey: 'real_world_utility', unit: 'score',
-    desc: 'Ranked by the TradFi Real-World Utility category score (0–100).' },
-  onchain: { axis: 'tradfi', catKey: 'on_chain_health', unit: 'score',
-    desc: 'Ranked by the TradFi On-Chain Health category score (0–100) — real usage, fees, activity.' },
-  tokenomics: { axis: 'tradfi', catKey: 'tokenomics_supply', unit: 'score',
-    desc: 'Ranked by the TradFi Tokenomics & Supply category score (0–100) — caps, emission, concentration.' },
-  decentralization: { axis: 'tradfi', catKey: 'decentralization', unit: 'score',
-    desc: 'Ranked by the TradFi Decentralization category score (0–100).' },
-  cost: { axis: 'tiles', catKey: 'cheapest_tx_cost_usd', noteKey: 'cheapest_tx_cost_note', unit: 'usd', ascending: true, logScale: true,
-    desc: 'USD cost of one standard native transfer, current floor/base fee rate. Cheapest first.' },
-  yield: { axis: 'tiles', catKey: 'fee_yield_pct', noteKey: 'fee_yield_note', unit: 'pf', logScale: true,
-    desc: 'Trailing 30-day chain fee revenue, annualized, vs. current market cap — shown as an implied price/fee multiple (market cap ÷ annualized fees), the inverse of the raw yield percentage. Lower multiple means the market is pricing the chain closer to the fee revenue it already generates. Richest (lowest multiple) first.' }
-};
-
-// Gate-status views. A gate is a three-state field (Pass/Partial/Fail), not
-// a continuous score, so it gets its own view type — grouped by state
-// rather than ranked by a bar length that wouldn't mean anything. `axis` +
-// `gateKey` locate the value at detail[axis].gates[gateKey], the same path
-// the chain-detail panel's gate pills already read. Deliberately generic:
-// adding any of the site's other four gates (Regulatory Clarity, Security
-// Posture on TradFi; Deterministic Finality, Programmability Tier,
-// Operational Reliability on AI) is a one-entry addition here, not new
-// code — see openGateView below.
-const GATE_VIEWS = {
-  quantum: { axis: 'tradfi', gateKey: 'quantum_resistance' }
-};
-
-// Same green/amber/red mapping the chain-detail panel's gate pills already
-// use (.gate-pass/.gate-partial/.gate-fail dot colors) — reused rather than
-// reinvented, so gate-state color means the same thing everywhere on the
-// site. Kept as RGB triples (not hex) because each gate-group card tints
-// its whole background/border/text from this one value via rgba() at
-// different opacities — see gateGroupStyle. 'unknown' covers a chain whose
-// detail JSON has no state recorded for this gate (same convention as
-// gateStateLabel's 'Unverified') and is styled separately, as a neutral
-// card rather than a tinted one — there's no real gate color to tint with.
-const GATE_STATE_RGB = { pass: '86,163,116', partial: '210,169,79', fail: '192,101,92' };
-const GATE_STATE_ORDER = ['pass', 'partial', 'fail', 'unknown'];
-
-// Flat, ungraded tint per state — same "ratings not rainbows" language the
-// tier-color bands use, just applied as a light card wash instead of a
-// solid fill. Dot and label text use the full-strength color; background
-// and border are low-opacity so chain names (ivory) stay readable inside.
-function gateGroupStyle(state) {
-  if (state === 'unknown') {
-    return {
-      box: 'background:rgba(255,255,255,0.03);border-color:rgba(255,255,255,0.10)',
-      dot: 'background:var(--text-dim)',
-      name: 'color:var(--text-mid)'
-    };
-  }
-  const rgb = GATE_STATE_RGB[state];
-  return {
-    box: `background:rgba(${rgb},0.09);border-color:rgba(${rgb},0.28)`,
-    dot: `background:rgb(${rgb})`,
-    name: `color:rgb(${rgb})`
-  };
-}
-
-function fmtCost(v) {
-  if (v === null || v === undefined) return '—';
-  if (v === 0) return '$0';
-  const abs = Math.abs(v);
-  const decimals = abs >= 1 ? 2 : abs >= 0.01 ? 4 : abs >= 0.0001 ? 6 : 8;
-  const s = v.toFixed(decimals).replace(/0+$/, '').replace(/\.$/, '');
-  return '$' + s;
-}
-function fmtPct(v) {
-  if (v === null || v === undefined) return '—';
-  if (v === 0) return '0%';
-  const abs = Math.abs(v);
-  const decimals = abs >= 1 ? 2 : abs >= 0.01 ? 3 : abs >= 0.001 ? 4 : 5;
-  const s = v.toFixed(decimals).replace(/0+$/, '').replace(/\.$/, '');
-  return s + '%';
-}
-// Fee Yield's raw percentage (fees ÷ market cap) reads as an unintuitive
-// wall of leading zeros for most chains (XRP: 0.00017%) — the same figure
-// inverted, as a price/fee multiple, is the format this project already
-// uses everywhere else (session files, Scorecard board notes: "~226x",
-// "~7.4x"). fmtMetric calls this for unit 'pf'; fmtPct above is kept for
-// the raw-percentage tooltip on those rows.
-function fmtPF(v) {
-  if (v === null || v === undefined || v === 0) return '—';
-  const mult = 100 / v;
-  if (mult < 20) return mult.toFixed(1) + 'x';
-  return Math.round(mult).toLocaleString('en-US') + 'x';
-}
-function fmtMetric(v, mv) {
-  if (v === null || v === undefined) return '—';
-  if (mv.unit === 'usd') return fmtCost(v);
-  if (mv.unit === 'pf') return fmtPF(v);
-  return String(v);
-}
-// Bar width for the rank-list track. Cheapest Tx Cost and Fee Yield both
-// span 4-5 orders of magnitude across the board (XLM's $0.000002 floor to
-// TRON's $0.09; Canton's 13.46% to XRP's 0.00017%) — a plain linear scale
-// against the richest chain leaves every other bar visually flat at the
-// 2% floor. Log scale keeps every chain's bar visually distinguishable.
-function barPercent(v, rows, mv) {
-  if (mv.logScale) {
-    const vals = rows.map(r => r.v).filter(x => x > 0);
-    if (!vals.length) return 4;
-    const logMin = Math.log10(Math.min(...vals));
-    const logMax = Math.log10(Math.max(...vals));
-    let range = logMax - logMin;
-    if (!isFinite(range) || range <= 0) range = 1;
-    const t = (Math.log10(Math.max(v, 1e-12)) - logMin) / range;
-    return Math.max(4, Math.round(t * 100));
-  }
-  const scaleMax = Math.max(...rows.map(r => r.v), 1e-12);
-  return Math.max(2, Math.round((v / scaleMax) * 100));
-}
-function metricValue(detail, mv) {
-  if (mv.axis === 'tiles') return detail.tiles ? (detail.tiles[mv.catKey] ?? null) : null;
-  const cats = detail[mv.axis] && detail[mv.axis].categories;
-  return cats ? (cats[mv.catKey] ?? null) : null;
-}
-function metricNote(detail, mv) {
-  if (!mv.noteKey || !detail.tiles) return '';
-  return detail.tiles[mv.noteKey] || '';
-}
-
-async function fetchAllChains() {
-  const missing = BOARD.chains.filter(c => !CHAIN_CACHE[c.slug]);
-  if (!missing.length) return CHAIN_CACHE;
-  await Promise.all(missing.map(async c => {
-    try {
-      const res = await fetch(c.detail_url);
-      if (res.ok) CHAIN_CACHE[c.slug] = await res.json();
-    } catch (err) { console.error('fetch failed for', c.slug, err); }
-  }));
-  return CHAIN_CACHE;
-}
-
-function renderGrid() {
-  const grid = document.getElementById('gridView');
-  const tfTop = [...BOARD.chains].sort((a, b) => b.tradfi_score - a.tradfi_score).slice(0, BOARD_PREVIEW_COUNT);
-  const aiTop = [...BOARD.chains].sort((a, b) => b.ai_score - a.ai_score).slice(0, BOARD_PREVIEW_COUNT);
-  const divTop = [...BOARD.chains].sort((a, b) => Math.abs(b.divergence) - Math.abs(a.divergence)).slice(0, BOARD_PREVIEW_COUNT);
-
-  const bodies = {
-    tradfi: `<ul class="tile-preview">${tfTop.map(c => `<li><span>${c.cashtag}</span><span class="tv">${c.tradfi_score}</span></li>`).join('')}</ul>`,
-    ai: `<ul class="tile-preview">${aiTop.map(c => `<li><span>${c.cashtag}</span><span class="tv">${c.ai_score}</span></li>`).join('')}</ul>`,
-    divergence: `<ul class="tile-preview">${divTop.map(c => `<li><span>${c.cashtag}</span>${divergenceCell(c.divergence)}</li>`).join('')}</ul>`,
-    privacy: `<div class="tile-desc">${METRIC_VIEWS.privacy.desc}</div>`,
-    rwu: `<div class="tile-desc">${METRIC_VIEWS.rwu.desc}</div>`,
-    onchain: `<div class="tile-desc">${METRIC_VIEWS.onchain.desc}</div>`,
-    tokenomics: `<div class="tile-desc">${METRIC_VIEWS.tokenomics.desc}</div>`,
-    decentralization: `<div class="tile-desc">${METRIC_VIEWS.decentralization.desc}</div>`,
-    quantum: `<div class="tile-desc">${GATE_DESC.tradfi.quantum_resistance} Grouped by gate state — Pass, Partial, or Fail.</div>`,
-    cost: `<div class="tile-desc">USD cost of one standard native transfer, ranked cheapest to priciest.</div>`,
-    yield: `<div class="tile-desc">Trailing 30-day annualized fee revenue vs. market cap, shown as a price/fee multiple — lower means richer.</div>`
-  };
-
-  grid.innerHTML = ORDER.map(key => {
-    const m = VIEW_META[key];
-    const sizeClass = m.kind === 'medium' ? 'tile-medium' : 'tile-small';
-    return `<div class="tile ${sizeClass}" data-key="${key}">
-      <div class="tile-eyebrow">${m.eyebrow}</div>
-      <div class="tile-title">${m.title}</div>
-      ${bodies[key]}
-    </div>`;
-  }).join('');
-
-  grid.querySelectorAll('.tile').forEach(el => {
-    el.addEventListener('click', () => openView(el.dataset.key));
-  });
-}
-
-function renderRail(activeKey) {
-  const rail = document.getElementById('rail');
-  const items = ORDER.map(key => {
-    const m = VIEW_META[key];
-    return `<button class="rail-item ${key === activeKey ? 'current' : ''}" data-key="${key}"><span class="k">${m.railKey}</span>${m.title}</button>`;
-  }).join('');
-  rail.innerHTML = `<button class="rail-back" id="railBack">← All views</button><div class="rail-div"></div>${items}`;
-  document.getElementById('railBack').addEventListener('click', closeView);
-  rail.querySelectorAll('.rail-item').forEach(btn => {
-    btn.addEventListener('click', () => openView(btn.dataset.key));
-  });
-}
-
-function openBoardView(axisKey) {
-  document.getElementById('rankSubview').style.display = 'none';
-  document.getElementById('boardSubview').style.display = '';
-
-  sortKey = axisKey === 'tradfi' ? 'tradfi_score' : 'ai_score';
-  sortDir = -1;
-  activeTierFilter = null;
-  searchTerm = '';
-  document.getElementById('searchInput').value = '';
-
-  mobileAxis = axisKey;
-  mobileTierFilter = null;
-  mobileSearchTerm = '';
-  document.getElementById('searchInputMobile').value = '';
-  document.getElementById('axisToggle').querySelectorAll('button').forEach(b => b.classList.toggle('active', b.dataset.axis === axisKey));
-  document.getElementById('toggleHint').textContent = axisKey === 'tradfi'
-    ? 'Grouped by TradFi tier. The AI score is shown alongside each chain.'
-    : 'Grouped by AI tier. The TradFi score is shown alongside each chain.';
-
-  if (isMobile()) {
-    document.querySelector('.mobile-only').style.display = '';
-    document.getElementById('tableWrap').style.display = 'none';
-    renderChipsMobile();
-    renderSections();
-  } else {
-    document.getElementById('tableWrap').style.display = '';
-    renderHead();
-    renderChips();
-    renderBody();
-  }
-}
-
-async function openMetricView(key) {
-  const mv = METRIC_VIEWS[key];
-  document.getElementById('boardSubview').style.display = 'none';
-  document.getElementById('rankSubview').style.display = '';
-  const noteEl = document.getElementById('rankNote');
-  noteEl.textContent = mv.desc;
-  noteEl.style.display = '';
-  document.getElementById('rankList').innerHTML = '<div class="rank-loading">Loading chain detail…</div>';
-
-  await fetchAllChains();
-
-  const rows = [];
-  const naRows = [];
-  BOARD.chains.forEach(c => {
-    const detail = CHAIN_CACHE[c.slug];
-    if (!detail) return;
-    const v = metricValue(detail, mv);
-    const note = metricNote(detail, mv);
-    if (v === null || v === undefined) {
-      naRows.push({ slug: c.slug, name: c.name, cashtag: c.cashtag, note });
-    } else {
-      rows.push({ slug: c.slug, name: c.name, cashtag: c.cashtag, v, note });
-    }
-  });
-  rows.sort((a, b) => mv.ascending ? a.v - b.v : b.v - a.v);
-
-  const esc = (s) => (s || '').replace(/"/g, '&quot;');
-  let html = rows.map((r, i) => {
-    const pct = mv.unit === 'score' ? Math.max(2, Math.round(r.v)) : barPercent(r.v, rows, mv);
-    const tooltipPrefix = mv.unit === 'pf' ? `${fmtPct(r.v)} of market cap in annualized fees. ` : '';
-    return `<div class="rank-row" data-slug="${r.slug}" title="${esc(tooltipPrefix + r.note)}">
-      <div class="rank-name"><span class="rank-rank">${i + 1}</span><span class="chain-tag">${r.cashtag}</span>${r.name}</div>
-      <div class="rank-track"><div class="rank-fill" style="width:${pct}%"></div></div>
-      <div class="rank-val">${fmtMetric(r.v, mv)}</div>
-    </div>`;
-  }).join('');
-  html += naRows.map(r => `<div class="rank-row" data-slug="${r.slug}" title="${esc(r.note)}">
-      <div class="rank-name"><span class="rank-rank">—</span><span class="chain-tag">${r.cashtag}</span>${r.name}</div>
-      <div class="rank-track"></div>
-      <div class="rank-val dim">—</div>
-    </div>`).join('');
-
-  document.getElementById('rankList').innerHTML = html;
-  document.getElementById('rankList').querySelectorAll('.rank-row').forEach(row => {
-    row.addEventListener('click', () => openPanel(row.dataset.slug));
-  });
-}
-
-// Divergence needs no chain-detail fetch at all — board.json already carries
-// tradfi_score, ai_score, and divergence per chain, so this is the cheapest
-// view to open of any of them. Sign convention matches the existing board
-// table's Divergence column: positive = TradFi outscores AI, negative = AI
-// outscores TradFi.
-//
-// Sorted as a spectrum (signed value, not magnitude) — strongest TradFi lead
-// at top, through zero, to strongest AI lead at bottom — rather than ranked
-// by gap size, so the list reads as one continuum instead of jumping between
-// directions. The bar itself is a centered diverging bar: TradFi grows left
-// from a zero line, AI grows right, matching TradFi-before-AI order used
-// everywhere else on the site. Direction now reads from bar position and the
-// flanking "TradFi Divergence" / "AI Divergence" labels, not from color — a
-// single neutral brass fill (the shared .rank-fill default) avoids the
-// green/red-implies-good/bad reading a quality-coded color would invite.
-function openDivergenceView() {
-  document.getElementById('boardSubview').style.display = 'none';
-  document.getElementById('rankSubview').style.display = '';
-  const noteEl = document.getElementById('rankNote');
-  noteEl.textContent = 'Divergence is the comparison between our two main TradFi and AI axes. It helps visualize the strength of the chain, whether it\'s a better fit for TradFi adoption or AI readiness.';
-  noteEl.style.display = '';
-
-  const rows = [...BOARD.chains].sort((a, b) => b.divergence - a.divergence);
-  const scaleMax = Math.max(...rows.map(r => Math.abs(r.divergence)), 1e-12);
-
-  // Shortened from "TradFi Divergence"/"AI Divergence": at the 720px mobile
-  // breakpoint the flank grid's middle column narrows enough that the two
-  // labels wrap to two lines each and visually collide with no gap between
-  // them. The view's own note text and the "Score Divergence" title already
-  // establish what's being compared, so the axis name alone reads fine here.
-  const flank = `<div class="divergence-flank"><div></div><div class="split"><span class="side left">TradFi</span><span class="side right">AI</span></div><div></div></div>`;
-
-  const html = flank + rows.map((r, i) => {
-    const halfPct = (Math.abs(r.divergence) / scaleMax) * 50;
-    const style = r.divergence >= 0
-      ? `left:${50 - halfPct}%; width:${halfPct}%;`
-      : `left:50%; width:${halfPct}%;`;
-    const sign = r.divergence > 0 ? '+' : '';
-    return `<div class="rank-row" data-slug="${r.slug}" title="TradFi ${r.tradfi_score} · AI ${r.ai_score}">
-      <div class="rank-name"><span class="rank-rank">${i + 1}</span><span class="chain-tag">${r.cashtag}</span>${r.name}</div>
-      <div class="rank-track diverging"><div class="rank-fill" style="${style}"></div></div>
-      <div class="rank-val">${sign}${r.divergence}</div>
-    </div>`;
-  }).join('');
-
-  document.getElementById('rankList').innerHTML = html;
-  document.getElementById('rankList').querySelectorAll('.rank-row').forEach(row => {
-    row.addEventListener('click', () => openPanel(row.dataset.slug));
-  });
-}
-
-// Generic gate-status view. Unlike the category/metric tiles (a continuous
-// 0-100 score) or Divergence (a signed number with a natural zero line), a
-// gate is a three-state field — Pass / Partial / Fail — so there's no
-// meaningful bar length to draw. Chains are grouped by state instead,
-// mirroring why the mobile board view groups by tier rather than drawing a
-// bar for a discrete field. Reuses gateStateLabel() and GATE_DESC, both
-// already defined below for the chain-detail panel's own gate pills, so
-// this view's labels and description text stay in sync with the panel's
-// automatically. A chain with no recorded state for this gate is bucketed
-// under 'unknown' rather than silently dropped, same convention as the
-// metric-tile views' null-value rows.
-async function openGateView(key) {
-  const gv = GATE_VIEWS[key];
-  document.getElementById('boardSubview').style.display = 'none';
-  document.getElementById('rankSubview').style.display = '';
-  const noteEl = document.getElementById('rankNote');
-  noteEl.style.display = '';
-  document.getElementById('rankList').innerHTML = '<div class="rank-loading">Loading chain detail…</div>';
-
-  await fetchAllChains();
-
-  noteEl.textContent = `${GATE_DESC[gv.axis][gv.gateKey]} Chains are grouped by gate state — Pass, Partial, or Fail.`;
-
-  const groups = { pass: [], partial: [], fail: [], unknown: [] };
-  BOARD.chains.forEach(c => {
-    const detail = CHAIN_CACHE[c.slug];
-    if (!detail) return;
-    const gates = detail[gv.axis] && detail[gv.axis].gates;
-    const state = (gates && gates[gv.gateKey]) || 'unknown';
-    (groups[state] || groups.unknown).push(c);
-  });
-
-  // Alphabetical by name, not score: this list shows no score next to each
-  // chain, so a score-based order isn't legible to a viewer and reads as
-  // arbitrary. A-Z is self-evidently ordered and makes a specific chain
-  // easy to find within a group, which matters most for the larger groups.
-  GATE_STATE_ORDER.forEach(state => groups[state].sort((a, b) => a.name.localeCompare(b.name)));
-
-  const html = GATE_STATE_ORDER.filter(state => groups[state].length).map(state => {
-    const st = gateGroupStyle(state);
-    const rows = groups[state].map(c => `<div class="gate-chain-row" data-slug="${c.slug}">
-      <span class="gate-chain-name"><span class="chain-tag">${c.cashtag}</span>${c.name}</span>
-    </div>`).join('');
-    return `<div class="gate-group" style="${st.box}">
-      <div class="gate-group-head">
-        <span class="gate-group-dot" style="${st.dot}"></span>
-        <span class="gate-group-name" style="${st.name}">${gateStateLabel(state)}</span>
-        <span class="gate-group-count">${groups[state].length}</span>
-      </div>
-      <div class="gate-group-rows">${rows}</div>
-    </div>`;
-  }).join('');
-
-  document.getElementById('rankList').innerHTML = html;
-  document.getElementById('rankList').querySelectorAll('.gate-chain-row').forEach(row => {
-    row.addEventListener('click', () => openPanel(row.dataset.slug));
-  });
-}
-
-async function openView(key) {
-  if (!VIEW_META[key]) return;
-  document.getElementById('gridView').style.display = 'none';
-  document.getElementById('activeView').classList.add('open');
-  renderRail(key);
-  document.getElementById('activeTitle').textContent = VIEW_META[key].title;
-  history.replaceState(null, '', '#view=' + key);
-  window.scrollTo({ top: 0, behavior: 'smooth' });
-
-  if (key === 'tradfi' || key === 'ai') {
-    openBoardView(key);
-  } else if (key === 'divergence') {
-    openDivergenceView();
-  } else if (GATE_VIEWS[key]) {
-    await openGateView(key);
-  } else {
-    await openMetricView(key);
-  }
-}
-
-function closeView() {
-  document.getElementById('activeView').classList.remove('open');
-  document.getElementById('gridView').style.display = '';
-  history.replaceState(null, '', location.pathname);
-}
-
-function tierBadge(code) {
-  const t = tierMap[code];
-  const color = t.color_dark;
-  return `<span class="tier-badge" style="border-color:${color}55;color:${color}">
-    <span class="tier-dot" style="background:${color}"></span>${code}
-    <span class="tooltip">${t.name} · ${t.min}–${t.max}</span>
-  </span>`;
-}
-
-function capFlag(axis) {
-  const note = axis === 'tradfi'
-    ? 'Score capped by a TradFi foundation gate'
-    : 'Score capped by an AI foundation gate';
-  return `<span class="cap-flag">CAP<span class="tooltip">${note}</span></span>`;
-}
-
-function divergenceCell(d) {
-  const cls = d > 0 ? 'div-pos' : d < 0 ? 'div-neg' : 'div-zero';
-  const sign = d > 0 ? '+' : '';
-  return `<span class="divergence-cell ${cls}">${sign}${d}</span>`;
-}
-
-function renderHead() {
-  const tr = document.getElementById('tableHead');
-  tr.innerHTML = COLUMNS.map(c => {
-    const cls = ['num','center'].includes(c.align) ? c.align : '';
-    const sorted = c.sortable && c.key === sortKey ? 'sorted' : '';
-    const arrow = c.sortable && c.key === sortKey ? `<span class="arrow">${sortDir === 1 ? '▲' : '▼'}</span>` : '';
-    return `<th class="${cls} ${sorted}" data-key="${c.key}" data-sortable="${c.sortable}">${c.label}${arrow}</th>`;
-  }).join('');
-
-  tr.querySelectorAll('th').forEach(th => {
-    if (th.dataset.sortable === 'true') {
-      th.addEventListener('click', () => {
-        const key = th.dataset.key;
-        if (sortKey === key) { sortDir *= -1; }
-        else { sortKey = key; sortDir = -1; }
-        renderHead();
-        renderBody();
-      });
-    }
-  });
-}
-
-function getFiltered() {
-  let rows = BOARD.chains.slice();
-  if (activeTierFilter) {
-    rows = rows.filter(r => r.tradfi_tier === activeTierFilter || r.ai_tier === activeTierFilter);
-  }
-  if (searchTerm) {
-    const s = searchTerm.toLowerCase();
-    rows = rows.filter(r => r.name.toLowerCase().includes(s) || r.ticker.toLowerCase().includes(s) || r.cashtag.toLowerCase().includes(s));
-  }
-  return rows;
-}
-
-function renderBody() {
-  let rows = getFiltered();
-
-  rows.sort((a, b) => {
-    let av = sortKey === 'chain' ? a.name : a[sortKey];
-    let bv = sortKey === 'chain' ? b.name : b[sortKey];
-    if (typeof av === 'string') { av = av.toLowerCase(); bv = bv.toLowerCase(); }
-    if (av < bv) return -1 * sortDir;
-    if (av > bv) return 1 * sortDir;
-    return 0;
-  });
-
-  const tbody = document.getElementById('tableBody');
-  tbody.innerHTML = rows.map(r => `
-    <tr data-slug="${r.slug}">
-      <td>
-        <div class="chain-cell">
-          <span class="chain-dot"></span>
-          <span class="chain-name">${r.name}</span>
-          <span class="chain-tag">${r.cashtag}</span>
-        </div>
-      </td>
-      <td class="num">
-        <div class="score-cell">
-          <span class="score-num">${r.tradfi_score}</span>
-          <span class="cap-slot">${r.tradfi_capped ? capFlag('tradfi') : ''}</span>
-        </div>
-      </td>
-      <td class="center">${tierBadge(r.tradfi_tier)}</td>
-      <td class="num">
-        <div class="score-cell">
-          <span class="score-num">${r.ai_score}</span>
-          <span class="cap-slot">${r.ai_capped ? capFlag('ai') : ''}</span>
-        </div>
-      </td>
-      <td class="center">${tierBadge(r.ai_tier)}</td>
-      <td class="num">${divergenceCell(r.divergence)}</td>
-      <td style="color:var(--text-dim);font-family:'IBM Plex Mono',monospace;font-size:13.5px;">${r.last_updated}</td>
-    </tr>
-  `).join('');
-
-  document.getElementById('rowCount').textContent = `Showing ${rows.length} of ${BOARD.chains.length} chains`;
-
-  tbody.querySelectorAll('tr').forEach(tr => {
-    tr.addEventListener('click', () => openPanel(tr.dataset.slug));
-  });
-}
-
-function renderChips() {
-  const allTiers = [...BOARD.tiers.tradfi, ...BOARD.tiers.ai];
-  const seen = new Set();
-  const unique = allTiers.filter(t => { if (seen.has(t.code)) return false; seen.add(t.code); return true; });
-
-  const container = document.getElementById('tierChips');
-  let html = `<button class="chip ${activeTierFilter === null ? 'active' : ''}" data-code="">All tiers</button>`;
-  html += unique.map(t => `<button class="chip ${activeTierFilter === t.code ? 'active' : ''}" data-code="${t.code}">${t.code}</button>`).join('');
-  container.innerHTML = html;
-
-  container.querySelectorAll('.chip').forEach(btn => {
-    btn.addEventListener('click', () => {
-      activeTierFilter = btn.dataset.code || null;
-      renderChips();
-      renderBody();
-    });
-  });
-}
-
-document.getElementById('searchInput').addEventListener('input', (e) => {
-  searchTerm = e.target.value;
-  renderBody();
-});
-
-document.getElementById('brandHome').addEventListener('click', () => {
-  closeView();
-  window.scrollTo({ top: 0, behavior: 'smooth' });
-});
-
-document.getElementById('shareBtn').addEventListener('click', async () => {
-  const url = location.origin + location.pathname + location.hash;
-  const btn = document.getElementById('shareBtn');
-  try {
-    await navigator.clipboard.writeText(url);
-    btn.textContent = 'Link copied';
-    btn.classList.add('copied');
-    setTimeout(() => { btn.textContent = 'Copy share link'; btn.classList.remove('copied'); }, 1600);
-  } catch (err) {
-    alert(url);
-  }
-});
-
-
-/* ---------- Mobile board rendering (shares BOARD data + tierMap with desktop) ---------- */
-
-let mobileAxis = 'tradfi';
-let mobileTierFilter = null;
-let mobileSearchTerm = '';
-
-function getFilteredMobile() {
-  let rows = BOARD.chains.slice();
-  if (mobileTierFilter) {
-    const key = mobileAxis === 'tradfi' ? 'tradfi_tier' : 'ai_tier';
-    rows = rows.filter(r => r[key] === mobileTierFilter);
-  }
-  if (mobileSearchTerm) {
-    const s = mobileSearchTerm.toLowerCase();
-    rows = rows.filter(r => r.name.toLowerCase().includes(s) || r.ticker.toLowerCase().includes(s) || r.cashtag.toLowerCase().includes(s));
-  }
-  return rows;
-}
-
-function renderChipsMobile() {
-  const tiers = mobileAxis === 'tradfi' ? BOARD.tiers.tradfi : BOARD.tiers.ai;
-  const container = document.getElementById('tierChipsMobile');
-  let html = `<button class="chip ${mobileTierFilter === null ? 'active' : ''}" data-code="">All</button>`;
-  html += tiers.map(t => `<button class="chip ${mobileTierFilter === t.code ? 'active' : ''}" data-code="${t.code}">${t.code}</button>`).join('');
-  container.innerHTML = html;
-  container.querySelectorAll('.chip').forEach(btn => {
-    btn.addEventListener('click', () => {
-      mobileTierFilter = btn.dataset.code || null;
-      renderChipsMobile();
-      renderSections();
-    });
-  });
-}
-
-function renderSections() {
-  const rows = getFilteredMobile();
-  const tierKey = mobileAxis === 'tradfi' ? 'tradfi_tier' : 'ai_tier';
-  const tiers = mobileAxis === 'tradfi' ? BOARD.tiers.tradfi : BOARD.tiers.ai;
-
-  const container = document.getElementById('tierSections');
-  let html = '';
-
-  tiers.forEach(tier => {
-    const inTier = rows.filter(r => r[tierKey] === tier.code)
-      .sort((a, b) => {
-        const primaryKey = mobileAxis === 'tradfi' ? 'tradfi_score' : 'ai_score';
-        return b[primaryKey] - a[primaryKey];
-      });
-    if (inTier.length === 0) return;
-
-    html += `<div class="tier-section">
-      <div class="tier-section-head">
-        <span class="tier-dot-lg" style="background:${tier.color_dark}"></span>
-        <span class="tier-section-name" style="color:${tier.color_dark}">${tier.name}</span>
-        <span class="tier-section-range">${tier.min}–${tier.max}</span>
-      </div>`;
-
-    inTier.forEach(r => {
-      const aiColor = mobileAxis === 'ai' ? tier.color_dark : 'var(--ivory)';
-      const tradfiColor = mobileAxis === 'tradfi' ? tier.color_dark : 'var(--ivory)';
-
-      html += `<div class="chain-row" data-slug="${r.slug}">
-        <div class="chain-info">
-          <span class="chain-name">${r.name}</span><span class="chain-tag">${r.cashtag}</span>
-        </div>
-        <div class="chain-scores">
-          <div class="score-block">
-            <div class="score-block-label">TRADFI</div>
-            <div class="score-block-num" style="color:${tradfiColor}">${r.tradfi_score}</div>
-          </div>
-          <div class="score-block">
-            <div class="score-block-label">AI</div>
-            <div class="score-block-num" style="color:${aiColor}">${r.ai_score}</div>
-          </div>
-        </div>
-      </div>`;
-    });
-
-    html += `</div>`;
-  });
-
-  container.innerHTML = html;
-  document.getElementById('rowCountMobile').textContent = `Showing ${rows.length} of ${BOARD.chains.length} chains`;
-
-  container.querySelectorAll('.chain-row').forEach(row => {
-    row.addEventListener('click', () => openPanel(row.dataset.slug));
-  });
-}
-
-document.getElementById('axisToggle').querySelectorAll('button').forEach(btn => {
-  btn.addEventListener('click', () => {
-    mobileAxis = btn.dataset.axis;
-    document.getElementById('axisToggle').querySelectorAll('button').forEach(b => b.classList.remove('active'));
-    btn.classList.add('active');
-    document.getElementById('toggleHint').textContent = mobileAxis === 'tradfi'
-      ? 'Grouped by TradFi tier. The AI score is shown alongside each chain.'
-      : 'Grouped by AI tier. The TradFi score is shown alongside each chain.';
-    mobileTierFilter = null;
-    renderChipsMobile();
-    renderSections();
-  });
-});
-
-document.getElementById('searchInputMobile').addEventListener('input', (e) => {
-  mobileSearchTerm = e.target.value;
-  renderSections();
-});
-
-function isMobile() {
-  return window.matchMedia('(max-width: 720px)').matches;
-}
-
-async function initBoard() {
-  try {
-    const res = await fetch('data/board.json');
-    if (!res.ok) throw new Error(`board.json fetch failed: ${res.status}`);
-    BOARD = await res.json();
-
-    BOARD.tiers.tradfi.forEach(t => tierMap[t.code] = t);
-    BOARD.tiers.ai.forEach(t => tierMap[t.code] = t);
-
-    document.getElementById('metaLine').textContent = `updated ${BOARD.meta.last_updated}`;
-    document.getElementById('loadingState').style.display = 'none';
-
-    renderGrid();
-    document.getElementById('gridView').style.display = '';
-
-    const hashMatch = location.hash.match(/view=([a-z]+)/);
-    if (hashMatch && VIEW_META[hashMatch[1]]) {
-      await openView(hashMatch[1]);
-    }
-  } catch (err) {
-    document.getElementById('loadingState').textContent = 'Could not load board data. Please refresh the page.';
-    console.error(err);
-  }
-}
-
-initBoard();
-
-let lastKnownMode = null;
-window.addEventListener('resize', () => {
-  if (!BOARD) return;
-  const nowMobile = isMobile();
-  if (lastKnownMode === null) { lastKnownMode = nowMobile; return; }
-  if (nowMobile === lastKnownMode) return;
-  lastKnownMode = nowMobile;
-
-  // The tile grid and rail are pure CSS across the 720px breakpoint — nothing
-  // to re-render there. Only the board sub-view (sortable table vs. tier-
-  // grouped sections) needs its own JS render on each side, and only if it's
-  // the one currently visible inside an open view.
-  const viewOpen = document.getElementById('activeView').classList.contains('open');
-  const boardVisible = viewOpen && document.getElementById('boardSubview').style.display !== 'none';
-  if (!boardVisible) return;
-
-  if (nowMobile) {
-    document.getElementById('tableWrap').style.display = 'none';
-    document.querySelector('.mobile-only').style.display = '';
-    renderChipsMobile();
-    renderSections();
-  } else {
-    document.querySelector('.mobile-only').style.display = 'none';
-    document.getElementById('tableWrap').style.display = '';
-    renderHead();
-    renderChips();
-    renderBody();
-  }
-});
-
-/* ---------- Slide-out panel logic ---------- */
-
+const CHAIN_CACHE = {};
+const MAP_LIMIT = 20;    // the map shows the top 20 chains by TradFi rating
+const RANK_LIMIT = 100;  // Rankings lists up to 100 chains per lens
+
+// CoinGecko / CoinMarketCap URL slugs. A new chain needs an entry here for
+// its Learn more links; a missing entry no longer breaks anything, the
+// links are simply left out.
 const EXTERNAL_SLUGS = {"btc":{"cg":"bitcoin","cmc":"bitcoin"},"eth":{"cg":"ethereum","cmc":"ethereum"},"sol":{"cg":"solana","cmc":"solana"},"sui":{"cg":"sui","cmc":"sui"},"xrp":{"cg":"xrp","cmc":"xrp"},"bnb":{"cg":"bnb","cmc":"bnb"},"cc":{"cg":"canton","cmc":"canton"},"hype":{"cg":"hyperliquid","cmc":"hyperliquid"},"avax":{"cg":"avalanche","cmc":"avalanche"},"mon":{"cg":"monad","cmc":"monad"},"tron":{"cg":"tron","cmc":"tron"},"wbt":{"cg":"whitebit","cmc":"whitebit-token"},"ada":{"cg":"cardano","cmc":"cardano"},"doge":{"cg":"dogecoin","cmc":"dogecoin"},"zec":{"cg":"zcash","cmc":"zcash"},"xlm":{"cg":"stellar","cmc":"stellar"},"bch":{"cg":"bitcoin-cash","cmc":"bitcoin-cash"},"ltc":{"cg":"litecoin","cmc":"litecoin"}};
-
-// Fallback for a chain with no live CoinGecko/CoinMarketCap listing yet (e.g. ARC:
-// its ticker collides with an unrelated project on both trackers). Points Learn More
-// at the chain's own official site instead of a broken or misleading market-data link.
+// For a chain with no live market listing yet (ARC's ticker collides with an
+// unrelated project on both trackers): link the chain's own site instead.
 const NO_MARKET_FALLBACK = {"arc":{"label":"arc.io","url":"https://www.arc.io/"}};
 
+const GATE_LABELS = {
+  tradfi: { quantum_resistance: 'Quantum Resistance', regulatory_clarity: 'Regulatory Clarity', security_posture: 'Security Posture' },
+  ai: { deterministic_finality: 'Deterministic Finality', programmability_tier: 'Programmability Tier', operational_reliability: 'Operational Reliability' }
+};
 const GATE_DESC = {
   tradfi: {
     quantum_resistance: 'Whether the chain has a real plan to migrate off cryptography that quantum computers could eventually break.',
@@ -1896,218 +625,619 @@ const GATE_DESC = {
     security_posture: 'Audit depth, bug bounty coverage, clean exploit history, and battle-testing over time.'
   },
   ai: {
-    deterministic_finality: 'How fast and how certain settlement is — can an agent trust a transaction is final, and how long does it take?',
+    deterministic_finality: 'How fast and how certain settlement is: can an agent trust a transaction is final, and how long does it take?',
     programmability_tier: 'How much custom logic an agent can actually deploy and run on this chain today.',
-    operational_reliability: 'Recent uptime history — has the chain had a qualifying halt or partition, and how long ago.'
+    operational_reliability: 'Recent uptime history: has the chain had a qualifying halt or partition, and how long ago.'
   }
 };
-
 const CATEGORY_DESC = {
   tradfi: {
-    on_chain_health: 'Real economic activity — users, transactions, fees, value flowing through the network.',
-    tradfi_approved: 'Institutional access already live — ETFs, custody, bank charters, regulated venues.',
-    real_world_utility: 'Actual usage today — payments, settlement, tokenization — not potential use cases.',
-    tokenomics_supply: 'Supply structure — caps, emission schedule, insider allocation, concentration.',
+    on_chain_health: 'Real economic activity: users, transactions, fees and value moving through the chain.',
+    tradfi_approved: 'Institutional access already live: ETFs, custody, bank charters and regulated venues.',
+    real_world_utility: 'Actual usage today: payments, settlement and tokenization. Potential use cases earn nothing.',
+    tokenomics_supply: 'Supply structure: caps, emission schedule, insider allocation and concentration.',
     developer_ecosystem: 'Native developer activity and ecosystem depth built directly on this chain.',
-    regulatory_risk: 'Regulatory standing, litigation exposure, and single-entity dependency risk.',
-    privacy_confidentiality: 'The chain\'s capability to keep transaction detail confidential, and how strong that capability is in practice. A network property, not a promise about any individual holding.',
-    decentralization: 'Validator and node distribution, consensus openness, client diversity.',
+    regulatory_risk: 'Regulatory standing, litigation exposure and single-entity dependency risk.',
+    privacy_confidentiality: 'The chain’s ability to keep transaction detail confidential, and how strong that is in practice. A property of the chain, not a promise about any individual holding.',
+    decentralization: 'Validator and node distribution, consensus openness and client diversity.',
     security_future_proofing: 'Security track record and forward-looking resilience beyond the base gate check.'
   },
   ai: {
-    execution_layer: 'Finality speed, fee level, and throughput — execution quality while the chain is running.',
-    composability_atomicity: 'Whether multi-step actions can settle atomically, all-or-nothing, in one go.',
-    security_posture: 'Protocol-level exploit history, language safety, and audit depth on the AI axis.',
+    execution_layer: 'Finality speed, fee level and throughput: execution quality while the chain is running.',
+    composability_atomicity: 'Whether multi-step actions can settle atomically, all or nothing, in one go.',
+    security_posture: 'Protocol-level exploit history, language safety and audit depth on the AI axis.',
     state_api_quality: 'RPC reliability, indexer maturity, and how easily an agent can read chain state.',
-    privacy_confidentiality: 'Whether transactions and state can be kept confidential, not fully public by default.',
-    economic_predictability: 'Fee variance and MEV exposure — can an agent predict what an action will cost?',
-    agent_tooling: 'SDKs, simulation tools, and agent-native infrastructure available today.',
+    privacy_confidentiality: 'Whether transactions and state can be kept confidential rather than fully public by default.',
+    economic_predictability: 'Fee variance and MEV exposure: can an agent predict what an action will cost?',
+    agent_tooling: 'SDKs, simulation tools and agent-native infrastructure available today.',
     standards_interoperability: 'Native account abstraction and cross-chain messaging support.',
-    kya: 'Agent identity, human-binding, scoped permissions, and revocation support.'
+    kya: 'Agent identity, human binding, scoped permissions and revocation support.'
   }
 };
 
-const GATE_LABELS = {
-  tradfi: {
-    quantum_resistance: 'Quantum Resistance',
-    regulatory_clarity: 'Regulatory Clarity',
-    security_posture: 'Security Posture'
-  },
-  ai: {
-    deterministic_finality: 'Deterministic Finality',
-    programmability_tier: 'Programmability Tier',
-    operational_reliability: 'Operational Reliability'
+// Ranking lenses. A new category, gate or tile metric is one entry here.
+const LENSES = [
+  { key: 'both', group: 'Ratings', label: 'Both ratings', kind: 'both',
+    desc: 'Each chain’s TradFi and AI ratings on one 0–100 line. Filled dot is TradFi, open dot is AI, and the bar between them is the split.' },
+  { key: 'privacy', group: 'TradFi categories', label: 'Privacy & Confidentiality', kind: 'score', axis: 'tradfi', cat: 'privacy_confidentiality' },
+  { key: 'rwu', group: 'TradFi categories', label: 'Real-World Utility', kind: 'score', axis: 'tradfi', cat: 'real_world_utility' },
+  { key: 'onchain', group: 'TradFi categories', label: 'On-Chain Health', kind: 'score', axis: 'tradfi', cat: 'on_chain_health' },
+  { key: 'tokenomics', group: 'TradFi categories', label: 'Tokenomics & Supply', kind: 'score', axis: 'tradfi', cat: 'tokenomics_supply' },
+  { key: 'decentralization', group: 'TradFi categories', label: 'Decentralization', kind: 'score', axis: 'tradfi', cat: 'decentralization' },
+  { key: 'quantum', group: 'Gates', label: 'Quantum Resistance', kind: 'gate', axis: 'tradfi', gate: 'quantum_resistance' },
+  { key: 'cost', group: 'Extra data', label: 'Cheapest Tx Cost', kind: 'extra', field: 'cheapest_tx_cost_usd', noteField: 'cheapest_tx_cost_note', ascending: true, fmt: 'usd',
+    desc: 'USD cost of one standard native transfer at the current floor fee. Cheapest first. Bars use a log scale because costs span several orders of magnitude.' },
+  { key: 'yield', group: 'Extra data', label: 'Fee Yield (Price/Fee)', kind: 'extra', field: 'fee_yield_pct', noteField: 'fee_yield_note', ascending: false, fmt: 'pf',
+    desc: 'Market cap divided by annualized 30-day fee revenue. A lower multiple means the market prices the chain closer to the fees it already earns. Displayed data, never scored.' }
+];
+LENSES.forEach((l) => {
+  if (!l.desc && l.kind === 'score') l.desc = CATEGORY_DESC[l.axis][l.cat] + ' TradFi category score, 0–100.';
+  if (!l.desc && l.kind === 'gate') l.desc = GATE_DESC[l.axis][l.gate] + ' Pass, partial or fail is a state rather than a magnitude, so chains are grouped rather than ranked.';
+});
+// Old tile keys from the #view= era
+const OLD_VIEWS = { tradfi: ['both', 'tradfi'], ai: ['both', 'ai'], divergence: ['both', 'split'] };
+
+const state = { lens: 'both', sort: 'tradfi', sel: null, homeScroll: 0 };
+
+/* ---------------- helpers ---------------- */
+const $ = (id) => document.getElementById(id);
+function esc(s) { return String(s == null ? '' : s).replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c])); }
+// Public copy never uses em dashes (brand rule). Chain files still carry
+// " -- " in places; render those as commas until the files are cleaned.
+function clean(s) { return String(s == null ? '' : s).replace(/\s+--\s+/g, ', ').replace(/\s*—\s*/g, ', '); }
+function cleanNote(s) { return String(s == null ? '' : s).replace(/\s+--\s+/, ': ').replace(/\s+--\s+/g, ', '); }
+function signed(d) { return d > 0 ? '+' + d : d < 0 ? '−' + Math.abs(d) : '0'; }
+const MONTHS = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+function fmtDay(iso) { const m = /^(\d{4})-(\d{2})-(\d{2})/.exec(iso || ''); return m ? `${+m[3]} ${MONTHS[+m[2] - 1]} ${m[1]}` : esc(iso); }
+function fmtDayShort(iso) { const m = /^(\d{4})-(\d{2})-(\d{2})/.exec(iso || ''); return m ? `${m[3]} ${MONTHS[+m[2] - 1].toUpperCase()}` : esc(iso); }
+function fmtMonths(s) { return esc(String(s || '').replace(/(\d{4})-(\d{2})(?!-\d)/g, (_, y, mo) => `${MONTHS[+mo - 1]} ${y}`)); }
+function fmtCost(v) { if (v === 0) return '$0'; const a = Math.abs(v); const d = a >= 1 ? 2 : a >= 0.01 ? 4 : a >= 0.0001 ? 6 : 8; return '$' + v.toFixed(d).replace(/0+$/, '').replace(/\.$/, ''); }
+function fmtPF(v) { const m = 100 / v; return m < 20 ? m.toFixed(1) + 'x' : Math.round(m).toLocaleString('en-US') + 'x'; }
+function fmtPct(v) { const a = Math.abs(v); const d = a >= 1 ? 2 : a >= 0.01 ? 3 : a >= 0.001 ? 4 : 5; return v.toFixed(d).replace(/0+$/, '').replace(/\.$/, '') + '%'; }
+function tiers(axis) { return BOARD.tiers[axis]; }
+function tierOf(axis, code) { const i = tiers(axis).findIndex((t) => t.code === code); return { i: Math.max(0, i), t: tiers(axis)[Math.max(0, i)] }; }
+function tierForScore(axis, v) { const list = tiers(axis); const i = list.findIndex((t) => v >= t.min && v <= t.max); const k = i < 0 ? list.length - 1 : i; return { i: k, t: list[k] }; }
+function chainBy(slug) { return BOARD.chains.find((c) => c.slug === slug); }
+function isNarrow() { return window.matchMedia('(max-width: 720px)').matches; }
+
+async function fetchChain(slug) {
+  if (CHAIN_CACHE[slug]) return CHAIN_CACHE[slug];
+  const row = chainBy(slug);
+  const res = await fetch(row ? row.detail_url : `data/chains/${slug}.json`);
+  if (!res.ok) throw new Error(`chain ${slug}: ${res.status}`);
+  CHAIN_CACHE[slug] = await res.json();
+  return CHAIN_CACHE[slug];
+}
+async function fetchAllChains() {
+  await Promise.all(BOARD.chains.filter((c) => !CHAIN_CACHE[c.slug]).map((c) => fetchChain(c.slug).catch((e) => console.error(e))));
+}
+
+/* ---------------- theme ---------------- */
+function applyThemeMeta() {
+  const t = document.documentElement.getAttribute('data-theme');
+  const btn = $('themeToggle');
+  btn.setAttribute('aria-label', t === 'dark' ? 'Switch to light mode' : 'Switch to dark mode');
+  btn.title = btn.getAttribute('aria-label');
+  document.querySelector('meta[name="theme-color"]').setAttribute('content', t === 'dark' ? '#0B1220' : '#F4F1E9');
+}
+$('themeToggle').addEventListener('click', () => {
+  const next = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+  document.documentElement.setAttribute('data-theme', next);
+  try { localStorage.setItem('cs-theme', next); } catch (e) {}
+  applyThemeMeta();
+});
+if (window.matchMedia) {
+  const mq = window.matchMedia('(prefers-color-scheme: light)');
+  const follow = (e) => {
+    let stored = null; try { stored = localStorage.getItem('cs-theme'); } catch (err) {}
+    if (stored !== 'light' && stored !== 'dark') { document.documentElement.setAttribute('data-theme', e.matches ? 'light' : 'dark'); applyThemeMeta(); }
+  };
+  if (mq.addEventListener) mq.addEventListener('change', follow);
+}
+applyThemeMeta();
+
+/* ---------------- map ---------------- */
+function mappedChains() {
+  return [...BOARD.chains].sort((a, b) => b.tradfi_score - a.tradfi_score || b.ai_score - a.ai_score).slice(0, MAP_LIMIT);
+}
+
+// Greedy label placement: each label tries eight positions around its dot
+// and takes the one that overlaps least with dots, placed labels and the
+// plot edge. IBM Plex Mono is monospaced, so label width is exact.
+function placeLabels(pts, P, fs, rightRoom) {
+  const cw = fs * 0.6, h = fs + 2, r = fs <= 10 ? 5 : 7;
+  const boxes = [];
+  const dotBoxes = pts.map((p) => ({ x: p.x - r, y: p.y - r, w: 2 * r, h: 2 * r }));
+  const ov = (a, b) => Math.max(0, Math.min(a.x + a.w, b.x + b.w) - Math.max(a.x, b.x)) * Math.max(0, Math.min(a.y + a.h, b.y + b.h) - Math.max(a.y, b.y));
+  const order = pts.map((p, i) => ({ i, crowd: pts.filter((q) => Math.hypot(q.x - p.x, q.y - p.y) < 60).length })).sort((a, b) => b.crowd - a.crowd).map((o) => o.i);
+  order.forEach((i) => {
+    const p = pts[i], w = p.text.length * cw;
+    const cands = [
+      [p.x + r + 4, p.y - h / 2], [p.x - r - 4 - w, p.y - h / 2], [p.x - w / 2, p.y - r - 3 - h], [p.x - w / 2, p.y + r + 3],
+      [p.x + r, p.y - r - h + 1], [p.x + r, p.y + r - 1], [p.x - r - w, p.y - r - h + 1], [p.x - r - w, p.y + r - 1]
+    ];
+    let best = null, bestScore = Infinity;
+    cands.forEach(([x, y], k) => {
+      const b = { x, y, w, h };
+      let s = k * 0.5;
+      boxes.forEach((o) => { s += ov(b, o) * 40; });
+      dotBoxes.forEach((o, j) => { if (j !== i) s += ov(b, o) * 60; });
+      const outL = Math.max(0, -x), outR = Math.max(0, x + w - (P + rightRoom)), outT = Math.max(0, -y), outB = Math.max(0, y + h - P);
+      s += (outL + outR + outT + outB) * h * 60;
+      if (s < bestScore) { bestScore = s; best = b; }
+    });
+    boxes.push(best);
+    p.lx = best.x; p.ly = best.y;
+  });
+}
+
+function renderMap() {
+  const col = $('mapCol');
+  const W = Math.min(684, col.clientWidth || 684);
+  const narrow = isNarrow();
+  const AX = narrow ? 32 : 44, TOP = narrow ? 22 : 28, RIGHT = narrow ? 6 : 40, fs = narrow ? 10 : 11;
+  const P = Math.max(220, Math.min(600, W - AX - RIGHT));
+  const H = TOP + P + (narrow ? 58 : 72);
+  const chains = mappedChains();
+  if (!state.sel || !chains.some((c) => c.slug === state.sel)) {
+    const widest = [...chains].sort((a, b) => Math.abs(b.divergence) - Math.abs(a.divergence))[0];
+    state.sel = widest ? widest.slug : null;
   }
-};
-
-function gateStateLabel(state) {
-  return { pass: 'Pass', partial: 'Partial', fail: 'Fail', unknown: 'Unverified' }[state] || state;
+  const all = chains.flatMap((c) => [c.tradfi_score, c.ai_score]);
+  const lo = Math.min(20, Math.floor(Math.min(...all) / 10) * 10), hi = Math.max(90, Math.ceil(Math.max(...all) / 10) * 10);
+  const S = P / (hi - lo);
+  const X = (v) => (v - lo) * S, Y = (v) => (hi - v) * S;
+  let html = '';
+  html += `<span class="ax-title" style="left:0;top:0">AI RATING ↑</span>`;
+  html += `<span class="ax-title" style="left:${AX}px;top:${TOP + P + (narrow ? 40 : 48)}px;width:${P}px;text-align:center">TRADFI RATING →</span>`;
+  const bandsFor = (axis) => tiers(axis).map((t, i) => ({ i, code: t.code, a: Math.max(t.min, lo), b: Math.min(t.max + 1, hi) })).filter((x) => x.b > x.a);
+  // AI bands up the left edge
+  const stripX = AX - (narrow ? 10 : 14), sw = narrow ? 5 : 6;
+  bandsFor('ai').forEach((bd) => {
+    const y1 = Y(bd.b), y2 = Y(bd.a);
+    html += `<div class="strip" style="left:${stripX}px;top:${TOP + y1 + 1}px;width:${sw}px;height:${Math.max(0, y2 - y1 - 2)}px;background:var(--b${bd.i})"></div>`;
+    if (y2 - y1 >= 18) html += `<span class="code t${bd.i}" style="left:0;top:${TOP + (y1 + y2) / 2 - 7}px">${esc(bd.code)}</span>`;
+  });
+  // TradFi bands along the bottom
+  bandsFor('tradfi').forEach((bd) => {
+    const x1 = X(bd.a), x2 = X(bd.b);
+    html += `<div class="strip" style="left:${AX + x1 + 1}px;top:${TOP + P + 6}px;width:${Math.max(0, x2 - x1 - 2)}px;height:${sw}px;background:var(--b${bd.i})"></div>`;
+    if (x2 - x1 >= 24) html += `<span class="code t${bd.i}" style="left:${AX + x1}px;top:${TOP + P + 18}px;width:${x2 - x1}px;text-align:center">${esc(bd.code)}</span>`;
+  });
+  html += `<div class="plot" style="left:${AX}px;top:${TOP}px;width:${P}px;height:${P}px">`;
+  tiers('tradfi').forEach((t) => { if (t.min > lo && t.min < hi) { const x = X(t.min); html += `<div class="gl" style="left:${x}px;top:0;width:1px;height:${P - 2}px"></div>${narrow ? '' : `<span class="tick" style="left:${x + 4}px;top:${P - 20}px">${t.min}</span>`}`; } });
+  tiers('ai').forEach((t) => { if (t.min > lo && t.min < hi) { const y = Y(t.min); html += `<div class="gl" style="left:0;top:${y}px;width:${P - 2}px;height:1px"></div>${narrow ? '' : `<span class="tick" style="left:6px;top:${y - 14}px">${t.min}</span>`}`; } });
+  html += `<svg width="${P - 2}" height="${P - 2}" viewBox="0 0 ${P - 2} ${P - 2}" style="position:absolute;left:0;top:0" aria-hidden="true"><line x1="${X(lo)}" y1="${Y(lo)}" x2="${X(hi)}" y2="${Y(hi)}" style="stroke:var(--diag)" stroke-width="1" stroke-dasharray="4 6"/></svg>`;
+  html += `<span class="region" style="left:${narrow ? 10 : 24}px;top:${narrow ? 10 : 22}px">AI LEADS</span>`;
+  html += `<span class="region" style="right:${narrow ? 10 : 24}px;bottom:${narrow ? 12 : 30}px">TRADFI LEADS</span>`;
+  html += `</div>`;
+  const pts = chains.map((c) => ({ c, x: X(Math.max(lo, Math.min(hi, c.tradfi_score))), y: Y(Math.max(lo, Math.min(hi, c.ai_score))), text: c.cashtag }));
+  placeLabels(pts, P, fs, RIGHT - 2);
+  pts.forEach((p) => {
+    const on = p.c.slug === state.sel ? ' on' : '';
+    html += `<button type="button" class="dot${on}" data-slug="${esc(p.c.slug)}" style="left:${AX + p.x}px;top:${TOP + p.y}px" aria-label="${esc(p.c.name)}, TradFi ${p.c.tradfi_score}, AI ${p.c.ai_score}" aria-pressed="${on ? 'true' : 'false'}" title="${esc(p.c.name)} · TradFi ${p.c.tradfi_score} · AI ${p.c.ai_score}"></button>`;
+    html += `<span class="lbl${on}" style="left:${AX + p.lx}px;top:${TOP + p.ly}px">${esc(p.text)}</span>`;
+  });
+  const canvas = $('mapCanvas');
+  canvas.style.width = (AX + P + RIGHT) + 'px';
+  canvas.style.height = H + 'px';
+  canvas.innerHTML = html;
+  canvas.querySelectorAll('.dot').forEach((b) => b.addEventListener('click', () => select(b.dataset.slug)));
+  const n = BOARD.chains.length;
+  $('mapNote').innerHTML = (n <= MAP_LIMIT
+    ? `Showing all ${n} chains. The map holds the top ${MAP_LIMIT} by TradFi rating. `
+    : `Showing the top ${MAP_LIMIT} of ${n} chains by TradFi rating. `) + `<a href="#rank=both">Every chain is in Rankings below.</a>`;
 }
 
-function renderGates(axis, gates) {
-  const labels = GATE_LABELS[axis];
-  const descs = GATE_DESC[axis];
-  return `<div class="gate-row">` + Object.keys(labels).map(key => {
-    const state = gates[key] || 'unknown';
-    return `<span class="gate-pill gate-${state}">
-      <span class="gate-dot"></span>${labels[key]} · ${gateStateLabel(state)}
-      <span class="tooltip wide">${descs[key]}</span>
-    </span>`;
-  }).join('') + `</div>`;
+function select(slug) {
+  state.sel = slug;
+  renderMap();
+  renderSel();
 }
 
-function renderCategories(axis, categories) {
-  const defs = BOARD.category_labels[axis];
-  const descs = CATEGORY_DESC[axis];
-  return defs.map(def => {
-    const val = categories[def.key];
-    if (val === null || val === undefined) return '';
-    const color = val >= 80 ? '#56A374' : val >= 60 ? '#A6B45A' : val >= 40 ? '#D2A94F' : val >= 20 ? '#CD8351' : '#C0655C';
-    const desc = descs[def.key] || '';
-    return `<div class="cat-row">
-      <span class="cat-label info-label">${def.label}<span class="tooltip wide">${desc}</span></span>
-      <div class="cat-track">
-        <div class="cat-fill" style="width:${val}%;background:${color}"></div>
-        <div class="cat-marker" style="left:${val}%;border-color:${color}"></div>
-      </div>
-      <span class="cat-val">${val}</span>
-    </div>`;
+function renderSel() {
+  const c = chainBy(state.sel);
+  if (!c) { $('selCard').innerHTML = ''; return; }
+  const tf = tierOf('tradfi', c.tradfi_tier), ai = tierOf('ai', c.ai_tier);
+  const d = c.divergence;
+  const split = d > 0 ? `TradFi leads by ${d}` : d < 0 ? `AI leads by ${-d}` : 'Ratings level';
+  const cap = c.tradfi_capped && c.ai_capped ? 'both capped by gates' : c.tradfi_capped ? 'TradFi capped by a gate' : c.ai_capped ? 'AI capped by a gate' : '';
+  const axis = (label, score, tr) => `<div class="sel-axis t${tr.i}"><span class="ax">${label}</span><span class="num"><b>${score}</b><span class="badge">${esc(tr.t.code)}</span></span><span class="tname">${esc(tr.t.name)}</span></div>`;
+  $('selCard').innerHTML = `
+    <div class="sel-head"><span><span class="nm">${esc(c.name)}</span><span class="cash">${esc(c.cashtag)}</span></span><span class="label">Selected</span></div>
+    <div class="sel-axes">${axis('TRADFI', c.tradfi_score, tf)}${axis('AI', c.ai_score, ai)}</div>
+    <div class="sel-foot"><span>${split}${cap ? `<span style="color:var(--fg3)"> · ${cap}</span>` : ''}</span><a href="#chain=${esc(c.slug)}">Open full rating →</a></div>`;
+}
+
+function renderSplits() {
+  const rows = [...BOARD.chains].sort((a, b) => Math.abs(b.divergence) - Math.abs(a.divergence)).slice(0, 5);
+  const max = Math.max(1, ...rows.map((r) => Math.abs(r.divergence)));
+  $('splitList').innerHTML = rows.map((c) => {
+    const half = Math.abs(c.divergence) / max * 50;
+    const bar = c.divergence >= 0 ? `left:${50 - half}%;width:${half}%` : `left:50%;width:${half}%`;
+    return `<button type="button" class="split-row" data-slug="${esc(c.slug)}">
+      <span class="sr-nm">${esc(c.name)} <span class="tag">${esc(c.cashtag)}</span><small>TradFi ${c.tradfi_score} · AI ${c.ai_score}</small></span>
+      <span class="sr-sc">TradFi ${c.tradfi_score} · AI ${c.ai_score}</span>
+      <span class="split-bar"><span class="zero"></span><span class="fillbar" style="${bar}"></span></span>
+      <span class="sr-v">${signed(c.divergence)}</span></button>`;
+  }).join('');
+  $('splitList').querySelectorAll('.split-row').forEach((b) => b.addEventListener('click', () => {
+    select(b.dataset.slug);
+    if (isNarrow()) $('map').scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }));
+}
+
+function renderActions() {
+  const rows = [...BOARD.chains].sort((a, b) => (b.last_updated || '').localeCompare(a.last_updated || '')).slice(0, 5);
+  $('actionList').innerHTML = rows.map((c) => {
+    const isNew = String(c.scored_date || '').slice(0, 7) === String(c.last_updated || '').slice(0, 7);
+    const tf = tierOf('tradfi', c.tradfi_tier), ai = tierOf('ai', c.ai_tier);
+    return `<a class="act-row" href="#chain=${esc(c.slug)}"><span class="ad">${fmtDayShort(c.last_updated)}</span><span class="an">${esc(c.name)}</span><span class="ak">${isNew ? 'New rating' : 'Updated'}</span><span class="ap">${c.tradfi_score} <span class="t${tf.i}">${esc(c.tradfi_tier)}</span> · ${c.ai_score} <span class="t${ai.i}">${esc(c.ai_tier)}</span></span></a>`;
   }).join('');
 }
 
-function renderFindings(items) {
-  if (!items || !items.length) return '';
-  return `<ul class="findings-list">` + items.map(f => `<li>${f}</li>`).join('') + `</ul>`;
+/* ---------------- rankings ---------------- */
+function renderLensNav() {
+  const groups = [...new Set(LENSES.map((l) => l.group))];
+  $('lensRail').innerHTML = groups.map((g) => `<div class="rail-group"><span class="label">${esc(g)}</span>${LENSES.filter((l) => l.group === g).map((l) => `<button type="button" data-lens="${l.key}" class="${l.key === state.lens ? 'current' : ''}" aria-current="${l.key === state.lens ? 'true' : 'false'}">${esc(l.label)}</button>`).join('')}</div>`).join('');
+  $('lensRail').querySelectorAll('button').forEach((b) => b.addEventListener('click', () => setLens(b.dataset.lens)));
+  $('lensSelect').innerHTML = groups.map((g) => `<optgroup label="${esc(g)}">${LENSES.filter((l) => l.group === g).map((l) => `<option value="${l.key}"${l.key === state.lens ? ' selected' : ''}>${esc(l.label)}</option>`).join('')}</optgroup>`).join('');
+}
+$('lensSelect').addEventListener('change', (e) => setLens(e.target.value));
+$('sortCtl').querySelectorAll('button').forEach((b) => b.addEventListener('click', () => { state.sort = b.dataset.sort; syncHash(); renderLens(); }));
+
+function lensHash() { return state.lens === 'both' && state.sort !== 'tradfi' ? `#rank=both&sort=${state.sort}` : `#rank=${state.lens}`; }
+function syncHash() { history.replaceState(null, '', location.pathname + lensHash()); updateLensUrl(); }
+function updateLensUrl() { $('lensUrl').textContent = 'coloredskyscore.com/' + lensHash(); }
+function setLens(key) {
+  if (!LENSES.some((l) => l.key === key)) key = 'both';
+  state.lens = key;
+  syncHash();
+  renderLensNav();
+  renderLens();
 }
 
-function renderAxisBlock(axisKey, axisLabel, data) {
-  const t = tierMap[data.tier_code];
-  const color = t ? t.color_dark : '#C6A15B';
-  let html = `<div class="axis-block">
-    <div class="axis-head">
-      <span class="axis-title">${axisLabel}</span>
-    </div>
-    <div class="axis-score-row" style="margin-bottom:14px;">
-      <span class="axis-score" style="color:${color}">${data.score}</span>
-      ${tierBadge(data.tier_code)}
-    </div>`;
+async function renderLens() {
+  const lens = LENSES.find((l) => l.key === state.lens) || LENSES[0];
+  $('lensTitle').textContent = lens.label;
+  $('lensDesc').textContent = lens.desc;
+  $('sortCtl').hidden = lens.kind !== 'both';
+  $('sortCtl').querySelectorAll('button').forEach((b) => { const on = b.dataset.sort === state.sort; b.classList.toggle('current', on); b.setAttribute('aria-pressed', on ? 'true' : 'false'); });
+  updateLensUrl();
+  const body = $('lensBody');
+  const total = BOARD.chains.length;
+  const capNote = (shown) => shown < total ? `<div class="rk-note">Showing the top ${shown} of ${total} chains.</div>` : '';
 
-  if (data.gate_capped && data.binding_cap) {
-    html += `<div class="raw-note">
-      <strong>Raw: ${data.raw_score}</strong> — ${data.binding_cap.short_note}
-    </div>`;
+  if (lens.kind === 'both') {
+    const sorter = { tradfi: (a, b) => b.tradfi_score - a.tradfi_score || b.ai_score - a.ai_score, ai: (a, b) => b.ai_score - a.ai_score || b.tradfi_score - a.tradfi_score, split: (a, b) => b.divergence - a.divergence }[state.sort] || ((a, b) => b.tradfi_score - a.tradfi_score);
+    const rows = [...BOARD.chains].sort(sorter).slice(0, RANK_LIMIT);
+    const ticks = [20, 40, 60, 80].map((v) => `<span class="tk" style="left:${v}%"></span>`).join('');
+    const capTag = '<span class="cap" title="Capped by a foundation gate">CAP</span>';
+    body.innerHTML = `<div class="rk-axis both"><span>#</span><span>CHAIN</span><span>TRADFI</span><span>AI</span><span class="scale"><span style="left:0">0</span><span style="left:20%">20</span><span style="left:40%">40</span><span style="left:60%">60</span><span style="left:80%">80</span><span style="left:100%">100</span></span><span style="text-align:right">SPLIT</span></div><div class="rk-axis mob"><span>#</span><span>CHAIN</span><span>TRADFI</span><span>AI</span><span style="text-align:right">SPLIT</span></div>` +
+      rows.map((c, i) => {
+        const tf = tierOf('tradfi', c.tradfi_tier), ai = tierOf('ai', c.ai_tier);
+        const lo = Math.min(c.tradfi_score, c.ai_score), hi = Math.max(c.tradfi_score, c.ai_score);
+        return `<a class="rk-row both" href="#chain=${esc(c.slug)}">
+          <span class="rk-rank">${i + 1}</span>
+          <span class="rk-name"><span class="nm">${esc(c.name)}</span><span class="tag">${esc(c.cashtag)}</span></span>
+          <span class="rk-sc rk-tf"><b>${c.tradfi_score}</b>${c.tradfi_capped ? capTag : ''}<span class="full t${tf.i}">${esc(tf.t.name)}</span><span class="short t${tf.i}">${esc(c.tradfi_tier)}</span></span>
+          <span class="rk-sc rk-ai"><b>${c.ai_score}</b>${c.ai_capped ? capTag : ''}<span class="full t${ai.i}">${esc(ai.t.name)}</span><span class="short t${ai.i}">${esc(c.ai_tier)}</span></span>
+          <span class="db" aria-hidden="true"><span class="base"></span>${ticks}<span class="bar" style="left:${lo}%;width:${hi - lo}%"></span><span class="d ai" style="left:${c.ai_score}%"></span><span class="d tf" style="left:${c.tradfi_score}%"></span></span>
+          <span class="rk-split">${signed(c.divergence)}</span></a>`;
+      }).join('') +
+      `<div class="legend"><span><i class="k-tf"></i>TradFi</span><span><i class="k-ai"></i>AI</span><span><i class="k-sp"></i>Split</span></div>` + capNote(rows.length);
+    return;
   }
 
-  html += renderGates(axisKey, data.gates);
-  html += renderCategories(axisKey, data.categories);
-  html += renderFindings(data.key_findings);
-  html += `</div>`;
-  return html;
+  const want = state.lens;
+  if (BOARD.chains.some((c) => !CHAIN_CACHE[c.slug])) {
+    body.innerHTML = '<div class="rk-loading">Loading chain detail…</div>';
+    await fetchAllChains();
+    if (state.lens !== want) return;
+  }
+  const details = BOARD.chains.map((c) => ({ c, d: CHAIN_CACHE[c.slug] })).filter((x) => x.d);
+
+  if (lens.kind === 'score') {
+    const rows = details.map((x) => ({ ...x, v: x.d[lens.axis] && x.d[lens.axis].categories ? x.d[lens.axis].categories[lens.cat] : null }))
+      .filter((x) => x.v !== null && x.v !== undefined).sort((a, b) => b.v - a.v).slice(0, RANK_LIMIT);
+    body.innerHTML = rows.map((x, i) => {
+      const tr = tierForScore(lens.axis, x.v);
+      return `<a class="rk-row score" href="#chain=${esc(x.c.slug)}"><span class="rk-rank">${i + 1}</span><span class="rk-name"><span class="nm">${esc(x.c.name)}</span><span class="tag">${esc(x.c.cashtag)}</span></span><span class="track"><i style="width:${Math.max(1, x.v)}%"></i></span><span class="rk-v">${x.v}</span><span class="rk-code t${tr.i}">${esc(tr.t.code)}</span></a>`;
+    }).join('') + capNote(rows.length);
+    return;
+  }
+
+  if (lens.kind === 'gate') {
+    const meta = { pass: ['✓', 'PASS'], partial: ['!', 'PARTIAL'], fail: ['✕', 'FAIL'], unknown: ['?', 'NOT YET RECORDED'] };
+    const groups = { pass: [], partial: [], fail: [], unknown: [] };
+    details.forEach((x) => { const s = (x.d[lens.axis] && x.d[lens.axis].gates && x.d[lens.axis].gates[lens.gate]) || 'unknown'; (groups[s] || groups.unknown).push(x.c); });
+    body.innerHTML = `<div class="gate-groups">` + Object.keys(meta).filter((k) => groups[k].length).map((k) => {
+      const list = groups[k].sort((a, b) => a.name.localeCompare(b.name));
+      return `<div class="gate-group ${k}"><div class="gg-head ${k}"><span>${meta[k][0]}</span><span>${meta[k][1]}</span><span class="ct">${list.length}</span></div><div class="gg-list">${list.map((c) => `<a href="#chain=${esc(c.slug)}"><span class="tag">${esc(c.cashtag)}</span>${esc(c.name)}</a>`).join('')}</div></div>`;
+    }).join('') + `</div>`;
+    return;
+  }
+
+  if (lens.kind === 'extra') {
+    const val = (x) => (x.d.tiles ? x.d.tiles[lens.field] : null);
+    const note = (x) => (x.d.tiles ? x.d.tiles[lens.noteField] : '') || '';
+    const has = details.filter((x) => typeof val(x) === 'number' && val(x) > 0);
+    const none = details.filter((x) => !(typeof val(x) === 'number' && val(x) > 0));
+    has.sort((a, b) => lens.ascending ? val(a) - val(b) : val(b) - val(a));
+    const logs = has.map((x) => Math.log10(val(x))), lo = Math.min(...logs), hi = Math.max(...logs), range = (hi - lo) || 1;
+    const shown = has.slice(0, RANK_LIMIT);
+    body.innerHTML = shown.map((x, i) => {
+      const v = val(x), w = Math.max(4, Math.round((Math.log10(v) - lo) / range * 100));
+      const tip = (lens.fmt === 'pf' ? `${fmtPct(v)} of market cap in annualized fees. ` : '') + clean(note(x));
+      return `<a class="rk-row extra" href="#chain=${esc(x.c.slug)}" title="${esc(tip.trim())}"><span class="rk-rank">${i + 1}</span><span class="rk-name"><span class="nm">${esc(x.c.name)}</span><span class="tag">${esc(x.c.cashtag)}</span></span><span class="xcell"><span class="track"><i style="width:${w}%"></i></span></span><span class="rk-v">${lens.fmt === 'usd' ? fmtCost(v) : fmtPF(v)}</span></a>`;
+    }).join('') + none.map((x) => `<a class="rk-row extra" href="#chain=${esc(x.c.slug)}"><span class="rk-rank">·</span><span class="rk-name"><span class="nm">${esc(x.c.name)}</span><span class="tag">${esc(x.c.cashtag)}</span></span><span class="xcell"><span class="rk-xnote">${esc(clean(note(x)) || 'No figure recorded yet.')}</span></span><span class="rk-v">n/a</span></a>`).join('') + capNote(shown.length + none.length);
+  }
+}
+$('lensCopy').addEventListener('click', () => copyText('https://coloredskyscore.com/' + lensHash(), $('lensCopy')));
+
+function copyText(text, btn) {
+  const done = () => { const t = btn.textContent; btn.textContent = 'Link copied'; btn.classList.add('done'); setTimeout(() => { btn.textContent = t; btn.classList.remove('done'); }, 1600); };
+  if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(text).then(done, () => fallbackCopy(text, done));
+  else fallbackCopy(text, done);
+}
+function fallbackCopy(text, done) {
+  const ta = document.createElement('textarea'); ta.value = text; ta.setAttribute('readonly', ''); ta.style.position = 'fixed'; ta.style.opacity = '0';
+  document.body.appendChild(ta); ta.select();
+  try { document.execCommand('copy'); done(); } catch (e) { console.warn('copy failed', e); }
+  ta.remove();
 }
 
-async function openPanel(slug) {
-  const row = BOARD.chains.find(c => c.slug === slug);
-  if (!row) return;
+/* ---------------- chain page ---------------- */
+function thermo(axis, score, tr) {
+  const bands = tiers(axis).map((t, i) => `<div style="flex-grow:${t.max - t.min + 1};background:var(--b${i})"></div>`).join('');
+  return `<div class="thermo t${tr.i}"><div class="bands">${bands}</div><div class="mk" style="top:${100 - score}%"></div></div>`;
+}
 
-  // Open immediately with a loading state so the panel feels responsive
-  // while data/chains/<slug>.json is fetched.
-  document.getElementById('panelInner').innerHTML = `
-    <div class="panel-top">
-      <div>
-        <div class="panel-name">${row.name}</div>
-        <div class="panel-tag">${row.cashtag}</div>
-      </div>
-      <button class="panel-close" id="panelCloseBtn" aria-label="Close">
-        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6 6 18M6 6l12 12"/></svg>
-      </button>
-    </div>
-    <div class="loading-state">Loading detail…</div>
-  `;
-  document.getElementById('panelCloseBtn').addEventListener('click', closePanel);
-  document.getElementById('panel').classList.add('open');
-  document.getElementById('overlay').classList.add('open');
-  document.body.style.overflow = 'hidden';
+async function renderChain(slug) {
+  const inner = $('chainInner');
+  const row = chainBy(slug);
+  if (!row) {
+    inner.innerHTML = `<div class="ch-loading">No rated chain matches “${esc(slug)}”. <a href="#rank=both">See every rated chain →</a></div>`;
+    document.title = 'coloredsky score™ · Credit ratings for the chains';
+    return;
+  }
+  document.title = `${row.name} (${row.cashtag}) ratings · coloredsky score`;
+  inner.innerHTML = `<div class="ch-loading">Loading ${esc(row.name)}…</div>`;
+  let d;
+  try { d = await fetchChain(slug); } catch (e) {
+    console.error(e);
+    inner.innerHTML = `<div class="ch-loading">Could not load ${esc(row.name)}. Please refresh the page.</div>`;
+    return;
+  }
+  if (location.hash.toLowerCase().indexOf('chain=' + slug) < 0) return;
 
-  let detail = CHAIN_CACHE[slug];
-  if (!detail) {
-    try {
-      const res = await fetch(row.detail_url);
-      if (!res.ok) throw new Error(`${row.detail_url} fetch failed: ${res.status}`);
-      detail = await res.json();
-      CHAIN_CACHE[slug] = detail;
-    } catch (err) {
-      document.getElementById('panelInner').innerHTML += `<div class="loading-state">Could not load this chain's detail. Please try again.</div>`;
-      console.error(err);
-      return;
+  const axes = ['tradfi', 'ai'];
+  const AXN = { tradfi: 'TradFi', ai: 'AI' };
+  const tr = {}; axes.forEach((a) => { tr[a] = tierOf(a, d[a].tier_code); });
+  const url = `coloredskyscore.com/${slug}`;
+  const shareText = `${d.name} ${d.cashtag} on coloredsky score: TradFi ${d.tradfi.score} (${tr.tradfi.t.name}), AI ${d.ai.score} (${tr.ai.t.name}). #coloredskyscore`;
+  const xHref = `https://x.com/intent/post?text=${encodeURIComponent(shareText)}&url=${encodeURIComponent('https://' + url)}`;
+  const v = BOARD.meta || {};
+
+  const card = `<div class="card"><div class="hz"></div><div class="axes">` + axes.map((a) => {
+    const x = d[a], t = tr[a];
+    const note = x.gate_capped ? `capped · raw ${x.raw_score}` : 'not capped';
+    return `<div class="axis"><span class="ax">${AXN[a].toUpperCase()}</span>${thermo(a, x.score, t)}<span class="score t${t.i}"><b>${x.score}</b><span class="badge">${esc(t.t.code)}</span></span><span class="tn t${t.i}">${esc(t.t.name)}</span><span class="capnote">${note}</span></div>`;
+  }).join('') + `</div><div class="foot"><span>${row.divergence > 0 ? `TradFi leads by ${row.divergence}` : row.divergence < 0 ? `AI leads by ${-row.divergence}` : 'Ratings level'}</span><span>#coloredskyscore</span></div></div>`;
+
+  const labels = {}; axes.forEach((a) => { labels[a] = {}; (BOARD.category_labels[a] || []).forEach((l) => { labels[a][l.key] = l.label; }); });
+  const drivers = axes.map((a) => {
+    const cats = Object.entries(d[a].categories || {}).filter(([, val]) => typeof val === 'number');
+    if (!cats.length) return '';
+    const best = cats.reduce((m, e) => (e[1] > m[1] ? e : m)), worst = cats.reduce((m, e) => (e[1] < m[1] ? e : m));
+    const cell = (kind, [k, val]) => { const t = tierForScore(a, val); return `<div class="drv"><span class="label">${AXN[a]} · ${kind}</span><span class="hd"><span class="n">${esc(labels[a][k] || k)}</span><span class="v">${val} <small class="t${t.i}">${esc(t.t.code)}</small></span></span><p>${esc(CATEGORY_DESC[a][k] || '')}</p></div>`; };
+    let second;
+    if (d[a].gate_capped && d[a].binding_cap) {
+      const bc = d[a].binding_cap, r = Math.round(d[a].raw_score), rt = tierForScore(a, r);
+      const gl = GATE_LABELS[a][bc.gate] || bc.gate;
+      const st = (d[a].gates || {})[bc.gate] || 'partial';
+      const tierLine = rt.t.code !== d[a].tier_code ? ` Uncapped, it would round to ${r}, which is ${esc(rt.t.name)}.` : ` Uncapped, it would round to ${r}.`;
+      second = `<div class="drv capd"><span class="label capk">${AXN[a]} · What caps it</span><span class="hd"><span class="n">${esc(gl)}</span><span class="st ${st}">${st === 'fail' ? '✕ FAIL' : '! PARTIAL'}</span></span><p>${esc(cleanNote(bc.short_note))} The ${AXN[a]} rating is capped at ${bc.cap_value}.${tierLine}</p></div>`;
+    } else {
+      second = cell('Biggest drag', worst);
     }
-  }
+    return cell('Strongest', best) + second;
+  }).join('');
 
-  const divSign = row.divergence > 0 ? '+' : '';
-  const divWord = row.divergence > 0 ? 'TradFi outscores AI' : row.divergence < 0 ? 'AI outscores TradFi' : 'Scores are even';
+  const gateLine = (a) => {
+    const g = d[a].gates || {}, bc = d[a].gate_capped && d[a].binding_cap ? d[a].binding_cap : null;
+    return `<div class="gate-line"><span class="label">${AXN[a]}</span>` + Object.keys(GATE_LABELS[a]).map((k) => {
+      const s = g[k] || 'unknown';
+      const glyph = { pass: '✓', partial: '!', fail: '✕', unknown: '?' }[s] || '?';
+      const word = { pass: 'Pass', partial: 'Partial', fail: 'Fail', unknown: 'Not yet recorded' }[s] || s;
+      return `<button type="button" class="chip ${s}" data-desc="${esc(GATE_DESC[a][k])}" aria-expanded="false"><span class="g">${glyph}</span><span class="t">${esc(GATE_LABELS[a][k])} · ${word}${bc && bc.gate === k ? ` · caps at ${bc.cap_value}` : ''}</span></button>`;
+    }).join('') + `</div><div class="gate-desc" hidden></div>`;
+  };
 
-  let html = `
-    <div class="panel-top">
+  const catCol = (a) => `<div class="cat-col"><span class="label axk">${AXN[a].toUpperCase()}</span>` + (BOARD.category_labels[a] || []).map((l) => {
+    const val = (d[a].categories || {})[l.key];
+    if (val === null || val === undefined) return '';
+    const t = tierForScore(a, val);
+    return `<button type="button" class="cat-row" aria-expanded="false"><span class="cl">${esc(l.label)}</span><span class="track"><i style="width:${Math.max(1, val)}%"></i></span><span class="cv">${val}</span><span class="cc t${t.i}">${esc(t.t.code)}</span></button><div class="cat-desc" hidden>${esc(CATEGORY_DESC[a][l.key] || '')}</div>`;
+  }).join('') + `</div>`;
+
+  const findings = axes.flatMap((a) => (d[a].key_findings || []).map((f) => `<li><span class="label">${AXN[a]}</span><span>${esc(clean(f))}</span></li>`)).join('');
+  const watch = (d.watch_items || []).map((w) => `<li>${esc(clean(w))}</li>`).join('');
+  const ext = EXTERNAL_SLUGS[slug]
+    ? `<a class="btn" href="https://www.coingecko.com/en/coins/${esc(EXTERNAL_SLUGS[slug].cg)}" target="_blank" rel="noopener">CoinGecko ↗</a><a class="btn" href="https://coinmarketcap.com/currencies/${esc(EXTERNAL_SLUGS[slug].cmc)}/" target="_blank" rel="noopener">CoinMarketCap ↗</a>`
+    : NO_MARKET_FALLBACK[slug] ? `<a class="btn" href="${esc(NO_MARKET_FALLBACK[slug].url)}" target="_blank" rel="noopener">${esc(NO_MARKET_FALLBACK[slug].label)} ↗</a>`
+    : `<span class="rk-xnote">No live market data yet.</span>`;
+
+  inner.innerHTML = `
+    <div class="crumbs">
+      <span class="path"><a href="#rank=both">All chains</a><span>/</span>${esc(d.name)}</span>
+      <span class="share"><span class="url">${esc(url)}</span><button type="button" class="btn" id="chainCopy">Copy link</button><a class="btn accent" href="${esc(xHref)}" target="_blank" rel="noopener">Share on X</a></span>
+    </div>
+    <section class="ch-title">
       <div>
-        <div class="panel-name">${detail.name}</div>
-        <div class="panel-tag">${detail.cashtag}</div>
+        <h1>${esc(d.name)}</h1>
+        <div class="sub">${esc(d.cashtag)}${d.descriptor ? ` <span>· ${esc(clean(d.descriptor))}</span>` : ''}</div>
+        <div class="meta">First rated ${fmtMonths(d.scored_date)} · Last updated ${fmtDay(d.last_updated)} · TradFi ${esc(v.tradfi_framework_version || '')} · AI ${esc(v.ai_framework_version || '')}</div>
       </div>
-      <button class="panel-close" id="panelCloseBtn" aria-label="Close">
-        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6 6 18M6 6l12 12"/></svg>
-      </button>
-    </div>
-    <div class="panel-dates">Scored ${detail.scored_date} · Updated ${detail.last_updated}</div>
+      ${d.pull_quote ? `<blockquote><span class="label">From the rating summary</span><q>${esc(clean(d.pull_quote))}</q></blockquote>` : ''}
+    </section>
+    <section class="ch-main">
+      ${card}
+      <div class="ch-right">
+        <div><h2>What drives each rating</h2><div class="drivers">${drivers}</div></div>
+        <div><h2>Foundation gates</h2><div class="gates">${gateLine('tradfi')}${gateLine('ai')}</div></div>
+      </div>
+    </section>
+    <section class="ch-sec">
+      <div class="sec-top"><h2>Category breakdown</h2><span class="ld">Nine categories per axis, each scored 0–100. The code beside each score is that axis’s tier for the number. Tap a category for what it measures.</span></div>
+      <div class="cats">${catCol('tradfi')}${catCol('ai')}</div>
+    </section>
+    <section class="ch-sec brief">
+      <div>
+        <h2>The rating in brief</h2>
+        <p class="summary">${esc(clean(d.executive_summary || ''))}</p>
+        ${findings ? `<span class="kicker" style="font-size:12px;letter-spacing:0.18em;padding-top:10px">Key findings</span><ul class="findings">${findings}</ul>` : ''}
+      </div>
+      <div>
+        <h2>What to watch</h2>
+        ${watch ? `<ul class="watch">${watch}</ul>` : '<p class="rk-xnote">No watch items recorded.</p>'}
+        <span class="label" style="padding-top:8px">Learn more</span>
+        <div class="ext">${ext}</div>
+      </div>
+    </section>`;
 
-    <div class="panel-summary">
-      <div class="panel-summary-text">${detail.executive_summary || ''}</div>
-      <div class="panel-summary-divider"></div>
-      <div class="panel-summary-divergence">Divergence <strong>${divSign}${row.divergence}</strong> — ${divWord}.</div>
-    </div>
-
-    ${renderAxisBlock('tradfi', 'TradFi Score', detail.tradfi)}
-    ${renderAxisBlock('ai', 'AI Score', detail.ai)}
-
-    <div class="watch-block">
-      <span class="axis-title">Watch Items</span>
-      ${renderFindings(detail.watch_items)}
-    </div>
-
-    <div class="external-links">
-      <span class="axis-title">Learn More</span>
-      ${EXTERNAL_SLUGS[slug] ? `
-      <div class="external-links-row">
-        <a class="ext-link" href="https://www.coingecko.com/en/coins/${EXTERNAL_SLUGS[slug].cg}" target="_blank" rel="noopener">
-          CoinGecko
-          <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M7 7h10v10"/></svg>
-        </a>
-        <a class="ext-link" href="https://coinmarketcap.com/currencies/${EXTERNAL_SLUGS[slug].cmc}/" target="_blank" rel="noopener">
-          CoinMarketCap
-          <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M7 7h10v10"/></svg>
-        </a>
-      </div>` : (NO_MARKET_FALLBACK[slug] ? `
-      <div class="external-links-row">
-        <a class="ext-link" href="${NO_MARKET_FALLBACK[slug].url}" target="_blank" rel="noopener">
-          ${NO_MARKET_FALLBACK[slug].label}
-          <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M7 7h10v10"/></svg>
-        </a>
-      </div>` : `
-      <div class="raw-note">No live market data — the token is not yet publicly tradeable.</div>`)}
-    </div>
-  `;
-
-  document.getElementById('panelInner').innerHTML = html;
-  document.getElementById('panelCloseBtn').addEventListener('click', closePanel);
+  $('chainCopy').addEventListener('click', () => copyText('https://' + url, $('chainCopy')));
+  inner.querySelectorAll('.gate-line').forEach((line) => {
+    const desc = line.nextElementSibling;
+    line.querySelectorAll('.chip').forEach((chip) => chip.addEventListener('click', () => {
+      const open = chip.getAttribute('aria-expanded') === 'true';
+      line.querySelectorAll('.chip').forEach((c) => c.setAttribute('aria-expanded', 'false'));
+      if (open) { desc.hidden = true; return; }
+      chip.setAttribute('aria-expanded', 'true');
+      desc.textContent = chip.dataset.desc;
+      desc.hidden = false;
+    }));
+  });
+  inner.querySelectorAll('.cat-row').forEach((b) => b.addEventListener('click', () => {
+    const desc = b.nextElementSibling, open = b.getAttribute('aria-expanded') === 'true';
+    b.setAttribute('aria-expanded', open ? 'false' : 'true');
+    desc.hidden = open;
+  }));
 }
 
-function closePanel() {
-  document.getElementById('panel').classList.remove('open');
-  document.getElementById('overlay').classList.remove('open');
-  document.body.style.overflow = '';
+/* ---------------- search ---------------- */
+const searchInput = $('searchInput'), searchResults = $('searchResults');
+let searchIdx = 0;
+function searchMatches(q) {
+  const s = q.trim().toLowerCase().replace(/^\$/, '');
+  if (!s || !BOARD) return [];
+  return BOARD.chains.filter((c) => c.name.toLowerCase().includes(s) || c.ticker.toLowerCase().includes(s) || c.slug.includes(s))
+    .sort((a, b) => (a.ticker.toLowerCase() === s ? -1 : 0) - (b.ticker.toLowerCase() === s ? -1 : 0) || a.name.localeCompare(b.name)).slice(0, 8);
 }
-
-document.getElementById('overlay').addEventListener('click', closePanel);
-document.addEventListener('keydown', (e) => {
-  if (e.key === 'Escape') closePanel();
+function renderSearch() {
+  const q = searchInput.value;
+  if (!q.trim()) { searchResults.hidden = true; return; }
+  const m = searchMatches(q);
+  searchIdx = Math.min(searchIdx, Math.max(0, m.length - 1));
+  searchResults.innerHTML = m.length ? m.map((c, i) => `<a href="#chain=${esc(c.slug)}" class="${i === searchIdx ? 'active' : ''}"><span>${esc(c.name)} <span class="tag">${esc(c.cashtag)}</span></span><span class="mono" style="font-size:13px">${c.tradfi_score} · ${c.ai_score}</span></a>`).join('') : `<div class="empty">No rated chain matches that yet.</div>`;
+  searchResults.hidden = false;
+}
+function closeSearch() { searchResults.hidden = true; $('siteHeader').classList.remove('search-open'); }
+searchInput.addEventListener('input', () => { searchIdx = 0; renderSearch(); });
+searchInput.addEventListener('keydown', (e) => {
+  const m = searchMatches(searchInput.value);
+  if (e.key === 'ArrowDown') { searchIdx = Math.min(m.length - 1, searchIdx + 1); renderSearch(); e.preventDefault(); }
+  else if (e.key === 'ArrowUp') { searchIdx = Math.max(0, searchIdx - 1); renderSearch(); e.preventDefault(); }
+  else if (e.key === 'Enter' && m[searchIdx]) { location.hash = 'chain=' + m[searchIdx].slug; searchInput.value = ''; closeSearch(); searchInput.blur(); }
+  else if (e.key === 'Escape') { searchInput.value = ''; closeSearch(); }
 });
+searchResults.addEventListener('click', (e) => { if (e.target.closest('a')) { searchInput.value = ''; closeSearch(); } });
+document.addEventListener('click', (e) => { if (!e.target.closest('.search') && !e.target.closest('#searchToggle')) closeSearch(); });
+$('searchToggle').addEventListener('click', () => {
+  const h = $('siteHeader'); const open = !h.classList.contains('search-open');
+  h.classList.toggle('search-open', open);
+  if (open) setTimeout(() => searchInput.focus(), 0); else closeSearch();
+});
+
+/* ---------------- routing ---------------- */
+function parseHash() {
+  const h = location.hash.replace(/^#/, '');
+  const p = {}; h.split('&').forEach((kv) => { const [k, v] = kv.split('='); if (k) p[decodeURIComponent(k)] = v === undefined ? '' : decodeURIComponent(v); });
+  return { raw: h, p };
+}
+function showHome() {
+  $('chainView').hidden = true; $('homeView').hidden = false;
+  document.title = 'coloredsky score™ · Credit ratings for the chains';
+}
+function route(initial) {
+  const { raw, p } = parseHash();
+  closeSearch();
+  document.querySelectorAll('.nav-link').forEach((a) => a.classList.remove('current'));
+  if (p.chain !== undefined) {
+    if (!$('homeView').hidden) state.homeScroll = window.scrollY;
+    $('homeView').hidden = true; $('chainView').hidden = false;
+    window.scrollTo(0, 0);
+    renderChain(p.chain.toLowerCase());
+    return;
+  }
+  const wasChain = !$('chainView').hidden;
+  showHome();
+  if (p.view !== undefined) { // old tile-grid links
+    const old = OLD_VIEWS[p.view];
+    state.lens = old ? old[0] : (LENSES.some((l) => l.key === p.view) ? p.view : 'both');
+    if (old) state.sort = old[1];
+    history.replaceState(null, '', location.pathname + lensHash());
+    p.rank = state.lens;
+  }
+  if (p.rank !== undefined) {
+    state.lens = LENSES.some((l) => l.key === p.rank) ? p.rank : 'both';
+    if (p.sort && ['tradfi', 'ai', 'split'].includes(p.sort)) state.sort = p.sort;
+    renderLensNav(); renderLens();
+    document.querySelector('.nav-link[data-nav="rankings"]').classList.add('current');
+    requestAnimationFrame(() => $('rankings').scrollIntoView({ block: 'start' }));
+    return;
+  }
+  if (raw === 'how') { requestAnimationFrame(() => $('how').scrollIntoView({ block: 'start' })); return; }
+  document.querySelector('.nav-link[data-nav="map"]').classList.add('current');
+  if (wasChain && !initial) requestAnimationFrame(() => window.scrollTo(0, state.homeScroll || 0));
+  else if (!initial) window.scrollTo(0, 0);
+}
+window.addEventListener('hashchange', () => route(false));
+$('brandHome').addEventListener('click', (e) => { e.preventDefault(); history.pushState(null, '', location.pathname); route(false); window.scrollTo(0, 0); });
+document.querySelector('.nav-link[data-nav="map"]').addEventListener('click', (e) => { e.preventDefault(); history.pushState(null, '', location.pathname); route(false); $('map').scrollIntoView({ behavior: 'smooth', block: 'start' }); });
+
+/* ---------------- boot ---------------- */
+let lastW = 0, lastNarrow = null;
+window.addEventListener('resize', () => {
+  if (!BOARD) return;
+  const w = $('mapCol').clientWidth, n = isNarrow();
+  if (w === lastW && n === lastNarrow) return;
+  lastW = w; lastNarrow = n;
+  clearTimeout(window.__csResize);
+  window.__csResize = setTimeout(renderMap, 80);
+});
+
+async function init() {
+  try {
+    const res = await fetch('data/board.json');
+    if (!res.ok) throw new Error(`board.json: ${res.status}`);
+    BOARD = await res.json();
+  } catch (e) {
+    console.error(e);
+    $('mapCanvas').innerHTML = '<div class="rk-loading">Could not load the ratings. Please refresh the page.</div>';
+    return;
+  }
+  const m = BOARD.meta || {};
+  $('statCount').textContent = BOARD.chains.length;
+  const latest = BOARD.chains.map((c) => c.last_updated || '').sort().pop();
+  $('statLast').textContent = fmtDayShort(latest);
+  $('footVersions').textContent = `Fundamentals only. Not financial advice. TradFi framework ${m.tradfi_framework_version || ''} · AI framework ${m.ai_framework_version || ''}`;
+  lastW = $('mapCol').clientWidth; lastNarrow = isNarrow();
+  renderMap(); renderSel(); renderSplits(); renderActions();
+  renderLensNav(); renderLens();
+  route(true);
+}
+init();
 </script>
 
 <!-- Cloudflare Web Analytics -->

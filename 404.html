@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>coloredsky score</title>
+<meta name="robots" content="noindex">
+<script>
+/* Typed or mis-cased chain links (coloredskyscore.com/BTC, /btc/extra) land
+   here. Send a single alphanumeric path segment to that chain's page; the
+   chain view shows a clear message if no rated chain matches. Anything else
+   goes to the home page. */
+(function () {
+  var seg = (location.pathname.split('/').filter(Boolean)[0] || '').toLowerCase();
+  location.replace(/^[a-z0-9]{1,20}$/.test(seg) ? '/#chain=' + seg : '/');
+})();
+</script>
+<style>body{margin:0;padding:48px 24px;background:#0B1220;color:#F4F1E9;font-family:system-ui,sans-serif}a{color:#C2A268}</style>
+</head>
+<body>
+<p>Page not found. <a href="/">Go to coloredsky score</a></p>
+</body>
+</html>
