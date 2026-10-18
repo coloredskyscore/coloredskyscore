@@ -2,7 +2,7 @@
   "_schema_notes": "Loaded on every page visit. Keep this file NUMBERS AND SHORT STRINGS ONLY -- no reasoning prose, no long findings lists. That content lives in /data/chains/<slug>.json and is fetched only when a chain's panel is opened. detail_url uses the stable slug, not the ticker -- tickers can change (rebrands, symbol reuse) but the slug and its file never do.",
   "meta": {
     "site": "coloredskyscore.com",
-    "last_updated": "2026-09-18",
+    "last_updated": "2026-10-18",
     "chains_scored": 19,
     "tradfi_framework_version": "v2.0",
     "ai_framework_version": "v1.1"
@@ -327,15 +327,15 @@
       "name": "Arc",
       "cashtag": "$ARC",
       "detail_url": "data/chains/arc.json",
-      "tradfi_score": 38,
+      "tradfi_score": 39,
       "tradfi_tier": "SP",
       "tradfi_capped": false,
-      "ai_score": 44,
+      "ai_score": 45,
       "ai_tier": "PO",
       "ai_capped": false,
       "divergence": -6,
       "scored_date": "2026-09",
-      "last_updated": "2026-09-17"
+      "last_updated": "2026-10-18"
     },
     {
       "slug": "ltc",
