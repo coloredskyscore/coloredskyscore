@@ -58,12 +58,12 @@
       "tradfi_score": 73,
       "tradfi_tier": "EI",
       "tradfi_capped": false,
-      "ai_score": 72,
+      "ai_score": 73,
       "ai_tier": "IR",
       "ai_capped": true,
-      "divergence": 1,
+      "divergence": 0,
       "scored_date": "2026-06",
-      "last_updated": "2026-09-10"
+      "last_updated": "2026-10-18"
     },
     {
       "slug": "eth",
