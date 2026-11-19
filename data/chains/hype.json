@@ -4,11 +4,11 @@
   "name": "Hyperliquid",
   "cashtag": "$HYPE",
   "scored_date": "2026-07",
-  "last_updated": "2026-08-27",
+  "last_updated": "2026-11-19",
   "executive_summary": "Hyperliquid's own blockchain and HYPE token launched in November 2024, not yet two years old at the time of this scoring, built as an on-chain exchange for trading perpetual futures rather than as general-purpose infrastructure. That focus shows in an On-Chain Health score of 88, built on roughly $493 billion in trading volume in a single quarter. The TradFi score of 58 is held down by two of Hyperliquid's weakest categories: Privacy & Confidentiality at 15, since every account's open positions and exact liquidation price are published by default for anyone to see, and Decentralization at 1, since a foundation-controlled group of validators sits close to outright majority control of staked HYPE and nearly all active validators run inside a single cloud region. The AI score of 64, while stronger, shows the same young, single-purpose network is still thin everywhere outside its core product.",
   "tradfi": {
     "score": 58,
-    "raw_score": 58.35,
+    "raw_score": 58.15,
     "tier_code": "RG",
     "gate_capped": false,
     "binding_cap": null,
@@ -23,7 +23,7 @@
       "real_world_utility": 56,
       "tokenomics_supply": 70,
       "developer_ecosystem": 63,
-      "regulatory_risk": 47,
+      "regulatory_risk": 45,
       "privacy_confidentiality": 15,
       "decentralization": 1,
       "security_future_proofing": 55
@@ -33,8 +33,9 @@
       "Hyperliquid fails our quantum-computer readiness check outright, but that failure isn't what's setting the score -- even that check's strict ceiling sits well above where Hyperliquid actually landed. The 58 reflects genuine category-by-category performance, not a gate penalty.",
       "On-Chain Health is Hyperliquid's standout category at 88, well ahead of any of its other eight categories. The platform processed roughly $493 billion in trading volume in the first quarter of 2026 alone and holds the majority share of all on-chain derivatives trading activity globally.",
       "Privacy & Confidentiality is Hyperliquid's weakest category by a wide margin at 15. Any account's open positions, leverage, and exact liquidation price are published by default and can be looked up by anyone through a public data feed -- this isn't just an ordinarily transparent ledger, it's specific financial information that could be used against a trader in real time by exposing exactly when they'd be forced to liquidate.",
-      "Decentralization is Hyperliquid's lowest category, now 1, down from a prior 14. A foundation-controlled group directly operates 5 of the network's 27 validators, controlling close to half of all staked HYPE -- functionally one entity sitting at the edge of majority control. The validator software itself is also closed-source, with no independently built alternative client available to check its behavior. Layered on top of that, an infrastructure-concentration check found that effectively all 24 active validators run inside a single AWS region (ap-northeast-1, Tokyo) -- near-total physical concentration that leaves almost no headroom on this measure.",
-      "The two Decentralization findings above pushed Hyperliquid's TradFi score down again, from 59 to 58 -- deeper into its current tier rather than threatening a re-crossing back toward the tier above it. The category scores behind this were finalized on their own merits before any tier line was known, so nothing was adjusted to land on either side of it."
+      "Decentralization is Hyperliquid's lowest category at 1. A foundation-controlled group directly operates 5 of the network's 27 active validators and holds roughly 47-49% of all staked HYPE, functionally one entity at the edge of majority control, and the three largest validators together control more than a third of stake. The validator software is still a closed-source signed binary; community reverse-engineering projects have published documentation of its internals, but no independently built client exists to check its behavior. Nearly all validators also run inside a single AWS region (ap-northeast-1, Tokyo), which Hyperliquid itself recommends for latency.",
+      "Regulatory & Risk scores 45. Hyperliquid holds no license in the major markets it serves, and three regulators have now placed it on consumer warning lists: the UK FCA (May 2026), Singapore's MAS (June 2026) and Hong Kong's SFC (November 18, 2026). All three are warnings rather than enforcement actions, but the pattern shows growing scrutiny of an unlicensed venue that is reachable from those markets.",
+      "Hyperliquid's TradFi score has moved from 59 to 58 across reviews as the Decentralization and Regulatory & Risk findings above were priced in. At a raw score of 58.15 it sits 0.65 points above the rounding line for its tier, with each category scored on its own merits before the tier line was checked."
     ]
   },
   "ai": {
@@ -70,11 +71,14 @@
   "watch_items": [
     "Hyperliquid's TradFi and AI scores tell a consistent story rather than diverging ones: both frameworks independently find the same pattern -- a genuinely strong, focused trading engine surrounded by categories that are still immature, rather than one framework finding a strength the other misses.",
     "Hyperliquid fails our quantum-computer readiness check by default, because the team hasn't publicly stated a position on quantum resistance one way or another -- not because they've said it won't be addressed. This should be re-checked every time the chain is rescored, regardless of what else prompts the review.",
-    "Hyperliquid's validator set is reportedly expanding from 24 toward 27 members. If the foundation's direct share of staked HYPE narrows and validator infrastructure diversifies away from its current single-region concentration as new, independent validators join, that would be the clearest path back toward a higher Decentralization score."
+    "Hyperliquid's active validator set is now 27, but the foundation's five validators still hold roughly 47-49% of staked HYPE and nearly all infrastructure sits in AWS Tokyo. A narrowing of the foundation's share, independent validators hosting outside that region, or release of the validator client's source code would be the clearest path back toward a higher Decentralization score.",
+    "US spot HYPE ETFs from Grayscale, Bitwise and 21Shares held roughly 4.7 million HYPE (about $300-315 million) in mid-November 2026, with net outflows over the prior month concentrated in the Bitwise and 21Shares funds. Sustained redemptions would weaken the TradFi Approved case; renewed inflows would strengthen it.",
+    "HIP-3 markets for perpetual futures on equities traded $153.8 billion in Q3 2026, about 59% of all HIP-3 volume. This is still derivatives trading on a single venue, so it does not yet count as a second real-world use; if it develops into a market with its own users and participants beyond existing perp traders, Real-World Utility should be revisited.",
+    "qVAULT, a third-party smart-contract vault on HyperEVM, lets users add a post-quantum (Falcon) signature check to withdrawals. It is opt-in and app-level and leaves Hyperliquid's own signatures and consensus unchanged, so it does not affect the quantum-readiness check; a protocol-level migration plan from the team would."
   ],
   "tiles": {
     "cheapest_tx_cost_usd": 0.00017,
-    "fee_yield_pct": 0.102,
+    "fee_yield_pct": 0.0745,
     "cheapest_tx_cost_note": "Covers HyperEVM gas only; HyperCore order-book trades carry no separate gas cost.",
     "fee_yield_note": "Covers chain-level gas fees only, not Hyperliquid's separate trading-fee revenue."
   }
