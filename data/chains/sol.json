@@ -5,10 +5,10 @@
   "cashtag": "$SOL",
   "scored_date": "2026-05 (TradFi) / 2026-07 (AI)",
   "last_updated": "2026-11-19",
-  "executive_summary": "Solana's mainnet went live in 2020, built specifically for high-throughput, low-latency execution, and that speed shows up in a Real-World Utility score of 92 and a TradFi score of 78. Its AI score is also 78: execution, tooling, and developer support all score well, and since the Alpenglow upgrade went live on October 21, 2026, transactions become fully and irreversibly final in well under a second, which removed the one limit that had held the AI score at 75. Both scores now land on the same number with nothing capping either, so the two lenses agree that Solana is strong but not yet top-tier: concentration of validator infrastructure holds back the TradFi side, and the AI side sits just short of the framework's highest band.",
+  "executive_summary": "Solana's mainnet went live in 2020, built specifically for high-throughput, low-latency execution, and that speed shows up in a Real-World Utility score of 92. Its TradFi score of 77 is held back by where its validators sit: about a third of all staked SOL runs from Germany and about a quarter from a single hosting provider. Its AI score of 79 reflects strong execution and tooling, and since the Alpenglow upgrade went live on October 21, 2026, transactions become fully final in well under a second. The two scores sit two points apart with nothing capping either, and the AI side is less than a point from the framework's top band.",
   "tradfi": {
-    "score": 78,
-    "raw_score": 77.64,
+    "score": 77,
+    "raw_score": 76.52,
     "tier_code": "EI",
     "gate_capped": false,
     "binding_cap": null,
@@ -19,27 +19,28 @@
     },
     "categories": {
       "on_chain_health": 81,
-      "tradfi_approved": 80,
+      "tradfi_approved": 81,
       "real_world_utility": 92,
       "tokenomics_supply": 72,
       "developer_ecosystem": 85,
       "regulatory_risk": 90,
       "privacy_confidentiality": 50,
-      "decentralization": 37,
-      "security_future_proofing": 80
+      "decentralization": 18,
+      "security_future_proofing": 77
     },
     "categories_verified": true,
     "key_findings": [
       "Solana earns a full pass on our quantum-computer readiness check, thanks to a feature called Winternitz Vault that went live on mainnet in January 2025, giving wallets a way to protect funds against a future quantum-computing attack.",
       "Real-World Utility is Solana's strongest category at 92. It's the primary settlement network Visa uses for stablecoin transactions in the US, Western Union is rolling out Solana-based transfers to more than 100 million customers across 360,000 agent locations, and Solana-based tokenized stocks (xStocks) carry the vast majority of that market's trading volume -- concrete, large-scale institutional and consumer usage rather than speculative activity alone.",
       "Privacy & Confidentiality scores a middling 50. A feature called confidential transfers is live on mainnet and lets token amounts be hidden, with a built-in auditor key that a regulator or compliance team could use to review activity -- a design well-suited to institutional use. It's held back because it only hides the transaction amount, not who's involved (the flow of funds between addresses is still fully visible), it has to be separately turned on by both the token issuer and each individual holder, and it doesn't cover SOL itself, only tokens issued on top of Solana.",
-      "Decentralization moved from 50 to 37. A measure of how concentrated block-producing power is (roughly: how many entities you'd need to collude to control the network) had already fallen to about 19-20 entities. Layered on top of that, an infrastructure-concentration check found that during the August 12, 2026 Teraswitch outage, a single hosting provider (AS20326) was responsible for 27.34% of all staked SOL going offline at once -- a real concentration risk beyond validator count alone, and now the binding factor on this category.",
-      "Solana's TradFi score of 78 sits further below the threshold for our top tier, with no rounding margin to close that gap -- it would take a genuine improvement in the underlying categories, not just a lucky rounding, to cross into the top band."
+      "Decentralization scores 18. Validators located in Germany now run about 35% of all staked SOL (35.2-35.8% in mid-November 2026), more than the roughly one-third share at which validators in a single country going offline could stall finality. One other tracker puts Germany lower, at 29.4%, which would score 31; the published TradFi score is 77 either way. A single hosting provider, Teraswitch (AS20326), also carries about 27% of stake.",
+      "Solana's TradFi score of 77 sits about 3.5 points below the threshold for the top tier. The underlying total lands only just above the line between 76 and 77, so a small change in any category could move the published number by a point.",
+      "Security & Future-Proofing scores 77. Solana's official status page showed 100% uptime during the August 12, 2026 Teraswitch outage, when about 29% of stake went offline, and in October 2026 old signing keys were stolen from five validator operators. No protocol-level exploit has occurred, and the October 2026 consensus upgrade went live cleanly."
     ]
   },
   "ai": {
-    "score": 78,
-    "raw_score": 78,
+    "score": 79,
+    "raw_score": 78.61,
     "tier_code": "IR",
     "gate_capped": false,
     "binding_cap": null,
@@ -49,9 +50,9 @@
       "operational_reliability": "pass"
     },
     "categories": {
-      "execution_layer": 82,
+      "execution_layer": 86,
       "composability_atomicity": 80,
-      "security_posture": 72,
+      "security_posture": 70,
       "state_api_quality": 88,
       "privacy_confidentiality": 63,
       "economic_predictability": 66,
@@ -61,17 +62,18 @@
     },
     "categories_verified": true,
     "key_findings": [
-      "Solana's AI score of 78 is its full category-by-category result, with no gate holding it down. Until October 21, 2026 it was held at 75 because transactions took about 12.8 seconds to become fully final; the Alpenglow upgrade replaced Solana's consensus that day, and outside measurement since puts finality well under a second (a median of about 0.4 seconds and 0.77 seconds at the 99th percentile, measured at a public data node).",
+      "Solana's AI score of 79 is its full category-by-category result, with no gate holding it down. Since the Alpenglow upgrade replaced Solana's consensus on October 21, 2026, transactions become fully final in well under a second (outside measurement: a median of about 0.4 seconds and 0.77 seconds at the 99th percentile, at a public data node), down from about 12.8 seconds. That lifted Execution Layer to 86.",
       "All three of the AI framework's baseline checks now pass outright: fully guaranteed settlement in under a second, a full smart-contract environment, and no network halt since February 2024, including through the Alpenglow switchover itself.",
-      "Agent Tooling is Solana's strongest category on the AI framework at 90, backed by mature developer tools: comprehensive software kits, transaction simulation before execution, and infrastructure built specifically for autonomous agents rather than adapted from general-purpose tooling."
+      "Agent Tooling is Solana's strongest category on the AI framework at 90, backed by mature developer tools: comprehensive software kits, transaction simulation before execution, and infrastructure built specifically for autonomous agents rather than adapted from general-purpose tooling.",
+      "Security Posture scores 70. Fewer validators run an independent second client than before: Firedancer-based software runs about 18% of stake, and the consensus upgrade itself had to be carried out on the main client alone. The new consensus code also has only weeks of live history."
     ]
   },
-  "divergence": 0,
+  "divergence": -2,
   "watch_items": [
     "Alpenglow's first half went live on mainnet on October 21, 2026, bringing transaction finality under one second. Still to come: Rotor, the second half that changes how blocks spread across the network, which Anza lists among its 2027 plans without a date. Also unpublished so far: how often blocks finalize in a single voting round, and finality measurements over a longer window than the one 24-hour sample available.",
-    "The trend in how concentrated Solana's validator power is has been moving in the wrong direction -- both validator count and the coefficient measuring control concentration have declined. Worth watching for a further downward revision if that trend continues.",
-    "On August 12, 2026, a routing failure at a company called Teraswitch took roughly 29% of staked SOL offline for 33 minutes, pushing the network to about 86% of the threshold that would have halted finality -- and Solana's own public status page showed no incident at all during this. That infrastructure-concentration risk is now factored directly into the Decentralization score above; the status-page discrepancy is a separate credibility concern and Security & Future-Proofing remains a candidate for re-scoring on that basis. Worth watching whether validator infrastructure diversifies away from AS20326 going forward.",
-    "Helius released Solana Privacy Rings on mainnet on November 10, 2026: shielded pools that encrypt balances and amounts for native SOL and other tokens, with wallets still visible and viewing keys for selective disclosure. It is under review for both privacy scores; versions with auditor keys and full anonymity are still in audit and count for nothing until they go live."
+    "Validator concentration by country: trackers put the share of stake run from Germany between 29.4% and 35.8% in November 2026, and the score uses the higher reading. A sustained drop below one-third would raise Decentralization. The Solana Foundation also tightened its delegation program from November 6, 2026 (12-month membership cap, maximum 100 validators), and its effect on the number of independent validators is worth watching.",
+    "On August 12, 2026, a routing failure at a company called Teraswitch took roughly 29% of staked SOL offline for 33 minutes, pushing the network to about 86% of the threshold that would have halted finality -- and Solana's own public status page showed no incident at all during this. The status-page gap is now reflected in Security & Future-Proofing. Teraswitch (AS20326) still carries about 27% of stake; worth watching whether validator infrastructure diversifies away from it.",
+    "Helius released Solana Privacy Rings on mainnet on November 10, 2026: shielded pools that encrypt balances and amounts for native SOL and other tokens, with wallets still visible and viewing keys for selective disclosure. No usage figures had been published by November 19, so it isn't credited yet; versions with auditor keys and full anonymity are still in audit."
   ],
   "tiles": {
     "cheapest_tx_cost_usd": 0.0005,
