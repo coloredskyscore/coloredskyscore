@@ -4,39 +4,41 @@
   "name": "Zcash",
   "cashtag": "$ZEC",
   "scored_date": "2026-08",
-  "last_updated": "2026-08-27",
-  "executive_summary": "Zcash launched to mainnet in October 2016, making it nearly a decade old, and it's a proof-of-work blockchain forked from Bitcoin's codebase with one core addition: an optional shielded layer that lets transactions be proven and settled using zero-knowledge cryptography instead of a public ledger entry, with no smart-contract layer of its own. That founding purpose is still its defining trait: Privacy & Confidentiality scores 80 on the TradFi side and 90 on the AI side, its highest marks on either axis. The TradFi score of 51 is held back less by the technology itself than by access to it -- most regulated exchanges have stopped supporting shielded deposits and withdrawals, so institutional buyers typically get exposure to Zcash's price without the privacy the asset was actually built to offer.",
+  "last_updated": "2026-11-19",
+  "executive_summary": "Zcash launched to mainnet in October 2016, making it about a decade old, and it's a proof-of-work blockchain forked from Bitcoin's codebase with one core addition: an optional shielded layer that lets transactions be proven and settled using zero-knowledge cryptography instead of a public ledger entry, with no smart-contract layer of its own. That founding purpose is still its defining trait: Privacy & Confidentiality scores 80 on the TradFi side and 90 on the AI side, its highest marks on either axis. The TradFi score of 54 rose in November 2026 after a US spot Zcash ETF began trading in August, but it is still held back by access: regulated venues, including that ETF, hold or support only the transparent version of ZEC, so institutional buyers get the price without the privacy the asset was built to offer.",
   "tradfi": {
-    "score": 51,
-    "raw_score": 51.12,
+    "score": 54,
+    "raw_score": 53.9,
     "tier_code": "RG",
     "gate_capped": false,
     "binding_cap": null,
     "gates": {
       "quantum_resistance": "partial",
-      "regulatory_clarity": "partial",
+      "regulatory_clarity": "pass",
       "security_posture": "partial"
     },
     "categories": {
       "on_chain_health": 42,
-      "tradfi_approved": 40,
+      "tradfi_approved": 54,
       "real_world_utility": 45,
       "tokenomics_supply": 85,
       "developer_ecosystem": 42,
-      "regulatory_risk": 40,
+      "regulatory_risk": 44,
       "privacy_confidentiality": 80,
       "decentralization": 31,
       "security_future_proofing": 75
     },
     "categories_verified": true,
     "key_findings": [
-      "Privacy & Confidentiality is Zcash's standout category at 80, the clearest expression of the chain's founding purpose. Transactions can be fully shielded using zero-knowledge cryptography that requires no trusted third party to set up, has held up to real-world attack for nearly a decade, and had its newest version mathematically verified for correctness rather than just tested. Roughly 26% of all circulating ZEC is currently shielded. Because Zcash's own coin can be held privately, not just tokens built on top of it, it earns full credit here rather than the discount we apply to bolted-on privacy elsewhere.",
+      "Privacy & Confidentiality is Zcash's standout category at 80, the clearest expression of the chain's founding purpose. Transactions can be fully shielded using zero-knowledge cryptography that requires no trusted third party to set up, has held up to real-world attack for nearly a decade, and had its newest version mathematically verified for correctness rather than just tested. About 29% of all circulating ZEC was shielded at the end of October 2026. Because Zcash's own coin can be held privately, not just tokens built on top of it, it earns full credit here rather than the discount we apply to bolted-on privacy elsewhere.",
       "This score sits below the 90 Zcash earns on our AI-agent framework, and that gap is intentional, not an inconsistency. The AI framework rewards a feature called viewing keys, which let someone prove their transaction history to another party without handing over the ability to spend the funds -- useful for an autonomous agent. The institutional framework weighs that same technology against a practical wall: most regulated exchanges won't handle shielded transactions at all, so the feature matters less to a buyer who can't actually use it.",
-      "Zcash landed in the middle ground -- 'Partial,' not a full pass -- on all three of our baseline checks: quantum-computer readiness, regulatory footing, and security track record. Normally a weak baseline check drags the final score down to a ceiling. That's not what happened here: even the strictest of the three checks would still allow a score well above 51. Zcash's 51 is an honest reflection of its category-by-category strengths and weaknesses, not a penalty for failing a checkpoint.",
-      "Decentralization scores 31, Zcash's weakest category on this axis. Mining power is concentrated -- the largest pool, ViaBTC, controls close to half of the network's hashing power on its own -- and an infrastructure-concentration check adds a second data point in the same direction, with Foundry accounting for roughly 29.5% of hashrate on its own. That concentration is offset somewhat by a genuine strength: Zcash actually runs two independently built software implementations (zcashd and Zebra), giving it real client diversity rather than one team's code running everywhere.",
+      "Zcash passes our regulatory baseline check and lands in the middle ground -- 'Partial' -- on the other two: quantum-computer readiness and security assurance. Normally a weak baseline check drags the final score down to a ceiling. That's not what happens here: the strictest remaining check would still allow a score well above 54, so the 54 reflects Zcash's category-by-category strengths and weaknesses, not a penalty for failing a checkpoint.",
+      "Decentralization scores 31, Zcash's weakest category on this axis. Mining power is concentrated in a few pools, with Foundry, an institutional pool that requires identity checks, accounting for roughly 29.5% of hashrate on its own. Node software is also concentrated: since the original zcashd client was retired in July 2026, Zebra is the maintained implementation, and the newer Zakura client is built from the same codebase rather than independently.",
+      "TradFi Approved scores 54, up from 40. Grayscale's spot Zcash ETF (ZCSH) began trading on NYSE Arca on August 25, 2026 -- the first US spot product for a privacy coin -- holding 617,643 ZEC (about $876 million) on September 30, 2026, with Coinbase Custody and Anchorage Digital as custodians. CFTC-regulated ZEC futures also trade at Coinbase Derivatives and Kalshi. The score is held down by heavy recent redemptions, by the ETF holding only transparent ZEC, and by a long record of exchange delistings and regional restrictions.",
+      "Regulatory & Risk scores 44, up from 40. The SEC allowed a privacy-coin ETF to list under its standard rules, and its investigation of the Zcash Foundation closed in January 2026 with no action. The main weight is still ahead: from July 10, 2027, EU rules bar banks and licensed crypto businesses from providing services for privacy-focused assets like Zcash.",
       "Institutions can already buy Zcash, but almost always the transparent version, not the shielded one. Most regulated exchanges have dropped support for shielded deposits and withdrawals, or never built it, because securely holding shielded funds on a client's behalf is harder to operate and harder to prove compliant. In practice, institutional buyers get exposure to the asset's price without access to the privacy technology that defines it.",
       "Tokenomics & Supply is Zcash's second-strongest category at 85, close to best-in-class supply design. There's a hard cap of 21 million coins, no early allocation to founders or venture investors, and no scheduled token unlocks that could flood the market -- the one early insider allocation fully ended back in November 2020. It falls short of a perfect score because a fifth of every newly issued coin is still redirected to fund ongoing development rather than paid to miners, and roughly 55,000-56,000 ZEC (about 0.3% of all coins in existence) sits in a reserve fund that nobody can currently spend but that also has no clear rules yet for when or how it eventually will be.",
-      "Security Posture lands in the middle for one specific, fixable reason: Zcash's paid bug-bounty program shut down on May 26, 2026 after being overwhelmed with low-quality, AI-generated submissions, and hasn't been replaced. Everything else about its security record is strong -- independent professional audits, a decade of live operation since October 2016, and zero successful attacks on the core protocol in that entire span. This is a funding gap in one program, not a sign of weak design, and relaunching the bounty would fix it.",
+      "Security Posture lands in the middle for one specific reason: the November 6, 2026 network upgrade (NU7) changed core consensus rules, and no independent audit of that new code has been published. Zcash's last published independent audit of its node software covered the previous upgrade. Everything else about its security record is strong -- a decade of live operation since October 2016 and zero successful attacks on the core protocol. Zcash's paid bug-bounty program has been closed since May 26, 2026; coinholders have paid some researchers after the fact through grants instead.",
       "Zcash has already shipped real protection against future quantum computers, earlier than most chains, but only for half the problem so far. As of July 28, 2026, an upgrade means a quantum computer could not forge or counterfeit new coins out of thin air. It has not yet protected the other half: the signatures that authorize spending funds still rely on math that a sufficiently powerful quantum computer could eventually break, meaning a well-resourced future attacker could potentially steal existing coins, even though they still couldn't create fake ones. Fixes are planned but none is live yet: protection for ordinary transparent addresses is targeted for January 2027, and a complete fix, Project Tachyon, is targeted for late 2027."
     ]
   },
@@ -64,25 +66,28 @@
     },
     "categories_verified": true,
     "key_findings": [
-      "Privacy & Confidentiality scores 90, the highest mark Zcash earns on either framework, because this is exactly the property an autonomous agent handling funds would want. The shielding requires no trusted setup, its newest version was formally verified for correctness, and about 26% of circulating supply is currently shielded, up from roughly 22% a year earlier -- a real and growing usage trend, not just a theoretical capability.",
+      "Privacy & Confidentiality scores 90, the highest mark Zcash earns on either framework, because this is exactly the property an autonomous agent handling funds would want. The shielding requires no trusted setup, its newest version was formally verified for correctness, and about 29% of circulating supply was shielded at the end of October 2026, up from roughly 22% a year earlier -- a real and growing usage trend, not just a theoretical capability.",
       "Zcash's two most extreme scores on the AI framework trace back to the same root cause. Privacy scores 90 because a decade of engineering went into perfecting private value transfer. Composability & Atomicity -- the ability for an agent to chain multiple actions into one all-or-nothing transaction, the way it can on programmable smart-contract chains -- scores only 20, because that same decade of focus meant Zcash never built a general computation layer. An agent can move value privately here, but it cannot orchestrate more complex logic around that move.",
       "A real weakness for automated agents: there's no simple, direct way to look up a shielded balance the way you can on a transparent blockchain. An agent has to use its own private viewing key to scan and decrypt its transaction history piece by piece just to figure out what it owns, and if it's been offline for a while, it has to redo that scan from where it left off, which can take anywhere from minutes to tens of minutes depending on how much history there is to catch up on.",
       "Zcash fails our check for fast, guaranteed transaction finality (essentially, how quickly and certainly a confirmed transaction becomes irreversible), because it relies purely on proof-of-work mining, the same probabilistic settlement model as Bitcoin, with no faster finality layer live yet. Even so, that failure isn't what actually produced the final score -- the honest, evidence-based assessment across all nine categories landed lower on its own than the penalty tied to the failed check would have. The category-by-category picture, not the failed check, is what set the result here.",
-      "Worth flagging for anyone tracking Zcash's reliability record: widely reported claims that the network stopped producing blocks for over four hours on June 3, 2026 were false. The network kept running the whole time. What actually happened is that several block explorers and data providers had skipped a routine software upgrade, leaving them stuck watching an old, abandoned version of the chain that they mistakenly reported as dead."
+      "Worth flagging for anyone tracking Zcash's reliability record: widely reported claims that the network stopped producing blocks for over four hours on June 3, 2026 were false. The network kept running the whole time. What actually happened is that several block explorers and data providers had skipped a routine software upgrade, leaving them stuck watching an old, abandoned version of the chain that they mistakenly reported as dead.",
+      "The November 6, 2026 upgrade (NU7) cut Zcash's target block time from 75 seconds to 25. Early blocks averaged about 39 seconds while mining difficulty adjusted. Until a settled average is measured, the faster target is not yet reflected in the score."
     ]
   },
-  "divergence": 9,
+  "divergence": 12,
   "watch_items": [
-    "Zcash holders vote starting August 25, 2026 on a proposed upgrade that would cut block times from 75 seconds down to 25 and roughly double how much shielded activity the network can process per block -- a meaningful capacity boost if it passes and later ships.",
+    "Measured block times after the November 6, 2026 upgrade (NU7): the target is 25 seconds, down from 75. Once a settled average near the target is confirmed, it would raise the AI Execution Layer score.",
+    "An independent audit of the NU7 consensus code, once published, would close the one gap in Zcash's security check and could move it to a full pass.",
+    "Grayscale's Zcash ETF (ZCSH) has seen heavy redemptions since late September 2026. Bitwise (Texas Stock Exchange, ticker ZEC, filed November 17, 2026) and Winklevoss (Nasdaq, ticker WINK, filed October 2026) have filed for spot Zcash ETFs; neither is effective, and the Bitwise filing states it will hold only transparent ZEC. Either launching would add to TradFi Approved.",
     "The team's target for fully closing the quantum-computer vulnerability gap -- protecting the signatures that authorize spending funds, not just preventing counterfeiting -- is late 2027, under an initiative called Project Tachyon. Until that ships, Zcash keeps a partial pass on quantum readiness rather than a full one.",
-    "A Zcash node team called Zakura is targeting January 2027 for quantum-resistant signatures on transparent addresses, where about 70% of all ZEC sits. That would be the first protection for the signatures that authorize spending, ahead of Project Tachyon's late-2027 target. It is a developer target, not a scheduled upgrade: there is no confirmed activation date, holders must move their coins to the new address type to be protected, and shielded funds are not covered. Only a network upgrade with a set activation date would prompt us to revisit the quantum-readiness check.",
+    "A Zcash node team called Zakura is targeting January 2027 for quantum-resistant signatures on transparent addresses, where about 70% of all ZEC sits. It is a developer target, not a scheduled upgrade: there is no confirmed activation date, holders must move their coins to the new address type to be protected, and shielded funds are not covered.",
     "Starting July 10, 2027, new EU regulation will bar banks and licensed crypto businesses across the EU and EEA from offering services involving privacy-focused assets like Zcash. It won't stop individuals from holding ZEC themselves or sending it person-to-person, but it will add to the access limits this framework already scores as a weakness.",
-    "If Zcash relaunches a funded bug-bounty program, it would fix the one gap currently holding back its Security Posture score and could move that baseline check from a partial pass to a full one.",
-    "A project called Crosslink is developing a way to add fast, guaranteed transaction finality on top of Zcash's existing mining-based security -- which would fix the one baseline check Zcash currently fails outright. It's still an early prototype with no confirmed launch date."
+    "A funded, standing bug-bounty program would add credit in Security & Future-Proofing. Since the May 2026 closure, coinholders have paid individual researchers through retroactive grants instead.",
+    "A project called Crosslink is developing a way to add fast, guaranteed transaction finality on top of Zcash's existing mining-based security -- which would fix the one baseline check Zcash currently fails outright. It is still in development with no confirmed launch date."
   ],
   "tiles": {
-    "cheapest_tx_cost_usd": 0.12,
-    "fee_yield_pct": 0.0031,
+    "cheapest_tx_cost_usd": 0.09,
+    "fee_yield_pct": 0.0052,
     "cheapest_tx_cost_note": "ZIP-317 protocol-minimum fee; the ZEC-denominated cost is fixed, the USD figure moves with price."
   }
 }
