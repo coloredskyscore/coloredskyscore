@@ -4,11 +4,11 @@
   "name": "Sui",
   "cashtag": "$SUI",
   "scored_date": "2026-06",
-  "last_updated": "2026-10-18",
-  "executive_summary": "Sui's mainnet launched in May 2023, a little over three years before this scoring, built around a design that lets many transactions process in parallel rather than one at a time. That design underpins a TradFi score of 73, carried by strong regulatory standing and real-world usage, with an open, numerous validator base that's a genuine strength on paper -- moderated somewhat by a concentration of validators in a single jurisdiction, the United States -- and with room to grow further as transaction fee economics mature. The AI score of 73 sits well below the network's underlying strength, which actually scores an 86, because a May 2026 network halt triggered a reliability cool-down period that takes months of clean operation to fully recover from.",
+  "last_updated": "2026-11-19",
+  "executive_summary": "Sui's mainnet launched in May 2023, built around a design that lets many transactions process in parallel rather than one at a time. Its TradFi score of 72 is carried by strong regulatory standing, real-world stablecoin usage and an open validator base, and held back by thin fee revenue, falling daily users and a smaller developer and wallet ecosystem than earlier in 2026. The AI score of 74 sits well below the network's underlying strength, which scores an 86, because a May 2026 network halt triggered a reliability cool-down that eases by one point for each clean month.",
   "tradfi": {
-    "score": 73,
-    "raw_score": 72.89,
+    "score": 72,
+    "raw_score": 72.15,
     "tier_code": "EI",
     "gate_capped": false,
     "binding_cap": null,
@@ -18,11 +18,11 @@
       "security_posture": "pass"
     },
     "categories": {
-      "on_chain_health": 68,
+      "on_chain_health": 65,
       "tradfi_approved": 73,
       "real_world_utility": 80,
       "tokenomics_supply": 76,
-      "developer_ecosystem": 75,
+      "developer_ecosystem": 73,
       "regulatory_risk": 84,
       "privacy_confidentiality": 68,
       "decentralization": 45,
@@ -30,23 +30,24 @@
     },
     "categories_verified": true,
     "key_findings": [
-      "Regulatory & Risk is a strength at 84. Sui has no history of regulatory litigation, and institutional access -- things like regulated custody and trading venues -- has been built out unusually quickly for a chain this young.",
-      "On-Chain Health is the main thing holding Sui's overall score back, at 68. The core issue is fee economics: the network isn't yet generating the level of paid transaction activity that would signal deep, sticky usage.",
-      "Decentralization moved from 62 to 45. Roughly 19 independent entities would need to collude to control a meaningful share of staked SUI, and entry to the validator set is open rather than gated -- both real strengths. But a jurisdiction-concentration check found that validators headquartered in the United States account for 24.8% of the network's 108 validators, and that concentration is now the binding factor pulling the score down rather than the underlying validator count and admission policy, which remain genuinely strong on their own. All production validators also still run the same client software (sui-node), with no independently built alternative yet in production to check its behavior.",
-      "Privacy & Confidentiality scores 68. Two live mainnet tools do real work here: Seal, which lets developers encrypt data and set on-chain rules for who can decrypt it and when, and Nautilus, which runs sensitive computations inside a secure, tamper-resistant hardware environment and verifies the results on-chain. Important disclosure: both of these protect data and application logic -- neither one shields the SUI token itself or hides a transaction's value. A separate feature that would let SUI transaction amounts be hidden (confidential transfers) still only exists in testing and isn't live on mainnet, so it earns no credit here.",
-      "Sui's 73 today has a credible path upward: if paid transaction activity grows, validator hosting diversifies across jurisdictions, and its post-quantum cryptography protections ship to mainnet, the score would have real room to rise."
+      "Regulatory & Risk is a strength at 84. Sui has no history of regulatory litigation, and institutional access -- three US spot ETFs, CME futures and regulated custody -- has been built out unusually quickly for a chain this young.",
+      "On-Chain Health scores 65, down from 68. Network fees fell to about $85,000 over the 30 days to mid-November 2026, from about $147,000 in May, and daily active addresses are well below the roughly 200,000 measured in May (current trackers range from about 75,000 to 140,000). Stablecoin supply held at about $590 million, and daily transactions rose, so activity is thinner per user rather than gone.",
+      "Developer & Ecosystem scores 73, down from 75. Mysten Labs co-founder and CTO Sam Blackshear, who created the Move language, left in August 2026 (he remains an advisor), and the Phantom and Suiet wallets dropped Sui support in September and November. Mysten's in-house tooling -- DeepBook, Walrus, zkLogin -- is unchanged and keeps the score in the 70s.",
+      "Decentralization scores 45. Entry to the validator set is open, 125 validators are active, and roughly 17 independent entities would need to collude to control a meaningful share of stake. The binding factor is jurisdiction: the latest available breakdown puts 24.8% of validators in the United States, though that tracker still counts 108 validators against 125 live, so the figure may not be current. All production validators still run the same client software.",
+      "Privacy & Confidentiality scores 68. Seal (encrypted data with on-chain access rules) and Nautilus (verified secure-hardware computation) are live on mainnet. Neither shields the SUI token or hides a transaction's value; confidential transfers, which would hide amounts, are still on devnet and earn no credit.",
+      "Sui's TradFi score of 72 sits 0.65 above the line where it would publish 71 and is not near a tier boundary."
     ]
   },
   "ai": {
-    "score": 73,
+    "score": 74,
     "raw_score": 86,
     "tier_code": "IR",
     "gate_capped": true,
     "binding_cap": {
       "gate": "operational_reliability",
-      "cap_value": 73,
+      "cap_value": 74,
       "short_note": "Capped by the Operational Reliability cool-down timer, anchored to the May 28-29, 2026 halt.",
-      "as_of": "2026-10-01"
+      "as_of": "2026-11-01"
     },
     "gates": {
       "deterministic_finality": "pass",
@@ -67,23 +68,24 @@
     "categories_verified": true,
     "key_findings": [
       "Based purely on its category-by-category performance, Sui's AI score would be 86 -- genuinely excellent fundamentals, with execution speed, the ability to bundle multiple actions into one transaction, and privacy tooling all scoring in the high 80s to 90s.",
-      "The published score of 73 is held down entirely by a reliability penalty tied to a past network outage, not by any weakness in the underlying technology -- without that outage in its recent history, this would be an 86.",
-      "Sui's AI score moved up from the 'Experimental' tier into 'Integration Ready' on July 1, 2026, as part of a scheduled recovery: the reliability penalty from the earlier outage eases by a fixed amount for every clean month that passes without another incident. It has climbed one point for every clean month since, reaching 73 on October 1, 2026."
+      "The published score of 74 is held down entirely by a reliability penalty tied to a past network outage, not by any weakness in the underlying technology -- without that outage in its recent history, this would be an 86.",
+      "Sui's AI score moved from Experimental into Integration Ready on July 1, 2026, as part of a scheduled recovery: the reliability penalty from the May 2026 outage eases by one point for every clean month without another incident. It has climbed every month since, reaching 74 on November 1, 2026."
     ]
   },
-  "divergence": 0,
+  "divergence": -2,
   "watch_items": [
     "Sui is planning to ship a quantum-safe wallet feature to mainnet later in 2026. Once it does, it will trigger a re-check of the quantum-computer readiness check.",
     "A native quantum-resistant signature standard (ML-DSA-65) for account authentication is targeted for Q1 2027. If it ships, it would be the trigger for a full pass on quantum-computer readiness.",
     "The reliability penalty from the May 2026 outage continues easing by a fixed amount for every additional clean month without another incident. If that streak continues uninterrupted, the penalty lifts entirely around June 2027, at which point Sui's AI score would reflect its underlying 86 and reach our top tier.",
-    "If Sui's confidential-transfer feature, which would let transaction amounts be hidden, moves from testing to a live mainnet launch, it would raise the Privacy & Confidentiality score.",
-    "If validator hosting diversifies away from its current jurisdiction concentration, that would be the clearest path back toward a higher Decentralization score.",
+    "Confidential transfers, which would let token amounts be hidden, have been in public beta on devnet since June 2026. Sui has said it plans a mainnet release in Q4 2026 but has not confirmed a date; a live mainnet launch would raise the Privacy & Confidentiality score.",
+    "Validator geography: the latest available breakdown puts 24.8% of validators in the United States and 19.3% with a single hosting provider (Latitude.sh), but the tracker still counts 108 validators against 125 live. A fresh breakdown is needed; diversification away from the US would be the clearest path back toward a higher Decentralization score.",
     "The Sui Foundation runs a daily on-chain buyback funded by stablecoin yield, but the repurchased SUI is redistributed to ecosystem participants rather than burned, so it doesn't reduce circulating supply. At current scale (a few million dollars a year) it's immaterial to the Tokenomics & Supply score either way -- worth re-checking only if the program grows substantially or shifts toward actually burning the tokens it buys.",
-    "Two announced launches could raise the TradFi score once they are live and in real use: USDC transfers in Samsung Wallet for US Galaxy users, scheduled for late October 2026, and Hashi, a system for using Bitcoin as collateral on Sui, with a phased mainnet rollout starting in October 2026. Neither earns credit until it is live on mainnet, and the $500 million reported for Hashi is committed capital, not deposits."
+    "Two launches could raise the TradFi score once they show real use. Hashi, a system for using Bitcoin as collateral on Sui, went live on mainnet in November 2026 with only about 14 hBTC circulating at launch; its Bitcoin is held jointly by a committee of Sui validators and a separate guardian key, a custody design that needs its own review before any credit. USDC transfers in Samsung Wallet for US Galaxy users were promised for late October, then later in November, and were not live as of November 19, 2026.",
+    "Ecosystem contraction: daily active addresses, network fees and developer activity have all fallen through 2026, and the Phantom and Suiet wallets dropped Sui support. A sustained recovery in users and paid activity would lift On-Chain Health; further exits would weigh on Developer & Ecosystem."
   ],
   "tiles": {
     "cheapest_tx_cost_usd": 0.01,
-    "fee_yield_pct": 0.04,
+    "fee_yield_pct": 0.034,
     "cheapest_tx_cost_note": "Typical paid transfer runs a fraction of a cent; sponsored stablecoin transfers are free."
   }
 }

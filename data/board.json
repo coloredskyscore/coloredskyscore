@@ -55,15 +55,15 @@
       "name": "Sui",
       "cashtag": "$SUI",
       "detail_url": "data/chains/sui.json",
-      "tradfi_score": 73,
+      "tradfi_score": 72,
       "tradfi_tier": "EI",
       "tradfi_capped": false,
-      "ai_score": 73,
+      "ai_score": 74,
       "ai_tier": "IR",
       "ai_capped": true,
-      "divergence": 0,
+      "divergence": -2,
       "scored_date": "2026-06",
-      "last_updated": "2026-10-18"
+      "last_updated": "2026-11-19"
     },
     {
       "slug": "eth",
