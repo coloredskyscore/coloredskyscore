@@ -4,7 +4,7 @@
   "name": "Ethereum",
   "cashtag": "$ETH",
   "scored_date": "2026-06",
-  "last_updated": "2026-08-28",
+  "last_updated": "2026-11-20",
   "executive_summary": "Ethereum launched in 2015 as a general-purpose smart contract platform, and about a decade later at the time of this scoring it's carrying a privacy application ecosystem worth roughly $4.2 billion in cumulative volume on top of deep institutional and developer adoption, driving a TradFi score of 80. The AI score of 74 is held back mainly by settlement speed: transactions take roughly 13-15 minutes to become fully final, which is slow for an agent trying to act and confirm in real time. The 6-point gap between the two scores comes from that finality lag combined with a fee market that's hard to predict and thin privacy tooling at the base layer.",
   "tradfi": {
     "score": 80,
@@ -35,12 +35,12 @@
       "Privacy & Confidentiality lands at a middling 48. Ethereum's base layer has no built-in way to hide a transaction, but a substantial ecosystem of third-party privacy applications has grown on top of it -- roughly $4.2 billion in cumulative volume through tools like Railgun, zkBOB, and Tornado Cash. One related project, Aztec, isn't counted here because it runs its own separate security setup rather than relying on Ethereum's.",
       "Tokenomics & Supply moved from 80 to 78. Part of the original score rested on a strong post-Merge deflationary dynamic -- transaction fees being burned faster than new supply was issued. Since the Dencun upgrade, activity has shifted toward Layer 2 networks, base-layer fees and the resulting burn have declined, and net issuance has drifted mildly positive during quieter periods. The revision reflects that shift in the underlying dynamic rather than the story the original score was built on.",
       "Ethereum only partially passes our quantum-computer readiness check, but that check isn't what's holding the score back -- even the strictest ceiling it would impose sits well above where Ethereum actually landed on its category-by-category merits.",
-      "Ethereum's TradFi score of 80 sits at the boundary of our top tier, with a thin cushion underneath following the Tokenomics & Supply revision above. A shift of even a point or two in a single category could be enough to move Ethereum out of that top band at a future review."
+      "Ethereum's TradFi score of 80 rests on a raw score of 79.56, just 0.06 points above the line that rounds to 80. A one-point drop in almost any single category would move Ethereum out of the top tier. Real-World Utility (88) is the closest to that line: Ethereum's share of stablecoins slipped from about 50% to about 46% between June and November 2026 (largely redemptions during a market-wide sell-off), and its share of tokenized real-world assets has been diluted to about 35% as other chains grew, while the dollar value of real-world assets on Ethereum held flat at about $14.5 billion. That category is scheduled for a re-check in a calmer market."
     ]
   },
   "ai": {
     "score": 74,
-    "raw_score": 74.01,
+    "raw_score": 73.85,
     "tier_code": "IR",
     "gate_capped": false,
     "binding_cap": null,
@@ -58,23 +58,28 @@
       "economic_predictability": 62,
       "agent_tooling": 86,
       "standards_interoperability": 84,
-      "kya": 83
+      "kya": 81
     },
     "categories_verified": true,
     "key_findings": [
       "Ethereum's transaction-finality speed only earns a partial pass on our AI check, but that check isn't what's setting the score -- Ethereum's category-by-category performance landed just below that check's ceiling on its own.",
       "Execution Layer is a relative weak point at 62, driven mainly by how long it takes for a transaction to become fully and irreversibly final -- roughly 13 to 15 minutes. That's a real constraint for any agent use case where it needs certainty that a payment has settled before it can safely act on it.",
-      "Agent Identity & Compliance is Ethereum's strongest category on the AI framework at 83, driven by ERC-8004, an agent-identity standard that originated on Ethereum and has since become widely used across other chains as well.",
+      "Agent Identity & Compliance scores 81, driven by ERC-8004, an agent-identity standard that originated on Ethereum and is now deployed across many chains. On Ethereum's own mainnet, usage is still thin: about 50,000 registered agent identities, only around 3% of them with any reputation feedback, and no activity yet on the standard's validation registry.",
       "The 6-point gap between Ethereum's TradFi and AI scores doesn't come from one single weak spot -- it's the combined effect of three separate structural issues: slow final settlement, a fee market where costs can spike unpredictably due to competition for block space, and thin privacy at the base-layer level."
     ]
   },
   "divergence": 6,
   "watch_items": [
-    "Two upcoming upgrades on Ethereum's roadmap, known as Fusaka and Glamsterdam, include changes aimed at making transactions final in a single step rather than over many minutes, along with other performance and storage improvements. If they ship as planned, they could meaningfully raise the Execution Layer score."
+    "Real-World Utility re-check: Ethereum's stablecoin supply fell from about $156 billion to about $130 billion between June and November 2026 (about 50% to 46% of all stablecoins, mostly redemptions during a market-wide sell-off), and its share of tokenized real-world assets is about 35% of a market that has grown to about $41 billion. Both shares will be re-read over a stable period at the next review; a lasting decline would lower Real-World Utility and, at the current margin, move Ethereum out of the top tier.",
+    "Glamsterdam, the next major upgrade (enshrined proposer-builder separation, block-level access lists, gas repricing), ran on the Sepolia testnet in October 2026, but its next testnet launch was postponed after reviewers flagged gas-accounting risks and a staking-deposit bug, both caught before mainnet. Mainnet is not expected before January 2027. The following upgrade, Hegota (FOCIL inclusion lists, native account abstraction, a possible protocol-level shielded pool), follows after it.",
+    "Ethereum's finality still takes roughly 13 to 15 minutes. Faster finality remains a research goal with no scheduled upgrade, so the Execution Layer score is unlikely to move until a concrete plan ships.",
+    "Execution client diversity: estimates of Geth's share of Ethereum nodes range from about 43% to well above 50% depending on the source. A confirmed majority for a single client would weigh on Decentralization and Security Posture.",
+    "Staking concentration: Lido's share of staked ETH has fallen to about 22%, but BitMine Immersion now stakes about 5.2 million ETH, roughly 12% of all staked ETH. Further growth by any single holder would weigh on Decentralization.",
+    "Post-quantum: Ethereum Foundation researchers have described a hoped-for December 2028 target for a full post-quantum transition, ahead of the official 2029 roadmap. Nothing post-quantum is live on mainnet or a public testnet yet; a live deployment securing spend authorization would be needed to clear the quantum-readiness check."
   ],
   "tiles": {
-    "cheapest_tx_cost_usd": 0.0051,
-    "fee_yield_pct": 0.043,
-    "cheapest_tx_cost_note": "A single low-gas snapshot (0.098 gwei); actual cost moves with network demand."
+    "cheapest_tx_cost_usd": 0.0018,
+    "fee_yield_pct": 0.113,
+    "cheapest_tx_cost_note": "A single low-gas snapshot (about 0.05 gwei at about $1,740 per ETH, November 2026); actual cost moves with network demand."
   }
 }
