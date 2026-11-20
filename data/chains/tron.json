@@ -4,42 +4,44 @@
   "name": "TRON",
   "cashtag": "$TRX",
   "scored_date": "2026-08",
-  "last_updated": "2026-08-15",
-  "executive_summary": "TRON's mainnet has been running since 2018, originally built around content and payments, and eight years later at the time of this scoring it functions mainly as a settlement rail for stablecoins, moving roughly $2 trillion in USDT in a single quarter. That volume drives an On-Chain Health score of 88, its strongest category, while a TradFi score of 63 reflects regulatory and governance questions that haven't fully resolved. The AI score of 67 reflects a network with real but still-unproven agent infrastructure, including a shielded, privacy-preserving transfer option that technically works but that almost nobody appears to use.",
+  "last_updated": "2026-11-20",
+  "executive_summary": "TRON's mainnet has been running since 2018, originally built around content and payments, and eight years later at the time of this scoring it functions mainly as a settlement rail for stablecoins, moving roughly $2 trillion in USDT in a single quarter. That volume drives an On-Chain Health score of 88, its strongest category, while a TradFi score of 64 reflects governance and concentration questions that haven't fully resolved, even as regulated US access has arrived. The AI score of 67 reflects a network with real but still-unproven agent infrastructure, including a shielded, privacy-preserving transfer option that technically works but that almost nobody appears to use.",
   "tradfi": {
-    "score": 63,
-    "raw_score": 63.35,
+    "score": 64,
+    "raw_score": 63.66,
     "tier_code": "EI",
     "gate_capped": false,
     "binding_cap": null,
     "gates": {
       "quantum_resistance": "partial",
-      "regulatory_clarity": "partial",
+      "regulatory_clarity": "pass",
       "security_posture": "partial"
     },
     "categories": {
       "on_chain_health": 88,
-      "tradfi_approved": 55,
+      "tradfi_approved": 58,
       "real_world_utility": 85,
       "tokenomics_supply": 62,
       "developer_ecosystem": 54,
-      "regulatory_risk": 48,
+      "regulatory_risk": 46,
       "privacy_confidentiality": 40,
       "decentralization": 30,
       "security_future_proofing": 68
     },
     "categories_verified": true,
     "key_findings": [
-      "TRON landed in the middle ground -- 'Partial,' not a full pass -- on all three of our baseline checks: quantum-computer readiness, regulatory footing, and security track record. None of the three cleared outright.",
-      "TRON's regulatory-footing check used to actually limit its published score, but it no longer does -- TRON's overall performance has fallen low enough on its own that this check isn't what's holding it back anymore. One practical consequence: an upcoming quantum-resistance upgrade would now directly move the published score, something that wasn't true before.",
+      "TRON now fully passes our regulatory-footing check and partially passes the other two -- quantum-computer readiness and security track record. None of the three checks is holding the score down: TRON's category-by-category performance sits below every ceiling they would impose.",
+      "The regulatory-footing check moved to a full pass in November 2026. The first US spot TRX ETF (Canary's staked TRX fund, TRXS) began trading on Cboe on September 9, 2026, adding to a resolved SEC case (claims against Justin Sun and the TRON Foundation dismissed with prejudice in March 2026) and CFTC-regulated TRX spot and futures trading on Bitnomial. The fund is small, at roughly $46-51 million.",
       "On-Chain Health is TRON's strongest category at 88, driven by real scale: roughly $2 trillion in USDT (the dollar-pegged stablecoin) moved across the network in a single quarter, generating genuine fee revenue rather than relying on a promotional subsidy to inflate activity.",
-      "Regulatory & Risk scores a mixed 48, and the same fact pulls in both directions. TRON has a high volume of frozen and blacklisted addresses -- a red flag on its face -- but the organization doing that freezing was specifically cited by the international Financial Action Task Force (FATF) as a model example of effective public-private enforcement cooperation.",
-      "Privacy & Confidentiality scores 40, at the bottom of what a fully transparent chain would earn, despite TRON having real shielded-transfer technology (using zero-knowledge cryptography) built into the network and verified as working. In practice, though, no mainstream wallet gives users access to it, the public infrastructure that would route those transactions frequently errors out, and there's no published data showing anyone actually uses it. Genuine privacy technology only counts for something if people are actually using it, and there's no evidence anyone is."
+      "Regulatory & Risk scores 46. TRON carries a high volume of frozen and blacklisted addresses (thousands of USDT freezes in 2026). The industry crime unit that offset this -- T3, run with Tether and TRM Labs and cited by the Financial Action Task Force as a model -- was quietly disbanded in August 2026. A replacement task force with Tether and Chainalysis was announced in November 2026 but has no track record yet.",
+      "TradFi Approved scores 58, up from 55. The live spot ETF (TRXS) joins institutional custody and staking through Anchorage Digital and CFTC-regulated trading on Bitnomial. There are still no CME TRX futures and no other US spot ETF, and TRX is not named in the SEC and CFTC's 2026 digital-commodity guidance.",
+      "Privacy & Confidentiality scores 40, at the bottom of what a fully transparent chain would earn, despite TRON having real shielded-transfer technology (using zero-knowledge cryptography) built into the network and verified as working. In practice, though, no mainstream wallet gives users access to it, the public infrastructure that would route those transactions frequently errors out, and there's no published data showing anyone actually uses it. Genuine privacy technology only counts for something if people are actually using it, and there's no evidence anyone is.",
+      "TRON's TradFi score moved from 63 to 64 in November 2026: TradFi Approved rose from 55 to 58 on the ETF, and Regulatory & Risk fell from 48 to 46 with the end of T3. At a raw score of 63.66 it sits 0.16 points above the line that rounds to 64, and the ETF move alone is enough to decide that rounding."
     ]
   },
   "ai": {
     "score": 67,
-    "raw_score": 67.1,
+    "raw_score": 67.26,
     "tier_code": "EX",
     "gate_capped": false,
     "binding_cap": null,
@@ -56,7 +58,7 @@
       "privacy_confidentiality": 53,
       "economic_predictability": 73,
       "agent_tooling": 68,
-      "standards_interoperability": 64,
+      "standards_interoperability": 66,
       "kya": 64
     },
     "categories_verified": true,
@@ -64,18 +66,21 @@
       "TRON only partially passes our fast-finality check, but that check isn't what's limiting the score -- its category-by-category performance already sits below that check's ceiling. There's also no dated upgrade on TRON's roadmap that would fix its roughly one-minute settlement time.",
       "Privacy & Confidentiality scores 53. Shielded transfers using zero-knowledge cryptography are live and working, but there's no data on how much they're actually used, and critically, this privacy option doesn't apply to USDT transfers, which make up effectively the entire chain's real activity.",
       "Agent Tooling scores 68. TRON has a real, live set of tools for AI agents (branded Bank of AI, covering payments, identity, and a standard agent-connection interface) that launched in February 2026. The score is discounted because it's still only about six months old, comes from a single vendor rather than a broad ecosystem, and its low fees are currently subsidized rather than reflecting the network's normal cost structure.",
+      "Standards & Interoperability scores 66, up from 64. The GreatVoyage v4.8.2 upgrade's smart-contract features went live on mainnet in late August 2026, including built-in verification of the signature type used by device passkeys, which lets wallets and agents use hardware-backed keys without custom code.",
       "During an independent fact-check of this scoring, TRON's two scores moved in opposite directions: the TradFi figures were revised down and the AI figures were revised up, once additional verification was applied to each."
     ]
   },
-  "divergence": -4,
+  "divergence": -3,
   "watch_items": [
-    "A regulated TRX futures product (from Bitnomial, under CFTC oversight) began trading on July 27, 2026, starting a six-month countdown toward a standard eligibility milestone for a TRX spot ETF, which would land around late January 2027.",
-    "TRON has real early-stage quantum-resistance work underway -- two candidate signature schemes are live on its test network -- though not yet on mainnet. Because the regulatory check is no longer what's limiting the score, a future mainnet launch of this quantum protection would now directly raise the published TradFi score.",
+    "TRON's post-quantum signature support (Falcon-512 and ML-DSA-44) is live on its Nile test network but not on mainnet. Mainnet activation needs a vote of the 27 Super Representatives, and TRON's own proposal requires a published independent audit first. Activation securing account signatures would clear the quantum-readiness check and earn further credit in Security & Future-Proofing.",
+    "The Canary Staked TRX ETF (TRXS) held about $46-51 million in its first months. Growth, a second US spot ETF, or CME futures would strengthen TradFi Approved; outflows would weaken it.",
+    "The replacement for TRON's disbanded T3 crime unit, a Digital Crime Task Force with Tether and Chainalysis announced in November 2026, has no track record yet. Demonstrated results would restore part of the Regulatory & Risk credit; continued freeze volume without it weighs on the score.",
+    "TRON's finality still takes about one minute, and its faster-finality design (a roughly 6-second target) remains a long-term roadmap item with no scheduled upgrade.",
     "If TRON's shielded-transfer feature starts showing measurable usage, or if mainstream wallets begin offering access to it, that would be grounds to raise the Privacy & Confidentiality score."
   ],
   "tiles": {
     "cheapest_tx_cost_usd": 0.09,
-    "fee_yield_pct": 0.958,
+    "fee_yield_pct": 1.27,
     "cheapest_tx_cost_note": "Full protocol-minimum burn cost for an unstaked account; most active accounts pay near $0 by holding staked bandwidth."
   }
 }
