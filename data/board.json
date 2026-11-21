@@ -1,5 +1,5 @@
 {
-  "_schema_notes": "Loaded on every page visit. Keep this file NUMBERS AND SHORT STRINGS ONLY -- no reasoning prose, no long findings lists. That content lives in /data/chains/<slug>.json and is fetched only when a chain's panel is opened. detail_url uses the stable slug, not the ticker -- tickers can change (rebrands, symbol reuse) but the slug and its file never do.",
+  "_schema_notes": "Loaded on every page visit. last_updated = date the rating last changed (drives Recent rating actions); last_reviewed = date the chain was last reviewed, rating changed or not. Keep this file NUMBERS AND SHORT STRINGS ONLY -- no reasoning prose, no long findings lists. That content lives in /data/chains/<slug>.json and is fetched only when a chain's panel is opened. detail_url uses the stable slug, not the ticker -- tickers can change (rebrands, symbol reuse) but the slug and its file never do.",
   "meta": {
     "site": "coloredskyscore.com",
     "last_updated": "2026-11-21",
@@ -63,7 +63,8 @@
       "ai_capped": true,
       "divergence": -2,
       "scored_date": "2026-06",
-      "last_updated": "2026-11-19"
+      "last_updated": "2026-11-19",
+      "last_reviewed": "2026-11-19"
     },
     {
       "slug": "eth",
@@ -79,7 +80,8 @@
       "ai_capped": false,
       "divergence": 6,
       "scored_date": "2026-06",
-      "last_updated": "2026-11-20"
+      "last_updated": "2026-11-20",
+      "last_reviewed": "2026-11-20"
     },
     {
       "slug": "sol",
@@ -95,7 +97,8 @@
       "ai_capped": false,
       "divergence": -2,
       "scored_date": "2026-06",
-      "last_updated": "2026-11-19"
+      "last_updated": "2026-11-19",
+      "last_reviewed": "2026-11-19"
     },
     {
       "slug": "btc",
@@ -111,7 +114,8 @@
       "ai_capped": true,
       "divergence": 26,
       "scored_date": "2026-05 / 2026-07",
-      "last_updated": "2026-08-28"
+      "last_updated": "2026-08-28",
+      "last_reviewed": "2026-11-21"
     },
     {
       "slug": "cc",
@@ -127,7 +131,8 @@
       "ai_capped": true,
       "divergence": -10,
       "scored_date": "2026-05",
-      "last_updated": "2026-08-25"
+      "last_updated": "2026-08-25",
+      "last_reviewed": "2026-08-25"
     },
     {
       "slug": "xrp",
@@ -143,7 +148,8 @@
       "ai_capped": true,
       "divergence": 6,
       "scored_date": "2026-06",
-      "last_updated": "2026-11-21"
+      "last_updated": "2026-11-21",
+      "last_reviewed": "2026-11-21"
     },
     {
       "slug": "bnb",
@@ -159,7 +165,8 @@
       "ai_capped": false,
       "divergence": 1,
       "scored_date": "2026-07",
-      "last_updated": "2026-09-11"
+      "last_updated": "2026-09-11",
+      "last_reviewed": "2026-09-11"
     },
     {
       "slug": "hype",
@@ -175,7 +182,8 @@
       "ai_capped": false,
       "divergence": -6,
       "scored_date": "2026-07",
-      "last_updated": "2026-11-19"
+      "last_updated": "2026-11-19",
+      "last_reviewed": "2026-11-19"
     },
     {
       "slug": "avax",
@@ -191,7 +199,8 @@
       "ai_capped": false,
       "divergence": 0,
       "scored_date": "2026-08",
-      "last_updated": "2026-11-19"
+      "last_updated": "2026-11-19",
+      "last_reviewed": "2026-11-19"
     },
     {
       "slug": "mon",
@@ -207,7 +216,8 @@
       "ai_capped": false,
       "divergence": -22,
       "scored_date": "2026-07",
-      "last_updated": "2026-11-20"
+      "last_updated": "2026-11-20",
+      "last_reviewed": "2026-11-20"
     },
     {
       "slug": "tron",
@@ -223,7 +233,8 @@
       "ai_capped": false,
       "divergence": -3,
       "scored_date": "2026-08",
-      "last_updated": "2026-11-20"
+      "last_updated": "2026-11-20",
+      "last_reviewed": "2026-11-20"
     },
     {
       "slug": "wbt",
@@ -239,7 +250,8 @@
       "ai_capped": false,
       "divergence": -14,
       "scored_date": "2026-08",
-      "last_updated": "2026-09-06"
+      "last_updated": "2026-09-06",
+      "last_reviewed": "2026-09-06"
     },
     {
       "slug": "ada",
@@ -255,7 +267,8 @@
       "ai_capped": true,
       "divergence": 2,
       "scored_date": "2026-08",
-      "last_updated": "2026-08-25"
+      "last_updated": "2026-08-25",
+      "last_reviewed": "2026-11-19"
     },
     {
       "slug": "doge",
@@ -271,7 +284,8 @@
       "ai_capped": false,
       "divergence": 4,
       "scored_date": "2026-07",
-      "last_updated": "2026-08-27"
+      "last_updated": "2026-08-27",
+      "last_reviewed": "2026-08-27"
     },
     {
       "slug": "zec",
@@ -287,7 +301,8 @@
       "ai_capped": false,
       "divergence": 12,
       "scored_date": "2026-08",
-      "last_updated": "2026-11-19"
+      "last_updated": "2026-11-19",
+      "last_reviewed": "2026-11-19"
     },
     {
       "slug": "xlm",
@@ -303,7 +318,8 @@
       "ai_capped": false,
       "divergence": 0,
       "scored_date": "2026-08",
-      "last_updated": "2026-08-25"
+      "last_updated": "2026-08-25",
+      "last_reviewed": "2026-08-25"
     },
     {
       "slug": "bch",
@@ -319,7 +335,8 @@
       "ai_capped": false,
       "divergence": 3,
       "scored_date": "2026-09",
-      "last_updated": "2026-11-21"
+      "last_updated": "2026-11-21",
+      "last_reviewed": "2026-11-21"
     },
     {
       "slug": "arc",
@@ -335,7 +352,8 @@
       "ai_capped": false,
       "divergence": -6,
       "scored_date": "2026-09",
-      "last_updated": "2026-10-18"
+      "last_updated": "2026-10-18",
+      "last_reviewed": "2026-10-18"
     },
     {
       "slug": "ltc",
@@ -351,7 +369,8 @@
       "ai_capped": false,
       "divergence": 14,
       "scored_date": "2026-09",
-      "last_updated": "2026-09-18"
+      "last_updated": "2026-09-18",
+      "last_reviewed": "2026-11-21"
     }
   ]
 }
