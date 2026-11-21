@@ -311,15 +311,15 @@
       "name": "Bitcoin Cash",
       "cashtag": "$BCH",
       "detail_url": "data/chains/bch.json",
-      "tradfi_score": 43,
+      "tradfi_score": 44,
       "tradfi_tier": "RG",
       "tradfi_capped": false,
       "ai_score": 41,
       "ai_tier": "PO",
       "ai_capped": false,
-      "divergence": 2,
+      "divergence": 3,
       "scored_date": "2026-09",
-      "last_updated": "2026-09-02"
+      "last_updated": "2026-11-21"
     },
     {
       "slug": "arc",
