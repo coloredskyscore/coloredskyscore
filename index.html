@@ -1039,6 +1039,8 @@ async function renderChain(slug) {
   const shareText = `${d.name} ${d.cashtag} on coloredsky score: TradFi ${d.tradfi.score} (${tr.tradfi.t.name}), AI ${d.ai.score} (${tr.ai.t.name}). #coloredskyscore`;
   const xHref = `https://x.com/intent/post?text=${encodeURIComponent(shareText)}&url=${encodeURIComponent('https://' + url)}`;
   const v = BOARD.meta || {};
+     const brow = BOARD.chains.find((c) => c.slug === slug) || {};
+  const reviewed = [d.last_updated || '', brow.last_reviewed || ''].sort().pop();
 
   const card = `<div class="card"><div class="hz"></div><div class="axes">` + axes.map((a) => {
     const x = d[a], t = tr[a];
@@ -1098,7 +1100,7 @@ async function renderChain(slug) {
       <div>
         <h1>${esc(d.name)}</h1>
         <div class="sub">${esc(d.cashtag)}${d.descriptor ? ` <span>· ${esc(clean(d.descriptor))}</span>` : ''}</div>
-        <div class="meta">First rated ${fmtMonths(d.scored_date)} · Last updated ${fmtDay(d.last_updated)} · TradFi ${esc(v.tradfi_framework_version || '')} · AI ${esc(v.ai_framework_version || '')}</div>
+        <div class="meta">First rated ${fmtMonths(d.scored_date)} · Rating changed ${fmtDay(d.last_updated)} · Reviewed ${fmtDay(reviewed)} · TradFi ${esc(v.tradfi_framework_version || '')} · AI ${esc(v.ai_framework_version || '')}</div>
       </div>
       ${d.pull_quote ? `<blockquote><span class="label">From the rating summary</span><q>${esc(clean(d.pull_quote))}</q></blockquote>` : ''}
     </section>
@@ -1250,7 +1252,7 @@ async function init() {
   }
   const m = BOARD.meta || {};
   $('statCount').textContent = BOARD.chains.length;
-  const latest = BOARD.chains.map((c) => c.last_updated || '').sort().pop();
+    const latest = BOARD.chains.flatMap((c) => [c.last_updated || '', c.last_reviewed || '']).sort().pop();
   $('statLast').textContent = fmtDayShort(latest);
   $('footVersions').textContent = `Fundamentals only. Not financial advice. TradFi framework ${m.tradfi_framework_version || ''} · AI framework ${m.ai_framework_version || ''}`;
   lastW = $('mapCol').clientWidth; lastNarrow = isNarrow();
