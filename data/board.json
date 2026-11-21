@@ -276,16 +276,16 @@
       "name": "Dogecoin",
       "cashtag": "$DOGE",
       "detail_url": "data/chains/doge.json",
-      "tradfi_score": 40,
-      "tradfi_tier": "RG",
+      "tradfi_score": 39,
+      "tradfi_tier": "SP",
       "tradfi_capped": false,
       "ai_score": 36,
       "ai_tier": "NV",
       "ai_capped": false,
-      "divergence": 4,
+      "divergence": 3,
       "scored_date": "2026-07",
-      "last_updated": "2026-08-27",
-      "last_reviewed": "2026-08-27"
+      "last_updated": "2026-11-21",
+      "last_reviewed": "2026-11-21"
     },
     {
       "slug": "zec",

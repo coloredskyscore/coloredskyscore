@@ -4,12 +4,12 @@
   "name": "Dogecoin",
   "cashtag": "$DOGE",
   "scored_date": "2026-07",
-  "last_updated": "2026-08-27",
+  "last_updated": "2026-11-21",
   "executive_summary": "Dogecoin launched in 2013, originally as a joke built on an earlier proof-of-work design, and more than a decade later at the time of this scoring it functions as a payments and tipping culture asset with no company or foundation behind it. That structure cuts both ways: Regulatory & Risk scores 82, since there's no issuer to bring an enforcement action against, while Developer & Ecosystem scores just 20, since there's also no issuer funding ongoing development. Faster block times than its predecessor don't translate into faster real-world settlement either, since major exchanges still require 40-60 confirmations before crediting a deposit, and mining power is concentrated enough -- the top two pools already control more than half the network -- that Decentralization, now the network's single weakest category, has fallen below even Developer & Ecosystem.",
   "tradfi": {
-    "score": 40,
-    "raw_score": 40.22,
-    "tier_code": "RG",
+    "score": 39,
+    "raw_score": 39.37,
+    "tier_code": "SP",
     "gate_capped": false,
     "binding_cap": null,
     "gates": {
@@ -19,7 +19,7 @@
     },
     "categories": {
       "on_chain_health": 35,
-      "tradfi_approved": 52,
+      "tradfi_approved": 47,
       "real_world_utility": 30,
       "tokenomics_supply": 44,
       "developer_ecosystem": 20,
@@ -33,9 +33,9 @@
       "Dogecoin cleared our regulatory baseline check with a clean full pass -- it's explicitly named in the March 17, 2026 joint SEC-CFTC interpretive release, has never faced litigation, and has no company or foundation behind it that regulators could even bring an enforcement action against.",
       "Regulatory & Risk is Dogecoin's strongest category at 82, and Decentralization is now its weakest at 16 -- a 66-point gap. There's no company or foundation behind Dogecoin, which means there's no one to bring a regulatory case against, but it also means there's no organized, funded team driving ongoing development, and no one steering mining infrastructure toward broader distribution.",
       "Decentralization moved from 20 to 16. Mining power is concentrated among a small number of pools, with the top two alone controlling more than 60% of the network's hashing power, and an infrastructure-concentration check adds a sharper data point: F2Pool alone accounts for roughly 42.3% of merge-mined hashrate. Dogecoin's software has never had a genuinely independent second implementation the way some other chains have, and its security is also structurally borrowed rather than fully standalone: it relies on merge-mining with Litecoin.",
-      "TradFi Approved scores a middling 52, reflecting a gap between visibility and real capital. Four spot ETFs and a Nasdaq-listed corporate treasury vehicle (CleanCore, ticker ZONE, and HODO) give Dogecoin real regulated wrappers -- but the money actually invested through those ETFs adds up to well under 0.5% of Dogecoin's total market value, a small amount of institutional capital relative to the access that technically exists.",
+      "TradFi Approved scores 47, down from 52, because several of the routes institutions had into Dogecoin closed in 2026. Bitwise shut its spot Dogecoin ETF in October; the publicly traded company that had built a Dogecoin treasury (CleanCore) sold its entire position, about 463 million DOGE, in July to fund an AI data-center business; and the Nasdaq-listed House of Doge lost its listing and its exclusive license from the Dogecoin Foundation. What remains is real but thin: two spot ETFs holding about $8.5 million combined with no new money since mid-October, a derivatives-based fund, regulated futures and perpetuals at several venues, and custody at Coinbase, Anchorage and BitGo.",
       "Privacy & Confidentiality is weak at 25. Every transaction is permanently visible on a fully public ledger, and there's no meaningful privacy technology built for Dogecoin, either natively or as add-on tooling.",
-      "Dogecoin's TradFi score of 40 now sits almost exactly at the floor of its current tier, with the buffer above the tier below narrowing to well under a point following the Decentralization revision above."
+      "Dogecoin's TradFi score fell from 40 to 39 in November 2026, moving it from the Retail Grade tier into Speculative. It sits about 0.13 points below the line that would put it back at 40, so a one-point improvement in TradFi Approved would be enough to return it to Retail Grade, while further losses would push it deeper into Speculative."
     ]
   },
   "ai": {
@@ -62,20 +62,22 @@
     },
     "categories_verified": true,
     "key_findings": [
-      "Dogecoin's low AI score isn't the result of failing a baseline check -- even though it does fail our fast-finality check, that failure's ceiling sits 18 points above where Dogecoin actually landed. The low score reflects genuinely weak performance across its individual categories, not a penalty from a failed check.",
+      "Dogecoin's low AI score isn't the result of failing a baseline check -- even though it does fail our fast-finality check, that failure's ceiling sits 18 points above where Dogecoin actually landed. The low score reflects genuinely weak performance across its individual categories, not a penalty from a failed check. No Dogecoin-specific tools for AI agents to pay or be identified on the network are in real use; one wallet announced experimental agent support in October 2026.",
       "Execution Layer scores 50. Dogecoin produces blocks about ten times faster than Bitcoin, but that speed doesn't translate into faster real-world settlement: major exchanges typically require 40 to 60 confirmations before crediting a Dogecoin deposit, compared to Bitcoin's usual 2 to 6, largely erasing the practical benefit of the faster block time.",
       "Economic Predictability is Dogecoin's strongest category on the AI framework at 75, well ahead of any of its other eight categories. Transaction fees are flat and based simply on data size, with no bidding war for block space and no meaningful value extracted by miners reordering transactions -- an agent can predict its exact cost in advance."
     ]
   },
-  "divergence": 4,
+  "divergence": 3,
   "watch_items": [
-    "Dogecoin's TradFi score (40) and AI score (36) are close together, only 4 points apart -- both scores are weak for similar underlying reasons rather than one score being held back by something specific to that framework.",
-    "On December 12, 2026, Dogecoin will reach two full years since its last major security incident (an event referred to internally as DogeReaper), which would move its Security Posture check from a fail to a partial pass. That change wouldn't move the published score by itself, though, since both outcomes currently allow the same ceiling.",
-    "If the CLARITY Act passes, Dogecoin's regulatory classification would move from informal agency guidance to something written into law, which would remove some of the remaining uncertainty currently weighing on its Regulatory & Risk score."
+    "Institutional access: the two remaining US spot Dogecoin ETFs hold about $8.5 million combined and have seen no flows since mid-October 2026. Another fund closing would weigh further on TradFi Approved; sustained inflows, a new fund, or a new public company holding DOGE would be reason to revisit it upward. A one-point move in TradFi Approved decides whether Dogecoin publishes 39 or 40.",
+    "On December 12, 2026, Dogecoin will reach two full years since its last major security incident (an event known as DogeReaper), which makes its security check eligible to move from a fail to a partial pass. That change wouldn't move the published score by itself, since both outcomes allow the same ceiling.",
+    "Development: Dogecoin Core's latest release is still 1.14.9 from December 2024, the long-time release manager has been absent for months, and no next release has a target date. A new release with security fixes, a published audit, or a funded bug bounty would strengthen both Developer & Ecosystem and the security picture.",
+    "DogeOS, an Ethereum-compatible layer that uses DOGE for fees, has run a public testnet since September 30, 2026. It relies on its own validators and a permissioned sequencer rather than Dogecoin's own security, so it would be evaluated separately rather than credited to Dogecoin's score.",
+    "If the CLARITY Act passes, Dogecoin's regulatory classification would move from agency guidance to statute, removing some remaining uncertainty in Regulatory & Risk. The bill failed a Senate procedural vote in September 2026 and is likely to expire with the current Congress."
   ],
   "tiles": {
-    "cheapest_tx_cost_usd": 0.0002,
-    "fee_yield_pct": 0.0018,
-    "cheapest_tx_cost_note": "Protocol floor; median actual paid fee runs closer to $0.002, since many wallets default above the minimum."
+    "cheapest_tx_cost_usd": 0.0001,
+    "fee_yield_pct": 0.0033,
+    "cheapest_tx_cost_note": "Protocol floor; median actual paid fee runs closer to $0.001, since many wallets default above the minimum."
   }
 }
