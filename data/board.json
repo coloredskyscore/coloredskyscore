@@ -2,7 +2,7 @@
   "_schema_notes": "Loaded on every page visit. Keep this file NUMBERS AND SHORT STRINGS ONLY -- no reasoning prose, no long findings lists. That content lives in /data/chains/<slug>.json and is fetched only when a chain's panel is opened. detail_url uses the stable slug, not the ticker -- tickers can change (rebrands, symbol reuse) but the slug and its file never do.",
   "meta": {
     "site": "coloredskyscore.com",
-    "last_updated": "2026-11-20",
+    "last_updated": "2026-11-21",
     "chains_scored": 19,
     "tradfi_framework_version": "v2.0",
     "ai_framework_version": "v1.1"
@@ -143,7 +143,7 @@
       "ai_capped": true,
       "divergence": 6,
       "scored_date": "2026-06",
-      "last_updated": "2026-08-25"
+      "last_updated": "2026-11-21"
     },
     {
       "slug": "bnb",
