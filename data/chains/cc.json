@@ -4,39 +4,40 @@
   "name": "Canton",
   "cashtag": "$CC",
   "scored_date": "2026-05 (TradFi) / 2026-07 (AI)",
-  "last_updated": "2026-08-25",
-  "executive_summary": "Canton Network's public network and Canton Coin went live in July 2024, not yet two years old at the time of this scoring, built specifically for institutional finance with transaction-level privacy built into the protocol rather than bolted on. Real-World Utility and Privacy & Confidentiality are its strongest categories, both scoring 88, reflecting $344 billion in represented asset value moving across the network. The TradFi score is held to 65, roughly twelve points below its underlying 77, because the network hasn't yet secured the kind of formal U.S. regulatory recognition, such as a commodity classification, ETF, or futures listing, that would unlock the rest of that score, even though its AI score of 75 already reads as more agent-ready than institution-ready today.",
+  "last_updated": "2026-11-24",
+  "executive_summary": "Canton Network's public network and Canton Coin went live in July 2024, not yet two years old at the time of this scoring, built specifically for institutional finance with transaction-level privacy built into the protocol rather than bolted on. Real-World Utility and Privacy & Confidentiality are its strongest categories, both scoring 88, reflecting $344 billion in represented asset value moving across the network. The TradFi score is 70, about eight points below its underlying score, because the software at the core of the network has not yet had a published independent security audit; in November 2026 an SEC staff letter calling Canton Coin a digital commodity, alongside a live US fund, cleared the regulatory hurdle that had held the score at 65. Its AI score of 75 still reads as slightly more agent-ready than institution-ready.",
   "tradfi": {
-    "score": 65,
-    "raw_score": 76.96,
+    "score": 70,
+    "raw_score": 77.7,
     "tier_code": "EI",
     "gate_capped": true,
     "binding_cap": {
-      "gate": "regulatory_clarity",
-      "cap_value": 65,
-      "short_note": "Capped by Regulatory Clarity Partial -- not on the March 2026 SEC-CFTC digital commodities list, no CME futures, no ETF.",
-      "as_of": "2026-05"
+      "gate": "security_posture",
+      "cap_value": 70,
+      "short_note": "Capped by Security Posture Partial -- the consensus and synchronizer core has no published independent audit yet; audits were put out for bid in November 2026.",
+      "as_of": "2026-11"
     },
     "gates": {
       "quantum_resistance": "partial",
-      "regulatory_clarity": "partial",
+      "regulatory_clarity": "pass",
       "security_posture": "partial"
     },
     "categories": {
       "on_chain_health": 76,
-      "tradfi_approved": 84,
+      "tradfi_approved": 86,
       "real_world_utility": 88,
       "tokenomics_supply": 78,
       "developer_ecosystem": 62,
-      "regulatory_risk": 72,
+      "regulatory_risk": 76,
       "privacy_confidentiality": 88,
       "decentralization": 58,
       "security_future_proofing": 70
     },
     "categories_verified": true,
     "key_findings": [
-      "Canton landed in the middle ground -- 'Partial,' not a full pass -- on all three of our baseline checks: quantum-computer readiness, regulatory footing, and security track record.",
-      "A baseline check holds Canton's score down in a big way. Based purely on its category-by-category performance, Canton would score 77 -- but because its regulatory footing in the US is still only a partial pass (no formal commodity classification, no ETF, no CME futures), the published score is capped at 65, a roughly 12-point reduction. Clearing that one check would raise the published score by about 12 points.",
+      "Canton now fully passes our regulatory baseline check. In November 2026, staff at the SEC's Division of Corporation Finance concluded that Canton Coin is a digital commodity under the SEC's March 2026 interpretation, on the facts Canton's developer presented, and a US fund holding Canton Coin (21Shares' TCAN, listed on Nasdaq since May 2026) gives investors regulated access. The staff letter is guidance, not a Commission ruling, and the fund is small, at about $7 million. Canton gets a partial pass on its other two baseline checks: quantum-computer readiness and security assurance.",
+      "A baseline check still holds Canton's score down, but by less than before. Based purely on its category-by-category performance, Canton would score about 78; its published score is 70 because the core software that orders and confirms transactions has not yet had a published independent security audit. Canton has no public bug bounty, but that is no longer what decides this check. The Canton Foundation requested bids for those audits in November 2026, and published results covering that core would lift the cap.",
+      "Regulatory & Risk scores 76 and TradFi Approved 86. The SEC staff letter and the first US Canton Coin fund are real progress for a token that launched in 2024, and institutions including DTCC (whose tokenization service went commercial in October 2026 partly on Canton), Franklin Templeton and the London Stock Exchange Group now run or join the network's top validator tier. Both scores stop short of the top because the regulatory recognition is staff-level and conditional, and US access runs through a single small fund with no CFTC-regulated futures.",
       "Real-World Utility ties for Canton's strongest category at 88, backed by roughly $344.8 billion in real-world asset value represented on the network according to RWA.xyz -- substantial genuine institutional usage, not speculative volume.",
       "Privacy & Confidentiality ties for Canton's strongest category at 88. Privacy here is built into the protocol itself: each participant in a transaction only sees the parts of it that involve them directly, not the whole transaction. One important disclosure: this protects the details of application-level (Daml) transactions specifically -- Canton Coin's own balances and transaction history are publicly visible through the network's scan service, so the coin itself is not shielded.",
       "Decentralization scores 58, driven by an unusually large validator set for an institutional network: 55 Super Validators with equal voting power. It's held below what that entity count alone would suggest because admission is by approval from existing members rather than open to anyone, and because that same validator body has twice frozen funds -- containing corrupted data on one occasion and freezing an attacker's holdings on another."
@@ -71,20 +72,23 @@
     },
     "categories_verified": true,
     "key_findings": [
-      "Canton's AI score of 75 is actually higher than its TradFi score of 65 -- unusual, since institutional and agent readiness often move together. The gap comes down to what's holding each score back: TradFi is limited by US regulatory status, which doesn't affect the AI framework in the same way.",
+      "Canton's AI score of 75 sits five points above its TradFi score of 70. The gap is narrower than it was because Canton's US regulatory standing improved, while the main thing holding its AI score back, how guaranteed and final its settlement is under every condition, has not changed.",
       "Privacy & Confidentiality is Canton's strongest category on the AI framework at 95, well ahead of any of its other eight categories -- protocol-level, need-to-know transaction visibility is exactly the kind of confidentiality an agent handling sensitive business logic would want.",
-      "Canton is held back by two different baseline checks depending on which framework you look at: US regulatory status limits the TradFi score, while a partial pass on transaction finality (how quickly and certainly a transaction becomes irreversible) limits the AI score instead."
+      "Canton is held back by a different baseline check on each framework: on TradFi, the lack of a published independent audit of its consensus core limits the score; on AI, a partial pass on our fast, guaranteed-finality check keeps the score capped just below what its categories would produce."
     ]
   },
-  "divergence": -10,
+  "divergence": -5,
   "watch_items": [
-    "Zenith, a new execution layer Canton is building that would let it run Ethereum- and Solana-style smart contracts, was still testnet-only when this scoring was done. If it reaches mainnet, it would likely raise Canton's AI scores in the categories covering agent tooling, cross-chain standards, and execution performance.",
-    "A formal US commodity classification, a spot ETF, or a CME futures listing would raise Canton's regulatory standing from a partial pass toward a full one. Since that's currently the single factor holding the TradFi score roughly twelve points below what its categories alone would earn, this is the highest-impact event pending for Canton's published score."
+    "Security audits: the Canton Foundation requested bids in November 2026 for independent audits of the transaction-ordering (BFT) service, synchronizer migration, cryptography interface and ledger APIs. Published results covering the code running on mainnet would clear the security check and let the score rise to its underlying level, about 78.",
+    "Zenith, a planned layer for running Ethereum-style smart contracts on Canton, is still testnet-only; its mainnet launch keeps slipping and is now expected after a late-2026 Canton upgrade. If it goes live and is used, it would lift several AI categories.",
+    "US access: 21Shares' TCAN holds about $7 million, Grayscale's proposed Canton trust has not launched, and there are no CFTC-regulated Canton Coin futures or a Coinbase listing. Wider access would strengthen TradFi Approved; a fund closing would weaken it.",
+    "The SEC staff letter is conditional on Canton operating as described, with no central party controlling the network. A change in how the network is run, or a different view from the full Commission, would bear on the regulatory check.",
+    "Tokenomics: Canton Coin is burned for network traffic and minted as rewards, and minting currently exceeds burning, so supply is still growing. A universal-burn change (CIP-0129) approved in October 2026 is due to start in early 2027; its effect on the burn-to-mint balance is a Tokenomics & Supply watch point."
   ],
   "tiles": {
     "cheapest_tx_cost_usd": null,
-    "fee_yield_pct": 13.46,
+    "fee_yield_pct": 14.1,
     "cheapest_tx_cost_note": "Canton prices bulk USD-denominated network traffic rather than per-transaction gas, so no single transfer-cost figure applies.",
-    "fee_yield_note": "Gross 30-day fee revenue against market cap, not a holder yield; sensitive to still-thin daily traffic volume."
+    "fee_yield_note": "Gross fee revenue (CC burned for traffic, about $35 million over 30 days in November 2026) against market cap; not a holder yield, and CC issuance still exceeds burn."
   }
 }

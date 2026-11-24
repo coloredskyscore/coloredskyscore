@@ -2,7 +2,7 @@
   "_schema_notes": "Loaded on every page visit. last_updated = date the rating last changed (drives Recent rating actions); last_reviewed = date the chain was last reviewed, rating changed or not. Keep this file NUMBERS AND SHORT STRINGS ONLY -- no reasoning prose, no long findings lists. That content lives in /data/chains/<slug>.json and is fetched only when a chain's panel is opened. detail_url uses the stable slug, not the ticker -- tickers can change (rebrands, symbol reuse) but the slug and its file never do.",
   "meta": {
     "site": "coloredskyscore.com",
-    "last_updated": "2026-11-21",
+    "last_updated": "2026-11-24",
     "chains_scored": 19,
     "tradfi_framework_version": "v2.0",
     "ai_framework_version": "v1.1"
@@ -123,16 +123,16 @@
       "name": "Canton",
       "cashtag": "$CC",
       "detail_url": "data/chains/cc.json",
-      "tradfi_score": 65,
+      "tradfi_score": 70,
       "tradfi_tier": "EI",
       "tradfi_capped": true,
       "ai_score": 75,
       "ai_tier": "IR",
       "ai_capped": true,
-      "divergence": -10,
+      "divergence": -5,
       "scored_date": "2026-05",
-      "last_updated": "2026-08-25",
-      "last_reviewed": "2026-08-25"
+      "last_updated": "2026-11-24",
+      "last_reviewed": "2026-11-24"
     },
     {
       "slug": "xrp",
