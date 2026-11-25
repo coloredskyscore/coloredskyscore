@@ -1,0 +1,95 @@
+{
+  "slug": "night",
+  "ticker": "NIGHT",
+  "name": "Midnight",
+  "cashtag": "$NIGHT",
+  "scored_date": "2026-11",
+  "last_updated": "2026-11-25",
+  "executive_summary": "Midnight is a privacy-focused blockchain built by the engineering team behind Cardano. It runs its own ledger and consensus as a Cardano partner chain, went live in March 2026, and is operated today by nine approved companies, including Google Cloud, MoneyGram, Worldpay and eToro. Applications on Midnight use zero-knowledge proofs to keep data and balances private while still proving the rules were followed. Fees work differently from most chains: holding the NIGHT token generates a shielded, non-transferable resource called DUST, which is burned to pay for transactions and has no market price. Its clear strength is privacy, which is built into the protocol and covers both private transfers and private contract logic. Its clear weaknesses are youth and control: about eight months of history, a validator set limited to approved operators, half the token supply held by two Foundation entities with no lockup, and most of the network's identity, bridging and account features still on the roadmap. The TradFi score lands at 40, the floor of Retail Grade, and the AI-agent score at 49.",
+  "tradfi": {
+    "score": 40,
+    "raw_score": 39.89,
+    "tier_code": "RG",
+    "gate_capped": false,
+    "binding_cap": null,
+    "gates": {
+      "quantum_resistance": "partial",
+      "regulatory_clarity": "partial",
+      "security_posture": "fail"
+    },
+    "categories": {
+      "on_chain_health": 26,
+      "tradfi_approved": 44,
+      "real_world_utility": 20,
+      "tokenomics_supply": 45,
+      "developer_ecosystem": 52,
+      "regulatory_risk": 50,
+      "privacy_confidentiality": 76,
+      "decentralization": 26,
+      "security_future_proofing": 40
+    },
+    "categories_verified": true,
+    "key_findings": [
+      "The TradFi score is 40, the floor of Retail Grade, with a raw total of 39.89. Rounding decides the tier, and a three-point drop in any of On-Chain Health, TradFi Approved or Real-World Utility would move it to Speculative.",
+      "Privacy & Confidentiality scores 76. Privacy is built into the protocol and covers private transfers, private contract logic and the fees paid on every transaction. It does not cover the NIGHT token itself, which is public by design, so an investor holding NIGHT gets no privacy from it. Viewing keys that let a holder share records with an auditor or regulator are still on the roadmap.",
+      "Tokenomics & Supply scores 45. Supply is fixed at 24 billion with no inflation and no private investor allocation, and over 4.5 billion NIGHT went to more than 170,000 claim addresses. But the Midnight Foundation and Midnight TGE Ltd. hold 50.25% of supply with no lockup, and neither publishes a treasury report or spending schedule.",
+      "Real-World Utility scores 20. Monument Bank launched tokenized savings deposits on Midnight in November 2026, a live regulated product, but the on-chain token cannot be transferred or pledged, carries no legal rights of its own, and the amount deposited has not been disclosed. Other announced institutional products, such as payment and proof-of-reserves services, are not yet live.",
+      "On-Chain Health scores 26. Daily transactions jumped from about 128 to over 47,000 within a month of contract deployment opening to everyone in late September 2026, but fees are paid in DUST, so the network earns no fee revenue in any currency, and TVL, active-address counts and any breakdown of what drives the activity are not published.",
+      "TradFi Approved scores 44. NIGHT is held by institutional custodians including Fireblocks, Copper and BitGo, trades on Binance, OKX, Kraken and eToro, and has an EU MiCA white paper. There is no ETF, no US-regulated futures market and no Coinbase listing, and well-known companies running validator nodes is not the same as settling business on the chain.",
+      "The network does not clear the security baseline check: the core node and latest ledger audits exist but their reports are unpublished, the chain is about eight months old, and there is no security bug-bounty program. A critical ledger bug that could let a contract pay out the same claim repeatedly was live from launch until an audit found it in late 2026; it was fixed with no reported exploitation.",
+      "Decentralization scores 26. Nine approved companies produce every block, admission is controlled by the Foundation, a single node implementation runs the network, and protocol upgrades are authorized by two governance committees rather than token holders."
+    ]
+  },
+  "ai": {
+    "score": 49,
+    "raw_score": 48.84,
+    "tier_code": "PO",
+    "gate_capped": false,
+    "binding_cap": null,
+    "gates": {
+      "deterministic_finality": "partial",
+      "programmability_tier": "pass",
+      "operational_reliability": "pass"
+    },
+    "categories": {
+      "execution_layer": 50,
+      "composability_atomicity": 46,
+      "security_posture": 40,
+      "state_api_quality": 38,
+      "privacy_confidentiality": 86,
+      "economic_predictability": 66,
+      "agent_tooling": 44,
+      "standards_interoperability": 40,
+      "kya": 30
+    },
+    "categories_verified": true,
+    "key_findings": [
+      "Privacy & Confidentiality scores 86, the network's strongest category. An agent can keep both its data and its contract logic private while proving compliance through selective disclosure, which is the capability agents handling sensitive information need most.",
+      "Execution Layer scores 50. Blocks finalize deterministically in about 12 to 18 seconds, but every transaction first needs a zero-knowledge proof generated by the sender, so typical end-to-end time is roughly 15 to 80 seconds. Transaction rejection episodes occurred around contract deployment in mid-2026 and around the November 2026 Ledger 9 upgrade.",
+      "Economic Predictability scores 66. There is no gas auction, fees are burned rather than paid to block producers, and one wallet can pay fees for another. The trade-offs: an agent must hold NIGHT and wait for DUST to accumulate, there is no way to pay more to speed up an urgent transaction, and the nine operators who order transactions publish no fair-ordering policy.",
+      "State & API Quality scores 38. Midnight shut down its own hosted indexer and RPC endpoints in October and November 2026; its documentation now names one commercial provider, which requires an API token. The Ledger 9 upgrade also forced indexers to rebuild from scratch.",
+      "KYA scores 30. The design suits agent identity well, but nothing is live: the decentralized identifier and credential libraries are prereleases, the Passport account system refuses mainnet by design, and the proposed agent identity standard is still a draft.",
+      "Standards & Interoperability scores 40. The network has no native account abstraction, and the native bridge for moving NIGHT from Cardano is built but not switched on for mainnet. Cross-chain messaging from VIA Labs is announced as live.",
+      "Contracts can call other contracts within one transaction since November 2026, but only with public data, which holds Composability & Atomicity to 46. Private composability is planned for early 2027.",
+      "The Programmability gate passes: contract code is bounded at compile time so it can be turned into zero-knowledge circuits, but contracts still hold general state, mint tokens and call each other. The Operational Reliability gate passes on a clean record since the March 2026 launch, with no network-wide halt found."
+    ]
+  },
+  "divergence": -9,
+  "watch_items": [
+    "Cardano stake pool operators are scheduled to begin producing Midnight blocks, alongside NIGHT staking, in the first quarter of 2027. Live community block production would be a direct re-check of Decentralization and security on both scores.",
+    "The native bridge for moving NIGHT from Cardano to Midnight is built into Ledger 9 but needs a separate governance action to turn on. Enabling it would be a Standards & Interoperability re-credit.",
+    "Holder-side viewing keys for auditors and regulators, and private contract-to-contract calls, are both scheduled for early 2027. Either going live would be a Privacy or Composability re-credit candidate.",
+    "Publishing the existing node and Ledger 9 audit reports, with scope, would address one of the two missing criteria in the security baseline check. A public security bug-bounty program, listed on the roadmap for late 2026, would remove a small penalty on both scores.",
+    "Monument Bank has not disclosed how much has been deposited through its tokenized savings product. Disclosed volume, a transferable phase, or other announced institutional products going live would be a Real-World Utility re-check.",
+    "Midnight Passport, the did:midnight identifier and the proposed agent identity standard going live on mainnet would be a KYA re-credit candidate.",
+    "EU anti-money-laundering rules on anonymity-enhancing assets apply from July 2027. The Midnight Foundation argues the network is not covered; a regulator's view either way, especially on shielded assets issued on Midnight, is a dated Regulatory & Risk review point.",
+    "Any treasury disclosure or large token movement by the Midnight Foundation or Midnight TGE Ltd., which together hold 50.25% of supply, would be a Tokenomics & Supply re-check.",
+    "Nightstream, a post-quantum proving system in research, reaching a test network would move the Quantum Resistance gate up its Partial band."
+  ],
+  "tiles": {
+    "cheapest_tx_cost_usd": null,
+    "fee_yield_pct": null,
+    "cheapest_tx_cost_note": "Fees are paid in DUST, a non-transferable resource generated by holding NIGHT and burned when spent. DUST has no market price, so no USD cost per transaction applies; the cost is the NIGHT a sender must hold.",
+    "fee_yield_note": "No fee revenue accrues to anyone: DUST fees are burned, and block producers are paid from a pre-minted reserve. No fee yield can be calculated."
+  }
+}
