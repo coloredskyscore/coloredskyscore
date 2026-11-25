@@ -242,16 +242,16 @@
       "name": "Cardano",
       "cashtag": "$ADA",
       "detail_url": "data/chains/ada.json",
-      "tradfi_score": 56,
+      "tradfi_score": 55,
       "tradfi_tier": "RG",
       "tradfi_capped": false,
       "ai_score": 54,
       "ai_tier": "PO",
       "ai_capped": true,
-      "divergence": 2,
+      "divergence": 1,
       "scored_date": "2026-08",
-      "last_updated": "2026-08-25",
-      "last_reviewed": "2026-11-19"
+      "last_updated": "2026-11-25",
+      "last_reviewed": "2026-11-25"
     },
     {
       "slug": "doge",

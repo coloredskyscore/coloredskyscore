@@ -4,11 +4,11 @@
   "name": "Cardano",
   "cashtag": "$ADA",
   "scored_date": "2026-08",
-  "last_updated": "2026-08-25",
-  "executive_summary": "Cardano's mainnet launched in 2017, built on a peer-reviewed, research-first approach to blockchain design -- it's a proof-of-stake, smart-contract-capable layer 1 chain. Nearly nine years later at the time of this scoring, that research-first philosophy shows up most clearly in Decentralization, its strongest category at 66. The TradFi score of 56 is held down by thin real-world usage: annualized chain fees run around just $512,000 against a $7.5 billion market cap. The AI score of 54 is limited by a reliability incident from November 2025, when the network briefly held two conflicting versions of its transaction history at once, even though block production itself never stopped.",
+  "last_updated": "2026-11-25",
+  "executive_summary": "Cardano's mainnet launched in 2017, built on a peer-reviewed, research-first approach to blockchain design -- it's a proof-of-stake, smart-contract-capable layer 1 chain. Nearly nine years later at the time of this scoring, that research-first philosophy shows up most clearly in Decentralization, its strongest category at 66. The TradFi score of 55 is held down by thin real-world usage: about $580,000 a year in chain fees against a market cap of roughly $5.5 billion in November 2026, with capital in its DeFi protocols still shrinking. The AI score of 54 is limited by a reliability incident from November 2025, when the network briefly held two conflicting versions of its transaction history at once, even though block production itself never stopped.",
   "tradfi": {
-    "score": 56,
-    "raw_score": 55.63,
+    "score": 55,
+    "raw_score": 55.45,
     "tier_code": "RG",
     "gate_capped": false,
     "binding_cap": null,
@@ -18,7 +18,7 @@
       "security_posture": "fail"
     },
     "categories": {
-      "on_chain_health": 48,
+      "on_chain_health": 47,
       "tradfi_approved": 58,
       "real_world_utility": 42,
       "tokenomics_supply": 66,
@@ -30,9 +30,9 @@
     },
     "categories_verified": true,
     "key_findings": [
-      "Cardano failed our baseline security check outright, and its regulatory footing only partially cleared -- yet neither pulled the final score down, because both checks still would have permitted a score well above where Cardano actually landed. Cardano's 56 wasn't held back by a weak baseline check; its category-by-category performance was already lower than either check would have allowed.",
+      "Cardano failed our baseline security check outright, and its regulatory footing only partially cleared -- yet neither pulled the final score down, because both checks still would have permitted a score well above where Cardano actually landed. Cardano's 55 wasn't held back by a weak baseline check; its category-by-category performance was already lower than either check would have allowed.",
       "Regulated access exists but stops short of full approval. CME lists Cardano futures and futures-based ETFs trade, but there is no spot ETF: Grayscale withdrew its planned spot Cardano ETF filing on August 7, 2026, before it ever listed. That is why Cardano's regulatory standing lands as a partial pass rather than a clear one.",
-      "On-Chain Health is a weak point at 48. The network generates only about $512,000 a year in fees against a market cap of $7.5 billion -- a thin amount of real paid economic activity relative to the size of the asset.",
+      "On-Chain Health is a weak point at 47. In November 2026 the network generated about $48,000 in fees over 30 days (about $580,000 a year) against a market cap of $5.3-6.0 billion. Fees and daily transactions are up since August, but the ADA locked in Cardano's DeFi protocols fell about 20%, stablecoin supply fell to about $59 million, and daily active addresses run around 14,000-15,500.",
       "Decentralization is Cardano's strongest category at 66, the highest score of any of its nine categories here, reflecting an unusually wide operator base: roughly 2,082 independent stake pools.",
       "Privacy & Confidentiality is a weak spot at 28. Cardano's ledger is fully transparent by design -- there's no built-in way to hide a transaction's details. Midnight, a separate privacy-focused network associated with the Cardano ecosystem, isn't counted toward this score because it runs on its own blockchain with its own token and its own set of operators, not on Cardano itself."
     ]
@@ -71,13 +71,14 @@
       "Cardano's AI score of 54 sits exactly one point below the next tier up -- a narrow enough gap that a small improvement in any one category could move it into the next band."
     ]
   },
-  "divergence": 2,
+  "divergence": 1,
   "watch_items": [
     "A US spot Cardano ETF. Grayscale withdrew its filing (ticker GADA) on August 7, 2026, two days before Cardano became eligible under the exchange listing rules, so no spot product is live or pending from that issuer. A live spot ETF would move Cardano's regulatory standing from a partial pass to a full one, though that check isn't what holds the TradFi score down, so the published score likely wouldn't move on that alone.",
     "Peras, a finality upgrade planned as the second phase of the Dijkstra hard fork for Q2 2027 (still subject to governance approval), would improve how quickly and certainly Cardano transactions become irreversible. It wouldn't fully solve the problem, but it would move Cardano from failing that check outright to partially passing it, which would raise the ceiling on the AI score from 54 to 75. The first phase, including the Leios throughput upgrade, targets the end of 2026.",
     "Cardano's readiness against future quantum computers rests on research alone: post-quantum replacements for its core cryptography are being designed, but none has reached a public testnet and there is no dated mainnet plan. A dated mainnet activation is the change to watch for.",
-    "Amaru, an independently built node written in Rust, was cleared for mainnet block production on November 5, 2026, giving stake pools a second choice of software for the first time. No pool had publicly confirmed producing a mainnet block with it as of mid-November. Real adoption would end Cardano's reliance on a single client and is a candidate to raise the Decentralization score.",
-    "Development direction: in November 2026 Charles Hoskinson said Cardano's original roadmap is complete and the next phase is building applications, while stating Cardano is not finished; Input Output, Cardano's main core developer, now lists the separate Midnight privacy chain among its top priorities, and the Cardano Foundation's CTO left at the end of August 2026. No change to Cardano engineering resources has been published and the Dijkstra upgrade remains on schedule. A measurable shift of core engineering away from Cardano, or a slipped Dijkstra schedule, would weigh on Developer & Ecosystem."
+    "Client diversity: Amaru (Rust) has produced mainnet blocks since its November 5, 2026 release (200+ by November 13), and Intersect reported on November 22 that five node implementations had now minted mainnet blocks: cardano-node, Amaru, Dingo, cardano-bean and TSUNAGI. The Haskell cardano-node still produces nearly all blocks. A material share of stake running on independent clients would end Cardano's reliance on a single client and is a candidate to raise the Decentralization score.",
+    "Development direction: in November 2026 Charles Hoskinson said Cardano's original roadmap is complete and the next phase is building applications, while stating Cardano is not finished; Input Output, Cardano's main core developer, now lists the separate Midnight privacy chain among its top priorities, and the Cardano Foundation's CTO left at the end of August 2026. No change to Cardano engineering resources has been published and the Dijkstra upgrade remains on schedule. A measurable shift of core engineering away from Cardano, or a slipped Dijkstra schedule, would weigh on Developer & Ecosystem.",
+    "DJED, one of Cardano's longest-running native stablecoins (about $0.8 million in supply), is being wound down by COTI, with services ending December 31, 2026. Small in size, but a further reduction in on-chain stablecoin supply."
   ],
   "tiles": {
     "cheapest_tx_cost_usd": 0.025,
