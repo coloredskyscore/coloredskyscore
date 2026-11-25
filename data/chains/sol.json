@@ -76,7 +76,8 @@
     "Helius released Solana Privacy Rings on mainnet on November 10, 2026: shielded pools that encrypt balances and amounts for native SOL and other tokens, with wallets still visible and viewing keys for selective disclosure. No usage figures had been published by November 19, so it isn't credited yet; versions with auditor keys and full anonymity are still in audit."
   ],
   "tiles": {
-    "cheapest_tx_cost_usd": 0.0005,
-    "fee_yield_pct": 0.442
+    "cheapest_tx_cost_usd": 0.00035,
+    "fee_yield_pct": 0.393,
+    "cheapest_tx_cost_note": "Fixed 5,000-lamport base signature fee at SOL ~$69 (November 25, 2026); priority fees are optional and extra."
   }
 }

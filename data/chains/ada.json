@@ -80,8 +80,9 @@
     "Development direction: in November 2026 Charles Hoskinson said Cardano's original roadmap is complete and the next phase is building applications, while stating Cardano is not finished; Input Output, Cardano's main core developer, now lists the separate Midnight privacy chain among its top priorities, and the Cardano Foundation's CTO left at the end of August 2026. No change to Cardano engineering resources has been published and the Dijkstra upgrade remains on schedule. A measurable shift of core engineering away from Cardano, or a slipped Dijkstra schedule, would weigh on Developer & Ecosystem."
   ],
   "tiles": {
-    "cheapest_tx_cost_usd": 0.0385,
-    "fee_yield_pct": 0.0056,
-    "cheapest_tx_cost_note": "Protocol minFee formula; actual cost varies modestly with transaction size."
+    "cheapest_tx_cost_usd": 0.025,
+    "fee_yield_pct": 0.0103,
+    "cheapest_tx_cost_note": "Protocol minFee formula (~0.163 ADA for a simple transfer) at ADA $0.143-$0.165 (November 2026); actual cost varies modestly with transaction size.",
+    "fee_yield_note": "Midpoint of 0.0097%-0.0110%: price sources disagreed in November 2026, giving a market cap of $5.3B-$6.0B."
   }
 }
