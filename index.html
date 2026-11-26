@@ -303,15 +303,25 @@
     .gg-list a:hover { color: var(--accent); }
     .cat-row:hover .cl { color: var(--fg); }
     .nav .nav-link:hover { color: var(--fg); border-bottom-color: var(--accent); }
+    .tkey-more:hover { color: var(--fg); }
     .search-results a:hover { background: var(--panel); }
     .rk-row:hover .tk { color: var(--accent); }
   }
 
   /* ---------- How it works + footer ---------- */
-  .how { margin-top: 72px; padding: 36px 0; border-top: 1px solid var(--line2); border-bottom: 1px solid var(--line2); display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 48px; }
+  .how { margin-top: 72px; padding: 36px 0; border-top: 1px solid var(--line2); border-bottom: 1px solid var(--line2); display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 40px; }
   .how div { display: flex; flex-direction: column; gap: 10px; }
   .how .k { font-family: var(--mono); font-size: 11px; letter-spacing: 0.2em; color: var(--accent); }
   .how p { margin: 0; font-size: 15px; line-height: 1.6; color: var(--fg2); }
+  /* Tier key: names every code on the page it sits on, links to ratings.html */
+  .tier-key { display: flex; flex-direction: column; gap: 8px; padding-top: 14px; margin-top: 12px; border-top: 1px solid var(--line); font-size: 13px; color: var(--fg3); }
+  .tkey-row { display: grid; grid-template-columns: 56px minmax(0, 1fr); align-items: baseline; }
+  .tkey-list { display: flex; flex-wrap: wrap; gap: 6px 16px; }
+  .tkey-ax { font-family: var(--mono); font-size: 11px; letter-spacing: 0.14em; color: var(--accent); }
+  .tkey-i { white-space: nowrap; }
+  .tkey-i b { font-family: var(--mono); font-weight: 600; margin-right: 5px; }
+  .tkey-i em { font-style: normal; font-family: var(--mono); font-size: 11px; color: var(--fg4); margin-left: 5px; }
+  .tkey-more { font-size: 13px; align-self: flex-start; }
   .site-footer .wrap { padding-top: 28px; padding-bottom: 40px; display: flex; justify-content: space-between; align-items: center; gap: 16px; font-family: var(--mono); font-size: 12px; color: var(--fg3); flex-wrap: wrap; }
   .site-footer .links { display: flex; gap: 24px; flex-wrap: wrap; }
 
@@ -399,7 +409,7 @@
     .rail { display: none; }
     .lens-select { display: flex; }
     .cats, .brief { grid-template-columns: minmax(0, 1fr); gap: 36px; }
-    .how { grid-template-columns: minmax(0, 1fr); gap: 28px; }
+    .how { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 28px 36px; }
     .nav .nav-link { display: none; }
     .hero { flex-direction: column; align-items: flex-start; }
     .ch-title { grid-template-columns: minmax(0, 1fr); gap: 20px; }
@@ -475,6 +485,7 @@
     .findings li { grid-template-columns: minmax(0, 1fr); gap: 2px; }
     .share .url { display: none; }
     .site-footer .wrap { flex-direction: column; align-items: flex-start; }
+    .how { grid-template-columns: minmax(0, 1fr); }
   }
 </style>
 </head>
@@ -592,6 +603,10 @@
         <span class="k">03 · LIVE TODAY, NOT ROADMAP</span>
         <p>Testnet features and announced plans earn nothing until they ship to mainnet. Price, sentiment and narrative never move a rating. <a href="constitution.html">Read the project constitution →</a></p>
       </div>
+      <div>
+        <span class="k">04 · FIVE TIERS PER RATING</span>
+        <p>Each rating sorts into five named tiers with their own two-letter codes, from Institutional Grade to High Risk for TradFi and Production Grade to Not Viable for AI. <a href="ratings.html">What the tiers mean →</a></p>
+      </div>
     </section>
   </div>
 </main>
@@ -604,6 +619,7 @@
   <div class="wrap">
     <span id="footVersions">Fundamentals only. Not financial advice.</span>
     <span class="links">
+      <a href="ratings.html">How ratings work</a>
       <a href="constitution.html">Project constitution</a>
       <a href="https://x.com/thecoloredsky" target="_blank" rel="noopener">@thecoloredsky</a>
       <span>© 2026 coloredsky score™</span>
@@ -716,6 +732,14 @@ function fmtPF(v) { const m = 100 / v; return m < 20 ? m.toFixed(1) + 'x' : Math
 function fmtPct(v) { const a = Math.abs(v); const d = a >= 1 ? 2 : a >= 0.01 ? 3 : a >= 0.001 ? 4 : 5; return v.toFixed(d).replace(/0+$/, '').replace(/\.$/, '') + '%'; }
 function tiers(axis) { return BOARD.tiers[axis]; }
 function tierOf(axis, code) { const i = tiers(axis).findIndex((t) => t.code === code); return { i: Math.max(0, i), t: tiers(axis)[Math.max(0, i)] }; }
+const AXIS_NAME = { tradfi: 'TradFi', ai: 'AI' };
+// Hover text for any tier code: names the tier, the rating it belongs to, and its range.
+function tierTip(axis, t) { return ` title="${esc(`${t.code} · ${t.name} · ${AXIS_NAME[axis]} tier, ${t.min}–${t.max}`)}"`; }
+function tierKey(axes) {
+  return `<div class="tier-key">` + axes.map((a) => `<div class="tkey-row"><span class="tkey-ax">${AXIS_NAME[a].toUpperCase()}</span><span class="tkey-list">` +
+    tiers(a).map((t, i) => `<span class="tkey-i"><b class="t${i}">${esc(t.code)}</b>${esc(t.name)}<em>${t.min}–${t.max}</em></span>`).join('') + `</span></div>`).join('') +
+    `<a class="tkey-more" href="ratings.html">What the tiers mean →</a></div>`;
+}
 function tierForScore(axis, v) { const list = tiers(axis); const i = list.findIndex((t) => v >= t.min && v <= t.max); const k = i < 0 ? list.length - 1 : i; return { i: k, t: list[k] }; }
 function tick(c) { return String(c.cashtag || c.ticker || '').replace(/^\$/, ''); }
 function chainBy(slug) { return BOARD.chains.find((c) => c.slug === slug); }
@@ -863,10 +887,10 @@ function renderSel() {
   const d = c.divergence;
   const split = d > 0 ? `TradFi leads by ${d}` : d < 0 ? `AI leads by ${-d}` : 'Ratings level';
   const cap = c.tradfi_capped && c.ai_capped ? 'both capped by gates' : c.tradfi_capped ? 'TradFi capped by a gate' : c.ai_capped ? 'AI capped by a gate' : '';
-  const axis = (label, score, tr) => `<div class="sel-axis t${tr.i}"><span class="ax">${label}</span><span class="num"><b>${score}</b><span class="badge">${esc(tr.t.code)}</span></span><span class="tname">${esc(tr.t.name)}</span></div>`;
+  const axis = (label, score, tr, ax) => `<div class="sel-axis t${tr.i}"><span class="ax">${label}</span><span class="num"><b>${score}</b><span class="badge"${tierTip(ax, tr.t)}>${esc(tr.t.code)}</span></span><span class="tname">${esc(tr.t.name)}</span></div>`;
   $('selCard').innerHTML = `
     <div class="sel-head"><span><span class="nm">${esc(c.name)}</span><span class="cash">${esc(c.cashtag)}</span></span><span class="label">Selected</span></div>
-    <div class="sel-axes">${axis('TRADFI', c.tradfi_score, tf)}${axis('AI', c.ai_score, ai)}</div>
+    <div class="sel-axes">${axis('TRADFI', c.tradfi_score, tf, 'tradfi')}${axis('AI', c.ai_score, ai, 'ai')}</div>
     <div class="sel-foot"><span>${split}${cap ? `<span style="color:var(--fg3)"> · ${cap}</span>` : ''}</span><a href="#chain=${esc(c.slug)}">Open full rating →</a></div>`;
 }
 
@@ -893,7 +917,7 @@ function renderActions() {
   $('actionList').innerHTML = rows.map((c) => {
     const isNew = String(c.scored_date || '').slice(0, 7) === String(c.last_updated || '').slice(0, 7);
     const tf = tierOf('tradfi', c.tradfi_tier), ai = tierOf('ai', c.ai_tier);
-    return `<a class="act-row" href="#chain=${esc(c.slug)}"><span class="ad">${fmtDayShort(c.last_updated)}</span><span class="an">${esc(c.name)}</span><span class="ak">${isNew ? 'New rating' : 'Updated'}</span><span class="ap">${c.tradfi_score} <span class="t${tf.i}">${esc(c.tradfi_tier)}</span> · ${c.ai_score} <span class="t${ai.i}">${esc(c.ai_tier)}</span></span></a>`;
+    return `<a class="act-row" href="#chain=${esc(c.slug)}"><span class="ad">${fmtDayShort(c.last_updated)}</span><span class="an">${esc(c.name)}</span><span class="ak">${isNew ? 'New rating' : 'Updated'}</span><span class="ap">${c.tradfi_score} <span class="t${tf.i}"${tierTip('tradfi', tf.t)}>${esc(c.tradfi_tier)}</span> · ${c.ai_score} <span class="t${ai.i}"${tierTip('ai', ai.t)}>${esc(c.ai_tier)}</span></span></a>`;
   }).join('');
 }
 
@@ -941,12 +965,12 @@ async function renderLens() {
         return `<a class="rk-row both" href="#chain=${esc(c.slug)}">
           <span class="rk-rank">${i + 1}</span>
           <span class="rk-name"><span class="nm">${esc(c.name)}</span><span class="tag">${esc(c.cashtag)}</span><span class="tk">${esc(tick(c))}</span></span>
-          <span class="rk-sc rk-tf"><b>${c.tradfi_score}</b>${c.tradfi_capped ? capTag : ''}<span class="full t${tf.i}">${esc(tf.t.name)}</span><span class="short t${tf.i}">${esc(c.tradfi_tier)}</span></span>
-          <span class="rk-sc rk-ai"><b>${c.ai_score}</b>${c.ai_capped ? capTag : ''}<span class="full t${ai.i}">${esc(ai.t.name)}</span><span class="short t${ai.i}">${esc(c.ai_tier)}</span></span>
+          <span class="rk-sc rk-tf"><b>${c.tradfi_score}</b>${c.tradfi_capped ? capTag : ''}<span class="full t${tf.i}">${esc(tf.t.name)}</span><span class="short t${tf.i}"${tierTip('tradfi', tf.t)}>${esc(c.tradfi_tier)}</span></span>
+          <span class="rk-sc rk-ai"><b>${c.ai_score}</b>${c.ai_capped ? capTag : ''}<span class="full t${ai.i}">${esc(ai.t.name)}</span><span class="short t${ai.i}"${tierTip('ai', ai.t)}>${esc(c.ai_tier)}</span></span>
           <span class="db" aria-hidden="true"><span class="base"></span>${ticks}<span class="bar" style="left:${lo}%;width:${hi - lo}%"></span><span class="d ai" style="left:${c.ai_score}%"></span><span class="d tf" style="left:${c.tradfi_score}%"></span></span>
           <span class="rk-split">${signed(c.divergence)}</span></a>`;
       }).join('') +
-      `<div class="legend"><span><i class="k-tf"></i>TradFi</span><span><i class="k-ai"></i>AI</span><span><i class="k-sp"></i>Split</span></div>` + capNote(rows.length);
+      `<div class="legend"><span><i class="k-tf"></i>TradFi</span><span><i class="k-ai"></i>AI</span><span><i class="k-sp"></i>Split</span></div>` + tierKey(['tradfi', 'ai']) + capNote(rows.length);
     return;
   }
 
@@ -963,8 +987,8 @@ async function renderLens() {
       .filter((x) => x.v !== null && x.v !== undefined).sort((a, b) => b.v - a.v).slice(0, RANK_LIMIT);
     body.innerHTML = rows.map((x, i) => {
       const tr = tierForScore(lens.axis, x.v);
-      return `<a class="rk-row score" href="#chain=${esc(x.c.slug)}"><span class="rk-rank">${i + 1}</span><span class="rk-name"><span class="nm">${esc(x.c.name)}</span><span class="tag">${esc(x.c.cashtag)}</span><span class="tk">${esc(tick(x.c))}</span></span><span class="track"><i style="width:${Math.max(1, x.v)}%"></i></span><span class="rk-v">${x.v}</span><span class="rk-code t${tr.i}">${esc(tr.t.code)}</span></a>`;
-    }).join('') + capNote(rows.length);
+      return `<a class="rk-row score" href="#chain=${esc(x.c.slug)}"><span class="rk-rank">${i + 1}</span><span class="rk-name"><span class="nm">${esc(x.c.name)}</span><span class="tag">${esc(x.c.cashtag)}</span><span class="tk">${esc(tick(x.c))}</span></span><span class="track"><i style="width:${Math.max(1, x.v)}%"></i></span><span class="rk-v">${x.v}</span><span class="rk-code t${tr.i}"${tierTip(lens.axis, tr.t)}>${esc(tr.t.code)}</span></a>`;
+    }).join('') + tierKey([lens.axis]) + capNote(rows.length);
     return;
   }
 
@@ -1045,7 +1069,7 @@ async function renderChain(slug) {
   const card = `<div class="card"><div class="hz"></div><div class="axes">` + axes.map((a) => {
     const x = d[a], t = tr[a];
     const note = x.gate_capped ? `capped · raw ${x.raw_score}` : 'not capped';
-    return `<div class="axis"><span class="ax">${AXN[a].toUpperCase()}</span>${thermo(a, x.score, t)}<span class="score t${t.i}"><b>${x.score}</b><span class="badge">${esc(t.t.code)}</span></span><span class="tn t${t.i}">${esc(t.t.name)}</span><span class="capnote">${note}</span></div>`;
+    return `<div class="axis"><span class="ax">${AXN[a].toUpperCase()}</span>${thermo(a, x.score, t)}<span class="score t${t.i}"><b>${x.score}</b><span class="badge"${tierTip(a, t.t)}>${esc(t.t.code)}</span></span><span class="tn t${t.i}">${esc(t.t.name)}</span><span class="capnote">${note}</span></div>`;
   }).join('') + `</div><div class="foot"><span>${row.divergence > 0 ? `TradFi leads by ${row.divergence}` : row.divergence < 0 ? `AI leads by ${-row.divergence}` : 'Ratings level'}</span><span>#coloredskyscore</span></div></div>`;
 
   const labels = {}; axes.forEach((a) => { labels[a] = {}; (BOARD.category_labels[a] || []).forEach((l) => { labels[a][l.key] = l.label; }); });
@@ -1053,7 +1077,7 @@ async function renderChain(slug) {
     const cats = Object.entries(d[a].categories || {}).filter(([, val]) => typeof val === 'number');
     if (!cats.length) return '';
     const best = cats.reduce((m, e) => (e[1] > m[1] ? e : m)), worst = cats.reduce((m, e) => (e[1] < m[1] ? e : m));
-    const cell = (kind, [k, val]) => { const t = tierForScore(a, val); return `<div class="drv"><span class="label">${AXN[a]} · ${kind}</span><span class="hd"><span class="n">${esc(labels[a][k] || k)}</span><span class="v">${val} <small class="t${t.i}">${esc(t.t.code)}</small></span></span><p>${esc(CATEGORY_DESC[a][k] || '')}</p></div>`; };
+    const cell = (kind, [k, val]) => { const t = tierForScore(a, val); return `<div class="drv"><span class="label">${AXN[a]} · ${kind}</span><span class="hd"><span class="n">${esc(labels[a][k] || k)}</span><span class="v">${val} <small class="t${t.i}"${tierTip(a, t.t)}>${esc(t.t.code)}</small></span></span><p>${esc(CATEGORY_DESC[a][k] || '')}</p></div>`; };
     let second;
     if (d[a].gate_capped && d[a].binding_cap) {
       const bc = d[a].binding_cap, r = Math.round(d[a].raw_score), rt = tierForScore(a, r);
@@ -1081,7 +1105,7 @@ async function renderChain(slug) {
     const val = (d[a].categories || {})[l.key];
     if (val === null || val === undefined) return '';
     const t = tierForScore(a, val);
-    return `<button type="button" class="cat-row" aria-expanded="false"><span class="cl">${esc(l.label)}</span><span class="track"><i style="width:${Math.max(1, val)}%"></i></span><span class="cv">${val}</span><span class="cc t${t.i}">${esc(t.t.code)}</span></button><div class="cat-desc" hidden>${esc(CATEGORY_DESC[a][l.key] || '')}</div>`;
+    return `<button type="button" class="cat-row" aria-expanded="false"><span class="cl">${esc(l.label)}</span><span class="track"><i style="width:${Math.max(1, val)}%"></i></span><span class="cv">${val}</span><span class="cc t${t.i}"${tierTip(a, t.t)}>${esc(t.t.code)}</span></button><div class="cat-desc" hidden>${esc(CATEGORY_DESC[a][l.key] || '')}</div>`;
   }).join('') + `</div>`;
 
   const findings = axes.flatMap((a) => (d[a].key_findings || []).map((f) => `<li><span class="label">${AXN[a]}</span><span>${esc(clean(f))}</span></li>`)).join('');
@@ -1114,6 +1138,7 @@ async function renderChain(slug) {
     <section class="ch-sec">
       <div class="sec-top"><h2>Category breakdown</h2><span class="ld">Nine categories per axis, each scored 0–100. The code beside each score is that axis’s tier for the number. Tap a category for what it measures.</span></div>
       <div class="cats">${catCol('tradfi')}${catCol('ai')}</div>
+      ${tierKey(['tradfi', 'ai'])}
     </section>
     <section class="ch-sec brief">
       <div>
