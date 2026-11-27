@@ -9,7 +9,7 @@
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="coloredsky score">
 <meta property="og:title" content="coloredsky Live · Every chain's heartbeat on one clock">
-<meta property="og:description" content="Each block as a tick, the same ten-minute window for every chain. Bitcoin, Ethereum, Solana and the XRP Ledger in the first release.">
+<meta property="og:description" content="Each block as a tick, the same window for every chain: every rated chain that can be read from a public node.">
 <meta property="og:url" content="https://coloredskyscore.com/live/">
 <meta property="og:image" content="https://coloredskyscore.com/og_image.png">
 <meta property="og:image:width" content="1200">
@@ -17,7 +17,7 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:site" content="@thecoloredsky">
 <meta name="twitter:title" content="coloredsky Live · Every chain's heartbeat on one clock">
-<meta name="twitter:description" content="Each block as a tick, the same ten-minute window for every chain. Bitcoin, Ethereum, Solana and the XRP Ledger in the first release.">
+<meta name="twitter:description" content="Each block as a tick, the same window for every chain: every rated chain that can be read from a public node.">
 <meta name="twitter:image" content="https://coloredskyscore.com/og_image.png">
 <meta name="theme-color" content="#0B1220">
 <link rel="icon" type="image/svg+xml" href="../favicon.svg">
@@ -233,13 +233,13 @@
 
   <section class="notes">
     <div><span class="k">HOW IT'S READ</span>
-      <p>A small collector reads each chain from public node endpoints every two minutes, with a backup endpoint if the first fails. Each track ends at the last successful read, not at "now".</p></div>
+      <p>A small collector reads each chain from public node endpoints every two minutes (Dogecoin, Zcash and Bitcoin Cash every four), with a backup endpoint where one exists. Each track ends at the last successful read, not at "now".</p></div>
     <div><span class="k">FAST AND SLOW CHAINS</span>
-      <p>Bitcoin and Ethereum show every block. Solana is too fast to draw block by block, and the XRP Ledger rounds its close times to ten seconds, so both are drawn from block counts per interval.</p></div>
+      <p>Slower chains show every block. Chains with blocks under a few seconds are drawn from block counts between readings, as is the XRP Ledger, which rounds its close times. Sui is read by checkpoint and Hyperliquid by its HyperEVM blocks. Where a source reports only the newest block, the blocks in between are spaced evenly.</p></div>
     <div><span class="k">POSSIBLE HALT</span>
-      <p>Flagged only when two separate endpoints both show no new block for longer than the chain's limit: 4 minutes for Ethereum, 1 for Solana and XRP, 69 for Bitcoin, a gap with under a 0.1% chance on a healthy network. Every flag is checked by hand before it touches a rating.</p></div>
+      <p>Flagged only when two separate endpoints both show no new block for longer than the chain's limit, from one minute on the fastest chains to 69 on Bitcoin, set so a healthy network almost never goes that long. A chain with a single source can only show "Checking a gap". Every flag is checked by hand before it touches a rating.</p></div>
     <div><span class="k">DATA UNAVAILABLE</span>
-      <p>No endpoint answered for seven minutes. That's a problem with our data source, not the chain, and it is never shown as a halt. Finality times for each chain are coming in a later update.</p></div>
+      <p>No endpoint answered for seven minutes. That's a problem with our data source, not the chain, and it is never shown as a halt. The finality label matches each chain's Deterministic Finality gate on the AI rating.</p></div>
   </section>
 </main>
 
@@ -363,7 +363,7 @@
       if (c.status === 'possible_halt') why = 'No new block for ' + fmt(c.lag_s) + ', seen on two separate endpoints. Under review.';
       else if (c.status === 'checking') why = 'One endpoint shows a long gap; checking a second.';
       else if (c.status === 'data_unavailable') why = c.as_of ? 'Last good reading ' + fmt(nowS() - c.as_of) + ' ago.' : 'Waiting for the first reading.';
-      else why = c.finality === 'probabilistic' ? 'Probabilistic finality' : 'Deterministic finality';
+      else why = { pass: 'Deterministic finality', partial: 'Partially deterministic finality', fail: 'Probabilistic finality', deterministic: 'Deterministic finality', probabilistic: 'Probabilistic finality' }[c.finality] || '';
       var chainCell = b
         ? '<a class="c-chain" href="../#chain=' + esc(c.id) + '" title="Open the ' + esc(nm) + ' rating page"><div class="ticker">' + esc(tk) + '</div><div class="name">' + esc(nm) + '</div></a>'
         : '<div class="c-chain"><div class="ticker">' + esc(tk) + '</div><div class="name">' + esc(nm) + '</div></div>';
@@ -380,10 +380,12 @@
 
     if (board) {
       var liveIds = chains.map(function (c) { return c.id; });
+      var reasons = {};
+      (data.not_measurable || []).forEach(function (x) { reasons[x.id] = x.reason; });
       var rest = board.chains.slice().sort(function (a, b) { return b.tradfi_score - a.tradfi_score || b.ai_score - a.ai_score; })
         .filter(function (x) { return liveIds.indexOf(x.slug) < 0; });
-      $('next').innerHTML = '<span>Coming next: the rest of the board.</span><span class="chips">' +
-        rest.map(function (x) { return '<span>' + esc(x.cashtag) + (x.slug === 'cc' ? ' (not publicly measurable)' : '') + '</span>'; }).join('') + '</span>';
+      $('next').innerHTML = rest.length ? '<span>Not shown:</span><span class="chips">' +
+        rest.map(function (x) { return '<span>' + esc(x.cashtag) + ' (' + esc((reasons[x.slug] || 'coming soon').toLowerCase()) + ')</span>'; }).join('') + '</span>' : '';
     }
     tickUpdated();
   }
