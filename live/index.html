@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Live · coloredsky score™</title>
+<meta name="description" content="Every rated chain's heartbeat on one clock: each block as a tick, read from public nodes every two minutes. Presentation data, not part of any rating.">
+<link rel="canonical" href="https://coloredskyscore.com/live/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="coloredsky score">
+<meta property="og:title" content="coloredsky Live · Every chain's heartbeat on one clock">
+<meta property="og:description" content="Each block as a tick, the same ten-minute window for every chain. Bitcoin, Ethereum, Solana and the XRP Ledger in the first release.">
+<meta property="og:url" content="https://coloredskyscore.com/live/">
+<meta property="og:image" content="https://coloredskyscore.com/og_image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@thecoloredsky">
+<meta name="twitter:title" content="coloredsky Live · Every chain's heartbeat on one clock">
+<meta name="twitter:description" content="Each block as a tick, the same ten-minute window for every chain. Bitcoin, Ethereum, Solana and the XRP Ledger in the first release.">
+<meta name="twitter:image" content="https://coloredskyscore.com/og_image.png">
+<meta name="theme-color" content="#0B1220">
+<link rel="icon" type="image/svg+xml" href="../favicon.svg">
+<script>
+(function () {
+  var t = null;
+  try { t = localStorage.getItem('cs-theme'); } catch (e) {}
+  if (t !== 'light' && t !== 'dark') {
+    t = (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches) ? 'light' : 'dark';
+  }
+  document.documentElement.setAttribute('data-theme', t);
+})();
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400;1,8..60,500&family=Hanken+Grotesk:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  html[data-theme="dark"] {
+    --bg: #0B1220; --panel: #111A2C; --track: #0B1220;
+    --fg: #F4F1E9; --fg2: #B7BCC6; --fg3: #8E96A3; --fg4: #7C8595;
+    --line: #1F2B40; --line2: #2E3C57;
+    --accent: #C2A268; --fill: #C2A268;
+    --ok: #56A374; --watch: #D2A94F; --halt: #C0655C; --off: #8E96A3;
+    color-scheme: dark;
+  }
+  html[data-theme="light"] {
+    --bg: #F4F1E9; --panel: #EBE6D8; --track: #F4F1E9;
+    --fg: #191B1F; --fg2: #3A3F47; --fg3: #5B616B; --fg4: #686E78;
+    --line: #DDD7C7; --line2: #C9C2AF;
+    --accent: #7A5E33; --fill: #A8864D;
+    --ok: #2F6A48; --watch: #7F6322; --halt: #8A3E36; --off: #5B616B;
+    color-scheme: light;
+  }
+  :root { --serif: 'Source Serif 4', Georgia, serif; --sans: 'Hanken Grotesk', system-ui, sans-serif; --mono: 'IBM Plex Mono', ui-monospace, monospace; }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; background: var(--bg); color: var(--fg); }
+  body { font-family: var(--sans); -webkit-font-smoothing: antialiased; font-size: 16px; }
+  a { color: var(--accent); text-decoration: none; }
+  button { font: inherit; color: inherit; cursor: pointer; }
+  :focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+  [hidden] { display: none !important; }
+  .mono { font-family: var(--mono); }
+  .kicker { font-family: var(--mono); font-size: 12px; letter-spacing: 0.22em; color: var(--accent); text-transform: uppercase; }
+  .label { font-family: var(--mono); font-size: 11px; letter-spacing: 0.16em; color: var(--fg3); text-transform: uppercase; }
+
+  .horizon { height: 4px; background: linear-gradient(90deg, #0B1220 0%, #8C6D3F 42%, #C2A268 62%, #F4F1E9 100%); }
+  .wrap { max-width: 1440px; margin: 0 auto; padding: 0 64px; }
+
+  .site-header { border-bottom: 1px solid var(--line); background: var(--bg); }
+  .site-header .wrap { display: flex; align-items: center; justify-content: space-between; gap: 24px; padding-top: 16px; padding-bottom: 16px; }
+  .brand { display: flex; align-items: center; gap: 14px; color: var(--fg); }
+  .seal { width: 38px; height: 38px; border: 1px solid var(--accent); display: flex; align-items: center; justify-content: center; font-family: var(--mono); font-weight: 600; font-size: 13px; color: var(--accent); flex-shrink: 0; }
+  .brand-div { width: 1px; height: 30px; background: var(--line2); }
+  .wordmark { font-family: var(--serif); font-size: 27px; line-height: 1; white-space: nowrap; }
+  .wordmark b { font-weight: 600; }
+  .wordmark i { font-weight: 500; margin-left: 6px; color: var(--fg2); }
+  .wordmark sup { font-family: var(--sans); font-size: 12px; margin-left: 2px; color: var(--accent); }
+  .nav { display: flex; align-items: center; gap: 28px; font-size: 15px; }
+  .nav .nav-link { color: var(--fg2); padding-bottom: 4px; border-bottom: 1px solid transparent; }
+  .nav .nav-link.current { color: var(--fg); border-bottom-color: var(--accent); }
+  .icon-btn { width: 40px; height: 40px; border: 1px solid var(--line2); background: transparent; color: var(--fg2); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+  html[data-theme="dark"] .ico-moon, html[data-theme="light"] .ico-sun { display: none; }
+
+  .hero { padding-top: 56px; display: flex; justify-content: space-between; align-items: flex-end; gap: 48px; flex-wrap: wrap; }
+  .hero-copy { display: flex; flex-direction: column; gap: 16px; max-width: 860px; }
+  .hero h1 { margin: 0; font-family: var(--serif); font-weight: 600; font-size: 50px; line-height: 1.08; letter-spacing: -0.01em; text-wrap: balance; }
+  .hero p { margin: 0; font-size: 18px; line-height: 1.6; color: var(--fg2); max-width: 760px; }
+  .beta { font-family: var(--mono); font-size: 11px; letter-spacing: 0.16em; border: 1px solid var(--accent); color: var(--accent); padding: 2px 6px; margin-left: 10px; vertical-align: middle; }
+  .stats { display: flex; gap: 36px; font-family: var(--mono); }
+  .stats b { display: block; font-size: 28px; font-weight: 500; }
+  .stats span { font-size: 11px; letter-spacing: 0.16em; color: var(--fg3); text-transform: uppercase; }
+
+  .bar { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 12px; margin: 40px 0 12px; }
+  .seg { display: flex; gap: 6px; }
+  .seg button { font-family: var(--mono); font-size: 12px; background: transparent; color: var(--fg2); border: 1px solid var(--line2); padding: 0 14px; height: 40px; }
+  .seg button[aria-pressed="true"] { background: var(--panel); color: var(--fg); border-color: var(--accent); }
+  .updated { font-family: var(--mono); font-size: 12px; color: var(--fg3); display: flex; align-items: center; gap: 8px; }
+  .dot { width: 8px; height: 8px; border-radius: 50%; display: inline-block; flex: none; }
+  .pulse { animation: cspulse 1.8s ease-in-out infinite; }
+  @keyframes cspulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.3; } }
+  @media (prefers-reduced-motion: reduce) { .pulse { animation: none; } }
+
+  .table { background: var(--panel); border: 1px solid var(--line); }
+  .row { display: flex; align-items: center; gap: 22px; padding: 14px 22px; border-bottom: 1px solid var(--line); }
+  .row:last-child { border-bottom: 0; }
+  .head { font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.14em; color: var(--fg3); text-transform: uppercase; padding-top: 14px; padding-bottom: 10px; }
+  .c-chain { width: 140px; flex: none; }
+  .c-track { flex: 1 1 400px; min-width: 0; }
+  .c-last { width: 130px; flex: none; text-align: right; }
+  .c-status { width: 230px; flex: none; }
+  .ticker { font-family: var(--mono); font-weight: 600; font-size: 14px; color: var(--fg); }
+  .name { font-size: 13px; color: var(--fg3); margin-top: 3px; }
+  .track { position: relative; height: 34px; background: var(--track); border: 1px solid var(--line); overflow: hidden; }
+  .tick { position: absolute; top: 7px; bottom: 7px; width: 1.5px; background: var(--fill); }
+  .fill { position: absolute; top: 7px; bottom: 7px; }
+  .nowline { position: absolute; right: 0; top: 0; bottom: 0; width: 2px; background: var(--fg); opacity: 0.5; }
+  .flat { position: absolute; top: 16px; height: 1.5px; background: var(--halt); }
+  .hatch { position: absolute; inset: 0; display: flex; align-items: center; padding: 0 12px; font-size: 12px; color: var(--fg3);
+           background: repeating-linear-gradient(135deg, transparent 0 6px, var(--line) 6px 7px); }
+  .scale { display: flex; justify-content: space-between; }
+  .big { font-family: var(--mono); font-size: 14px; }
+  .small { font-family: var(--mono); font-size: 11.5px; color: var(--fg3); margin-top: 4px; }
+  .status { display: flex; align-items: center; gap: 8px; font-size: 14px; }
+  .why { font-size: 12.5px; color: var(--fg3); margin-top: 4px; line-height: 1.4; }
+
+  .next { margin-top: 18px; display: flex; flex-wrap: wrap; align-items: baseline; gap: 8px 14px; font-size: 14px; color: var(--fg3); }
+  .next .chips { display: flex; flex-wrap: wrap; gap: 6px 10px; }
+  .next .chips span { font-family: var(--mono); font-size: 12px; color: var(--fg4); }
+
+  .notes { margin-top: 56px; padding: 32px 0; border-top: 1px solid var(--line2); border-bottom: 1px solid var(--line2); display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 36px; }
+  .notes div { display: flex; flex-direction: column; gap: 10px; }
+  .notes .k { font-family: var(--mono); font-size: 11px; letter-spacing: 0.2em; color: var(--accent); }
+  .notes p { margin: 0; font-size: 14.5px; line-height: 1.6; color: var(--fg2); }
+
+  .site-footer .wrap { padding-top: 28px; padding-bottom: 40px; display: flex; justify-content: space-between; align-items: center; gap: 16px; font-family: var(--mono); font-size: 12px; color: var(--fg3); flex-wrap: wrap; }
+  .site-footer .links { display: flex; gap: 24px; flex-wrap: wrap; }
+
+  @media (hover: hover) {
+    .nav .nav-link:hover { color: var(--fg); border-bottom-color: var(--accent); }
+    .seg button:hover { color: var(--fg); }
+    a.c-chain:hover .ticker { color: var(--accent); }
+    .site-footer a:hover { color: var(--fg); }
+  }
+  @media (max-width: 1240px) { .wrap { padding: 0 40px; } }
+  @media (max-width: 980px) {
+    .nav .nav-link { display: none; }
+    .notes { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 28px 36px; }
+    .row { flex-wrap: wrap; row-gap: 12px; }
+    .head { display: none; }
+    .c-track { order: 3; flex-basis: 100%; }
+    .c-last { text-align: left; width: 110px; }
+    .c-status { flex: 1; width: auto; }
+  }
+  @media (max-width: 720px) {
+    .wrap { padding: 0 16px; }
+    .site-header .wrap { padding-top: 10px; padding-bottom: 10px; gap: 8px; }
+    .seal { width: 32px; height: 32px; font-size: 12px; }
+    .brand { gap: 10px; }
+    .brand-div { height: 24px; }
+    .wordmark { font-size: 21px; } .wordmark i { margin-left: 5px; } .wordmark sup { font-size: 10px; }
+    .icon-btn { width: 44px; height: 44px; border: none; }
+    .hero { padding-top: 28px; gap: 22px; }
+    .hero h1 { font-size: 30px; line-height: 1.15; }
+    .hero p { font-size: 15px; line-height: 1.55; }
+    .stats { gap: 26px; } .stats b { font-size: 22px; }
+    .bar { margin-top: 28px; }
+    .row { padding: 14px 16px; gap: 14px; }
+    .c-chain { width: auto; flex: 1 1 100%; display: flex; align-items: baseline; gap: 10px; }
+    .name { margin-top: 0; }
+    .c-last { width: auto; flex: 0 0 auto; }
+    .notes { grid-template-columns: minmax(0, 1fr); }
+    .site-footer .wrap { flex-direction: column; align-items: flex-start; }
+  }
+</style>
+</head>
+<body>
+
+<div class="horizon"></div>
+
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../" aria-label="coloredsky score home">
+      <span class="seal">CS</span>
+      <span class="brand-div"></span>
+      <span class="wordmark"><b>coloredsky</b><i>score</i><sup>™</sup></span>
+    </a>
+    <nav class="nav" aria-label="Main">
+      <a class="nav-link" href="../">Map</a>
+      <a class="nav-link" href="../#rank=both">Rankings</a>
+      <a class="nav-link" href="../#how">Methodology</a>
+      <a class="nav-link current" href="./" aria-current="page">Live</a>
+      <button class="icon-btn" id="themeToggle" type="button" aria-label="Switch theme">
+        <svg class="ico-sun" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+        <svg class="ico-moon" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+      </button>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+  <section class="hero">
+    <div class="hero-copy">
+      <div class="kicker">Live<span class="beta">BETA</span></div>
+      <h1>Every chain's heartbeat, on one clock.</h1>
+      <p>Each tick is a block, drawn on the same window for every chain, so you can see at a glance how differently they run. Read from public nodes every two minutes. This is presentation data: nothing on this page moves a rating.</p>
+    </div>
+    <div class="stats" aria-live="polite">
+      <div><b id="stLive">–</b><span>Live now</span></div>
+      <div><b id="stOk">–</b><span>Producing blocks</span></div>
+      <div><b id="stHalt">–</b><span>Possible halts</span></div>
+    </div>
+  </section>
+
+  <div class="bar">
+    <div class="seg" role="group" aria-label="Time window">
+      <button type="button" data-w="600" aria-pressed="true">10 min</button>
+      <button type="button" data-w="3600" aria-pressed="false">1 hour</button>
+    </div>
+    <div class="updated" id="updated"><span class="dot" style="background:var(--off)"></span>Loading…</div>
+  </div>
+
+  <div class="table">
+    <div class="row head" aria-hidden="true">
+      <div class="c-chain">Chain</div>
+      <div class="c-track scale"><span id="wlabel">−10 min</span><span>last read</span></div>
+      <div class="c-last">Last block</div>
+      <div class="c-status">Status</div>
+    </div>
+    <div id="rows"></div>
+  </div>
+
+  <div class="next" id="next"></div>
+
+  <section class="notes">
+    <div><span class="k">HOW IT'S READ</span>
+      <p>A small collector reads each chain from public node endpoints every two minutes, with a backup endpoint if the first fails. Each track ends at the last successful read, not at "now".</p></div>
+    <div><span class="k">FAST AND SLOW CHAINS</span>
+      <p>Bitcoin and Ethereum show every block. Solana is too fast to draw block by block, and the XRP Ledger rounds its close times to ten seconds, so both are drawn from block counts per interval.</p></div>
+    <div><span class="k">POSSIBLE HALT</span>
+      <p>Flagged only when two separate endpoints both show no new block for longer than the chain's limit: 4 minutes for Ethereum, 1 for Solana and XRP, 69 for Bitcoin, a gap with under a 0.1% chance on a healthy network. Every flag is checked by hand before it touches a rating.</p></div>
+    <div><span class="k">DATA UNAVAILABLE</span>
+      <p>No endpoint answered for seven minutes. That's a problem with our data source, not the chain, and it is never shown as a halt. Finality times for each chain are coming in a later update.</p></div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <span>Presentation data only. Not part of any rating. Not financial advice.</span>
+    <span class="links">
+      <a href="../ratings.html">How ratings work</a>
+      <a href="../constitution.html">Project constitution</a>
+      <a href="https://x.com/thecoloredsky" target="_blank" rel="noopener">@thecoloredsky</a>
+      <span>© 2026 coloredsky score™</span>
+    </span>
+  </div>
+</footer>
+
+<script>
+(function () {
+  var LIVE_URL = 'https://coloredsky-live.brianboode.workers.dev/live.json';
+  var REFRESH_MS = 60000;
+  var $ = function (id) { return document.getElementById(id); };
+
+  // ---------- theme (same behavior as the main page) ----------
+  function applyThemeMeta() {
+    var t = document.documentElement.getAttribute('data-theme');
+    var btn = $('themeToggle');
+    btn.setAttribute('aria-label', t === 'dark' ? 'Switch to light mode' : 'Switch to dark mode');
+    btn.title = btn.getAttribute('aria-label');
+    document.querySelector('meta[name="theme-color"]').setAttribute('content', t === 'dark' ? '#0B1220' : '#F4F1E9');
+  }
+  $('themeToggle').addEventListener('click', function () {
+    var next = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+    document.documentElement.setAttribute('data-theme', next);
+    try { localStorage.setItem('cs-theme', next); } catch (e) {}
+    applyThemeMeta();
+  });
+  if (window.matchMedia) {
+    var mq = window.matchMedia('(prefers-color-scheme: light)');
+    var follow = function (e) {
+      var stored = null; try { stored = localStorage.getItem('cs-theme'); } catch (err) {}
+      if (stored !== 'light' && stored !== 'dark') { document.documentElement.setAttribute('data-theme', e.matches ? 'light' : 'dark'); applyThemeMeta(); }
+    };
+    if (mq.addEventListener) mq.addEventListener('change', follow);
+  }
+  applyThemeMeta();
+
+  // ---------- helpers ----------
+  var nowS = function () { return Math.floor(Date.now() / 1000); };
+  function fmt(s) {
+    if (s == null) return '—';
+    if (s < 1) return Math.round(s * 1000) + ' ms';
+    if (s < 60) return (s < 10 ? s.toFixed(1) : Math.round(s)) + ' s';
+    if (s < 3600) return Math.round(s / 60) + ' min';
+    return Math.floor(s / 3600) + 'h ' + String(Math.round((s % 3600) / 60)).padStart(2, '0') + 'm';
+  }
+  function esc(t) { return String(t).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
+
+  var STATUS = {
+    ok:               { color: 'var(--ok)',    label: 'Producing blocks' },
+    checking:         { color: 'var(--watch)', label: 'Checking a gap' },
+    possible_halt:    { color: 'var(--halt)',  label: 'Possible halt' },
+    data_unavailable: { color: 'var(--off)',   label: 'Data unavailable' }
+  };
+
+  var windowS = 600, board = null, last = null, cache = {};
+
+  function trackHTML(c, win) {
+    if (!c.as_of) return '<div class="hatch">Waiting for the first reading</div>';
+    var end = c.as_of, start = end - win;
+    var pct = function (t) { return Math.max(0, Math.min(100, (t - start) / win * 100)); };
+    var h = '';
+    (c.ticks || []).forEach(function (t) { if (t >= start) h += '<div class="tick" style="left:' + pct(t).toFixed(3) + '%"></div>'; });
+    var lastBlockAt = c.lag_s != null ? end - c.lag_s : end;
+    (c.segments || []).forEach(function (s) {
+      if (s.to <= start || !s.count) return;
+      var to = Math.min(s.to, Math.max(s.from, lastBlockAt));
+      var l = pct(s.from), w = pct(to) - l;
+      if (w <= 0) return;
+      var spacing = 100 / s.count;
+      h += '<div class="fill" style="left:' + l.toFixed(3) + '%;width:' + w.toFixed(3) + '%;background:repeating-linear-gradient(90deg,var(--fill) 0 1px,transparent 1px ' + spacing.toFixed(4) + '%)"></div>';
+    });
+    if (c.status === 'possible_halt' && c.lag_s) h += '<div class="flat" style="left:' + pct(end - c.lag_s).toFixed(2) + '%;right:0"></div>';
+    if (c.status === 'data_unavailable') h += '<div class="hatch">Our data source hasn’t answered recently</div>';
+    else h += '<div class="nowline"></div>';
+    return h;
+  }
+
+  function boardInfo(id) {
+    var b = board && board.chains.filter(function (x) { return x.slug === id; })[0];
+    return b || null;
+  }
+
+  function render(data) {
+    last = data;
+    // Board order: TradFi score, then AI, same as the map.
+    var order = board ? board.chains.slice().sort(function (a, b) { return b.tradfi_score - a.tradfi_score || b.ai_score - a.ai_score; }).map(function (x) { return x.slug; }) : [];
+    var chains = data.chains.slice().sort(function (a, b) {
+      var ia = order.indexOf(a.id), ib = order.indexOf(b.id);
+      return (ia < 0 ? 99 : ia) - (ib < 0 ? 99 : ib);
+    });
+    $('rows').innerHTML = chains.map(function (c) {
+      var b = boardInfo(c.id);
+      var tk = b ? b.cashtag : '$' + c.id.toUpperCase();
+      var nm = b ? b.name : c.name;
+      var st = STATUS[c.status] || STATUS.data_unavailable;
+      var approx = c.id === 'xrp' ? '≈ ' : '';
+      var lag = c.lag_s == null ? '—' : (c.lag_s < 1 ? '< 1 s ago' : approx + fmt(c.lag_s) + ' ago');
+      var why;
+      if (c.status === 'possible_halt') why = 'No new block for ' + fmt(c.lag_s) + ', seen on two separate endpoints. Under review.';
+      else if (c.status === 'checking') why = 'One endpoint shows a long gap; checking a second.';
+      else if (c.status === 'data_unavailable') why = c.as_of ? 'Last good reading ' + fmt(nowS() - c.as_of) + ' ago.' : 'Waiting for the first reading.';
+      else why = c.finality === 'probabilistic' ? 'Probabilistic finality' : 'Deterministic finality';
+      var chainCell = b
+        ? '<a class="c-chain" href="../#chain=' + esc(c.id) + '" title="Open the ' + esc(nm) + ' rating page"><div class="ticker">' + esc(tk) + '</div><div class="name">' + esc(nm) + '</div></a>'
+        : '<div class="c-chain"><div class="ticker">' + esc(tk) + '</div><div class="name">' + esc(nm) + '</div></div>';
+      return '<div class="row">' + chainCell +
+        '<div class="c-track"><div class="track" role="img" aria-label="' + esc(nm) + ' blocks over the selected window">' + trackHTML(c, windowS) + '</div></div>' +
+        '<div class="c-last"><div class="big">' + lag + '</div><div class="small">' + (c.cadence_s ? 'rhythm ~' + fmt(c.cadence_s) : '&nbsp;') + '</div></div>' +
+        '<div class="c-status"><div class="status"><span class="dot" style="background:' + st.color + '"></span>' + st.label + '</div><div class="why">' + esc(why) + '</div></div>' +
+        '</div>';
+    }).join('');
+
+    $('stLive').textContent = chains.length;
+    $('stOk').textContent = chains.filter(function (c) { return c.status === 'ok'; }).length;
+    $('stHalt').textContent = chains.filter(function (c) { return c.status === 'possible_halt'; }).length;
+
+    if (board) {
+      var liveIds = chains.map(function (c) { return c.id; });
+      var rest = board.chains.slice().sort(function (a, b) { return b.tradfi_score - a.tradfi_score || b.ai_score - a.ai_score; })
+        .filter(function (x) { return liveIds.indexOf(x.slug) < 0; });
+      $('next').innerHTML = '<span>Coming next: the rest of the board.</span><span class="chips">' +
+        rest.map(function (x) { return '<span>' + esc(x.cashtag) + (x.slug === 'cc' ? ' (not publicly measurable)' : '') + '</span>'; }).join('') + '</span>';
+    }
+    tickUpdated();
+  }
+
+  function tickUpdated() {
+    if (!last) return;
+    var age = last.updated ? Math.max(0, nowS() - last.updated) : null;
+    var stale = age == null || age > 420;
+    $('updated').innerHTML = '<span class="dot' + (stale ? '' : ' pulse') + '" style="background:' + (stale ? 'var(--off)' : 'var(--ok)') + '"></span>' +
+      (age == null ? 'No readings yet' : 'Last read ' + fmt(age) + ' ago');
+  }
+
+  function load() {
+    if (cache[windowS]) render(cache[windowS]);
+    return fetch(LIVE_URL + '?window=' + windowS, { cache: 'no-store' })
+      .then(function (r) { if (!r.ok) throw new Error('HTTP ' + r.status); return r.json(); })
+      .then(function (d) { cache[windowS] = d; render(d); })
+      .catch(function () {
+        $('updated').innerHTML = '<span class="dot" style="background:var(--halt)"></span>Couldn’t reach the live data. Retrying shortly.';
+      });
+  }
+
+  Array.prototype.forEach.call(document.querySelectorAll('.seg button'), function (btn) {
+    btn.addEventListener('click', function () {
+      windowS = Number(btn.getAttribute('data-w'));
+      Array.prototype.forEach.call(document.querySelectorAll('.seg button'), function (x) { x.setAttribute('aria-pressed', String(x === btn)); });
+      $('wlabel').textContent = windowS === 3600 ? '−1 hour' : '−10 min';
+      load();
+    });
+  });
+
+  fetch('../data/board.json', { cache: 'no-store' })
+    .then(function (r) { return r.json(); })
+    .then(function (b) { board = b; })
+    .catch(function () {})
+    .then(load);
+  setInterval(load, REFRESH_MS);
+  setInterval(tickUpdated, 5000);
+})();
+</script>
+</body>
+</html>
