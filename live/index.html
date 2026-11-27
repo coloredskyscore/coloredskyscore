@@ -321,6 +321,10 @@
       prevTo = Math.max(prevTo || 0, s.to);
       return { from: f, to: s.to, count: s.count };
     });
+    // Samples only cover finished minutes, so the newest one ends up to a minute before
+    // the latest block. Carry it to that block, which we did see, when it's within 90 s.
+    var lastSeg = segs[segs.length - 1];
+    if (lastSeg && lastBlockAt > lastSeg.to && lastBlockAt - lastSeg.to < 90) lastSeg.to = lastBlockAt;
     segs.forEach(function (s) {
       if (s.to <= start || !s.count) return;
       var to = Math.min(s.to, Math.max(s.from, lastBlockAt));
