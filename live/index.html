@@ -312,7 +312,16 @@
     var h = '';
     (c.ticks || []).forEach(function (t) { if (t >= start) h += '<div class="tick" style="left:' + pct(t).toFixed(3) + '%"></div>'; });
     var lastBlockAt = c.lag_s != null ? end - c.lag_s : end;
-    (c.segments || []).forEach(function (s) {
+    // Solana sample times are estimated from slots, so back-to-back samples can land
+    // a few seconds apart. Close seams under 45 s; a real gap would be a full minute.
+    var segs = (c.segments || []).slice().sort(function (a, b) { return a.from - b.from; }), prevTo = null;
+    segs = segs.map(function (s) {
+      var f = s.from;
+      if (prevTo != null && f > prevTo && f - prevTo < 45) f = prevTo;
+      prevTo = Math.max(prevTo || 0, s.to);
+      return { from: f, to: s.to, count: s.count };
+    });
+    segs.forEach(function (s) {
       if (s.to <= start || !s.count) return;
       var to = Math.min(s.to, Math.max(s.from, lastBlockAt));
       var l = pct(s.from), w = pct(to) - l;
