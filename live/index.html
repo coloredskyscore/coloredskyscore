@@ -132,6 +132,12 @@
   .notes .k { font-family: var(--mono); font-size: 11px; letter-spacing: 0.2em; color: var(--accent); }
   .notes p { margin: 0; font-size: 14.5px; line-height: 1.6; color: var(--fg2); }
 
+  .finality { padding: 32px 0 8px; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 36px; }
+  .finality h2 { grid-column: 1 / -1; margin: 0 0 -12px; font-family: var(--mono); font-size: 11px; letter-spacing: 0.2em; color: var(--accent); font-weight: 400; }
+  .finality div { display: flex; flex-direction: column; gap: 8px; }
+  .finality b { font-size: 15px; font-weight: 600; color: var(--fg); }
+  .finality p { margin: 0; font-size: 14.5px; line-height: 1.6; color: var(--fg2); }
+
   .site-footer .wrap { padding-top: 28px; padding-bottom: 40px; display: flex; justify-content: space-between; align-items: center; gap: 16px; font-family: var(--mono); font-size: 12px; color: var(--fg3); flex-wrap: wrap; }
   .site-footer .links { display: flex; gap: 24px; flex-wrap: wrap; }
 
@@ -145,6 +151,7 @@
   @media (max-width: 980px) {
     .nav .nav-link { display: none; }
     .notes { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 28px 36px; }
+    .finality { grid-template-columns: minmax(0, 1fr); gap: 24px; }
     .row { flex-wrap: wrap; row-gap: 12px; }
     .head { display: none; }
     .c-track { order: 3; flex-basis: 100%; }
@@ -239,7 +246,17 @@
     <div><span class="k">POSSIBLE HALT</span>
       <p>Flagged only when two separate endpoints both show no new block for longer than the chain's limit, from one minute on the fastest chains to 69 on Bitcoin, set so a healthy network almost never goes that long. A chain with a single source can only show "Checking a gap". Every flag is checked by hand before it touches a rating.</p></div>
     <div><span class="k">DATA UNAVAILABLE</span>
-      <p>No endpoint answered for seven minutes. That's a problem with our data source, not the chain, and it is never shown as a halt. The finality label matches each chain's Deterministic Finality gate on the AI rating.</p></div>
+      <p>No endpoint answered for seven minutes. That's a problem with our data source, not the chain, and it is never shown as a halt. The finality label matches each chain's Deterministic Finality gate on the AI rating; see the definitions below.</p></div>
+  </section>
+
+  <section class="finality" id="finality">
+    <h2>WHAT THE FINALITY LABELS MEAN</h2>
+    <div><b>Deterministic finality</b>
+      <p>Once the network confirms a block, the protocol guarantees it can never be reversed, and that guarantee arrives in under a second. There is no waiting period: confirmed means settled.</p></div>
+    <div><b>Partially deterministic finality</b>
+      <p>The chain does reach a point where a block can't be reversed, but either it takes longer than about two seconds (Ethereum finalizes in roughly 13 minutes) or it's hybrid, with a fast final path backed by a slower probabilistic one.</p></div>
+    <div><b>Probabilistic finality</b>
+      <p>No block is ever formally final. Each new block built on top makes reversing it less likely, which is why exchanges wait for several confirmations (six, by convention, on Bitcoin). It is the design of proof-of-work chains and Cardano.</p></div>
   </section>
 </main>
 
@@ -370,7 +387,7 @@
       return '<div class="row">' + chainCell +
         '<div class="c-track"><div class="track" role="img" aria-label="' + esc(nm) + ' blocks over the selected window">' + trackHTML(c, windowS) + '</div></div>' +
         '<div class="c-last"><div class="big">' + lag + '</div><div class="small">' + (c.cadence_s ? 'rhythm ~' + fmt(c.cadence_s) : '&nbsp;') + '</div></div>' +
-        '<div class="c-status"><div class="status"><span class="dot" style="background:' + st.color + '"></span>' + st.label + '</div><div class="why">' + esc(why) + '</div></div>' +
+        '<div class="c-status"><div class="status"><span class="dot" style="background:' + st.color + '"></span>' + st.label + '</div><div class="why">' + (c.status === 'ok' ? '<a href="#finality" style="color:inherit">' + esc(why) + '</a>' : esc(why)) + '</div></div>' +
         '</div>';
     }).join('');
 
