@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Live · coloredsky score™</title>
-<meta name="description" content="Every rated chain's heartbeat on one clock: each block as a tick, read from public nodes every two minutes. Presentation data, not part of any rating.">
+<meta name="description" content="Every rated chain's heartbeat on one clock: each block as a tick, read from public nodes every three minutes. Presentation data, not part of any rating.">
 <link rel="canonical" href="https://coloredskyscore.com/live/">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="coloredsky score">
@@ -209,7 +209,7 @@
     <div class="hero-copy">
       <div class="kicker">Live<span class="beta">BETA</span></div>
       <h1>Every chain's heartbeat, on one clock.</h1>
-      <p>Each tick is a block, drawn on the same window for every chain, so you can see at a glance how differently they run. Read from public nodes every two minutes. This is presentation data: nothing on this page moves a rating.</p>
+      <p>Each tick is a block, drawn on the same window for every chain, so you can see at a glance how differently they run. Read from public nodes every three minutes. This is presentation data: nothing on this page moves a rating.</p>
     </div>
     <div class="stats" aria-live="polite">
       <div><b id="stLive">–</b><span>Live now</span></div>
@@ -240,11 +240,11 @@
 
   <section class="notes">
     <div><span class="k">HOW IT'S READ</span>
-      <p>A small collector reads each chain from public node endpoints every two minutes (Dogecoin, Zcash and Bitcoin Cash every four), with a backup endpoint where one exists. Each track ends at the last successful read, not at "now".</p></div>
+      <p>A small collector reads each chain from public node endpoints every three minutes (Dogecoin, Zcash and Bitcoin Cash every six), with a backup endpoint where one exists. Each track ends at the last successful read, not at "now".</p></div>
     <div><span class="k">FAST AND SLOW CHAINS</span>
       <p>Slower chains show every block. Chains with blocks under a few seconds are drawn from block counts between readings, as is the XRP Ledger, which rounds its close times. Sui is read by checkpoint and Hyperliquid by its HyperEVM blocks. Where a source reports only the newest block, the blocks in between are spaced evenly.</p></div>
     <div><span class="k">POSSIBLE HALT</span>
-      <p>Flagged only when two separate endpoints both show no new block for longer than the chain's limit, from one minute on the fastest chains to 69 on Bitcoin, set so a healthy network almost never goes that long. A chain with a single source can only show "Checking a gap". Every flag is checked by hand before it touches a rating.</p></div>
+      <p>Flagged only when two separate endpoints both show no new block for longer than the chain's limit, from one minute on the fastest chains to two hours on Bitcoin, set so a healthy network almost never goes that long. Proof-of-work chains can go well over an hour between blocks by chance alone. A chain with a single source can only show "Checking a gap". Every flag is checked by hand before it touches a rating.</p></div>
     <div><span class="k">DATA UNAVAILABLE</span>
       <p>No endpoint answered for seven minutes. That's a problem with our data source, not the chain, and it is never shown as a halt. The finality label matches each chain's Deterministic Finality gate on the AI rating; see the definitions below.</p></div>
   </section>
