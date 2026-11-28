@@ -336,6 +336,21 @@
   .ch-title .sub { font-family: var(--mono); font-size: 15px; color: var(--accent); margin-top: 12px; }
   .ch-title .sub span { color: var(--fg3); }
   .ch-title .meta { font-family: var(--mono); font-size: 12px; color: var(--fg3); margin-top: 10px; line-height: 1.6; }
+  /* ---------- Live strip on chain pages (data from the Live collector) ---------- */
+  .ch-live { margin-top: 28px; display: flex; align-items: center; gap: 20px; padding: 12px 18px; border: 1px solid var(--line); background: var(--panel); }
+  .ch-live .lk { font-family: var(--mono); font-size: 11px; letter-spacing: 0.18em; color: var(--accent); flex: none; white-space: nowrap; }
+  .ch-live .lt { flex: 1 1 300px; min-width: 0; position: relative; height: 30px; background: var(--bg); border: 1px solid var(--line); overflow: hidden; }
+  .ch-live .lt .tk { position: absolute; top: 6px; bottom: 6px; width: 1.5px; background: var(--fill); }
+  .ch-live .lt .fl { position: absolute; top: 6px; bottom: 6px; }
+  .ch-live .lt .nw { position: absolute; right: 0; top: 0; bottom: 0; width: 2px; background: var(--fg); opacity: 0.5; }
+  .ch-live .lt .fh { position: absolute; top: 14px; height: 1.5px; background: var(--t4); }
+  .ch-live .lt .hz2 { position: absolute; inset: 0; display: flex; align-items: center; padding: 0 10px; font-size: 12px; color: var(--fg3); }
+  .ch-live .lv { font-family: var(--mono); font-size: 13px; text-align: right; flex: none; white-space: nowrap; }
+  .ch-live .lv small { display: block; font-size: 11px; color: var(--fg3); margin-top: 3px; }
+  .ch-live .ls { flex: none; display: flex; align-items: center; gap: 8px; font-size: 14px; white-space: nowrap; }
+  .ch-live .ls i { width: 8px; height: 8px; border-radius: 50%; display: inline-block; }
+  .ch-live .lnote { flex: 1; font-size: 14px; color: var(--fg3); }
+  .ch-live .lm { font-family: var(--mono); font-size: 12px; flex: none; white-space: nowrap; }
   .ch-title blockquote { margin: 0; max-width: 520px; display: flex; flex-direction: column; gap: 10px; }
   .ch-title blockquote q { font-family: var(--serif); font-style: italic; font-size: 26px; line-height: 1.35; quotes: "\201C" "\201D"; }
   .ch-main { padding-top: 40px; display: grid; grid-template-columns: 460px minmax(0, 1fr); gap: 48px; align-items: start; }
@@ -415,6 +430,9 @@
     .ch-title { grid-template-columns: minmax(0, 1fr); gap: 20px; }
   }
   @media (max-width: 720px) {
+    .ch-live { flex-wrap: wrap; gap: 10px 16px; padding: 12px 14px; }
+    .ch-live .lt { order: 5; flex-basis: 100%; }
+    .ch-live .lv { text-align: left; }
     .wrap { padding: 0 16px; }
     .site-header .wrap { padding-top: 10px; padding-bottom: 10px; gap: 8px; }
     .seal { width: 32px; height: 32px; font-size: 12px; }
@@ -1040,6 +1058,74 @@ function thermo(axis, score, tr) {
   return `<div class="thermo t${tr.i}"><div class="bands">${bands}</div><div class="mk" style="top:${100 - score}%"></div></div>`;
 }
 
+// ---------- Live strip (heartbeat from the Live collector; presentation data, never scored) ----------
+const LIVE_URL = 'https://coloredsky-live.brianboode.workers.dev/live.json';
+let LIVE_CACHE = { t: 0, d: null };
+function liveFmt(s) {
+  if (s == null) return '—';
+  if (s < 1) return Math.round(s * 1000) + ' ms';
+  if (s < 60) return (s < 10 ? s.toFixed(1) : Math.round(s)) + ' s';
+  if (s < 3600) return Math.round(s / 60) + ' min';
+  return Math.floor(s / 3600) + 'h ' + String(Math.round((s % 3600) / 60)).padStart(2, '0') + 'm';
+}
+function liveTrack(c, win) {
+  if (!c.as_of) return '<div class="hz2">Waiting for the first reading</div>';
+  const end = c.as_of, start = end - win;
+  const pct = (t) => Math.max(0, Math.min(100, (t - start) / win * 100));
+  let h = '';
+  (c.ticks || []).forEach((t) => { if (t >= start) h += `<div class="tk" style="left:${pct(t).toFixed(3)}%"></div>`; });
+  const lastBlockAt = c.lag_s != null ? end - c.lag_s : end;
+  let prevTo = null;
+  const segs = (c.segments || []).slice().sort((a, b) => a.from - b.from).map((s) => {
+    let f = s.from;
+    if (prevTo != null && f > prevTo && f - prevTo < 45) f = prevTo;
+    prevTo = Math.max(prevTo || 0, s.to);
+    return { from: f, to: s.to, count: s.count };
+  });
+  const lastSeg = segs[segs.length - 1];
+  if (lastSeg && lastBlockAt > lastSeg.to && lastBlockAt - lastSeg.to < 90) lastSeg.to = lastBlockAt;
+  segs.forEach((s) => {
+    if (s.to <= start || !s.count) return;
+    const to = Math.min(s.to, Math.max(s.from, lastBlockAt));
+    const l = pct(s.from), w = pct(to) - l;
+    if (w <= 0) return;
+    h += `<div class="fl" style="left:${l.toFixed(3)}%;width:${w.toFixed(3)}%;background:repeating-linear-gradient(90deg,var(--fill) 0 1px,transparent 1px ${(100 / s.count).toFixed(4)}%)"></div>`;
+  });
+  if (c.status === 'possible_halt' && c.lag_s) h += `<div class="fh" style="left:${pct(end - c.lag_s).toFixed(2)}%;right:0"></div>`;
+  if (c.status === 'data_unavailable') h += '<div class="hz2">Our data source hasn’t answered recently</div>';
+  else h += '<div class="nw"></div>';
+  return h;
+}
+async function loadChainLive(slug) {
+  try {
+    if (!LIVE_CACHE.d || Date.now() - LIVE_CACHE.t > 55000) {
+      const r = await fetch(LIVE_URL + '?window=600', { cache: 'no-store' });
+      if (!r.ok) throw new Error('HTTP ' + r.status);
+      LIVE_CACHE = { t: Date.now(), d: await r.json() };
+    }
+  } catch (e) { return; }
+  const el = $('chainLive');
+  if (!el || location.hash.toLowerCase().indexOf('chain=' + slug) < 0) return;
+  const d = LIVE_CACHE.d;
+  const c = (d.chains || []).find((x) => x.id === slug);
+  const nm = (d.not_measurable || []).find((x) => x.id === slug);
+  if (c) {
+    const ST = { ok: ['var(--t0)', 'Producing blocks'], checking: ['var(--t2)', 'Checking a gap'], possible_halt: ['var(--t4)', 'Possible halt'], data_unavailable: ['var(--fg3)', 'Data unavailable'] };
+    const st = ST[c.status] || ST.data_unavailable;
+    const lag = c.lag_s == null ? '—' : (c.lag_s < 1 ? '< 1 s ago' : (slug === 'xrp' ? '≈ ' : '') + liveFmt(c.lag_s) + ' ago');
+    el.innerHTML = `<span class="lk">LIVE · 10 MIN</span><div class="lt" role="img" aria-label="Blocks over the last 10 minutes">${liveTrack(c, 600)}</div>` +
+      `<span class="lv">${lag}<small>${c.cadence_s ? 'rhythm ~' + liveFmt(c.cadence_s) : '&nbsp;'}</small></span>` +
+      `<span class="ls"><i style="background:${st[0]}"></i>${st[1]}</span><a class="lm" href="live/">All chains live →</a>`;
+  } else if (nm) {
+    el.innerHTML = `<span class="lk">LIVE</span><span class="lnote">No live heartbeat for this chain: ${esc(nm.reason.toLowerCase())}.</span><a class="lm" href="live/">All chains live →</a>`;
+  } else return;
+  el.hidden = false;
+}
+setInterval(() => {
+  const m = location.hash.toLowerCase().match(/chain=([a-z0-9_-]+)/);
+  if (m && $('chainLive')) loadChainLive(m[1]);
+}, 60000);
+
 async function renderChain(slug) {
   const inner = $('chainInner');
   const row = chainBy(slug);
@@ -1130,6 +1216,7 @@ async function renderChain(slug) {
       </div>
       ${d.pull_quote ? `<blockquote><span class="label">From the rating summary</span><q>${esc(clean(d.pull_quote))}</q></blockquote>` : ''}
     </section>
+    <div class="ch-live" id="chainLive" hidden></div>
     <section class="ch-main">
       ${card}
       <div class="ch-right">
@@ -1157,6 +1244,7 @@ async function renderChain(slug) {
     </section>`;
 
   $('chainCopy').addEventListener('click', () => copyText('https://' + url, $('chainCopy')));
+  loadChainLive(slug);
   inner.querySelectorAll('.gate-line').forEach((line) => {
     const desc = line.nextElementSibling;
     line.querySelectorAll('.chip').forEach((chip) => chip.addEventListener('click', () => {
